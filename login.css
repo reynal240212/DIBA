@@ -23,6 +23,12 @@ body {
 
 /* Caja de login */
 .login-box {
+    .logo {
+    width: 80px;  /* Ajusta el tamaño según necesites */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    display: block;
+    margin: 0 auto 10px; /* Centra la imagen y agrega espacio abajo */
+}
     background: black;
     padding: 20px;
     border-radius: 10px;
