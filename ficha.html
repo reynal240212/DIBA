@@ -1,0 +1,16 @@
+<h2>Ficha Técnica del Jugador</h2>
+<div id="ficha"></div>
+
+<script>
+    function mostrarFicha() {
+        const params = new URLSearchParams(window.location.search);
+        let contenido = "<ul>";
+        params.forEach((value, key) => {
+            contenido += `<li><strong>${key}:</strong> ${value}</li>`;
+        });
+        contenido += "</ul>";
+        document.getElementById("ficha").innerHTML = contenido;
+    }
+
+    document.addEventListener("DOMContentLoaded", mostrarFicha);
+</script>
