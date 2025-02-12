@@ -1,24 +1,25 @@
 /* Fondo de pantalla */
 body {
-    background-image: url('./logini.jpg');
+    background-image: url('logini.jpg'); /* Asegúrate de que la imagen está en la misma carpeta */
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
     display: flex;
-    align-items: flex-start; /* Alinea los elementos arriba */
-    justify-content: flex-start; /* Alinea el login a la izquierda */
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
-    padding-left: 50px; /* Ajusta la distancia desde el borde izquierdo */
 }
 
 /* Contenedor principal */
 .container {
     display: flex;
-    justify-content: flex-start; /* Alinea a la izquierda */
-    align-items: flex-start; /* Alinea arriba */
-    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px; /* Espaciado en móviles */
 }
 
 /* Caja de login */
@@ -28,16 +29,16 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 255, 0, 0.7);
     text-align: center;
-    width: 300px;
-    margin-top: 50px; /* Baja un poco la caja */
+    width: 90%; /* Se adapta a móviles */
+    max-width: 350px; /* Máximo ancho en pantallas grandes */
 }
 
-/* Logo del escudo */
+/* Logo */
 .logo {
-    width: 80px;  /* Ajusta el tamaño según necesites */
-    height: auto;  /* Mantiene la proporción de la imagen */
+    width: 80px;  /* Ajusta el tamaño */
+    height: auto;
     display: block;
-    margin: 0 auto 10px; /* Centra la imagen y agrega espacio abajo */
+    margin: 0 auto 15px; /* Centra la imagen con margen abajo */
 }
 
 /* Campos de entrada */
@@ -52,6 +53,7 @@ input {
     border-radius: 5px;
     background: black;
     color: yellow;
+    font-size: 16px;
 }
 
 /* Botones */
@@ -63,6 +65,7 @@ input {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .black {
@@ -74,4 +77,22 @@ input {
     background: black;
     color: yellow;
     border: 2px solid yellow;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 480px) {
+    .login-box {
+        width: 100%;
+        max-width: 280px; /* Más pequeño en móviles */
+        padding: 15px;
+    }
+
+    .logo {
+        width: 60px; /* Reduce el tamaño del logo */
+    }
+
+    input, .btn {
+        font-size: 14px;
+        padding: 8px;
+    }
 }
