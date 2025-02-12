@@ -1,4 +1,4 @@
-🏆 DIBA FBC - Gestión y Administración del Club
+#🏆 DIBA FBC - Gestión y Administración del Club
 
 Bienvenido a DIBA FBC, la plataforma digital diseñada para la gestión y administración del club de fútbol amateur con sede en Barranquilla, Colombia. Nuestro sitio permite a jugadores, entrenadores y administradores acceder y gestionar información clave del equipo de manera eficiente.
 
