@@ -1,45 +1,74 @@
+/* Fondo de pantalla */
 body {
-    font-family: Arial, sans-serif;
+    background-image: url('./logini.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinea los elementos arriba */
+    justify-content: flex-start; /* Alinea el login a la izquierda */
     height: 100vh;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding-left: 50px; /* Ajusta la distancia desde el borde izquierdo */
 }
 
-.login-container {
-    background: white;
+/* Contenedor principal */
+.container {
+    display: flex;
+    justify-content: flex-start; /* Alinea a la izquierda */
+    align-items: flex-start; /* Alinea arriba */
+    height: 100vh; 
+}
+
+/* Caja de login */
+.login-box {
+    background: black;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 0, 0.7);
     text-align: center;
     width: 300px;
+    margin-top: 50px; /* Baja un poco la caja */
+}
+
+/* Título */
+h2 {
+    color: yellow;
+}
+
+/* Campos de entrada */
+.input-group {
+    margin: 10px 0;
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px;
+    border: 2px solid yellow;
+    border-radius: 5px;
+    background: black;
+    color: yellow;
 }
 
-button {
+/* Botones */
+.btn {
     width: 100%;
     padding: 10px;
-    background-color: #28a745;
-    color: white;
+    margin: 5px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #218838;
+.black {
+    background: yellow;
+    color: black;
 }
 
-.error {
-    color: red;
-    margin-top: 10px;
+.yellow {
+    background: black;
+    color: yellow;
+    border: 2px solid yellow;
 }
-
