@@ -1,5 +1,8 @@
 {
-  "routes": [
-    { "src": "/(.*)", "dest": "/view/index.html" }
+  "rewrites": [
+    { "source": "/administracion_jugadores", "destination": "/administracion_jugadores.html" },
+    { "source": "/historial_trayectoria", "destination": "/historial_trayectoria.html" },
+    { "source": "/gestion_documentos", "destination": "/gestion_documentos.html" },
+    { "source": "/ficha_tecnica", "destination": "/ficha_tecnica.html" }
   ]
 }
