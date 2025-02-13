@@ -25,6 +25,7 @@
             align-items: center;
             padding: 1rem 2rem;
             background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
         }
 
         header img {
@@ -32,19 +33,20 @@
             height: auto;
         }
 
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            background-color: rgb(238, 226, 4);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+        nav {
+            position: relative;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             gap: 1rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            position: relative;
         }
 
         nav ul li a {
@@ -55,6 +57,8 @@
             padding: 0.5rem 1rem;
             border-radius: 25px;
             transition: background-color 0.3s ease;
+            display: block;
+            text-align: center;
         }
 
         nav ul li a:hover {
@@ -62,23 +66,36 @@
             color: #fff;
         }
 
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.8);
-                position: absolute;
-                top: 50px;
-                left: 0;
-                padding: 1rem 0;
-            }
-            .nav-links.active {
-                display: flex;
-            }
+        nav ul li:hover .submenu {
+            display: block;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 5px;
+            padding: 0;
+            list-style: none;
+            min-width: 200px;
+        }
+
+        .submenu li {
+            width: 100%;
+        }
+
+        .submenu li a {
+            display: block;
+            padding: 0.5rem;
+            color: #fff;
+            text-align: left;
+        }
+
+        .submenu li a:hover {
+            background-color: rgb(255, 230, 2);
+            color: #000;
         }
 
         .interaction-box {
@@ -122,11 +139,16 @@
     <header>
         <img src="ESCUDO.png" alt="DIBA FBC Logo">
         <nav>
-            <div class="menu-toggle" onclick="toggleMenu()">☰ Menú</div>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="/login.html">Inicio de Sesión</a></li>
-                <li><a href="/gestion_documentos.html">Gestión de Documental</a></li>
-                <li><a href="/ficha_tecnica.html">Ficha Técnica</a></li>
+                <li><a href="/gestion_documentos.html">Gestión Documental</a></li>
+                <li>
+                    <a href="/ficha_tecnica.html">Ficha Técnica</a>
+                    <ul class="submenu">
+                        <li><a href="#">Detalles Técnicos</a></li>
+                        <li><a href="#">Estadísticas</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -137,11 +159,6 @@
     </div>
 
     <script>
-        function toggleMenu() {
-            let navLinks = document.querySelector(".nav-links");
-            navLinks.classList.toggle("active");
-        }
-
         let jugadores = [];
 
         document.addEventListener("DOMContentLoaded", function () {
