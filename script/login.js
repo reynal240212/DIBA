@@ -1,34 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
+    const form = document.getElementById("login-form"); // Usa un ID específico
 
     // Inicializa Supabase
     const supabaseUrl = "https://nwxdshisfyenkylgqxgz.supabase.co";
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eGRzaGlzZnllbmt5bGdxeGd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkwNTQzMDgsImV4cCI6MjA1NDYzMDMwOH0.QoIiNo5pFA1_MVfE2ugLgyz4HeET-WhA0C_sNOkWv9g";
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    const supabase = supabase.createClient(supabaseUrl, "TU_SUPABASE_ANON_KEY");
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const usuario = document.querySelector("input[type='text']").value.trim();
-        const contraseña = document.querySelector("input[type='password']").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-        if (usuario === "" || contraseña === "") {
+        if (!email || !password) {
             alert("Por favor, completa todos los campos.");
             return;
         }
 
         try {
             // Autenticación con Supabase
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email: usuario,
-                password: contraseña
-            });
+            const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
             if (error) {
                 alert("Error en el inicio de sesión: " + error.message);
             } else {
                 alert("Inicio de sesión exitoso.");
-                window.location.href = "index.html"; // Redirige al usuario
+                window.location.href = "index.html"; // Redirige a la página principal
             }
         } catch (err) {
             console.error("Error:", err);
@@ -36,4 +32,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
