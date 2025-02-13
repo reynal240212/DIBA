@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     configurarMenu();
     cargarJugadores();
+    event.preventDefault(); // Evita el envío del formulario por defecto
+    window.location.href = "index.html"; // Redirige a index.html
 });
 
 let jugadores = [];
