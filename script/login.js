@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Inicializa Supabase
     const supabaseUrl = "https://nwxdshisfyenkylgqxgz.supabase.co";
     const supabase = supabase.createClient(supabaseUrl, "TU_SUPABASE_ANON_KEY");
+    console.log(supabase);
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
