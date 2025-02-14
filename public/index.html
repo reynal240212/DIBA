@@ -5,7 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIBA FBC - Gestión y Administración del Club</title>
     <style>
-     .interaction-box {
+    /* Configuración general */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: url('fondo.jpg') no-repeat center center/cover;
+    color: #000;
+}
+
+/* Estilos del header */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+/* Logo */
+header img {
+    width: 120px;
+    height: auto;
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    background-color: rgb(255, 230, 2);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: 0.3s;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Submenú */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    list-style: none;
+    min-width: 200px;
+    padding: 0;
+}
+
+nav ul li:hover .submenu {
+    display: block;
+}
+
+.submenu li a {
+    padding: 0.5rem;
+    color: #fff;
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: rgb(255, 230, 2);
+    color: #000;
+}
+
+/* Cuadro de búsqueda centrado */
+.interaction-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,6 +110,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Estilos del input */
 .interaction-box input {
     width: 100%;
     padding: 0.8rem;
@@ -33,6 +123,7 @@
     text-align: center;
 }
 
+/* Estilos del botón */
 .interaction-box button {
     width: 100%;
     padding: 0.8rem;
@@ -49,6 +140,7 @@
     background-color: #333;
     color: #fff;
 }
+
     </style>
 </head>
 <body>
