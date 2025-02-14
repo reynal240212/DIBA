@@ -5,115 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIBA FBC - Gestión y Administración del Club</title>
     <style>
-    /* Configuración general */
-/* Ajustes generales */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background: url('fondo.jpg') no-repeat center center/cover;
-    color: #000;
-}
+        /* Ajustes generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: url('fondo.jpg') no-repeat center center/cover;
+            color: #fff;
+        }
 
-/* Header mejorado */
-header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1.5rem; /* Reducimos el padding */
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-}
+        /* Header con diseño mejorado */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-/* Logo */
-header img {
-    width: 100px; /* Reducido para que encaje mejor */
-    height: auto;
-}
+        /* Logo */
+        header img {
+            width: 100px;
+            height: auto;
+        }
 
-/* Navegación */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 0.5rem; /* Menos separación */
-    padding: 0;
-    margin: 0;
-}
+        /* Menú de navegación */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            padding: 0;
+            margin: 0;
+        }
 
-nav ul li {
-    position: relative;
-}
+        nav ul li {
+            position: relative;
+        }
 
-nav ul li a {
-    color: #000;
-    text-decoration: none;
-    font-size: 0.9rem; /* Ajuste de tamaño */
-    background-color: rgb(255, 230, 2);
-    padding: 0.4rem 0.8rem; /* Menos padding */
-    border-radius: 20px;
-    transition: 0.3s;
-    display: block;
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            background-color: #FFD700;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            transition: 0.3s;
+            display: block;
+            font-weight: bold;
+        }
 
-nav ul li a:hover {
-    background-color: #333;
-    color: #fff;
-}
+        nav ul li a:hover {
+            background-color: #333;
+            color: #fff;
+        }
 
-/* Caja de búsqueda más compacta */
-.interaction-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 1.2rem; /* Menos padding */
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 280px; /* Más compacta */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+        /* Submenú */
+        nav ul li ul.submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 5px;
+            padding: 0;
+            list-style: none;
+            width: max-content;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
 
-/* Input más pequeño */
-.interaction-box input {
-    width: 90%;
-    padding: 0.6rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem; /* Menos separación */
-    background-color: #ffee00;
-    color: #121212;
-    text-align: center;
-}
+        nav ul li:hover ul.submenu {
+            display: flex;
+        }
 
-/* Botón más compacto */
-.interaction-box button {
-    width: 90%;
-    padding: 0.6rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    background-color: rgba(255, 247, 5, 0.83);
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+        nav ul li ul.submenu li {
+            padding: 10px;
+        }
 
-.interaction-box button:hover {
-    background-color: #333;
-    color: #fff;
-}
+        nav ul li ul.submenu li a {
+            color: white;
+            font-size: 0.9rem;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+        }
 
+        nav ul li ul.submenu li a:hover {
+            background: #FFD700;
+            color: black;
+        }
+
+        /* Caja de búsqueda centrada y mejorada */
+        .interaction-box {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1.5rem;
+            border-radius: 15px;
+            width: 320px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .interaction-box h2 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .interaction-box input {
+            width: 90%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            background-color: #FFD700;
+            color: #121212;
+            text-align: center;
+        }
+
+        .interaction-box button {
+            width: 90%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #FFD700;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .interaction-box button:hover {
+            background-color: #333;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -129,12 +165,17 @@ nav ul li a:hover {
                         <li><a href="#">Estadísticas</a></li>
                     </ul>
                 </li>
+                <li><a href="#">Jugadores</a></li>
+                <li><a href="#">Partidos</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="interaction-box">
-        <input type="text" id="searchInput" placeholder="Buscar jugador...">
+        <h2>Buscar Jugador</h2>
+        <input type="text" id="searchInput" placeholder="Ingresa un nombre...">
         <button onclick="buscarJugador()">Buscar</button>
     </div>
 
@@ -149,7 +190,7 @@ nav ul li a:hover {
         });
 
         function procesarCSV(texto) {
-            const lineas = texto.split("\n");
+            const lineas = texto.trim().split("\n");
             const headers = lineas[0].split(",");
 
             jugadores = lineas.slice(1).map(linea => {
@@ -166,14 +207,14 @@ nav ul li a:hover {
 
         function buscarJugador() {
             const query = document.getElementById("searchInput").value.trim().toLowerCase();
-            if (query === "") {
+            if (!query) {
                 alert("Por favor, ingresa un nombre.");
                 return;
             }
 
             const jugadorEncontrado = jugadores.find(jugador =>
-                jugador["Nombres"].toLowerCase().includes(query) ||
-                jugador["Apellidos"].toLowerCase().includes(query)
+                (jugador["Nombres"] && jugador["Nombres"].toLowerCase().includes(query)) ||
+                (jugador["Apellidos"] && jugador["Apellidos"].toLowerCase().includes(query))
             );
 
             if (!jugadorEncontrado) {
