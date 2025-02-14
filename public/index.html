@@ -1,80 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIBA FBC - Gestión y Administración del Club</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
-        <nav>
-            <ul class="menu">
-                <li><a href="#documentos">Gestión Documental</a></li>
-                <li><a href="#ficha">Ficha Técnica</a></li>
-                <li><a href="#jugadores">Jugadores</a></li>
-                <li><a href="#partidos">Partidos</a></li>
-                <li><a href="#noticias">Noticias</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
+            <nav>
+                <ul class="menu">
+                    <li><a href="#documentos">Gestión Documental</a></li>
+                    <li><a href="#ficha">Ficha Técnica</a></li>
+                    <li><a href="#jugadores">Jugadores</a></li>
+                    <li><a href="#partidos">Partidos</a></li>
+                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section id="busqueda">
-        <div class="search-box">
-            <h2>Buscar Jugador</h2>
-            <input type="text" id="searchInput" placeholder="Ingresa un nombre...">
-            <button onclick="buscarJugador()">Buscar</button>
+        <div class="container">
+            <div class="search-box">
+                <h2>Buscar Jugador</h2>
+                <input type="text" id="searchInput" placeholder="Ingresa un nombre...">
+                <button onclick="buscarJugador()"><i class="fas fa-search"></i> Buscar</button>
+            </div>
         </div>
     </section>
 
     <section id="jugadores">
-        <h2>Listado de Jugadores</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Posición</th>
-                    <th>Equipo</th>
-                </tr>
-            </thead>
-            <tbody id="tablaJugadores"></tbody>
-        </table>
+        <div class="container">
+            <h2>Listado de Jugadores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Posición</th>
+                        <th>Equipo</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaJugadores">
+                    <!-- Aquí se insertarán los jugadores dinámicamente -->
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section id="noticias">
-        <h2>Últimas Noticias</h2>
-        <div class="noticia">
-            <h3>Gran victoria del equipo Sub-15</h3>
-            <p>El equipo Sub-15 logró una victoria impresionante en el torneo regional...</p>
+        <div class="container">
+            <h2>Últimas Noticias</h2>
+            <div class="noticia">
+                <h3>Gran victoria del equipo Sub-15</h3>
+                <p>El equipo Sub-15 logró una victoria impresionante en el torneo regional...</p>
+            </div>
+            <!-- Más noticias pueden ser añadidas aquí -->
         </div>
     </section>
 
     <section id="contacto">
-        <h2>Contacto</h2>
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" required>
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
+        <div class="container">
+            <h2>Contacto</h2>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
+        <div class="container">
+            <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>
         function buscarJugador() {
             const query = document.getElementById("searchInput").value.toLowerCase();
+            const table = document.getElementById("tablaJugadores");
+            const rows = table.getElementsByTagName("tr");
+
             if (query === "") {
                 alert("Por favor, ingresa un nombre.");
                 return;
             }
-            alert("Búsqueda en proceso para: " + query);
+
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName("td");
+                let matchFound = false;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j]) {
+                        const cellText = cells[j].textContent || cells[j].innerText;
+                        if (cellText.toLowerCase().indexOf(query) > -1) {
+                            matchFound = true;
+                            break;
+                        }
+                    }
+                }
+                rows[i].style.display = matchFound ? "" : "none";
+            }
         }
     </script>
 </body>
