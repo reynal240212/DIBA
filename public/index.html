@@ -6,6 +6,7 @@
     <title>DIBA FBC - Gestión y Administración del Club</title>
     <style>
     /* Configuración general */
+/* Ajustes generales */
 body, html {
     margin: 0;
     padding: 0;
@@ -16,7 +17,7 @@ body, html {
     color: #000;
 }
 
-/* Estilos del header */
+/* Header mejorado */
 header {
     width: 100%;
     position: fixed;
@@ -25,14 +26,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.5rem 1.5rem; /* Reducimos el padding */
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
 }
 
 /* Logo */
 header img {
-    width: 120px;
+    width: 100px; /* Reducido para que encaje mejor */
     height: auto;
 }
 
@@ -40,7 +41,7 @@ header img {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem; /* Menos separación */
     padding: 0;
     margin: 0;
 }
@@ -52,10 +53,10 @@ nav ul li {
 nav ul li a {
     color: #000;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Ajuste de tamaño */
     background-color: rgb(255, 230, 2);
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
+    padding: 0.4rem 0.8rem; /* Menos padding */
+    border-radius: 20px;
     transition: 0.3s;
     display: block;
 }
@@ -65,71 +66,43 @@ nav ul li a:hover {
     color: #fff;
 }
 
-/* Submenú */
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 5px;
-    list-style: none;
-    min-width: 200px;
-    padding: 0;
-}
-
-nav ul li:hover .submenu {
-    display: block;
-}
-
-.submenu li a {
-    padding: 0.5rem;
-    color: #fff;
-    display: block;
-}
-
-.submenu li a:hover {
-    background-color: rgb(255, 230, 2);
-    color: #000;
-}
-
-/* Cuadro de búsqueda centrado */
+/* Caja de búsqueda más compacta */
 .interaction-box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.2rem; /* Menos padding */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 320px;
+    width: 280px; /* Más compacta */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos del input */
+/* Input más pequeño */
 .interaction-box input {
-    width: 100%;
-    padding: 0.8rem;
+    width: 90%;
+    padding: 0.6rem;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem; /* Menos separación */
     background-color: #ffee00;
     color: #121212;
     text-align: center;
 }
 
-/* Estilos del botón */
+/* Botón más compacto */
 .interaction-box button {
-    width: 100%;
-    padding: 0.8rem;
+    width: 90%;
+    padding: 0.6rem;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     background-color: rgba(255, 247, 5, 0.83);
     cursor: pointer;
