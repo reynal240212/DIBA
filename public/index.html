@@ -1,76 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIBA FBC - Gestión y Administración del Club</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIBA FBC - Gestión y Administración del Club</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<label for="toggle"><i class="fa-solid fa-moon"></i></label>
-<input type = "checkbox" id= "toggle">
-    <header>
-        <div class="container">
-            <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
-            <nav>
-                <ul class="menu">
-                    <li><a href="documentos.html">Gestión Documental</a></li>
-                    <li><a href="ficha.html">Ficha Técnica</a></li>
-                    <li><a href="jugadores.html">Jugadores</a></li>
-                    <li><a href="partidos.html">Partidos</a></li>
-                    <li><a href="noticias.html">Noticias</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Modo Oscuro/Claro Toggle -->
+  <label for="toggle"><i class="fa-solid fa-moon"></i></label>
+  <input type="checkbox" id="toggle">
 
-    <section id="busqueda">
-        <div class="container">
-            <div class="search-box">
-                <h2>Buscar Jugador</h2>
-                <input type="text" id="searchInput" placeholder="Ingresa un nombre...">
-                <button onclick="buscarJugador()"><i class="fas fa-search"></i> Buscar</button>
-            </div>
-        </div>
-    </section>
+  <header>
+    <div class="container header-container">
+      <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
+      <nav>
+        <ul class="menu">
+          <li><a href="documentos.html">Gestión Documental</a></li>
+          <li><a href="ficha.html">Ficha Técnica</a></li>
+          <li><a href="jugadores.html">Jugadores</a></li>
+          <li><a href="partidos.html">Partidos</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+  <section id="busqueda">
+    <div class="container">
+      <div class="search-box">
+        <h2>Buscar Jugador</h2>
+        <input type="text" id="searchInput" placeholder="Ingresa un nombre...">
+        <button onclick="buscarJugador()"><i class="fas fa-search"></i> Buscar</button>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        function buscarJugador() {
-            const query = document.getElementById("searchInput").value.toLowerCase();
-            if (query === "") {
-                alert("Por favor, ingresa un nombre.");
-                return;
-            }
-            window.location.href = `jugadores.html?query=${query}`;
-        }
-    </script>
-    <script>
-    function toggleMode() {
-        const body = document.body;
-        body.classList.toggle('dark-mode');
-        body.classList.toggle('light-mode');
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
-        const button = document.querySelector('.toggle-mode');
-        if (body.classList.contains('dark-mode')) {
-            button.textContent = 'Modo Claro';
-        } else {
-            button.textContent = 'Modo Oscuro';
-        }
+  <script>
+    function buscarJugador() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      if (query === "") {
+          alert("Por favor, ingresa un nombre.");
+          return;
+      }
+      window.location.href = `jugadores.html?query=${query}`;
     }
 
-    // Establecer modo predeterminado
-    document.addEventListener("DOMContentLoaded", () => {
-        document.body.classList.add("light-mode");
+    // Toggle de modo oscuro/claro
+    const toggleCheckbox = document.getElementById('toggle');
+    toggleCheckbox.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle('light-mode');
     });
-</script>
+
+    // Modo predeterminado
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("light-mode");
+    });
+  </script>
 </body>
 </html>
