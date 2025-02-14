@@ -4,176 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIBA FBC - Gestión y Administración del Club</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background: url('fondo.jpg') no-repeat center center/cover;
-            color: #000;
-        }
-
-        /* Header */
-        header {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-        }
-
-        /* Logo */
-        header img {
-            width: 80px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        /* Navegación centrada */
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li a {
-            color: #000;
-            text-decoration: none;
-            font-size: 1rem;
-            background-color: rgb(255, 230, 2);
-            padding: 0.6rem 1rem;
-            border-radius: 20px;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        nav ul li a:hover {
-            background-color: #333;
-            color: #fff;
-        }
-
-        /* Cuadro de búsqueda */
-        .interaction-box {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1.5rem;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .interaction-box input, .interaction-box button {
-            width: 90%;
-            padding: 0.7rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .interaction-box input {
-            background-color: #ffee00;
-            color: #121212;
-        }
-
-        .interaction-box button {
-            font-weight: bold;
-            background-color: rgba(255, 247, 5, 0.83);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .interaction-box button:hover {
-            background-color: #333;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <img src="ESCUDO.png" alt="DIBA FBC Logo">
+        <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
         <nav>
-            <ul>
-                <li><a href="/gestion_documentos.html">Gestión Documental</a></li>
-                <li><a href="/ficha_tecnica.html">Ficha Técnica</a></li>
-                <li><a href="/jugadores.html">Jugadores</a></li>
-                <li><a href="/partidos.html">Partidos</a></li>
-                <li><a href="/noticias.html">Noticias</a></li>
-                <li><a href="/contacto.html">Contacto</a></li>
+            <ul class="menu">
+                <li><a href="#documentos">Gestión Documental</a></li>
+                <li><a href="#ficha">Ficha Técnica</a></li>
+                <li><a href="#jugadores">Jugadores</a></li>
+                <li><a href="#partidos">Partidos</a></li>
+                <li><a href="#noticias">Noticias</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="interaction-box">
-        <strong style="color: white; font-size: 1.2rem;">Buscar Jugador</strong>
-        <input type="text" id="searchInput" placeholder="Ingresa un nombre...">
-        <button onclick="buscarJugador()">Buscar</button>
-    </div>
+    <section id="busqueda">
+        <div class="search-box">
+            <h2>Buscar Jugador</h2>
+            <input type="text" id="searchInput" placeholder="Ingresa un nombre...">
+            <button onclick="buscarJugador()">Buscar</button>
+        </div>
+    </section>
+
+    <section id="jugadores">
+        <h2>Listado de Jugadores</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Posición</th>
+                    <th>Equipo</th>
+                </tr>
+            </thead>
+            <tbody id="tablaJugadores"></tbody>
+        </table>
+    </section>
+
+    <section id="noticias">
+        <h2>Últimas Noticias</h2>
+        <div class="noticia">
+            <h3>Gran victoria del equipo Sub-15</h3>
+            <p>El equipo Sub-15 logró una victoria impresionante en el torneo regional...</p>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
+    </footer>
 
     <script>
-        let jugadores = [];
-
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("data/Ficha_de_Registro_DIBA_FBC.csv")
-                .then(response => response.text())
-                .then(data => procesarCSV(data))
-                .catch(error => console.error("Error al cargar el CSV:", error));
-        });
-
-        function procesarCSV(texto) {
-            const lineas = texto.split("\n");
-            const headers = lineas[0].split(",");
-
-            jugadores = lineas.slice(1).map(linea => {
-                const valores = linea.split(",");
-                let jugador = {};
-                headers.forEach((header, index) => {
-                    jugador[header.trim()] = valores[index] ? valores[index].trim() : "";
-                });
-                return jugador;
-            });
-
-            console.log("Jugadores cargados:", jugadores);
-        }
-
         function buscarJugador() {
-            const query = document.getElementById("searchInput").value.trim().toLowerCase();
+            const query = document.getElementById("searchInput").value.toLowerCase();
             if (query === "") {
                 alert("Por favor, ingresa un nombre.");
                 return;
             }
-
-            const jugadorEncontrado = jugadores.find(jugador =>
-                jugador["Nombres"].toLowerCase().includes(query) ||
-                jugador["Apellidos"].toLowerCase().includes(query)
-            );
-
-            if (!jugadorEncontrado) {
-                alert("No se encontraron jugadores con ese nombre.");
-                return;
-            }
-
-            const params = new URLSearchParams(jugadorEncontrado);
-            window.location.href = `/ficha.html?${params.toString()}`;
+            alert("Búsqueda en proceso para: " + query);
         }
     </script>
 </body>
