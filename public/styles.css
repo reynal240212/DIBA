@@ -175,13 +175,14 @@ table th {
   border-radius: 4px;        /* Bordes redondeados */
   margin-bottom: 10px;       /* Espacio debajo del título */
 }
-/* Celdas (th y td) */
+/* Tamaño de celdas un poco mayor y líneas doradas */
 table th,
 table td {
-  padding: 16px;  /* Aumenta el padding */
-  border-bottom: 1px solid #666;
-  font-size: 1.1em; /* aumenta el tamaño de fuente */
+  padding: 16px;                       /* más espacio */
+  border-bottom: 1px solid #c9ab4d;    /* dorado tenue */
+  font-size: 1.1em;                    /* opcional: texto un poco más grande */
 }
+
 /* ===== Sección Ficha Técnica ===== */
 #ficha {
   position: relative;
