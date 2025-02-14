@@ -61,65 +61,64 @@
   </footer>
   
  <script>
-  function enviarWhatsapp(event) {
-    event.preventDefault(); // Evita el envío normal del formulario
+    function enviarWhatsapp(event) {
+      event.preventDefault(); // Evita el envío normal del formulario
 
-    // Recopila la información del formulario
-    const fecha = document.getElementById('fecha').value;
-    const hora = document.getElementById('hora').value;
-    const equipoRival = document.getElementById('equipoRival').value;
-    const lugar = document.getElementById('lugar').value;
-    const valor = document.getElementById('valor').value;
-    const tipo = document.getElementById('tipo').value;
+      // Recopila la información del formulario
+      const fecha = document.getElementById('fecha').value;
+      const hora = document.getElementById('hora').value;
+      const equipoRival = document.getElementById('equipoRival').value;
+      const lugar = document.getElementById('lugar').value;
+      const valor = document.getElementById('valor').value;
+      const tipo = document.getElementById('tipo').value;
 
-    // Construye el mensaje
-    const mensaje = encodeURIComponent(
-      "Información del partido:\n" +
-      "Fecha: " + fecha + "\n" +
-      "Hora: " + hora + "\n" +
-      "Equipo Rival: " + equipoRival + "\n" +
-      "Ubicación: " + lugar + "\n" +
-      "Valor: " + valor + "\n" +
-      "Tipo: " + tipo
-    );
-  }
-</script>
-<script>
-function enviarWhatsappMultiple(mensaje) {
-  const numeros = [
-    "3042034755",
-    "3148350983",
-    "3242222035",
-    "3043607874",
-    "3012901980",
-    "3013637273",
-    "3016341284",
-    "3242468511",
-    "311794894",
-    "3187269344",
-    "3242653101",
-    "3148317030",
-    "3043607874",
-    "3105463504",
-    "3007472389",
-    "3212159255",
-    "3043219871",
-    "3215369885",
-    "3215369885",
-    "3003292991",
-    "3116280441",
-    "3023076553"
-  ];
+      // Construye el mensaje sin codificar aún (se codificará en la función multiple)
+      const mensaje = "Información del partido:\n" +
+                      "Fecha: " + fecha + "\n" +
+                      "Hora: " + hora + "\n" +
+                      "Equipo Rival: " + equipoRival + "\n" +
+                      "Ubicación: " + lugar + "\n" +
+                      "Valor: " + valor + "\n" +
+                      "Tipo: " + tipo;
 
-  numeros.forEach(num => {
-    const url = "https://wa.me/" + num + "?text=" + encodeURIComponent(mensaje);
-    window.open(url, '_blank');
-  });
-}
+      // Llama a la función para enviar el mensaje a múltiples números
+      enviarWhatsappMultiple(mensaje);
+    }
 
-// Ejemplo de uso:
-// enviarWhatsappMultiple("Información del partido:\nFecha: 2025-05-15\nHora: 18:00\nEquipo Rival: Equipo X\nUbicación: Estadio Y\nValor: 500\nTipo: Amistoso");
-</script>
-<div id="whatsapp-links"></div>
+    function enviarWhatsappMultiple(mensaje) {
+      // Lista de números en formato internacional (sin + ni espacios)
+      const numeros = [
+        "3042034755",
+        "3148350983",
+        "3242222035",
+        "3043607874",
+        "3012901980",
+        "3013637273",
+        "3016341284",
+        "3242468511",
+        "311794894",
+        "3187269344",
+        "3242653101",
+        "3148317030",
+        "3043607874",
+        "3105463504",
+        "3007472389",
+        "3212159255",
+        "3043219871",
+        "3215369885",
+        "3215369885",
+        "3003292991",
+        "3116280441",
+        "3023076553"
+      ];
+
+      // Abre una nueva ventana para cada número con el mensaje codificado
+      numeros.forEach(num => {
+        const url = "https://wa.me/" + num + "?text=" + encodeURIComponent(mensaje);
+        window.open(url, '_blank');
+      });
+    }
+  </script>
+</body>
 </body>
 </html>
