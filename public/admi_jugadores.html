@@ -1,29 +1,55 @@
-<!-- administracion_jugadores.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración de Jugadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1E1E2F;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #2A2A3B;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #FFD700;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #FFC107;
+        }
+    </style>
 </head>
 <body>
-    <h1>Administración de Jugadores</h1>
-    <p>Aquí puedes gestionar la información de los jugadores.</p>
-    <a href="index.html">Volver al inicio</a>
-</body>
-</html>
 
-<!-- historial_trayectoria.html -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historial y Trayectoria</title>
-</head>
-<body>
-    <h1>Historial y Trayectoria</h1>
-    <p>Aquí puedes consultar el historial y trayectoria de los jugadores.</p>
-    <a href="index.html">Volver al inicio</a>
+    <div class="container">
+        <h1>Administración de Jugadores</h1>
+        <p>Aquí puedes gestionar la información de los jugadores del club.</p>
+        <a href="agregar_jugador.html" class="btn">Agregar Jugador</a>
+        <a href="editar_jugador.html" class="btn">Editar Jugador</a>
+        <a href="eliminar_jugador.html" class="btn">Eliminar Jugador</a>
+        <br><br>
+        <a href="index.html" class="btn">Volver al Inicio</a>
+    </div>
+
 </body>
 </html>
