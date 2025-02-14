@@ -105,11 +105,12 @@ header nav ul li a:hover {
 
 /* Players Section Styles */
 #jugadores {
-    background-color: #fff;
-    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    padding: 20px;
     margin: 20px 0;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 #jugadores h2 {
@@ -121,6 +122,9 @@ header nav ul li a:hover {
 #jugadores table {
     width: 100%;
     border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 #jugadores table thead {
@@ -132,6 +136,7 @@ header nav ul li a:hover {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    color: #000;
 }
 
 #jugadores table tbody tr:nth-child(even) {
@@ -225,83 +230,4 @@ footer {
     padding: 10px 0;
     margin-top: 20px;
     border-top: 3px solid #ffd700;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    header nav ul li {
-        display: block;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    #busqueda .search-box input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    #busqueda .search-box button {
-        width: 100%;
-    }
-
-    #contacto form input, #contacto form textarea {
-        width: 100%;
-    }
-/* Partidos Section Styles */
-#partidos {
-    background-color: #f8f9fa;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-#partidos .container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Título */
-#partidos h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Formulario de partidos */
-#partidoForm {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#partidoForm label {
-    font-weight: bold;
-    color: #555;
-    text-align: left;
-}
-
-#partidoForm input, #partidoForm textarea {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-}
-
-/* Botón */
-#partidoForm button {
-    background-color: #007bff;
-    color: white;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#partidoForm button:hover {
-    background-color: #0056b3;
 }
