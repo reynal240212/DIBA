@@ -51,5 +51,24 @@
             window.location.href = `jugadores.html?query=${query}`;
         }
     </script>
+    <script>
+    function toggleMode() {
+        const body = document.body;
+        body.classList.toggle('dark-mode');
+        body.classList.toggle('light-mode');
+
+        const button = document.querySelector('.toggle-mode');
+        if (body.classList.contains('dark-mode')) {
+            button.textContent = 'Modo Claro';
+        } else {
+            button.textContent = 'Modo Oscuro';
+        }
+    }
+
+    // Establecer modo predeterminado
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add("light-mode");
+    });
+</script>
 </body>
 </html>
