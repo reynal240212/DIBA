@@ -1,53 +1,32 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partidos - DIBA FBC</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
-            <nav>
-                <ul class="menu">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="documentos.html">Gestión Documental</a></li>
-                    <li><a href="ficha.html">Ficha Técnica</a></li>
-                    <li><a href="jugadores.html">Jugadores</a></li>
-                    <li><a href="noticias.html">Noticias</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-  <section id="partidos">
-    <div class="container">
-        <h2>Programar Partido</h2>
-        <form id="partidoForm">
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" required>
-
-            <label for="hora">Hora:</label>
-            <input type="time" id="hora" required>
-
-            <label for="rival">Equipo Rival:</label>
-            <input type="text" id="rival" required>
-
-            <label for="ubicacion">Ubicación:</label>
-            <input type="text" id="ubicacion" required>
-
-            <button type="submit">Guardar y Notificar</button>
-        </form>
-    </div>
+<section id="partidos">
+  <div class="container">
+    <h2>Programar Partido</h2>
+    <form class="partido-form">
+      <div class="form-group">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha">
+      </div>
+      <div class="form-group">
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora">
+      </div>
+      <div class="form-group">
+        <label for="equipoRival">Equipo Rival:</label>
+        <input type="text" id="equipoRival" name="equipoRival" placeholder="Nombre del equipo rival">
+      </div>
+      <div class="form-group">
+        <label for="lugar">Ubicación:</label>
+        <input type="text" id="lugar" name="lugar" placeholder="Lugar del partido">
+      </div>
+      <div class="form-group">
+        <label for="tipo">Fase:</label>
+        <select id="tipo" name="tipo">
+          <option value="cuartos">Cuartos</option>
+          <option value="semifinal">Semifinal</option>
+          <option value="final">Final</option>
+        </select>
+      </div>
+      <button type="submit">Notificar</button>
+    </form>
+  </div>
 </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-</body>
-</html>
