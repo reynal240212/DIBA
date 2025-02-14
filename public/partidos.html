@@ -22,42 +22,38 @@
     </div>
   </header>
   
-  <section id="partidos">
-    <div class="container">
-      <h2>Programar Partido</h2>
-      <form class="partido-form" onsubmit="enviarCorreo(event)">
-        <div class="form-group">
-          <label for="fecha">Fecha:</label>
-          <input type="date" id="fecha" name="fecha">
-        </div>
-        <div class="form-group">
-          <label for="hora">Hora:</label>
-          <input type="time" id="hora" name="hora">
-        </div>
-        <div class="form-group">
-          <label for="equipoRival">Equipo Rival:</label>
-          <input type="text" id="equipoRival" name="equipoRival" placeholder="Nombre del equipo rival">
-        </div>
-        <div class="form-group">
-          <label for="lugar">Ubicación:</label>
-          <input type="text" id="lugar" name="lugar" placeholder="Lugar del partido">
-        </div>
-        <div class="form-group">
-          <label for="valor">Valor $:</label>
-          <input type="number" id="valor" name="valor" placeholder="Valor del arbitraje">
-        </div>
-        <div class="form-group">
-          <label for="tipo">Tipo:</label>
-          <select id="tipo" name="tipo">
-            <option value="amistoso">Amistoso</option>
-            <option value="campeonato">Campeonato</option>
-          </select>
-        </div>
-        <button type="submit">Notificar</button>
-      </form>
+  <!-- Formulario para enviar datos vía mailto -->
+  <form class="partido-form" onsubmit="enviarCorreo(event)">
+    <div class="form-group">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" name="fecha" required>
     </div>
-  </section>
-  
+    <div class="form-group">
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" name="hora" required>
+    </div>
+    <div class="form-group">
+      <label for="equipoRival">Equipo Rival:</label>
+      <input type="text" id="equipoRival" name="equipoRival" placeholder="Nombre del equipo rival" required>
+    </div>
+    <div class="form-group">
+      <label for="lugar">Ubicación:</label>
+      <input type="text" id="lugar" name="lugar" placeholder="Lugar del partido" required>
+    </div>
+    <div class="form-group">
+      <label for="valor">Valor $:</label>
+      <input type="number" id="valor" name="valor" placeholder="Valor del arbitraje" required>
+    </div>
+    <div class="form-group">
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="amistoso">Amistoso</option>
+        <option value="campeonato">Campeonato</option>
+      </select>
+    </div>
+    <button type="submit">Notificar</button>
+  </form>
+
   <footer>
     <div class="container">
       <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
@@ -69,16 +65,16 @@
       event.preventDefault(); // Evita el envío normal del formulario
 
       // Recopila la información del formulario
-      var fecha = document.getElementById('fecha').value;
-      var hora = document.getElementById('hora').value;
-      var equipoRival = document.getElementById('equipoRival').value;
-      var lugar = document.getElementById('lugar').value;
-      var valor = document.getElementById('valor').value;
-      var tipo = document.getElementById('tipo').value;
+      const fecha = document.getElementById('fecha').value;
+      const hora = document.getElementById('hora').value;
+      const equipoRival = document.getElementById('equipoRival').value;
+      const lugar = document.getElementById('lugar').value;
+      const valor = document.getElementById('valor').value;
+      const tipo = document.getElementById('tipo').value;
 
       // Construye el asunto y cuerpo del mensaje
-      var subject = encodeURIComponent("Programar Partido - DIBA FBC");
-      var body = encodeURIComponent(
+      const subject = encodeURIComponent("Programar Partido - DIBA FBC");
+      const body = encodeURIComponent(
         "Información del partido:\n" +
         "Fecha: " + fecha + "\n" +
         "Hora: " + hora + "\n" +
@@ -88,8 +84,8 @@
         "Tipo: " + tipo
       );
 
-      // Reemplaza 'tu-correo@dominio.com' con la dirección de correo a la que deseas enviar la información
-      window.location.href = "reynal24002@gmail.com?subject=" + subject + "&body=" + body;
+      // Asegúrate de poner 'mailto:' antes del correo
+      window.location.href = "mailto:reynal24002@gmail.com?subject=" + subject + "&body=" + body;
     }
   </script>
 </body>
