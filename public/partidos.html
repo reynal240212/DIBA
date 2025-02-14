@@ -60,33 +60,33 @@
     </div>
   </footer>
   
-  <script>
-    function enviarCorreo(event) {
-      event.preventDefault(); // Evita el envío normal del formulario
+ <script>
+  function enviarWhatsapp(event) {
+    event.preventDefault(); // Evita el envío normal del formulario
 
-      // Recopila la información del formulario
-      const fecha = document.getElementById('fecha').value;
-      const hora = document.getElementById('hora').value;
-      const equipoRival = document.getElementById('equipoRival').value;
-      const lugar = document.getElementById('lugar').value;
-      const valor = document.getElementById('valor').value;
-      const tipo = document.getElementById('tipo').value;
+    // Recopila la información del formulario
+    const fecha = document.getElementById('fecha').value;
+    const hora = document.getElementById('hora').value;
+    const equipoRival = document.getElementById('equipoRival').value;
+    const lugar = document.getElementById('lugar').value;
+    const valor = document.getElementById('valor').value;
+    const tipo = document.getElementById('tipo').value;
 
-      // Construye el asunto y cuerpo del mensaje
-      const subject = encodeURIComponent("Programar Partido - DIBA FBC");
-      const body = encodeURIComponent(
-        "Información del partido:\n" +
-        "Fecha: " + fecha + "\n" +
-        "Hora: " + hora + "\n" +
-        "Equipo Rival: " + equipoRival + "\n" +
-        "Ubicación: " + lugar + "\n" +
-        "Valor: " + valor + "\n" +
-        "Tipo: " + tipo
-      );
+    // Construye el mensaje
+    const mensaje = encodeURIComponent(
+      "Información del partido:\n" +
+      "Fecha: " + fecha + "\n" +
+      "Hora: " + hora + "\n" +
+      "Equipo Rival: " + equipoRival + "\n" +
+      "Ubicación: " + lugar + "\n" +
+      "Valor: " + valor + "\n" +
+      "Tipo: " + tipo
+    );
 
-      // Asegúrate de poner 'mailto:' antes del correo
-      window.location.href = "mailto:reynal24002@gmail.com?subject=" + subject + "&body=" + body;
-    }
-  </script>
+    // Reemplaza '1234567890' por el número en formato internacional (sin + ni ceros iniciales)
+    window.location.href = "https://wa.me/1234567890?text=" + mensaje;
+  }
+</script>
+
 </body>
 </html>
