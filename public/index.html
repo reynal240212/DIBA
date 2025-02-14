@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DIBA FBC - Gestión y Administración del Club. Conoce nuestro club, calendario, galería, y más.">
   <title>DIBA FBC - Gestión y Administración del Club</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome (versión optimizada) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Modo Oscuro/Claro Toggle -->
@@ -39,6 +41,39 @@
     </div>
   </section>
 
+  <section id="about">
+    <div class="container">
+      <h2>Acerca de DIBA FBC</h2>
+      <p>Con más de 50 años de tradición, DIBA FBC es un club comprometido con el desarrollo del deporte y la comunidad. Conoce nuestra historia, misión y visión.</p>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="container">
+      <h2>Galería</h2>
+      <div class="slider">
+        <img src="foto1.jpg" alt="Partido 1">
+        <img src="foto2.jpg" alt="Partido 2">
+        <img src="foto3.jpg" alt="Partido 3">
+        <!-- Puedes integrar un plugin de slider como Swiper o Slick -->
+      </div>
+    </div>
+  </section>
+
+  <section id="calendario">
+    <div class="container">
+      <h2>Calendario de Partidos</h2>
+      <p>Consulta los próximos encuentros y resultados de nuestros partidos.</p>
+      <!-- Aquí podrías incluir una tabla o integrar una API para datos en tiempo real -->
+    </div>
+  </section>
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/dibafbc" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.twitter.com/dibafbc" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/dibafbc" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+
   <footer>
     <div class="container">
       <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
@@ -49,8 +84,8 @@
     function buscarJugador() {
       const query = document.getElementById("searchInput").value.toLowerCase();
       if (query === "") {
-          alert("Por favor, ingresa un nombre.");
-          return;
+        alert("Por favor, ingresa un nombre.");
+        return;
       }
       window.location.href = `jugadores.html?query=${query}`;
     }
