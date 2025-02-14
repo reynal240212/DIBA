@@ -1,1 +1,109 @@
+/* Estilos Generales */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Modo Claro */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.light-mode .container {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.light-mode header {
+    background: linear-gradient(135deg, #ffd700, #ffae00);
+    color: #000;
+}
+
+.light-mode footer {
+    background-color: #000;
+    color: #ffd700;
+}
+
+/* Modo Oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+.dark-mode .container {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+.dark-mode header {
+    background: linear-gradient(135deg, #333, #000);
+    color: #ffd700;
+}
+
+.dark-mode footer {
+    background-color: #222;
+    color: #ffd700;
+}
+
+/* Navegación */
+.menu {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.menu li a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.light-mode .menu li a {
+    color: #000;
+}
+
+.dark-mode .menu li a {
+    color: #ffd700;
+}
+
+/* Botón de Cambio de Modo */
+.toggle-mode {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+}
+
+.light-mode .toggle-mode {
+    background-color: #000;
+    color: #ffd700;
+}
+
+.dark-mode .toggle-mode {
+    background-color: #ffd700;
+    color: #000;
+}
 
