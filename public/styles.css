@@ -182,6 +182,15 @@ table td {
   border-bottom: 1px solid #c9ab4d;    /* dorado tenue */
   font-size: 1.1em;                    /* opcional: texto un poco más grande */
 }
+/* Filas impares: gris más oscuro */
+table tbody tr:nth-child(odd) {
+  background-color: #3a3a3a; 
+}
+
+/* Filas pares: gris un poco más claro */
+table tbody tr:nth-child(even) {
+  background-color: #4a4a4a;
+}
 
 /* ===== Sección Ficha Técnica ===== */
 #ficha {
