@@ -10,7 +10,7 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background: url('fondo.jpg') no-repeat center center/cover;
             color: #000;
         }
@@ -21,7 +21,7 @@
             top: 0;
             left: 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
             background-color: rgba(0, 0, 0, 0.8);
@@ -29,16 +29,8 @@
         }
 
         header img {
-            width: 150px;
+            width: 120px;
             height: auto;
-            position: absolute;
-            left: 2rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            width: 100%;
         }
 
         nav ul {
@@ -60,18 +52,13 @@
             background-color: rgb(255, 230, 2);
             padding: 0.5rem 1rem;
             border-radius: 25px;
-            transition: background-color 0.3s ease;
+            transition: 0.3s;
             display: block;
-            text-align: center;
         }
 
         nav ul li a:hover {
             background-color: #333;
             color: #fff;
-        }
-
-        nav ul li:hover .submenu {
-            display: block;
         }
 
         .submenu {
@@ -81,20 +68,19 @@
             left: 0;
             background-color: rgba(0, 0, 0, 0.9);
             border-radius: 5px;
-            padding: 0;
             list-style: none;
             min-width: 200px;
+            padding: 0;
         }
 
-        .submenu li {
-            width: 100%;
+        nav ul li:hover .submenu {
+            display: block;
         }
 
         .submenu li a {
-            display: block;
             padding: 0.5rem;
             color: #fff;
-            text-align: left;
+            display: block;
         }
 
         .submenu li a:hover {
@@ -108,29 +94,28 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1.5rem;
             border-radius: 10px;
         }
 
-        .interaction-box input {
+        .interaction-box input, .interaction-box button {
             padding: 0.5rem;
             border: none;
             border-radius: 5px;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+
+        .interaction-box input {
             width: 250px;
             background-color: #ffee00;
             color: #121212;
         }
 
         .interaction-box button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 25px;
             background-color: rgba(255, 247, 5, 0.83);
-            color: #000;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
         }
 
         .interaction-box button:hover {
@@ -165,7 +150,7 @@
         let jugadores = [];
 
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("data/Ficha de Registro de Jugadores DIBA FBC.csv")
+            fetch("data/Ficha_de_Registro_DIBA_FBC.csv")
                 .then(response => response.text())
                 .then(data => procesarCSV(data))
                 .catch(error => console.error("Error al cargar el CSV:", error));
@@ -173,10 +158,10 @@
 
         function procesarCSV(texto) {
             const lineas = texto.split("\n");
-            const headers = lineas[0].split("\t");
+            const headers = lineas[0].split(",");
 
             jugadores = lineas.slice(1).map(linea => {
-                const valores = linea.split("\t");
+                const valores = linea.split(",");
                 let jugador = {};
                 headers.forEach((header, index) => {
                     jugador[header.trim()] = valores[index] ? valores[index].trim() : "";
@@ -204,10 +189,7 @@
                 return;
             }
 
-            const params = new URLSearchParams();
-            for (let key in jugadorEncontrado) {
-                params.append(key, jugadorEncontrado[key]);
-            }
+            const params = new URLSearchParams(jugadorEncontrado);
             window.location.href = `/ficha.html?${params.toString()}`;
         }
     </script>
