@@ -151,10 +151,10 @@ table {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* sombra sutil */
 }
 
-/* Encabezado de la tabla */
-table thead {
-  background-color: rgba(0, 0, 0, 0.5); /* más oscuro */
-  color: #ffd700; /* texto dorado para resaltar */
+/* Título en dorado dentro de #jugadores */
+#jugadores h2 {
+  color: #ffd700 !important; 
+  margin-bottom: 10px; /* Opcional, para espaciado */
 }
 
 /* Celdas (th y td) */
