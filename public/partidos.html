@@ -23,13 +23,26 @@
         </div>
     </header>
 
-    <section id="partidos">
-        <div class="container">
-            <h2>Partidos</h2>
-            <p>Aquí puedes encontrar información sobre los partidos del club.</p>
-            <!-- Contenido de los partidos -->
-        </div>
-    </section>
+  <section id="partidos">
+    <div class="container">
+        <h2>Programar Partido</h2>
+        <form id="partidoForm">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" required>
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" required>
+
+            <label for="rival">Equipo Rival:</label>
+            <input type="text" id="rival" required>
+
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" required>
+
+            <button type="submit">Guardar y Notificar</button>
+        </form>
+    </div>
+</section>
 
     <footer>
         <div class="container">
