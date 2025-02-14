@@ -338,6 +338,88 @@ table tbody tr:nth-child(even) {
   background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
+/* ===== Sección Programar Partido ===== */
+#partidos {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px 0;
+  color: #fff;
+  text-align: center; /* Opcional: centra el título y el formulario */
+}
+
+#partidos h2 {
+  color: #ffd700;
+  margin-bottom: 20px;
+  font-size: 2em;
+  border-bottom: 2px solid #ffd700; /* Línea dorada debajo del título */
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+/* Formulario */
+.partido-form {
+  display: flex;
+  flex-wrap: wrap; /* Permite acomodarse en varias filas si el espacio es reducido */
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px; /* Ajusta según tu preferencia */
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Para alinear las etiquetas y los inputs */
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ffd700; /* Etiquetas en dorado */
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #111;
+  color: #fff;
+  font-size: 1em;
+  width: 200px; /* Ajusta a conveniencia */
+}
+
+.partido-form button {
+  background-color: #000;
+  color: #ffd700;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.partido-form button:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+
+/* ===== Responsivo específico para la sección ===== */
+@media (max-width: 768px) {
+  .partido-form {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .form-group {
+    width: 100%; 
+    align-items: flex-start;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+  }
+}
 
 /* =============================
    MEDIA QUERIES RESPONSIVE
