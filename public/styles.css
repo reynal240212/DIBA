@@ -63,71 +63,92 @@
       pointer-events: none;
     }
 
-    /* =============================
-       ENCABEZADO
-    ============================== */
-    header {
-      width: 100%;
-      background-color: var(--color-primario);
-      color: var(--color-texto);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      padding: 10px 0;
-    }
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .header-left,
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .logo {
-      width: 50px;
-      height: auto;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: var(--color-texto);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav ul li a:hover {
-      color: var(--color-secundario);
-    }
+    /* Encabezado más alto y ancho */
+header {
+  width: 100%;
+  background-color: var(--color-primario);
+  color: var(--color-texto);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 20px 0; /* Aumentamos el padding vertical */
+}
 
-    /* Buscador en el encabezado */
-    .search-bar {
-      position: relative;
-    }
-    .search-bar input {
-      padding: 6px 30px 6px 10px;
-      border: 1px solid var(--color-secundario);
-      border-radius: 20px;
-      outline: none;
-      background-color: transparent;
-      color: var(--color-texto);
-    }
-    .search-bar i {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      color: var(--color-secundario);
-      cursor: pointer;
-    }
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px; /* Aumentamos el padding horizontal */
+}
+
+/* Logo un poco más grande (opcional) */
+.logo {
+  width: 60px; /* Ajusta a tu gusto */
+  height: auto;
+}
+
+/* Menú más grande y con mayor separación */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;            /* Más espacio entre enlaces */
+  font-size: 1.1rem;    /* Tamaño de letra mayor */
+}
+
+nav ul li a {
+  color: var(--color-texto);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  padding: 8px 0;       /* Un poco de espacio vertical en los enlaces */
+}
+
+/* Buscador más grande */
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  padding: 8px 40px 8px 16px;  /* Aumentamos el padding */
+  border: 1px solid var(--color-secundario);
+  border-radius: 20px;
+  outline: none;
+  background-color: transparent;
+  color: var(--color-texto);
+}
+
+.search-bar i {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  color: var(--color-secundario);
+  cursor: pointer;
+}
+
+/* Botón Acceder más grande (si lo tienes en la parte superior) */
+.btn-acceder {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;           /* Más padding */
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.1rem;           /* Texto más grande */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-acceder:hover {
+  background-color: #00f;
+  color: #fff;
+}
 
     /* =============================
        HERO / PORTADA
