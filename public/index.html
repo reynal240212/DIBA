@@ -1,130 +1,408 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DIBA FBC - Gestión y Administración del Club. Conoce nuestra historia, calendario, galería y más.">
-  <title>DIBA FBC - Gestión y Administración del Club</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome para iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <title>DIBA FBC - Estilo DIMAYOR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fuente de íconos (opcional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* =============================
+       RESET Y VARIABLES
+    ============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-primario: #111; /* color principal para encabezado */
+      --color-secundario: #00993f; /* un verde como acento, si gustas */
+      --color-amarillo: #ffd700; /* si quieres usar amarillo */
+      --color-texto: #fff;
+      --color-gris: #3a3a3a;
+      --color-gris-claro: #f5f5f5;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd; /* color base */
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* =============================
+       ENCABEZADO
+    ============================== */
+    header {
+      width: 100%;
+      background-color: var(--color-primario);
+      color: var(--color-texto);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+    }
+    .header-left,
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo {
+      width: 50px;
+      height: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: var(--color-texto);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: var(--color-amarillo);
+    }
+
+    /* Buscador en el encabezado */
+    .search-bar {
+      position: relative;
+    }
+    .search-bar input {
+      padding: 6px 30px 6px 10px;
+      border: none;
+      border-radius: 20px;
+      outline: none;
+    }
+    .search-bar i {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      color: #555;
+      cursor: pointer;
+    }
+
+    /* =============================
+       HERO / PORTADA
+    ============================== */
+    .hero {
+      width: 100%;
+      height: 400px;
+      background: url("estadio.jpg") center center no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #fff;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4); /* oscurecer un poco la imagen */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    /* Bloques de accesos directos (Noticias, Reglamento, etc.) */
+    .access-blocks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: -40px auto 40px auto; /* sube un poco para sobreponerlo */
+      position: relative;
+      z-index: 2;
+    }
+    .access-block {
+      background-color: #fff;
+      color: #000;
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .access-block:hover {
+      background-color: var(--color-secundario);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* =============================
+       SECCIONES INFERIORES
+    ============================== */
+    #about,
+    #busqueda,
+    #galeria,
+    #calendario {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    #about h2,
+    #busqueda h2,
+    #galeria h2,
+    #calendario h2 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      text-transform: uppercase;
+    }
+    #about p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .gallery-slider {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 10px 0;
+    }
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 300px;
+      height: 200px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      scroll-snap-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .social-links {
+      text-align: center;
+      padding: 20px 0;
+    }
+    .social-links a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: var(--color-primario);
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: var(--color-secundario);
+    }
+
+    /* =============================
+       PIE DE PÁGINA
+    ============================== */
+    footer {
+      background-color: var(--color-primario);
+      color: var(--color-texto);
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 20px;
+    }
+
+    /* =============================
+       MEDIA QUERIES
+    ============================== */
+    @media (max-width: 768px) {
+      .hero {
+        height: 300px;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .access-blocks {
+        margin: 0 auto 40px auto;
+      }
+      .access-block {
+        flex: 1 1 45%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+      }
+      .header-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hero {
+        height: 200px;
+      }
+      .hero-content h1 {
+        font-size: 1.5rem;
+      }
+      .hero-content p {
+        font-size: 0.9rem;
+      }
+      .access-block {
+        flex: 1 1 100%;
+      }
+      .search-bar input {
+        width: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Encabezado -->
   <header>
-    <div class="container header-container">
-      <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
-      <nav>
-        <ul class="menu">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="documentos.html">Gestión Documental</a></li>
-          <li><a href="ficha.html">Ficha Técnica</a></li>
-          <li><a href="jugadores.html">Jugadores</a></li>
-          <li><a href="partidos.html">Partidos</a></li>
-          <li><a href="noticias.html">Noticias</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
+    <div class="header-container">
+      <div class="header-left">
+        <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="documentos.html">Gestión Documental</a></li>
+            <li><a href="ficha.html">Ficha Técnica</a></li>
+            <li><a href="jugadores.html">Jugadores</a></li>
+            <li><a href="partidos.html">Partidos</a></li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-right">
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+          <input type="text" placeholder="Noticias, calendario..." />
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
     </div>
   </header>
 
+  <!-- Hero / Portada con fondo estadio -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>LIGA DIBA FBC</h1>
+      <p>Gestión y Administración del Club</p>
+    </div>
+  </div>
+
+  <!-- Bloques de acceso directo (tipo "Noticias, Reglamento...") -->
+  <div class="access-blocks">
+    <a href="#" class="access-block">Noticias</a>
+    <a href="#" class="access-block">Reglamento</a>
+    <a href="#" class="access-block">Tabla de Posiciones</a>
+    <a href="#" class="access-block">Fixture</a>
+  </div>
+
+  <!-- Sección de búsqueda (opcional) -->
   <section id="busqueda">
-    <div class="container">
-      <div class="search-box">
-        <h2>Buscar Jugador</h2>
-        <input type="text" id="searchInput" placeholder="Ingresa un nombre...">
-        <button onclick="buscarJugador()">Buscar</button>
-      </div>
-    </div>
+    <h2>Buscar Jugador</h2>
+    <input type="text" id="searchInput" placeholder="Ingresa un nombre..." />
+    <button onclick="buscarJugador()">Buscar</button>
   </section>
 
+  <!-- Sección Acerca de -->
   <section id="about">
-    <div class="container">
-      <h2>Acerca de DIBA FBC</h2>
-      <p>Con más de 50 años de tradición, DIBA FBC es un club comprometido con el desarrollo del deporte y la comunidad. Conoce nuestra historia, misión y visión.</p>
-    </div>
+    <h2>Acerca de DIBA FBC</h2>
+    <p>
+      Con más de 50 años de tradición, DIBA FBC es un club comprometido con
+      el desarrollo del deporte y la comunidad. Conoce nuestra historia,
+      misión y visión.
+    </p>
   </section>
 
+  <!-- Sección Galería -->
   <section id="galeria">
-    <div class="container">
-      <h2>Galería Deportiva</h2>
-      <div class="gallery-slider">
-        <div class="gallery-item">
-          <img src="foto1.jpg" alt="Partido 1">
-        </div>
-        <div class="gallery-item">
-          <img src="foto2.jpg" alt="Partido 2">
-        </div>
-        <div class="gallery-item">
-          <img src="foto3.jpg" alt="Partido 3">
-        </div>
-        <!-- Bloque de Instagram (embed) -->
-        <div class="gallery-item">
-          <blockquote class="instagram-media" 
-            data-instgrm-permalink="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_embed" 
-            data-instgrm-version="14" 
-            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); 
-                   margin: 1px; max-width:540px; min-width:326px; padding:0; width:calc(100% - 2px);">
-            <div style="padding:16px;">
-              <a href="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_embed" 
-                 style="background:#FFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" 
-                 target="_blank">
-                <div style="display: flex; flex-direction: row; align-items: center;">
-                  <div style="background:#F4F4F4; border-radius:50%; height:40px; width:40px; margin-right:14px;"></div>
-                  <div style="display:flex; flex-direction:column; justify-content:center;">
-                    <div style="background:#F4F4F4; border-radius:4px; height:14px; width:100px; margin-bottom:6px;"></div>
-                    <div style="background:#F4F4F4; border-radius:4px; height:14px; width:60px;"></div>
-                  </div>
-                </div>
-                <div style="padding:19% 0;"></div>
-                <div style="display:block; height:50px; width:50px; margin: 0 auto 12px;">
-                  <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg">
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g transform="translate(-511, -20)" fill="#000">
-                        <path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41"></path>
-                      </g>
-                    </g>
-                  </svg>
-                </div>
-                <div style="padding-top:8px;">
-                  <div style="color:#3897f0; font-family:Arial, sans-serif; font-size:14px; font-weight:550; line-height:18px;">
-                    Ver esta publicación en Instagram
-                  </div>
-                </div>
-              </a>
-              <p style="color:#c9c8cd; font-family:Arial, sans-serif; font-size:14px; line-height:17px; margin-top:8px; text-align:center; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">
-                <a href="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_embed" 
-                   style="color:#c9c8cd; text-decoration:none;" target="_blank">
-                  Una publicación compartida de DIBA FBC (@diba_fbc_oficial)
-                </a>
-              </p>
-            </div>
-          </blockquote>
-        </div>
+    <h2>Galería Deportiva</h2>
+    <div class="gallery-slider">
+      <div class="gallery-item">
+        <img src="foto1.jpg" alt="Partido 1" />
+      </div>
+      <div class="gallery-item">
+        <img src="foto2.jpg" alt="Partido 2" />
+      </div>
+      <div class="gallery-item">
+        <img src="foto3.jpg" alt="Partido 3" />
+      </div>
+      <!-- Instagram embed -->
+      <div class="gallery-item">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_embed"
+          data-instgrm-version="14"
+          style="background:#FFF; border:0; border-radius:3px; 
+                 box-shadow:0 0 1px 0 rgba(0,0,0,0.5),
+                 0 1px 10px 0 rgba(0,0,0,0.15);
+                 margin:1px; max-width:540px; min-width:326px; 
+                 padding:0; width:calc(100% - 2px);"
+        >
+          <div style="padding:16px;">
+            <!-- Contenido embed Instagram -->
+            <p>Publicación de Instagram</p>
+          </div>
+        </blockquote>
       </div>
     </div>
   </section>
   <script async src="//www.instagram.com/embed.js"></script>
 
+  <!-- Sección Calendario -->
   <section id="calendario">
-    <div class="container">
-      <h2>Calendario de Partidos</h2>
-      <p>Consulta los próximos encuentros y resultados de nuestros partidos.</p>
-      <!-- Aquí puedes integrar una tabla o API para mostrar resultados -->
-    </div>
+    <h2>Calendario de Partidos</h2>
+    <p>Consulta los próximos encuentros y resultados de nuestros partidos.</p>
+    <!-- Aquí podrías integrar una tabla o un API -->
   </section>
 
+  <!-- Redes sociales -->
   <div class="social-links">
-    <a href="https://www.facebook.com/dibafbc" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.twitter.com/dibafbc" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.instagram.com/diba_fbc_oficial" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/dibafbc" aria-label="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.twitter.com/dibafbc" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://www.instagram.com/diba_fbc_oficial" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
   </div>
 
+  <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-    </div>
+    <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
   </footer>
 
   <script>
