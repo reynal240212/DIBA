@@ -336,7 +336,10 @@
         flex-direction: column;
       }
       .header-container {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;   /* Evita salto de línea */
+        overflow-x: auto;    /* Scroll horizontal si se llena */
+        white-space: nowrap; /* Mantiene todo en una línea */
         gap: 10px;
       }
       .hero {
@@ -355,3 +358,9 @@
         width: 150px;
       }
     }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    
