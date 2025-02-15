@@ -159,38 +159,74 @@ label[for="toggle"] {
   font-size: 1.2em;
 }
 
-/* =============================
-   SECCIÓN: GALERÍA
-============================= */
+/* Estilos para la sección Galería Deportiva */
 #galeria {
-  padding: 40px 0;
-  background: rgba(0, 0, 0, 0.7);
+  padding: 50px 0;
+  background: #1a1a1a; /* Fondo oscuro para un look deportivo */
   color: #fff;
 }
-#galeria h2 {
-  color: #ffd700;
-  font-size: 2.5em;
-  margin-bottom: 20px;
+
+#galeria .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
 }
-.slider {
+
+#galeria h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fbb034; /* Color vibrante para destacar el título */
+}
+
+/* Slider horizontal */
+.gallery-slider {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
 }
-.slider img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
-  scroll-snap-align: center;
+
+/* Elementos del slider */
+.gallery-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 300px;
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
+  scroll-snap-align: center;
 }
-.slider img:hover {
+
+.gallery-item:hover {
   transform: scale(1.05);
 }
-.instagram-post {
-    max-width: 400px; /* Ajusta según el diseño */
-    margin: auto;
+
+/* Imágenes dentro del slider */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Personalización de la barra de desplazamiento */
+.gallery-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-slider::-webkit-scrollbar-track {
+  background: #333;
+}
+
+.gallery-slider::-webkit-scrollbar-thumb {
+  background: #fbb034;
+  border-radius: 4px;
 }
 
 /* =============================
