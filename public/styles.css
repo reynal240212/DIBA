@@ -14,12 +14,25 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f8aa00; /* Fondo naranja */
-      color: var(--color-texto);
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+      /* Fondo animado con gradiente */
+  background: linear-gradient(-45deg, #f8aa00, #000, #ffd700, #000);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Animación del gradiente */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+    
    
     .btn-acceder {
       display: inline-flex;
