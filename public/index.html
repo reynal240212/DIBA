@@ -166,6 +166,66 @@
     /* =============================
        SECCIONES DE LA PÁGINA
     ============================== */
+    /* Estilos para la sección de Jugadores */
+  #jugadores {
+    padding: 40px 20px;
+    background: #121212; /* Fondo oscuro para destacar el contenido */
+  }
+  
+  #jugadores .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  #jugadores h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-secundario); /* Usando el amarillo definido en las variables */
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Estilos para la tabla */
+  #jugadores table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05); /* Fondo sutil para la tabla */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  #jugadores table thead {
+    background-color: var(--color-secundario); /* Fondo amarillo para la cabecera */
+  }
+  
+  #jugadores table thead th {
+    padding: 12px;
+    color: var(--color-primario); /* Texto en negro para buen contraste */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+  }
+  
+  #jugadores table tbody td {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-texto);
+  }
+  
+  /* Filas alternadas para mejor lectura */
+  #jugadores table tbody tr:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  #jugadores table tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Efecto hover en filas */
+  #jugadores table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+  }
     section {
       max-width: 1200px;
       margin: 0 auto;
