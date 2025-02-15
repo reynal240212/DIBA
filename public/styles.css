@@ -188,6 +188,10 @@ label[for="toggle"] {
 .slider img:hover {
   transform: scale(1.05);
 }
+.instagram-post {
+    max-width: 400px; /* Ajusta según el diseño */
+    margin: auto;
+}
 
 /* =============================
    SECCIÓN: CALENDARIO
