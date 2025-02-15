@@ -20,7 +20,32 @@
       line-height: 1.5;
       scroll-behavior: smooth;
     }
+    <!-- Carga de Font Awesome para el ícono -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    .btn-acceder {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;               /* Espacio entre ícono y texto */
+      padding: 6px 12px;
+      background-color: #fff; /* Fondo blanco */
+      color: #00f;            /* Texto azul */
+      border: 2px solid #00f; /* Borde azul */
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;  /* Eliminar subrayado si fuese un enlace */
+    }
 
+    .btn-acceder:hover {
+      background-color: #00f; /* Fondo azul al pasar el ratón */
+      color: #fff;            /* Texto blanco */
+    }
     /* Canvas de Three.js en fondo */
     #c {
       position: fixed;
