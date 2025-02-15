@@ -16,6 +16,10 @@
   box-sizing: border-box;
   background-repeat: no-repeat;
 }
+.logo {
+  width: 150px; /* Ajusta el tamaño según necesites */
+  height: auto; /* Mantiene la proporción */
+}
 
 /* =============================
    ESTILOS GLOBALES
