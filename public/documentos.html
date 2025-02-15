@@ -1,40 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Documental - DIBA FBC</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión Documental - DIBA FBC</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Fuente moderna inspirada en diseños deportivos -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos base */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* Header moderno */
+    header {
+      background-color: #000;
+      padding: 20px 0;
+    }
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      width: 80px;
+      transition: transform 0.3s;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #FFEE00;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #fff;
+    }
+    /* Sección de documentos con fondo destacado */
+    section#documentos {
+      background: url('documentos-bg.jpg') center/cover no-repeat;
+      padding: 60px 0;
+      text-align: center;
+      color: #fff;
+    }
+    section#documentos h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+    section#documentos p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    /* Footer sencillo y elegante */
+    footer {
+      background-color: #000;
+      color: #FFEE00;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
-            <nav>
-                <ul class="menu">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="ficha.html">Ficha Técnica</a></li>
-                    <li><a href="jugadores.html">Jugadores</a></li>
-                    <li><a href="partidos.html">Partidos</a></li>
-                    <li><a href="noticias.html">Noticias</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="container">
+      <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ficha.html">Ficha Técnica</a></li>
+          <li><a href="jugadores.html">Jugadores</a></li>
+          <li><a href="partidos.html">Partidos</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <main>
     <section id="documentos">
-        <div class="container">
-            <h2>Gestión Documental</h2>
-            <p>Aquí puedes encontrar todos los documentos relacionados con el club.</p>
-            <!-- Contenido de la gestión documental -->
-        </div>
+      <div class="container">
+        <h2>Gestión Documental</h2>
+        <p>Aquí puedes encontrar todos los documentos relacionados con el club, organizados de forma clara y accesible para tu consulta.</p>
+        <!-- Contenido de la gestión documental -->
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </body>
 </html>
