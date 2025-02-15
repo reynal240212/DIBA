@@ -12,6 +12,9 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <!-- Three.js y OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r135/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.135.0/examples/js/controls/OrbitControls.js"></script>
   <style>
     /* =============================
        RESET Y VARIABLES
@@ -30,10 +33,21 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8aa00;            /* Fondo negro */
-      color: var(--color-texto);         /* Texto blanco */
+      background-color: #f8aa00; /* Fondo naranja */
+      color: var(--color-texto);
       line-height: 1.5;
-      scroll-behavior: smooth;           /* Desplazamiento suave */
+      scroll-behavior: smooth;
+    }
+
+    /* Canvas de Three.js en fondo */
+    #c {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
     }
 
     /* =============================
@@ -106,21 +120,21 @@
        HERO / PORTADA
     ============================== */
     .hero {
-    width: 100%;
-    height: 400px;
-    background: url("fondo.jpg") center center no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    color: #fff;
-  }
+      width: 100%;
+      height: 400px;
+      background: url("fondo.jpg") center center no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #fff;
+    }
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);  /* Mayor oscurecimiento con transparencia */
+      background: rgba(0, 0, 0, 0.6);
     }
     .hero-content {
       position: relative;
@@ -166,66 +180,55 @@
     /* =============================
        SECCIONES DE LA PÁGINA
     ============================== */
-    /* Estilos para la sección de Jugadores */
-  #jugadores {
-    padding: 40px 20px;
-    background: #121212; /* Fondo oscuro para destacar el contenido */
-  }
-  
-  #jugadores .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  #jugadores h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--color-secundario); /* Usando el amarillo definido en las variables */
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  /* Estilos para la tabla */
-  #jugadores table {
-    width: 100%;
-    border-collapse: collapse;
-    background: rgba(255, 255, 255, 0.05); /* Fondo sutil para la tabla */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  }
-  
-  #jugadores table thead {
-    background-color: var(--color-secundario); /* Fondo amarillo para la cabecera */
-  }
-  
-  #jugadores table thead th {
-    padding: 12px;
-    color: var(--color-primario); /* Texto en negro para buen contraste */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: none;
-  }
-  
-  #jugadores table tbody td {
-    padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--color-texto);
-  }
-  
-  /* Filas alternadas para mejor lectura */
-  #jugadores table tbody tr:nth-child(odd) {
-    background: rgba(0, 0, 0, 0.2);
-  }
-  
-  #jugadores table tbody tr:nth-child(even) {
-    background: rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Efecto hover en filas */
-  #jugadores table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease;
-  }
+    /* Sección de Jugadores */
+    #jugadores {
+      padding: 40px 20px;
+      background: #121212;
+    }
+    #jugadores .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    #jugadores h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--color-secundario);
+      font-size: 2.5em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    #jugadores table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    #jugadores table thead {
+      background-color: var(--color-secundario);
+    }
+    #jugadores table thead th {
+      padding: 12px;
+      color: var(--color-primario);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+    }
+    #jugadores table tbody td {
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--color-texto);
+    }
+    #jugadores table tbody tr:nth-child(odd) {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    #jugadores table tbody tr:nth-child(even) {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    #jugadores table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
     section {
       max-width: 1200px;
       margin: 0 auto;
@@ -342,6 +345,9 @@
   </style>
 </head>
 <body>
+  <!-- Canvas de Three.js -->
+  <canvas id="c"></canvas>
+
   <!-- Encabezado con navegación interna -->
   <header>
     <div class="header-container">
@@ -606,7 +612,7 @@
     <p>Puedes comunicarte con nosotros a través de nuestros canales oficiales.</p>
   </section>
 
-  <!-- Galería Deportiva (opcional) -->
+  <!-- Sección Galería Deportiva (opcional) -->
   <section id="galeria">
     <h2>Galería Deportiva</h2>
     <div class="gallery-slider">
@@ -657,5 +663,147 @@
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- Script de Three.js y animación -->
+  <script>
+    const particleVertex = `
+      attribute float scale;
+      uniform float uTime;
+
+      void main() {
+        vec3 p = position;
+        float s = scale;
+
+        p.y += (sin(p.x + uTime) * 0.5) + (cos(p.y + uTime) * 0.1) * 2.0;
+        p.x += (sin(p.y + uTime) * 0.5);
+        s += (sin(p.x + uTime) * 0.5) + (cos(p.y + uTime) * 0.1) * 2.0;
+
+        vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
+        gl_PointSize = s * 15.0 * (1.0 / -mvPosition.z);
+        gl_Position = projectionMatrix * mvPosition;
+      }
+    `;
+
+    const particleFragment = `
+      void main() {
+        gl_FragColor = vec4(1.0, 1.0, 1.0, 0.5);
+      }
+    `;
+
+    function lerp(start, end, amount) {
+      return (1 - amount) * start + amount * end;
+    }
+
+    class Canvas {
+      constructor() {
+        this.config = {
+          canvas: document.querySelector('#c'),
+          winWidth: window.innerWidth,
+          winHeight: window.innerHeight,
+          aspectRatio: window.innerWidth / window.innerHeight,
+          mouse: new THREE.Vector2(-10, -10)
+        };
+
+        this.onResize = this.onResize.bind(this);
+        this.onMouseMove = this.onMouseMove.bind(this);
+        this.animate = this.animate.bind(this);
+
+        this.initCamera();
+        this.initScene();
+        this.initRenderer();
+        this.initParticles();
+
+        this.bindEvents();
+        this.animate();
+      }
+
+      bindEvents() {
+        window.addEventListener('resize', this.onResize);
+        window.addEventListener('mousemove', this.onMouseMove, false);
+      }
+
+      initCamera() {
+        this.camera = new THREE.PerspectiveCamera(75, this.config.aspectRatio, 0.01, 1000);
+        this.camera.position.set(0, 6, 5);
+      }
+
+      initScene() {
+        this.scene = new THREE.Scene();
+      }
+
+      initRenderer() {
+        this.renderer = new THREE.WebGLRenderer({
+          canvas: this.config.canvas,
+          antialias: true,
+          alpha: true
+        });
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setSize(this.config.winWidth, this.config.winHeight);
+      }
+
+      initParticles() {
+        const gap = 0.3;
+        const amountX = 200;
+        const amountY = 200;
+        const particleNum = amountX * amountY;
+        const particlePositions = new Float32Array(particleNum * 3);
+        const particleScales = new Float32Array(particleNum);
+        let i = 0;
+        let j = 0;
+
+        for (let ix = 0; ix < amountX; ix++) {
+          for (let iy = 0; iy < amountY; iy++) {
+            particlePositions[i] = ix * gap - ((amountX * gap) / 2);
+            particlePositions[i + 1] = 0;
+            particlePositions[i + 2] = iy * gap - ((amountX * gap) / 2);
+            particleScales[j] = 1;
+            i += 3;
+            j++;
+          }
+        }
+
+        this.particleGeometry = new THREE.BufferGeometry();
+        this.particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+        this.particleGeometry.setAttribute('scale', new THREE.BufferAttribute(particleScales, 1));
+
+        this.particleMaterial = new THREE.ShaderMaterial({
+          transparent: true,
+          vertexShader: particleVertex,
+          fragmentShader: particleFragment,
+          uniforms: {
+            uTime: { type: 'f', value: 0 }
+          }
+        });
+        this.particles = new THREE.Points(this.particleGeometry, this.particleMaterial);
+        this.scene.add(this.particles);
+      }
+
+      render() {
+        this.camera.lookAt(this.scene.position);
+        this.renderer.render(this.scene, this.camera);
+      }
+
+      animate() {
+        this.particleMaterial.uniforms.uTime.value += 0.05;
+        requestAnimationFrame(this.animate);
+        this.render();
+      }
+
+      onMouseMove(e) {
+        this.config.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+        this.config.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      }
+
+      onResize() {
+        this.config.winWidth = window.innerWidth;
+        this.config.winHeight = window.innerHeight;
+        this.camera.aspect = this.config.winWidth / this.config.winHeight;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(this.config.winWidth, this.config.winHeight);
+      }
+    }
+
+    new Canvas();
+  </script>
 </body>
 </html>
