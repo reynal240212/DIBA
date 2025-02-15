@@ -2,7 +2,7 @@
    RESET Y VARIABLES GLOBALES
 ============================= */
 :root {
-  /* Variables de color inspiradas en BVB */
+  /* Paleta inspirada en BVB */
   --bvb-yellow: #ffd900;
   --bvb-yellow-focus: #debe05;
   --bvb-black: #000;
@@ -23,7 +23,7 @@
 ============================= */
 html, body {
   font-size: 16px;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.5;
   background: url('fondo.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -38,7 +38,6 @@ body.dark-mode {
   background-color: var(--bvb-black);
 }
 
-/* Contenedor General */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -47,23 +46,21 @@ body.dark-mode {
 }
 
 /* =============================
-   ENCABEZADO Y MENÚ
+   HEADER Y NAVEGACIÓN
 ============================= */
 header {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 100;
 }
-
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .logo {
   width: 80px;
   transition: transform 0.3s ease;
@@ -71,14 +68,12 @@ header {
 .logo:hover {
   transform: scale(1.1);
 }
-
 nav ul.menu {
   list-style: none;
   display: flex;
   gap: 20px;
   align-items: center;
 }
-
 nav ul.menu li a {
   color: var(--bvb-yellow);
   text-decoration: none;
@@ -92,39 +87,22 @@ nav ul.menu li a:hover {
   border-radius: 4px;
 }
 
-/* Toggle de Modo (si se usa) */
-label[for="toggle"] {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  font-size: 1.5em;
-  color: var(--bvb-yellow);
-  z-index: 1100;
-}
-#toggle {
-  display: none;
-}
-
 /* =============================
    SECCIÓN DE BÚSQUEDA
 ============================= */
 #busqueda {
-  background: rgba(2,0,0,0.9);
+  background: rgba(2, 0, 0, 0.9);
   padding: 40px 0;
   margin-top: 20px;
 }
-
 .search-box {
   text-align: center;
 }
-
 .search-box h2 {
   margin-bottom: 20px;
   font-size: 2em;
   color: var(--bvb-yellow);
 }
-
 .search-box input {
   width: 60%;
   padding: 15px;
@@ -134,7 +112,6 @@ label[for="toggle"] {
   color: var(--bvb-white);
   font-size: 1em;
 }
-
 .search-box button {
   padding: 15px 25px;
   background-color: var(--bvb-black);
@@ -157,7 +134,7 @@ label[for="toggle"] {
 ============================= */
 #about {
   padding: 40px 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   text-align: center;
   color: var(--bvb-white);
 }
@@ -173,7 +150,7 @@ label[for="toggle"] {
 }
 
 /* =============================
-   SECCIÓN: GALERÍA
+   GALERÍA
 ============================= */
 #galeria {
   padding: 50px 0;
@@ -214,8 +191,6 @@ label[for="toggle"] {
   object-fit: cover;
   border-radius: 10px;
 }
-
-/* Barra de desplazamiento en la galería */
 .gallery-slider::-webkit-scrollbar {
   height: 8px;
 }
@@ -228,11 +203,11 @@ label[for="toggle"] {
 }
 
 /* =============================
-   SECCIÓN: CALENDARIO
+   CALENDARIO
 ============================= */
 #calendario {
   padding: 40px 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   text-align: center;
   color: var(--bvb-white);
 }
@@ -275,12 +250,12 @@ footer {
 }
 
 /* =============================
-   ESTILOS PARA TABLAS (Ej. Jugadores)
+   TABLAS (Ej. Jugadores)
 ============================= */
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: rgba(51,51,51,0.8);
+  background-color: rgba(51, 51, 51, 0.8);
   color: var(--bvb-white);
   margin: 20px 0;
   border-radius: 8px;
@@ -312,7 +287,7 @@ table tbody tr:nth-child(even) {
 ============================= */
 #ficha {
   padding: 60px 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   color: var(--bvb-white);
   position: relative;
 }
@@ -334,7 +309,7 @@ table tbody tr:nth-child(even) {
   flex-wrap: wrap;
   gap: 20px;
   align-items: center;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   padding: 20px;
 }
@@ -369,7 +344,7 @@ table tbody tr:nth-child(even) {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
@@ -378,7 +353,7 @@ table tbody tr:nth-child(even) {
 ============================= */
 #partidos {
   padding: 40px 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   color: var(--bvb-white);
   text-align: center;
 }
@@ -504,7 +479,7 @@ table tbody tr:nth-child(even) {
   }
 }
 
-/* Escritorio y TV (1025px en adelante) */
+/* Escritorio (1025px en adelante) */
 @media (min-width: 1025px) {
   html, body {
     font-size: 18px;
