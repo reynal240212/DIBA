@@ -30,7 +30,35 @@ html, body {
   color: var(--text-color);
   transition: background-color 0.5s ease, color 0.5s ease;
 }
+.hero {
+  /* Ajusta el alto de la sección a tu preferencia */
+  height: 400px;
+  /* Asigna la imagen de fondo */
+  background: url("fondo.jpg") center center no-repeat;
+  background-size: cover;
+  /* Posiciona el contenedor de forma que el texto se vea delante */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff; /* color del texto */
+}
 
+/* Opcional: overlay para oscurecer la imagen y resaltar el texto */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0, right:0, bottom:0, left:0 */
+  background: rgba(0,0,0,0.4); /* oscurece la imagen */
+  z-index: 1;
+}
+
+/* Asegúrate de que el contenido esté por encima del overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center; /* centra el texto */
+}
 body.light-mode {
   background-color: #111;
 }
