@@ -1,97 +1,349 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>DIBA FBC</title>
+  <meta charset="UTF-8">
+  <title>DIBA FBC - Estilo Barça</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuente de íconos (opcional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* ================================
+       VARIABLES DE COLOR (Estilo Barça)
+    =================================*/
+    :root {
+      --azul-barca: #004d98;
+      --rojo-barca: #a50044;
+      --amarillo-barca: #edbb00;
+      --gris-oscuro: #222;
+      --blanco: #fff;
+      --texto-claro: #f9f9f9;
+      --texto-oscuro: #333;
+    }
+
+    /* ================================
+       REINICIO Y BASE
+    =================================*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--gris-oscuro);
+      color: var(--texto-claro);
+      line-height: 1.5;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================================
+       CABECERA (HEADER)
+    =================================*/
+    header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Barra superior: login, idioma, etc. */
+    .top-bar {
+      background-color: var(--azul-barca);
+      color: var(--blanco);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      font-size: 0.9rem;
+    }
+    .top-bar-left {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .top-bar-right {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .top-bar-right a {
+      color: var(--blanco);
+    }
+    /* Barra principal de navegación */
+    .main-nav {
+      background-color: var(--rojo-barca);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .main-nav a:hover {
+      color: var(--amarillo-barca);
+    }
+
+    /* ================================
+       HERO PRINCIPAL
+    =================================*/
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: url('hero.jpg') center center no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      color: var(--blanco);
+      overflow: hidden;
+    }
+    /* Capa semitransparente para resaltar texto */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 30%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem 2rem;
+      max-width: 1200px;
+    }
+    .hero-content h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ================================
+       SECCIÓN DE NOTICIAS DESTACADAS
+    =================================*/
+    .news-section {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .news-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--amarillo-barca);
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .news-card {
+      background-color: #111;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .news-card-content {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .news-card-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--blanco);
+    }
+    .news-card-desc {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* ================================
+       PIE DE PÁGINA (FOOTER)
+    =================================*/
+    footer {
+      background-color: var(--azul-barca);
+      padding: 2rem 1rem;
+      color: var(--blanco);
+      margin-top: 2rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-col {
+      flex: 1 1 200px;
+    }
+    .footer-col h4 {
+      margin-bottom: 0.5rem;
+      color: var(--amarillo-barca);
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col li {
+      margin-bottom: 0.3rem;
+    }
+    .footer-col li a {
+      color: var(--blanco);
+      font-size: 0.9rem;
+    }
+    .footer-col li a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================================
+       RESPONSIVE
+    =================================*/
+    @media (max-width: 768px) {
+      .hero {
+        height: 300px;
+      }
+      .hero-content h2 {
+        font-size: 1.5rem;
+      }
+      .main-nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Barra lateral izquierda -->
-    <aside class="sidebar-left">
-      <!-- Logo DIBA -->
-      <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo" />
 
-      <!-- Menú principal -->
-      <div class="nav-links">
-        <a href="#"><i class="fa fa-home"></i> Inicio</a>
-        <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
-        <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-        <a href="#"><i class="fa fa-users"></i> Jugadores</a>
-        <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
-        <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
-        <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
+  <!-- CABECERA -->
+  <header>
+    <!-- Barra superior -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <span>Idioma: Español</span>
       </div>
-
-      <!-- Botón Acceder (opcional) -->
-      <a href="#" class="btn-acceder">
-        <i class="fa fa-user"></i>
-        Acceder
-      </a>
-    </aside>
-
-    <!-- Sección central (Feed) -->
-    <main class="feed">
-      <!-- Hero / Portada -->
-      <div class="hero">
-        <div class="hero-content">
-          <h1>DIBA FBC</h1>
-          <p>Gestión y Administración del Club</p>
-        </div>
+      <div class="top-bar-right">
+        <a href="#">Registrarse</a>
+        <a href="#">Iniciar Sesión</a>
       </div>
+    </div>
+    <!-- Navegación principal -->
+    <nav class="main-nav">
+      <a href="#">Fútbol</a>
+      <a href="#">Femenino</a>
+      <a href="#">Barça B</a>
+      <a href="#">Barça Genuine</a>
+      <a href="#">Entradas</a>
+      <a href="#">Barça TV+</a>
+      <a href="#">Socios</a>
+      <a href="#">Más</a>
+    </nav>
+  </header>
 
-      <!-- Bloques de accesos directos -->
-      <div class="access-blocks">
-        <a href="#" class="access-block">Noticias</a>
-      </div>
+  <!-- HERO PRINCIPAL -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>La recuperación de Ter Stegen</h2>
+      <p>
+        Últimas noticias del club, partidos, fichajes y más...
+      </p>
+    </div>
+  </section>
 
-      <!-- Ejemplo de secciones -->
-      <section id="noticias">
-        <h2>Noticias</h2>
-        <p>Mantente informado con las últimas noticias del club.</p>
-      </section>
-
-      <section id="jugadores">
-        <h2>Jugadores</h2>
-        <p>Consulta la lista de jugadores y sus perfiles.</p>
-      </section>
-
-      <section id="partidos">
-        <h2>Partidos</h2>
-        <p>Consulta los próximos encuentros y resultados.</p>
-      </section>
-
-      <!-- Agrega más secciones o contenido que necesites -->
-    </main>
-
-    <!-- Barra lateral derecha (Sugerencias, Perfil, etc.) -->
-    <aside class="sidebar-right">
-      <div class="profile-shortcut">
-        <img src="mi_perfil.jpg" alt="Mi perfil" />
-        <div>
-          <strong>MiUsuario</strong><br />
-          <span>Mi Nombre</span>
-        </div>
-      </div>
-      <div class="suggestions">
-        <h3>Sugerencias</h3>
-        <div class="suggestion">
-          <img src="perfil1.jpg" alt="Sugerido 1" />
+  <!-- SECCIÓN DE NOTICIAS -->
+  <div class="news-section">
+    <h3>Noticias Destacadas</h3>
+    <div class="news-grid">
+      <!-- Tarjeta de noticia 1 -->
+      <div class="news-card">
+        <img src="noticia1.jpg" alt="Noticia 1">
+        <div class="news-card-content">
           <div>
-            <strong>usuario_1</strong><br />
-            <span>Te sigue</span>
+            <div class="news-card-title">Pedri, nuevo embajador del FC Barcelona</div>
+            <div class="news-card-desc">
+              El centrocampista canario amplía su contrato y se convierte en imagen oficial del club.
+            </div>
           </div>
-          <a href="#">Seguir</a>
-        </div>
-        <div class="suggestion">
-          <img src="perfil2.jpg" alt="Sugerido 2" />
-          <div>
-            <strong>usuario_2</strong><br />
-            <span>Recomendado</span>
-          </div>
-          <a href="#">Seguir</a>
         </div>
       </div>
-    </aside>
+      <!-- Tarjeta de noticia 2 -->
+      <div class="news-card">
+        <img src="noticia2.jpg" alt="Noticia 2">
+        <div class="news-card-content">
+          <div>
+            <div class="news-card-title">¿Cuándo y dónde ver el Barça - Rayo?</div>
+            <div class="news-card-desc">
+              Toda la información del próximo partido de liga, horarios y canales de TV.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tarjeta de noticia 3 -->
+      <div class="news-card">
+        <img src="noticia3.jpg" alt="Noticia 3">
+        <div class="news-card-content">
+          <div>
+            <div class="news-card-title">Entrenamientos con nuevas caras</div>
+            <div class="news-card-desc">
+              El cuerpo técnico prueba nuevas estrategias de cara a la temporada.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Añade más tarjetas de noticia si lo deseas -->
+    </div>
   </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Sobre el Club</h4>
+        <ul>
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Instalaciones</a></li>
+          <li><a href="#">Patrocinadores</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces Útiles</h4>
+        <ul>
+          <li><a href="#">Tienda Oficial</a></li>
+          <li><a href="#">Entradas</a></li>
+          <li><a href="#">Socios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#">Atención al Cliente</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Oficinas</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
