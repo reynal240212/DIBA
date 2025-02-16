@@ -2,30 +2,28 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>DIBA FBC</title>
+  <title>DIBA FBC - Estilo Barça Adaptado</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Enlace a Font Awesome (si no lo tienes cargado ya) -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-
+  <!-- Íconos de Font Awesome (opcional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     /* ================================
-       VARIABLES DE COLOR
-       (Negro y amarillo estilo "Barça" adaptado)
+       VARIABLES DE COLOR (Negro/Amarillo)
     =================================*/
     :root {
-      --negro: #000000;
-      --amarillo: #fffb00;       /* Amarillo intenso */
-      --amarillo-sec: #edbb00;   /* Otro tono dorado */
+      --negro: #000;
+      --amarillo: #fffb00;     /* Amarillo intenso */
+      --amarillo-hover: #ffd800; /* Amarillo al pasar el ratón */
+      --blanco: #fff;
       --gris-oscuro: #222;
-      --blanco: #ffffff;
-      --texto-claro: #ffffff;    /* Texto claro (blanco) */
-      --texto-oscuro: #000000;   /* Texto oscuro (negro) */
+      --texto-claro: #fff;
+      --texto-oscuro: #000;
     }
 
     /* ================================
@@ -48,128 +46,91 @@
     }
 
     /* ================================
-       CABECERA (HEADER)
+       ENCABEZADO
     =================================*/
     header {
-      width: 100%;
       display: flex;
       flex-direction: column;
+      width: 100%;
     }
 
-      /* Barra superior mejorada */
-  .top-bar {
-    /* Degradado de izquierda a derecha */
-    background: linear-gradient(90deg, #000 0%, #333 100%);
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 2rem;
-    font-size: 0.9rem;
-  }
-  .top-bar-left, .top-bar-right {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem; /* Espacio entre elementos */
-  }
-  .top-bar-left span,
-  .top-bar-right a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* Espacio entre icono y texto */
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  .top-bar-right a:hover {
-    text-decoration: underline;
-  }
-  /* Opcional: Ajustar iconos */
-  .top-bar-left i, .top-bar-right i {
-    font-size: 1rem;
-  }
-    /* Barra principal de navegación */
-    .main-nav {
-      background-color: var(--amarillo); /* Amarillo intenso */
+    /* Barra superior (logo + menú) */
+    .top-bar {
+      background-color: var(--negro);
+      color: var(--blanco);
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 2rem;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      width: 50px;
+      height: auto;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: var(--blanco);
       font-weight: bold;
-      font-size: 1rem;
-      color: var(--texto-oscuro); /* Texto oscuro sobre fondo amarillo */
     }
-    .main-nav a {
-      color: var(--texto-oscuro);
+    .nav-links a:hover {
+      color: var(--amarillo-hover);
     }
-    .main-nav a:hover {
-      color: var(--amarillo-sec); /* Tono dorado al pasar el ratón */
+    .top-bar-right {
+      display: flex;
+      gap: 1rem;
+    }
+    .top-bar-right a {
+      color: var(--blanco);
+    }
+    .top-bar-right a:hover {
+      text-decoration: underline;
     }
 
     /* ================================
-       HERO PRINCIPAL
+       HERO
     =================================*/
     .hero {
       position: relative;
       width: 100%;
       height: 400px;
-      background: url('fondo.jpg') center center no-repeat;
+      background: url("fondo.jpg") center center no-repeat;
       background-size: cover;
+      overflow: hidden;
       display: flex;
       align-items: flex-end;
       justify-content: flex-start;
-      color: var(--blanco);
-      overflow: hidden;
     }
-    /* Degradado semitransparente existente (puedes mantenerlo o eliminarlo) */
+    /* Degradado en la parte inferior */
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-
-        rgba(0, 0, 0, 0.7) 30%
-      );
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
     }
     .hero-content {
       position: relative;
       z-index: 1;
-      padding: 1.5rem 2rem;
       max-width: 1200px;
+      margin: 0 2rem 2rem 2rem; /* Espaciado inferior */
+      color: var(--blanco);
     }
-    .hero-content h2 {
-      font-size: 2rem;
+    .hero-content h1 {
+      font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      font-weight: bold;
     }
-
-    /* ================================
-       CAPA GRADIENT ADICIONAL (OPCIONAL)
-    =================================*/
-    .hero-tile__gradient {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      top: 70%;
-      background: linear-gradient(0deg, #008e1f 10rem, rgba(8, 14, 31, 0));
-    }
-    @media (min-width: 1025px) {
-      .hero.is-active .hero-tile__gradient {
-        top: 50%;
-      }
-    }
-    @media (max-width: 1025px) {
-      .hero-tile__gradient {
-        top: 40%;
-        background: linear-gradient(
-          180deg,
-          rgba(8, 14, 31, 0),
-          #008e1f 60%,
-          #008e1f
-        );
-      }
+    .hero-content p {
+      font-size: 1rem;
+      max-width: 600px;
+      line-height: 1.4;
     }
 
     /* ================================
@@ -180,10 +141,11 @@
       margin: 2rem auto;
       padding: 0 1rem;
     }
-    .news-section h3 {
-      font-size: 1.5rem;
+    .news-section h2 {
+      font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--amarillo-sec);
+      color: var(--amarillo);
+      font-weight: bold;
     }
     .news-grid {
       display: grid;
@@ -204,16 +166,14 @@
     }
     .news-card-content {
       padding: 1rem;
-      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 0.5rem;
+      color: var(--blanco);
     }
     .news-card-title {
       font-size: 1rem;
       font-weight: bold;
-      margin-bottom: 0.5rem;
-      color: var(--blanco);
     }
     .news-card-desc {
       font-size: 0.9rem;
@@ -221,13 +181,13 @@
     }
 
     /* ================================
-       PIE DE PÁGINA (FOOTER)
+       PIE DE PÁGINA
     =================================*/
     footer {
       background-color: var(--negro);
-      padding: 2rem 1rem;
       color: var(--blanco);
       margin-top: 2rem;
+      padding: 2rem 1rem;
     }
     .footer-content {
       max-width: 1200px;
@@ -241,7 +201,8 @@
     }
     .footer-col h4 {
       margin-bottom: 0.5rem;
-      color: var(--amarillo-sec);
+      color: var(--amarillo);
+      font-weight: bold;
     }
     .footer-col ul {
       list-style: none;
@@ -266,12 +227,15 @@
       .hero {
         height: 300px;
       }
-      .hero-content h2 {
-        font-size: 1.5rem;
+      .hero-content h1 {
+        font-size: 1.8rem;
       }
-      .main-nav {
+      .top-bar {
         flex-wrap: wrap;
-        gap: 1rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
       .footer-content {
         flex-direction: column;
@@ -281,106 +245,78 @@
 </head>
 <body>
 
- <!-- CABECERA -->
- <header>
-  <!-- Barra superior -->
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <span>Idioma: Español</span>
+  <!-- CABECERA -->
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <!-- Logo del club -->
+        <img src="escudo.jpg" alt="Escudo DIBA FBC" class="logo">
+        <!-- Navegación principal -->
+        <div class="nav-links">
+          <a href="#"><i class="fa fa-home"></i> Inicio</a>
+          <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
+          <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+          <a href="#"><i class="fa fa-users"></i> Jugadores</a>
+          <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
+          <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
+          <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <a href="#">Registrarse</a>
+        <a href="#">Iniciar Sesión</a>
+      </div>
     </div>
-    <div class="top-bar-right">
-      <a href="#">Registrarse</a>
-      <a href="#">Iniciar Sesión</a>
-    </div>
-  </div>
-    <!-- Navegación principal -->
-    <nav class="main-nav">
-      <a href="#"><i class="fa fa-home"></i> Inicio</a>
-      <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
-      <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-      <a href="#"><i class="fa fa-users"></i> Jugadores</a>
-      <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
-      <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
-      <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
-      <a href="#">Más</a>
-    </nav>
   </header>
 
-  <!-- HERO PRINCIPAL -->
+  <!-- HERO -->
   <section class="hero">
-    <!-- Capa extra (opcional) -->
-    <!-- <div class="hero-tile__gradient"></div> -->
     <div class="hero-content">
-      <h2>Bienvenido a DIBA FBC</h2>
-      <p>Últimas noticias del club, partidos y más...</p>
+      <h1>"DEBEMOS CENTRARNOS EN NOSOTROS"</h1>
+      <p>
+        Últimas noticias del club, partidos, fichajes y más...  
+        Descubre todo lo que DIBA FBC tiene preparado para ti.
+      </p>
     </div>
   </section>
 
-  <!-- SECCIÓN DE PUBLICACIONES DESTACADAS -->
+  <!-- SECCIÓN DE NOTICIAS -->
   <div class="news-section">
-    <h3>Publicaciones Destacadas</h3>
+    <h2>Noticias Destacadas</h2>
     <div class="news-grid">
-      <!-- Publicación de Instagram -->
+      <!-- Noticia 1 -->
       <div class="news-card">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"
-          style="background:#FFF; border:0; border-radius:3px;
-                 box-shadow:0 0 1px 0 rgba(0,0,0,0.5),
-                 0 1px 10px 0 rgba(0,0,0,0.15);
-                 margin:1px; max-width:540px; min-width:326px;
-                 padding:0; width:calc(100% - 2px);">
-          <div style="padding:16px;">
-            <a href="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-               target="_blank">
-              Ver publicación en Instagram
-            </a>
+        <img src="noticia1.jpg" alt="Noticia 1">
+        <div class="news-card-content">
+          <div class="news-card-title">Gran triunfo en la liga</div>
+          <div class="news-card-desc">
+            El equipo sumó una nueva victoria que lo acerca a la punta de la tabla.
           </div>
-        </blockquote>
-      </div>
-      <!-- Publicación de Facebook 1 -->
-      <div class="news-card">
-        <div class="fb-post"
-             data-href="https://www.facebook.com/photo?fbid=572021456177873&set=a.445633632149990"
-             data-width="500"
-             data-colorscheme="dark">
         </div>
       </div>
-      <!-- Publicación de Facebook 2 -->
+      <!-- Noticia 2 -->
       <div class="news-card">
-        <div class="fb-post"
-             data-href="https://www.facebook.com/photo/?fbid=616806555032696&set=a.445633632149990"
-             data-width="500"
-             data-colorscheme="dark">
+        <img src="noticia2.jpg" alt="Noticia 2">
+        <div class="news-card-content">
+          <div class="news-card-title">Fichaje Estelar</div>
+          <div class="news-card-desc">
+            DIBA FBC confirma la llegada de un refuerzo de lujo para la próxima temporada.
+          </div>
         </div>
       </div>
-      <!-- Publicación de Facebook 3 -->
+      <!-- Noticia 3 -->
       <div class="news-card">
-        <div class="fb-post"
-             data-href="https://www.facebook.com/photo?fbid=620929524620399&set=a.445633632149990"
-             data-width="500"
-             data-colorscheme="dark">
+        <img src="noticia3.jpg" alt="Noticia 3">
+        <div class="news-card-content">
+          <div class="news-card-title">Eventos Solidarios</div>
+          <div class="news-card-desc">
+            El club organiza una jornada de apoyo a la comunidad y recauda fondos.
+          </div>
         </div>
       </div>
-      <!-- Publicación de Facebook 4 -->
-      <div class="news-card">
-        <div class="fb-post"
-             data-href="https://www.facebook.com/photo?fbid=548506455196040&set=a.445633632149990"
-             data-width="500"
-             data-colorscheme="dark">
-        </div>
-      </div>
+      <!-- Agrega más .news-card si lo deseas -->
     </div>
   </div>
-
-  <!-- Script de Instagram -->
-  <script async src="//www.instagram.com/embed.js"></script>
-
-  <!-- Script de Facebook (SDK) -->
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0">
-  </script>
 
   <!-- PIE DE PÁGINA -->
   <footer>
@@ -414,11 +350,9 @@
       <div class="footer-col">
         <h4>Contacto</h4>
         <ul>
-          <!--
           <li><a href="#">Atención al Cliente</a></li>
           <li><a href="#">Prensa</a></li>
           <li><a href="#">Oficinas</a></li>
-          -->
         </ul>
       </div>
     </div>
