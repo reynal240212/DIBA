@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>DIBA FBC - Estilo Barça</title>
+  <title>DIBA FBC -</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Fuente de íconos (opcional) -->
   <link
@@ -90,7 +90,10 @@
       color: var(--amarillo-);
     }
 
-    .hero {
+  /* ================================
+   HERO BASE
+================================ */
+.hero {
   position: relative;
   width: 100%;
   height: 400px;
@@ -103,27 +106,66 @@
   overflow: hidden;
 }
 
-    /* Capa semitransparente para resaltar texto */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 30%,
-        rgba(0, 0, 0, 0.7) 100%
-      );
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 1.5rem 2rem;
-      max-width: 1200px;
-    }
-    .hero-content h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
+/* Degradado semitransparente existente (puedes mantenerlo o eliminarlo) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+/* ================================
+   NUEVA CAPA GRADIENT (REPOSICIONABLE)
+================================ */
+.hero-tile__gradient {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Posición y degradado por defecto */
+  top: 70%;
+  background: linear-gradient(0deg, #008e1f 10rem, rgba(8, 14, 31, 0));
+}
+
+/* Para pantallas grandes con .hero.is-active */
+@media (min-width: 1025px) {
+  .hero.is-active .hero-tile__gradient {
+    top: 50%;
+  }
+}
+
+/* Para pantallas <= 1025px */
+@media (max-width: 1025px) {
+  .hero-tile__gradient {
+    top: 40%;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 14, 31, 0),
+      #008e1f 60%,
+      #008e1f
+    );
+  }
+}
+
+/* ================================
+   CONTENIDO DE LA HERO
+================================ */
+.hero-content {
+  position: relative;
+  z-index: 1;     /* Para que el texto quede por encima de los degradados */
+  padding: 1.5rem 2rem;
+  max-width: 1200px;
+}
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
 
     /* ================================
        SECCIÓN DE NOTICIAS DESTACADAS
