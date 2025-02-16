@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>DIBA FBC -</title>
+  <title>DIBA FBC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Fuente de íconos (opcional) -->
+  <!-- Íconos de Font Awesome (opcional) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -14,16 +14,17 @@
   />
   <style>
     /* ================================
-       VARIABLES DE COLOR (Estilo Barça)
+       VARIABLES DE COLOR
+       (Negro y amarillo estilo "Barça" adaptado)
     =================================*/
     :root {
-      --azul-b: #000000;
-      --rojo-: #fffb00;
-      --amarillo-: #edbb00;
+      --negro: #000000;
+      --amarillo: #fffb00;       /* Amarillo intenso */
+      --amarillo-sec: #edbb00;   /* Otro tono dorado */
       --gris-oscuro: #222;
       --blanco: #ffffff;
-      --texto-claro: #000000;
-      --texto-oscuro: #000000;
+      --texto-claro: #ffffff;    /* Texto claro (blanco) */
+      --texto-oscuro: #000000;   /* Texto oscuro (negro) */
     }
 
     /* ================================
@@ -53,9 +54,10 @@
       display: flex;
       flex-direction: column;
     }
+
     /* Barra superior: login, idioma, etc. */
     .top-bar {
-      background-color: var(--azul);
+      background-color: var(--negro);  /* Negro */
       color: var(--blanco);
       display: flex;
       justify-content: space-between;
@@ -63,11 +65,7 @@
       padding: 0.5rem 2rem;
       font-size: 0.9rem;
     }
-    .top-bar-left {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
+    .top-bar-left,
     .top-bar-right {
       display: flex;
       gap: 1rem;
@@ -76,99 +74,93 @@
     .top-bar-right a {
       color: var(--blanco);
     }
+
     /* Barra principal de navegación */
     .main-nav {
-      background-color: var(--rojo);
+      background-color: var(--amarillo); /* Amarillo intenso */
       display: flex;
       justify-content: center;
       gap: 2rem;
       padding: 1rem;
       font-weight: bold;
       font-size: 1rem;
+      color: var(--texto-oscuro); /* Texto oscuro sobre fondo amarillo */
+    }
+    .main-nav a {
+      color: var(--texto-oscuro);
     }
     .main-nav a:hover {
-      color: var(--amarillo-);
+      color: var(--amarillo-sec); /* Tono dorado al pasar el ratón */
     }
 
-  /* ================================
-   HERO BASE
-================================ */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  background: url('fondo.jpg') center center no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  color: var(--blanco);
-  overflow: hidden;
-}
-
-/* Degradado semitransparente existente (puedes mantenerlo o eliminarlo) */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 30%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-}
-
-/* ================================
-   NUEVA CAPA GRADIENT (REPOSICIONABLE)
-================================ */
-.hero-tile__gradient {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  /* Posición y degradado por defecto */
-  top: 70%;
-  background: linear-gradient(0deg, #008e1f 10rem, rgba(8, 14, 31, 0));
-}
-
-/* Para pantallas grandes con .hero.is-active */
-@media (min-width: 1025px) {
-  .hero.is-active .hero-tile__gradient {
-    top: 50%;
-  }
-}
-
-/* Para pantallas <= 1025px */
-@media (max-width: 1025px) {
-  .hero-tile__gradient {
-    top: 40%;
-    background: linear-gradient(
-      180deg,
-      rgba(8, 14, 31, 0),
-      #008e1f 60%,
-      #008e1f
-    );
-  }
-}
-
-/* ================================
-   CONTENIDO DE LA HERO
-================================ */
-.hero-content {
-  position: relative;
-  z-index: 1;     /* Para que el texto quede por encima de los degradados */
-  padding: 1.5rem 2rem;
-  max-width: 1200px;
-}
-.hero-content h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
+    /* ================================
+       HERO PRINCIPAL
+    =================================*/
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: url('fondo.jpg') center center no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      color: var(--blanco);
+      overflow: hidden;
+    }
+    /* Degradado semitransparente existente (puedes mantenerlo o eliminarlo) */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 30%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem 2rem;
+      max-width: 1200px;
+    }
+    .hero-content h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
 
     /* ================================
-       SECCIÓN DE NOTICIAS DESTACADAS
+       CAPA GRADIENT ADICIONAL (OPCIONAL)
+    =================================*/
+    .hero-tile__gradient {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      top: 70%;
+      background: linear-gradient(0deg, #008e1f 10rem, rgba(8, 14, 31, 0));
+    }
+    @media (min-width: 1025px) {
+      .hero.is-active .hero-tile__gradient {
+        top: 50%;
+      }
+    }
+    @media (max-width: 1025px) {
+      .hero-tile__gradient {
+        top: 40%;
+        background: linear-gradient(
+          180deg,
+          rgba(8, 14, 31, 0),
+          #008e1f 60%,
+          #008e1f
+        );
+      }
+    }
+
+    /* ================================
+       SECCIÓN DE NOTICIAS
     =================================*/
     .news-section {
       max-width: 1200px;
@@ -178,7 +170,7 @@
     .news-section h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      color: var(--amarillo);
+      color: var(--amarillo-sec);
     }
     .news-grid {
       display: grid;
@@ -219,7 +211,7 @@
        PIE DE PÁGINA (FOOTER)
     =================================*/
     footer {
-      background-color: var(--azul);
+      background-color: var(--negro);
       padding: 2rem 1rem;
       color: var(--blanco);
       margin-top: 2rem;
@@ -236,7 +228,7 @@
     }
     .footer-col h4 {
       margin-bottom: 0.5rem;
-      color: var(--amarillo);
+      color: var(--amarillo-sec);
     }
     .footer-col ul {
       list-style: none;
@@ -288,86 +280,95 @@
         <a href="#">Iniciar Sesión</a>
       </div>
     </div>
+
     <!-- Navegación principal -->
     <nav class="main-nav">
-        <a href="#"><i class="fa fa-home"></i> Inicio</a>
-        <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
-        <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-        <a href="#"><i class="fa fa-users"></i> Jugadores</a>
-        <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
-        <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
-        <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
+      <a href="#"><i class="fa fa-home"></i> Inicio</a>
+      <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
+      <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+      <a href="#"><i class="fa fa-users"></i> Jugadores</a>
+      <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
+      <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
+      <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
       <a href="#">Más</a>
     </nav>
   </header>
 
   <!-- HERO PRINCIPAL -->
   <section class="hero">
+    <!-- Capa extra (opcional) -->
+    <!-- <div class="hero-tile__gradient"></div> -->
     <div class="hero-content">
-      <h2></h2>
-      <p>
-        Últimas noticias del club, partidos y más...
-      </p>
-    </div>qwezzz
+      <h2>Bienvenido a DIBA FBC</h2>
+      <p>Últimas noticias del club, partidos y más...</p>
+    </div>
   </section>
-<!-- SECCIÓN DE PUBLICACIONES DESTACADAS -->
-<div class="news-section">
-  <h3>Publicaciones Destacadas</h3>
-  <div class="news-grid">
-    <!-- Publicación de Instagram -->
-    <div class="news-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:calc(100% - 2px);">
-        <div style="padding:16px;">
-          <a href="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-            Ver publicación en Instagram
-          </a>
+
+  <!-- SECCIÓN DE PUBLICACIONES DESTACADAS -->
+  <div class="news-section">
+    <h3>Publicaciones Destacadas</h3>
+    <div class="news-grid">
+      <!-- Publicación de Instagram -->
+      <div class="news-card">
+        <blockquote class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+          data-instgrm-version="14"
+          style="background:#FFF; border:0; border-radius:3px;
+                 box-shadow:0 0 1px 0 rgba(0,0,0,0.5),
+                 0 1px 10px 0 rgba(0,0,0,0.15);
+                 margin:1px; max-width:540px; min-width:326px;
+                 padding:0; width:calc(100% - 2px);">
+          <div style="padding:16px;">
+            <a href="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+               target="_blank">
+              Ver publicación en Instagram
+            </a>
+          </div>
+        </blockquote>
+      </div>
+      <!-- Publicación de Facebook 1 -->
+      <div class="news-card">
+        <div class="fb-post"
+             data-href="https://www.facebook.com/photo?fbid=572021456177873&set=a.445633632149990"
+             data-width="500"
+             data-colorscheme="dark">
         </div>
-      </blockquote>
-    </div>
-    <!-- Publicación de Facebook 1 -->
-    <div class="news-card">
-      <div class="fb-post"
-           data-href="https://www.facebook.com/photo?fbid=572021456177873&set=a.445633632149990"
-           data-width="500"
-           data-colorscheme="dark">
       </div>
-    </div>
-    <!-- Publicación de Facebook 2 -->
-    <div class="news-card">
-      <div class="fb-post"
-           data-href="https://www.facebook.com/photo/?fbid=616806555032696&set=a.445633632149990"
-           data-width="500"
-           data-colorscheme="dark">
+      <!-- Publicación de Facebook 2 -->
+      <div class="news-card">
+        <div class="fb-post"
+             data-href="https://www.facebook.com/photo/?fbid=616806555032696&set=a.445633632149990"
+             data-width="500"
+             data-colorscheme="dark">
+        </div>
       </div>
-    </div>
-    <!-- Publicación de Facebook 3 -->
-    <div class="news-card">
-      <div class="fb-post"
-           data-href="https://www.facebook.com/photo?fbid=620929524620399&set=a.445633632149990"
-           data-width="500"
-           data-colorscheme="dark">
+      <!-- Publicación de Facebook 3 -->
+      <div class="news-card">
+        <div class="fb-post"
+             data-href="https://www.facebook.com/photo?fbid=620929524620399&set=a.445633632149990"
+             data-width="500"
+             data-colorscheme="dark">
+        </div>
       </div>
-    </div>
-    <!-- Publicación de Facebook 4 -->
-    <div class="news-card">
-      <div class="fb-post"
-           data-href="https://www.facebook.com/photo?fbid=548506455196040&set=a.445633632149990"
-           data-width="500"
-           data-colorscheme="dark">
+      <!-- Publicación de Facebook 4 -->
+      <div class="news-card">
+        <div class="fb-post"
+             data-href="https://www.facebook.com/photo?fbid=548506455196040&set=a.445633632149990"
+             data-width="500"
+             data-colorscheme="dark">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Carga del script de inserción de Instagram -->
-<script async src="//www.instagram.com/embed.js"></script>
+  <!-- Script de Instagram -->
+  <script async src="//www.instagram.com/embed.js"></script>
 
-<!-- Carga del Facebook SDK (colócalo una sola vez) -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0">
-</script>
-
+  <!-- Script de Facebook (SDK) -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0">
+  </script>
 
   <!-- PIE DE PÁGINA -->
   <footer>
@@ -376,35 +377,39 @@
         <h4>Sobre el Club</h4>
         <ul>
           <li><a href="#">Historia</a></li>
-  
           <li><a href="#">Patrocinadores</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Enlaces Útiles</h4>
         <ul>
-          <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL" target="_blank" aria-label="Facebook">
-            <i class="fab fa-facebook"></i> Facebook
-          </a>
-        </li>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/diba_fbc_oficial" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i> Instagram
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
+               target="_blank"
+               aria-label="Facebook">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/diba_fbc_oficial"
+               target="_blank"
+               aria-label="Instagram">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
         <ul>
-       <!--
-<li><a href="#">Atención al Cliente</a></li>
-<li><a href="#">Prensa</a></li>
-<li><a href="#">Oficinas</a></li>
--->
+          <!--
+          <li><a href="#">Atención al Cliente</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Oficinas</a></li>
+          -->
         </ul>
       </div>
     </div>
   </footer>
-
 </body>
 </html>
