@@ -85,16 +85,8 @@ header {
 
 /* Logo un poco más grande (opcional) */
 .logo {
-  width: 60px; /* Ajusta a tu gusto */
+  width: 100px; /* Ajusta a tu gusto */
   height: auto;
-}
-
-/* Menú más grande y con mayor separación */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 30px;            /* Más espacio entre enlaces */
-  font-size: 1.1rem;    /* Tamaño de letra mayor */
 }
 
 nav ul li a {
