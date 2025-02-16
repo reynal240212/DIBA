@@ -17,9 +17,9 @@
        VARIABLES DE COLOR (Estilo Barça)
     =================================*/
     :root {
-      --azul-barca: #000000;
-      --rojo-barca: #fffb00;
-      --amarillo-barca: #edbb00;
+      --azul-b: #000000;
+      --rojo-: #fffb00;
+      --amarillo-: #edbb00;
       --gris-oscuro: #222;
       --blanco: #ffffff;
       --texto-claro: #000000;
@@ -55,7 +55,7 @@
     }
     /* Barra superior: login, idioma, etc. */
     .top-bar {
-      background-color: var(--azul-barca);
+      background-color: var(--azul);
       color: var(--blanco);
       display: flex;
       justify-content: space-between;
@@ -78,7 +78,7 @@
     }
     /* Barra principal de navegación */
     .main-nav {
-      background-color: var(--rojo-barca);
+      background-color: var(--rojo);
       display: flex;
       justify-content: center;
       gap: 2rem;
@@ -87,7 +87,7 @@
       font-size: 1rem;
     }
     .main-nav a:hover {
-      color: var(--amarillo-barca);
+      color: var(--amarillo-);
     }
 
     /* ================================
@@ -138,7 +138,7 @@
     .news-section h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      color: var(--amarillo-barca);
+      color: var(--amarillo);
     }
     .news-grid {
       display: grid;
@@ -179,7 +179,7 @@
        PIE DE PÁGINA (FOOTER)
     =================================*/
     footer {
-      background-color: var(--azul-barca);
+      background-color: var(--azul);
       padding: 2rem 1rem;
       color: var(--blanco);
       margin-top: 2rem;
@@ -196,7 +196,7 @@
     }
     .footer-col h4 {
       margin-bottom: 0.5rem;
-      color: var(--amarillo-barca);
+      color: var(--amarillo);
     }
     .footer-col ul {
       list-style: none;
@@ -250,13 +250,13 @@
     </div>
     <!-- Navegación principal -->
     <nav class="main-nav">
-      <a href="#">Fútbol</a>
-      <a href="#">Femenino</a>
-      <a href="#">Barça B</a>
-      <a href="#">Barça Genuine</a>
-      <a href="#">Entradas</a>
-      <a href="#">Barça TV+</a>
-      <a href="#">Socios</a>
+        <a href="#"><i class="fa fa-home"></i> Inicio</a>
+        <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
+        <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+        <a href="#"><i class="fa fa-users"></i> Jugadores</a>
+        <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
+        <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
+        <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
       <a href="#">Más</a>
     </nav>
   </header>
