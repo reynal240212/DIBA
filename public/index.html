@@ -2,255 +2,380 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>DIBA FBC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Fuente de íconos (opcional) -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Three.js y OrbitControls -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r135/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.135.0/examples/js/controls/OrbitControls.js"></script>
+  <title>DIBA FBC - Estilo Instagram</title>
+  <!-- Íconos de Font Awesome (opcional para íconos en menú) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* =============================
+       RESET Y VARIABLES
+    ============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --color-primario: #000;     /* Negro */
+      --color-secundario: #ffd700;/* Dorado */
+      --color-texto: #fff;        /* Texto blanco */
+    }
+
+    /* =============================
+       BODY - Fondo animado
+    ============================== */
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--color-texto);
+      /* Fondo animado con gradiente */
+      background: linear-gradient(-45deg, #f8aa00, #000, #ffd700, #000);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* =============================
+       LAYOUT PRINCIPAL
+    ============================== */
+    .container {
+      display: grid;
+      grid-template-columns: 250px 1fr 300px; /* Barra izq - contenido - barra der */
+      gap: 20px;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh; /* Para ocupar la pantalla completa */
+    }
+
+    /* =============================
+       BARRA LATERAL IZQUIERDA
+    ============================== */
+    .sidebar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Logo DIBA */
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Menú principal */
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .nav-links a {
+      color: var(--color-texto);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      font-weight: bold;
+    }
+    .nav-links a:hover {
+      color: #bbb;
+    }
+
+    /* Botón Acceder (opcional) */
+    .btn-acceder {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: #fff;
+      color: #000;
+      border: 2px solid #000;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .btn-acceder:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* =============================
+       SECCIÓN CENTRAL (FEED)
+    ============================== */
+    .feed {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Hero o portada */
+    .hero {
+      width: 100%;
+      height: 300px;
+      background: url("fondo.jpg") center center no-repeat;
+      background-size: cover;
+      position: relative;
+      color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    /* Bloques de accesos directos */
+    .access-blocks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    .access-block {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: var(--color-texto);
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border: 2px solid var(--color-secundario);
+    }
+    .access-block:hover {
+      background-color: var(--color-secundario);
+      color: #000;
+      transform: translateY(-2px);
+    }
+
+    /* Ejemplo de una sección (Noticias) */
+    section {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 20px;
+      color: #fff;
+    }
+    section h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: var(--color-secundario);
+    }
+
+    /* =============================
+       BARRA LATERAL DERECHA
+    ============================== */
+    .sidebar-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Ejemplo: atajo de perfil y sugerencias */
+    .profile-shortcut,
+    .suggestions {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .profile-shortcut {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .profile-shortcut img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .suggestions h3 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .suggestion {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .suggestion img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .suggestion a {
+      margin-left: auto;
+      text-decoration: none;
+      color: #4e9ef7;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* =============================
+       MEDIA QUERIES
+    ============================== */
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 80px 1fr 250px; /* Ajusta anchos */
+      }
+      .logo {
+        width: 50px;
+      }
+    }
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 80px 1fr; /* Ocultamos barra derecha */
+      }
+      .sidebar-right {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        grid-template-columns: 1fr; /* Una sola columna */
+      }
+      .sidebar-left {
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+      }
+      .nav-links {
+        flex-direction: row;
+        gap: 10px;
+      }
+      .btn-acceder {
+        flex-shrink: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Canvas de Three.js -->
-  <canvas id="c"></canvas>
+  <div class="container">
+    <!-- Barra lateral izquierda -->
+    <aside class="sidebar-left">
+      <!-- Logo DIBA -->
+      <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo" />
 
-  <!-- Encabezado con navegación interna -->
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
-        <nav>
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="documentos.html">Gestión Documental</a></li>
-            <li><a href="ficha.html">Ficha Técnica</a></li>
-            <li><a href="jugadores.html">Jugadores</a></li>
-            <li><a href="partidos.html">Partidos</a></li>
-            <li><a href="noticias.html">Noticias</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-        </nav>
+      <!-- Menú principal -->
+      <div class="nav-links">
+        <a href="#"><i class="fa fa-home"></i> Inicio</a>
+        <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
+        <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+        <a href="#"><i class="fa fa-users"></i> Jugadores</a>
+        <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
+        <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
+        <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
       </div>
-      <div class="header-right">
-        <!-- Barra de búsqueda -->
-        <div class="search-bar">
-          <input type="text" placeholder="Buscar en la página..." />
-          <i class="fas fa-search"></i>
-          <!-- Botón Acceder con ícono de usuario -->
-  <button class="btn-acceder">
-    <i class="fa fa-user"></i>
-    Acceder
-  </button>
+
+      <!-- Botón Acceder (opcional) -->
+      <a href="#" class="btn-acceder">
+        <i class="fa fa-user"></i>
+        Acceder
+      </a>
+    </aside>
+
+    <!-- Sección central (Feed) -->
+    <main class="feed">
+      <!-- Hero / Portada -->
+      <div class="hero">
+        <div class="hero-content">
+          <h1>DIBA FBC</h1>
+          <p>Gestión y Administración del Club</p>
         </div>
       </div>
-    </div>
-  </header>
 
-  <!-- Sección Inicio (Hero) -->
-  <section id="inicio">
-    <div class="hero">
-      <div class="hero-content">
-        <h1>DIBA FBC</h1>
-        <p>Gestión y Administración del Club</p>
+      <!-- Bloques de accesos directos -->
+      <div class="access-blocks">
+        <a href="#" class="access-block">Noticias</a>
       </div>
-    </div>
-  </section>
 
-  <!-- Bloques de acceso directo -->
-  <div class="access-blocks">
-    <a href="#noticias" class="access-block">Noticias</a>
-    <a href="#documentos" class="access-block">Reglamento</a>
-    <a href="#jugadores" class="access-block">Tabla de Posiciones</a>
-    <a href="#partidos" class="access-block">Fixture</a>
-  </div>
+      <!-- Ejemplo de secciones -->
+      <section id="noticias">
+        <h2>Noticias</h2>
+        <p>Mantente informado con las últimas noticias del club.</p>
+      </section>
 
-  <!-- Sección Noticias -->
-  <section id="noticias">
-    <h2>Noticias</h2>
-    <p>Mantente informado con las últimas noticias del club.</p>
-  </section>
-  <!-- Sección Galería Deportiva (opcional) -->
-  <section id="galeria">
-    <h2>Galería</h2>
-      <!-- Ejemplo de embed (por ejemplo, de Instagram) -->
-      <div class="gallery-item">
-        <blockquote
-          class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_embed"
-          data-instgrm-version="14"
-          style="background: transparent; border:0; border-radius:3px; 
-                 box-shadow:0 0 1px 0 rgba(0,0,0,0.5),
-                 0 1px 10px 0 rgba(0,0,0,0.15);
-                 margin:1px; max-width:540px; min-width:326px; 
-                 padding:0; width:calc(100% - 2px);"
-        >
-          <div style="padding:16px;">
-            <p>Publicación de Instagram</p>
+      <section id="jugadores">
+        <h2>Jugadores</h2>
+        <p>Consulta la lista de jugadores y sus perfiles.</p>
+      </section>
+
+      <section id="partidos">
+        <h2>Partidos</h2>
+        <p>Consulta los próximos encuentros y resultados.</p>
+      </section>
+
+      <!-- Agrega más secciones o contenido que necesites -->
+    </main>
+
+    <!-- Barra lateral derecha (Sugerencias, Perfil, etc.) -->
+    <aside class="sidebar-right">
+      <div class="profile-shortcut">
+        <img src="mi_perfil.jpg" alt="Mi perfil" />
+        <div>
+          <strong>MiUsuario</strong><br />
+          <span>Mi Nombre</span>
+        </div>
+      </div>
+      <div class="suggestions">
+        <h3>Sugerencias</h3>
+        <div class="suggestion">
+          <img src="perfil1.jpg" alt="Sugerido 1" />
+          <div>
+            <strong>usuario_1</strong><br />
+            <span>Te sigue</span>
           </div>
-        </blockquote>
+          <a href="#">Seguir</a>
+        </div>
+        <div class="suggestion">
+          <img src="perfil2.jpg" alt="Sugerido 2" />
+          <div>
+            <strong>usuario_2</strong><br />
+            <span>Recomendado</span>
+          </div>
+          <a href="#">Seguir</a>
+        </div>
       </div>
-    </div>
-  </section>
-  <script async src="//www.instagram.com/embed.js"></script>
-
-  <!-- Redes sociales -->
-  <div class="social-links">
-    <a href="https://www.facebook.com/dibafbc" aria-label="Facebook">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <a href="https://www.twitter.com/dibafbc" aria-label="Twitter">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://www.instagram.com/diba_fbc_oficial" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
+    </aside>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-  </footer>
-
-  <!-- Script de Three.js y animación -->
-  <script>
-    const particleVertex = `
-      attribute float scale;
-      uniform float uTime;
-
-      void main() {
-        vec3 p = position;
-        float s = scale;
-
-        p.y += (sin(p.x + uTime) * 0.5) + (cos(p.y + uTime) * 0.1) * 2.0;
-        p.x += (sin(p.y + uTime) * 0.5);
-        s += (sin(p.x + uTime) * 0.5) + (cos(p.y + uTime) * 0.1) * 2.0;
-
-        vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
-        gl_PointSize = s * 15.0 * (1.0 / -mvPosition.z);
-        gl_Position = projectionMatrix * mvPosition;
-      }
-    `;
-
-    const particleFragment = `
-      void main() {
-        gl_FragColor = vec4(1.0, 1.0, 1.0, 0.5);
-      }
-    `;
-
-    function lerp(start, end, amount) {
-      return (1 - amount) * start + amount * end;
-    }
-
-    class Canvas {
-      constructor() {
-        this.config = {
-          canvas: document.querySelector('#c'),
-          winWidth: window.innerWidth,
-          winHeight: window.innerHeight,
-          aspectRatio: window.innerWidth / window.innerHeight,
-          mouse: new THREE.Vector2(-10, -10)
-        };
-
-        this.onResize = this.onResize.bind(this);
-        this.onMouseMove = this.onMouseMove.bind(this);
-        this.animate = this.animate.bind(this);
-
-        this.initCamera();
-        this.initScene();
-        this.initRenderer();
-        this.initParticles();
-
-        this.bindEvents();
-        this.animate();
-      }
-
-      bindEvents() {
-        window.addEventListener('resize', this.onResize);
-        window.addEventListener('mousemove', this.onMouseMove, false);
-      }
-
-      initCamera() {
-        this.camera = new THREE.PerspectiveCamera(75, this.config.aspectRatio, 0.01, 1000);
-        this.camera.position.set(0, 6, 5);
-      }
-
-      initScene() {
-        this.scene = new THREE.Scene();
-      }
-
-      initRenderer() {
-        this.renderer = new THREE.WebGLRenderer({
-          canvas: this.config.canvas,
-          antialias: true,
-          alpha: true
-        });
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.renderer.setSize(this.config.winWidth, this.config.winHeight);
-      }
-
-      initParticles() {
-        const gap = 0.3;
-        const amountX = 200;
-        const amountY = 200;
-        const particleNum = amountX * amountY;
-        const particlePositions = new Float32Array(particleNum * 3);
-        const particleScales = new Float32Array(particleNum);
-        let i = 0;
-        let j = 0;
-
-        for (let ix = 0; ix < amountX; ix++) {
-          for (let iy = 0; iy < amountY; iy++) {
-            particlePositions[i] = ix * gap - ((amountX * gap) / 2);
-            particlePositions[i + 1] = 0;
-            particlePositions[i + 2] = iy * gap - ((amountX * gap) / 2);
-            particleScales[j] = 1;
-            i += 3;
-            j++;
-          }
-        }
-
-        this.particleGeometry = new THREE.BufferGeometry();
-        this.particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
-        this.particleGeometry.setAttribute('scale', new THREE.BufferAttribute(particleScales, 1));
-
-        this.particleMaterial = new THREE.ShaderMaterial({
-          transparent: true,
-          vertexShader: particleVertex,
-          fragmentShader: particleFragment,
-          uniforms: {
-            uTime: { type: 'f', value: 0 }
-          }
-        });
-        this.particles = new THREE.Points(this.particleGeometry, this.particleMaterial);
-        this.scene.add(this.particles);
-      }
-
-      render() {
-        this.camera.lookAt(this.scene.position);
-        this.renderer.render(this.scene, this.camera);
-      }
-
-      animate() {
-        this.particleMaterial.uniforms.uTime.value += 0.05;
-        requestAnimationFrame(this.animate);
-        this.render();
-      }
-
-      onMouseMove(e) {
-        this.config.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-        this.config.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-      }
-
-      onResize() {
-        this.config.winWidth = window.innerWidth;
-        this.config.winHeight = window.innerHeight;
-        this.camera.aspect = this.config.winWidth / this.config.winHeight;
-        this.camera.updateProjectionMatrix();
-        this.renderer.setSize(this.config.winWidth, this.config.winHeight);
-      }
-    }
-
-    new Canvas();
-  </script>
 </body>
 </html>
