@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <title>DIBA FBC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Íconos de Font Awesome (opcional) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+<!-- Enlace a Font Awesome (si no lo tienes cargado ya) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
   <style>
     /* ================================
        VARIABLES DE COLOR
@@ -55,26 +56,38 @@
       flex-direction: column;
     }
 
-    /* Barra superior: login, idioma, etc. */
-    .top-bar {
-      background-color: var(--negro);  /* Negro */
-      color: var(--blanco);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 2rem;
-      font-size: 0.9rem;
-    }
-    .top-bar-left,
-    .top-bar-right {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    .top-bar-right a {
-      color: var(--blanco);
-    }
-
+      /* Barra superior mejorada */
+  .top-bar {
+    /* Degradado de izquierda a derecha */
+    background: linear-gradient(90deg, #000 0%, #333 100%);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    font-size: 0.9rem;
+  }
+  .top-bar-left, .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre elementos */
+  }
+  .top-bar-left span,
+  .top-bar-right a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .top-bar-right a:hover {
+    text-decoration: underline;
+  }
+  /* Opcional: Ajustar iconos */
+  .top-bar-left i, .top-bar-right i {
+    font-size: 1rem;
+  }
     /* Barra principal de navegación */
     .main-nav {
       background-color: var(--amarillo); /* Amarillo intenso */
@@ -268,19 +281,18 @@
 </head>
 <body>
 
-  <!-- CABECERA -->
-  <header>
-    <!-- Barra superior -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <span>Idioma: Español</span>
-      </div>
-      <div class="top-bar-right">
-        <a href="#">Registrarse</a>
-        <a href="#">Iniciar Sesión</a>
-      </div>
+ <!-- CABECERA -->
+ <header>
+  <!-- Barra superior -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span>Idioma: Español</span>
     </div>
-
+    <div class="top-bar-right">
+      <a href="#">Registrarse</a>
+      <a href="#">Iniciar Sesión</a>
+    </div>
+  </div>
     <!-- Navegación principal -->
     <nav class="main-nav">
       <a href="#"><i class="fa fa-home"></i> Inicio</a>
