@@ -822,6 +822,33 @@
       });
     });
   </script>
+  // Ejemplo de JavaScript para abrir un modal con los detalles
+  const playerCards = document.querySelectorAll('.player-card');
+  playerCards.forEach(card => {
+      card.addEventListener('click', () => {
+          // Obtener los detalles del jugador
+          const playerName = card.querySelector('.player-name').textContent;
+          const playerDetails = card.querySelector('.player-details').innerHTML;
+  
+          // Mostrar los detalles en un modal
+          const modal = document.createElement('div');
+          modal.classList.add('modal');
+          modal.innerHTML = `
+              <div class="modal-content">
+                  <span class="close-button">&times;</span>
+                  <h2><span class="math-inline">\{playerName\}</h2\></1\>
+  <ul\></span>{playerDetails}</ul>
+              </div>
+          `;
+          document.body.appendChild(modal);
+  
+          // Cerrar el modal al hacer clic en la "x"
+          const closeButton = modal.querySelector('.close-button');
+          closeButton.addEventListener('click', () => {
+              document.body.removeChild(modal);
+          });
+      });
+  });
 
   <!-- Botones para seleccionar categoría (duplicados al final, si lo deseas eliminar, ya que los tenemos arriba) -->
   <div class="category-buttons" style="text-align: center; margin-top: 2rem;">
