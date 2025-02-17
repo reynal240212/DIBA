@@ -51,54 +51,66 @@
 
     /* ================================
        ENCABEZADO
-    =================================*/
-    header {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
+================================= */
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-    /* Barra superior (logo + menú) */
-    .top-bar {
+/* Barra superior (logo + menú) */
+.top-bar {
   background-color: black; /* Fondo negro */
   color: yellow; /* Texto amarillo */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 2rem;
-  font-weight: bold; /* Para que el texto resalte más */
+  font-weight: bold;
+  border-bottom: 3px solid #ffcc00; /* Línea inferior en amarillo */
 }
 
-    .top-bar-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .logo {
-      width: 50px;
-      height: auto;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-links a {
-      color: var(--blanco);
-      font-weight: bold;
-    }
-    .nav-links a:hover {
-      color: var(--amarillo-hover);
-    }
-    .top-bar-right {
-      display: flex;
-      gap: 1rem;
-    }
-    .top-bar-right a {
-      color: var(--blanco);
-    }
-    .top-bar-right a:hover {
-      text-decoration: underline;
-    }
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: yellow; /* Amarillo para los enlaces */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffcc00; /* Amarillo más claro al pasar el cursor */
+}
+
+.top-bar-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.top-bar-right a {
+  color: yellow;
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+.top-bar-right a:hover {
+  text-decoration: underline;
+}
 
     /* ================================
        HERO
