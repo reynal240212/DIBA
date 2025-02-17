@@ -4,23 +4,14 @@
   <meta charset="UTF-8">
   <title>Jugadores por Categoría - DIBA FBC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- HEADER -->
-  <header>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <!-- LOGO DEL CLUB -->
-        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo" />
-        <!-- NAVEGACIÓN PRINCIPAL -->
-        <div class="nav-links">
-          <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-          <a href="documentos.html"><i class="fa fa-file"></i> Gestión Documental</a>
-          <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-          <a href="jugadores.html"><i class="fa fa-users"></i> Jugadores</a>
-          <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-          <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
-          <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-        </div>
-      </div>
+  <!-- Íconos de Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     :root {
       --azul: #003399;
@@ -43,44 +34,35 @@
       margin-bottom: 1rem;
       color: var(--grana);
     }
-    /* ================================
-       HEADER
-    =================================*/
+    /* HEADER */
     header {
-      background-color: var(--grana-barca);
+      background-color: var(--grana);
       color: var(--texto-claro);
+      padding: 1rem 2rem;
     }
-
     .top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
       max-width: 1300px;
       margin: 0 auto;
     }
-
-    /* Logo + Menú principal */
     .top-bar-left {
       display: flex;
       align-items: center;
       gap: 2rem;
     }
-
     .logo {
       width: 60px;
       transition: transform 0.3s;
     }
-
     .logo:hover {
       transform: scale(1.1);
     }
-
     .nav-links {
       display: flex;
       gap: 1.5rem;
     }
-
     .nav-links a {
       color: var(--texto-claro);
       font-weight: bold;
@@ -88,16 +70,14 @@
       text-transform: uppercase;
       transition: color 0.3s, transform 0.2s;
     }
-
     .nav-links a:hover {
-      color: var(--amarillo-barca);
+      color: var(--amarillo);
       transform: scale(1.05);
     }
-
     /* Botones para seleccionar categoría */
     .category-buttons {
       text-align: center;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
     }
     .category-buttons button {
       background-color: var(--grana);
@@ -123,7 +103,7 @@
     .category-container.active {
       display: block;
     }
-    /* Estilo de cada tarjeta de jugador */
+    /* Tarjetas de jugador */
     .player-card {
       display: flex;
       align-items: flex-start;
@@ -153,7 +133,7 @@
     .player-name {
       font-size: 1.2rem;
       font-weight: bold;
-      margin: 0 0 0.5rem 0;
+      margin-bottom: 0.5rem;
     }
     .player-details {
       list-style: none;
@@ -168,6 +148,23 @@
   </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo">
+        <div class="nav-links">
+          <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+          <a href="documentos.html"><i class="fa fa-file"></i> Gestión Documental</a>
+          <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+          <a href="jugadores.html"><i class="fa fa-users"></i> Jugadores</a>
+          <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+          <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+          <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <h1>Jugadores por Categoría</h1>
   <!-- Botones para seleccionar la categoría -->
@@ -179,7 +176,7 @@
 
   <!-- Contenedor para Categoría 2010/11 -->
   <div id="cat1" class="category-container active">
-    <!-- Lista de jugadores para 2010/11 -->
+    <!-- Jugadores para 2010/11 -->
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Luis Moreno">
@@ -187,7 +184,7 @@
       <div class="player-info">
         <h3 class="player-name">Luis Moreno</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -198,7 +195,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Cristopher">
@@ -206,7 +202,7 @@
       <div class="player-info">
         <h3 class="player-name">Cristopher</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -217,7 +213,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Breiner">
@@ -225,7 +220,7 @@
       <div class="player-info">
         <h3 class="player-name">Breiner</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -236,7 +231,6 @@
         </ul>
       </div>
     </div>
-    
     <!-- Repetición de Breiner -->
     <div class="player-card">
       <div class="player-image">
@@ -245,7 +239,7 @@
       <div class="player-info">
         <h3 class="player-name">Breiner</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -256,7 +250,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Leonardo">
@@ -264,7 +257,7 @@
       <div class="player-info">
         <h3 class="player-name">Leonardo</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -275,7 +268,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Juan José">
@@ -283,7 +275,7 @@
       <div class="player-info">
         <h3 class="player-name">Juan José</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -294,7 +286,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Karles">
@@ -302,7 +293,7 @@
       <div class="player-info">
         <h3 class="player-name">Karles</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -313,7 +304,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Josue">
@@ -321,7 +311,7 @@
       <div class="player-info">
         <h3 class="player-name">Josue</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -332,7 +322,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Gomez angel">
@@ -340,7 +329,7 @@
       <div class="player-info">
         <h3 class="player-name">Gomez angel</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -351,7 +340,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Jhon fray">
@@ -359,7 +347,7 @@
       <div class="player-info">
         <h3 class="player-name">Jhon fray</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -370,7 +358,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Oscar">
@@ -378,7 +365,7 @@
       <div class="player-info">
         <h3 class="player-name">Oscar</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2010/11</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -393,7 +380,7 @@
 
   <!-- Contenedor para Categoría 2012/13 -->
   <div id="cat2" class="category-container">
-    <!-- Lista de jugadores para 2012/13 -->
+    <!-- Jugadores para 2012/13 -->
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Dilan">
@@ -401,7 +388,7 @@
       <div class="player-info">
         <h3 class="player-name">Dilan</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -412,7 +399,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Juan t">
@@ -420,7 +406,7 @@
       <div class="player-info">
         <h3 class="player-name">Juan t</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -431,7 +417,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Dinkol">
@@ -439,7 +424,7 @@
       <div class="player-info">
         <h3 class="player-name">Dinkol</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -450,7 +435,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Dany">
@@ -458,7 +442,7 @@
       <div class="player-info">
         <h3 class="player-name">Dany</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -469,7 +453,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Miguel">
@@ -477,7 +460,7 @@
       <div class="player-info">
         <h3 class="player-name">Miguel</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -488,7 +471,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Rodríguez">
@@ -496,7 +478,7 @@
       <div class="player-info">
         <h3 class="player-name">Rodríguez</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -507,7 +489,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Nelson">
@@ -515,7 +496,7 @@
       <div class="player-info">
         <h3 class="player-name">Nelson</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -526,7 +507,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Santiago">
@@ -534,7 +514,7 @@
       <div class="player-info">
         <h3 class="player-name">Santiago</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -545,7 +525,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Joseth">
@@ -553,7 +532,7 @@
       <div class="player-info">
         <h3 class="player-name">Joseth</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -564,7 +543,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Hernández angel">
@@ -572,7 +550,7 @@
       <div class="player-info">
         <h3 class="player-name">Hernández angel</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -583,7 +561,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Oscar">
@@ -591,7 +568,61 @@
       <div class="player-info">
         <h3 class="player-name">Oscar</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2012/13</li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="player-card">
+      <div class="player-image">
+        <img src="placeholder.png" alt="Yojainer">
+      </div>
+      <div class="player-info">
+        <h3 class="player-name">Yojainer</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> 2012/13</li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="player-card">
+      <div class="player-image">
+        <img src="placeholder.png" alt="Jesus">
+      </div>
+      <div class="player-info">
+        <h3 class="player-name">Jesus</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> 2012/13</li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="player-card">
+      <div class="player-image">
+        <img src="placeholder.png" alt="Mateo">
+      </div>
+      <div class="player-info">
+        <h3 class="player-name">Mateo</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> 2012/13</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -606,7 +637,7 @@
 
   <!-- Contenedor para Categoría 2014/15/16 -->
   <div id="cat3" class="category-container">
-    <!-- Lista de jugadores para 2014/15/16 -->
+    <!-- Jugadores para 2014/15/16 -->
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Mario">
@@ -614,7 +645,7 @@
       <div class="player-info">
         <h3 class="player-name">Mario</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -625,7 +656,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Juan Andrés">
@@ -633,7 +663,7 @@
       <div class="player-info">
         <h3 class="player-name">Juan Andrés</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -644,7 +674,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Jhoyfran">
@@ -652,7 +681,7 @@
       <div class="player-info">
         <h3 class="player-name">Jhoyfran</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -663,7 +692,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Nayareth">
@@ -671,7 +699,7 @@
       <div class="player-info">
         <h3 class="player-name">Nayareth</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -682,7 +710,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Eliuth">
@@ -690,7 +717,7 @@
       <div class="player-info">
         <h3 class="player-name">Eliuth</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -701,7 +728,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Abraham">
@@ -709,7 +735,7 @@
       <div class="player-info">
         <h3 class="player-name">Abraham</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -720,7 +746,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Rey David">
@@ -728,7 +753,7 @@
       <div class="player-info">
         <h3 class="player-name">Rey David</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -739,7 +764,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Santy h">
@@ -747,7 +771,7 @@
       <div class="player-info">
         <h3 class="player-name">Santy h</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -758,7 +782,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Santy t">
@@ -766,7 +789,7 @@
       <div class="player-info">
         <h3 class="player-name">Santy t</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -777,7 +800,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Yeicol">
@@ -785,7 +807,7 @@
       <div class="player-info">
         <h3 class="player-name">Yeicol</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -796,7 +818,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="ISAAC">
@@ -804,7 +825,7 @@
       <div class="player-info">
         <h3 class="player-name">ISAAC</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -815,7 +836,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Carlos">
@@ -823,7 +843,7 @@
       <div class="player-info">
         <h3 class="player-name">Carlos</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -834,7 +854,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Zaid">
@@ -842,7 +861,7 @@
       <div class="player-info">
         <h3 class="player-name">Zaid</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -853,7 +872,6 @@
         </ul>
       </div>
     </div>
-    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Keyner">
@@ -861,7 +879,7 @@
       <div class="player-info">
         <h3 class="player-name">Keyner</h3>
         <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
+          <li><strong>Categoría:</strong> 2014/15/16</li>
           <li><strong>Nacionalidad:</strong> </li>
           <li><strong>Lugar de Nacimiento:</strong> </li>
           <li><strong>Edad:</strong> </li>
@@ -878,7 +896,6 @@
   <script>
     const buttons = document.querySelectorAll('.category-buttons button');
     const containers = document.querySelectorAll('.category-container');
-
     buttons.forEach(button => {
       button.addEventListener('click', function() {
         buttons.forEach(b => b.classList.remove('active'));
@@ -889,6 +906,5 @@
       });
     });
   </script>
-
 </body>
 </html>
