@@ -66,13 +66,14 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .player-image {
-      width: 200px; /* Tamaño aumentado */
-      height: 200px; /* Tamaño aumentado */
-      margin-right: 1rem;
+      width: 150px; /* Tamaño aumentado */
+      height: 150px; /* Tamaño aumentado */
+      margin-right: 0rem;
+      margin-bottom: 1rem;
       background-color: #ddd;
-      border-radius: 40%;
       overflow: hidden;
       flex-shrink: 0;
+      
     }
     .player-image img {
       width: 100%;
@@ -97,6 +98,17 @@
     .player-details li {
       margin-bottom: 0.3rem;
     }
+    @media (max-width: 768px) { /* Ejemplo: Pantallas menores a 768px de ancho */
+    .player-card {
+        flex-direction: column; /* Apilar elementos verticalmente */
+        align-items: center; /* Centrar elementos horizontalmente */
+    }
+    .player-image {
+      .player-image {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
   </style>
 </head>
 <body>
