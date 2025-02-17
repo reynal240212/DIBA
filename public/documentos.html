@@ -1,191 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Gestión Documental - DIBA FBC</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Íconos de Font Awesome (opcional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <style>
-   /* Reset de estilos */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    /* ================================
+       RESET
+    =================================*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #333;
-  line-height: 1.5;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      line-height: 1.5;
+    }
 
-:root {
-  --azul-barca: #003399;
-  --grana-barca: #a50044;
-  --rojo-barca: #ff0000;
-  --amarillo-barca: #ffd700;
-  --texto-claro: #ffffff;
-  --texto-oscuro: #333333;
-  --fondo-gris: #f4f4f4;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* HEADER */
-header {
-  background-color: var(--grana-barca);
-  color: var(--texto-claro);
-  padding: 1rem 0;
-}
+    :root {
+      --azul-barca: #003399;
+      --grana-barca: #a50044;
+      --rojo-barca: #ff0000;
+      --amarillo-barca: #ffd700;
+      --texto-claro: #ffffff;
+      --texto-oscuro: #333333;
+      --fondo-gris: #f4f4f4;
+    }
 
-.top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+    header {
+      background-color: var(--grana-barca);
+      color: var(--texto-claro);
+      padding: 1rem 0;
+      text-align: center;
+    }
 
-.logo {
-  width: 80px;
-  transition: transform 0.3s;
-}
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--fondo-gris);
+    }
 
-.logo:hover {
-  transform: scale(1.1);
-}
+    .hero h1 {
+      color: var(--azul-barca);
+      font-size: 2rem;
+    }
 
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
+    .document-list {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-.nav-links a {
-  color: var(--texto-claro);
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: color 0.3s;
-  text-decoration: none;
-}
+    .document-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
 
-.nav-links a:hover {
-  color: var(--amarillo-barca);
-}
+    .document-item a {
+      color: var(--azul-barca);
+      font-weight: bold;
+    }
 
-/* Sección Hero - Gestión Documental */
-.hero {
-  width: 100%;
-  height: 400px;
-  background: url("documentos-bg.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-}
+    .document-item i {
+      color: var(--grana-barca);
+    }
 
-.hero-content {
-  max-width: 1200px;
-  margin: 0 2rem 2rem;
-  color: var(--texto-claro);
-}
-
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-/* Sección de Gestión Documental */
-.document-management {
-  padding: 2rem;
-  background-color: var(--fondo-gris);
-  text-align: center;
-}
-
-.document-management h2 {
-  color: var(--azul-barca);
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.document-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.document-card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  width: 250px;
-  text-align: left;
-}
-
-.document-card h3 {
-  color: var(--grana-barca);
-  margin-bottom: 0.5rem;
-}
-
-.document-card a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: var(--azul-barca);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.document-card a:hover {
-  color: var(--rojo-barca);
-}
-
-/* FOOTER */
-footer {
-  background-color: var(--azul-barca);
-  color: var(--texto-claro);
-  text-align: center;
-  padding: 20px 0;
-}
-
+    footer {
+      background-color: var(--azul-barca);
+      color: var(--texto-claro);
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <!-- LOGO DEL CLUB -->
-        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo" />
-        <!-- NAVEGACIÓN PRINCIPAL -->
-        <div class="nav-links">
-          <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-          <a href="documentos.html"><i class="fa fa-file"></i> Gestión Documental</a>
-          <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-          <a href="jugadores.html"><i class="fa fa-users"></i> Jugadores</a>
-          <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-          <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
-          <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-        </div>
-      </div>
-      <div class="top-bar-right">
-        <a href="registro.html">Registrarse</a>
-        <a href="login.html">Iniciar Sesión</a>
-      </div>
-    </div>
+    <h2>Gestión Documental - DIBA FBC</h2>
   </header>
 
+  <section class="hero">
+    <h1>Accede a los documentos del club</h1>
+    <p>Encuentra aquí todos los archivos relevantes para la gestión y administración.</p>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Gestión Documental</h1>
-        <p>Consulta y gestiona los documentos del club de manera organizada y accesible.</p>
-      </div>
-    </section>
-  </main>
+  <section class="document-list">
+    <div class="document-item">
+      <a href="#"><i class="fa fa-file-pdf"></i> Reglamento del Club</a>
+      <span>PDF</span>
+    </div>
+    <div class="document-item">
+      <a href="#"><i class="fa fa-file-word"></i> Ficha de Inscripción</a>
+      <span>DOCX</span>
+    </div>
+    <div class="document-item">
+      <a href="#"><i class="fa fa-file-excel"></i> Listado de Jugadores</a>
+      <span>XLSX</span>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
