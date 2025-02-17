@@ -35,45 +35,97 @@
       color: var(--grana);
     }
     /* HEADER */
-    header {
-      background-color: var(--grana);
-      color: var(--texto-claro);
-      padding: 1rem 2rem;
-    }
+header {
+    background-color: var(--grana);
+    color: var(--texto-claro);
+    padding: 1rem 2rem;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    width: 60px;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--texto-claro);
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--amarillo);
+    transform: scale(1.05);
+}
+
+
+/* Media Queries para hacerlo responsivo */
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {  /* Ajusta el valor 767px si es necesario */
     .top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1300px;
-      margin: 0 auto;
+        flex-direction: column; /* Diseño en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+        text-align: left; /* Texto alineado a la izquierda */
     }
+
     .top-bar-left {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+        flex-direction: column; /* Logo y links en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+        gap: 1rem; /* Reduce el espacio entre elementos */
+        margin-bottom: 1rem; /* Espacio inferior para separar del resto del contenido */
     }
-    .logo {
-      width: 60px;
-      transition: transform 0.3s;
-    }
-    .logo:hover {
-      transform: scale(1.1);
-    }
+
     .nav-links {
-      display: flex;
-      gap: 1.5rem;
+        flex-direction: column; /* Links en columna */
+        gap: 0.5rem; /* Reduce el espacio entre links */
     }
+
     .nav-links a {
-      color: var(--texto-claro);
-      font-weight: bold;
-      font-size: 1rem;
-      text-transform: uppercase;
-      transition: color 0.3s, transform 0.2s;
+        font-size: 0.9rem; /* Reduce tamaño de fuente */
     }
-    .nav-links a:hover {
-      color: var(--amarillo);
-      transform: scale(1.05);
+
+    .logo {
+        width: 50px; /* Ajusta tamaño del logo */
     }
+}
+
+
+/* Para pantallas medianas (tabletas y algunos móviles grandes) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .nav-links a {
+      font-size: 0.95rem; /* Tamaño de fuente ligeramente más grande */
+    }
+}
+
+/* Para pantallas grandes (escritorios) - Opcional, si quieres ajustes específicos */
+@media (min-width: 992px) {
+  /* Puedes agregar estilos específicos para pantallas grandes aquí si lo necesitas. */
+}
     /* Botones para seleccionar categoría */
     .category-buttons {
       text-align: center;
