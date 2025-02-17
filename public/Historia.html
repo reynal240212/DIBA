@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Gestión Documental - DIBA FBC</title>
+  <title>HISTORIA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Íconos de Font Awesome (opcional) -->
@@ -15,9 +15,6 @@
   />
 
   <style>
-    /* ================================
-       RESET
-    =================================*/
     * {
       margin: 0;
       padding: 0;
@@ -64,30 +61,23 @@
       font-size: 2rem;
     }
 
-    .document-list {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem 1rem;
+    }
+
+    .gallery-item {
       border-radius: 8px;
+      overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .document-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .document-item a {
-      color: var(--azul-barca);
-      font-weight: bold;
-    }
-
-    .document-item i {
-      color: var(--grana-barca);
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     footer {
@@ -101,26 +91,26 @@
 </head>
 <body>
   <header>
-    <h2>Gestión Documental - DIBA FBC</h2>
+    <h2>Galería de DIBA FBC</h2>
   </header>
 
   <section class="hero">
-    <h1>Accede a los documentos del club</h1>
-    <p>Encuentra aquí todos los archivos relevantes para la gestión y administración.</p>
+    <h1>Explora Nuestro Mundo</h1>
+    <p>Descubre las fotos de nuestros eventos, entrenamientos y momentos especiales del club.</p>
   </section>
 
-  <section class="document-list">
-    <div class="document-item">
-      <a href="#"><i class="fa fa-file-pdf"></i> Reglamento del Club</a>
-      <span>PDF</span>
+  <section class="gallery">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/500x300" alt="Entrenamiento">
     </div>
-    <div class="document-item">
-      <a href="#"><i class="fa fa-file-word"></i> Ficha de Inscripción</a>
-      <span>DOCX</span>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/500x300" alt="Partido">
     </div>
-    <div class="document-item">
-      <a href="#"><i class="fa fa-file-excel"></i> Listado de Jugadores</a>
-      <span>XLSX</span>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/500x300" alt="Celebración">
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/500x300" alt="Evento del club">
     </div>
   </section>
 
