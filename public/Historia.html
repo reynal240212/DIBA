@@ -6,33 +6,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* ... (Estilos CSS existentes) ... */
+    /* ================================
+       RESET
+    =================================*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    .news-section {
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    :root {
+      --azul-barca: #003399;
+      --grana-barca: #a50044;
+      --rojo-barca: #ff0000;
+      --amarillo-barca: #ffd700;
+      --texto-claro: #ffffff;
+      --texto-oscuro: #333333;
+      --fondo-gris: #f4f4f4;
+    }
+
+    header {
+      background-color: var(--grana-barca);
+      color: var(--texto-claro);
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    .hero {
+      text-align: center;
       padding: 2rem 1rem;
-      background-color: var(--fondo-gris); /* Opcional: un fondo diferente */
+      background-color: var(--fondo-gris);
+    }
+
+    .hero h1 {
+      color: var(--azul-barca);
+      font-size: 2rem;
+    }
+
+    .gallery, .news-section {
+      padding: 2rem 1rem;
+    }
+
+    /* Galería de fotos */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Sección de noticias */
+    .news-section {
+      background-color: var(--fondo-gris); /* Fondo gris para las noticias */
     }
 
     .news-article {
       display: grid;
-      grid-template-columns: 1fr 2fr; /* Imagen a la izquierda, texto a la derecha */
+      grid-template-columns: 1fr 2fr;
       gap: 1rem;
-      margin-bottom: 2rem; /* Espacio entre artículos */
-      border-bottom: 1px solid #ccc; /* Línea separadora */
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ccc;
       padding-bottom: 1rem;
     }
 
     .news-article img {
       width: 100%;
       height: auto;
-      object-fit: cover; /* Para que la imagen cubra el espacio */
-      border-radius: 8px; /* Bordes redondeados */
+      object-fit: cover;
+      border-radius: 8px;
     }
 
     .news-content {
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* Texto arriba y abajo */
+      justify-content: space-between;
     }
 
     .news-title {
@@ -46,12 +117,13 @@
       color: #777;
     }
 
-    /* Estilos para que la galería y las noticias se vean bien juntas */
-    .gallery, .news-section {
-      padding: 2rem 1rem; /* Espacio alrededor */
+    footer {
+      background-color: var(--azul-barca);
+      color: var(--texto-claro);
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
     }
-
-
   </style>
 </head>
 <body>
@@ -95,7 +167,7 @@
       </div>
     </div>
 
-    </section>
+  </section>
 
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
