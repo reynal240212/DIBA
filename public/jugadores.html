@@ -12,56 +12,68 @@
     referrerpolicy="no-referrer"
   />
   <style>
-    /* ================================
-       HEADER
-    =================================*/
-    header {
-      background-color: var(--grana-barca);
-      color: var(--texto-claro);
-    }
+   /* ================================
+   HEADER
+=================================*/
+header {
+    background-color: #A50044; /* Azul Grana */
+    color: #FFD700; /* Amarillo dorado */
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 3px solid #000; /* Línea de separación negra */
+}
 
-    .top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    /* Logo + Menú principal */
-    .top-bar-left {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
+/* Logo */
+.logo {
+    width: 70px;
+    transition: transform 0.3s ease-in-out;
+}
 
-    .logo {
-      width: 60px;
-      transition: transform 0.3s;
-    }
+.logo:hover {
+    transform: scale(1.1);
+}
 
-    .logo:hover {
-      transform: scale(1.1);
-    }
+/* Menú de navegación */
+nav {
+    display: flex;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
 
-    .nav-links a {
-      color: var(--texto-claro);
-      font-weight: bold;
-      font-size: 1rem;
-      text-transform: uppercase;
-      transition: color 0.3s, transform 0.2s;
-    }
+.menu li {
+    display: inline;
+}
 
-    .nav-links a:hover {
-      color: var(--amarillo-barca);
-      transform: scale(1.05);
-    }
+.menu a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #FFD700; /* Amarillo dorado */
+    text-transform: uppercase;
+    padding: 10px 15px;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+.menu a:hover {
+    background: #FFD700;
+    color: #A50044; /* Azul Grana */
+}
     table {
     width: 100%;
     border-collapse: collapse;
