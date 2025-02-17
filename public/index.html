@@ -354,6 +354,146 @@
           </li>
         </ul>
       </div>
+      <section class="training-section">
+        <div class="training-content">
+            <h3>Entrenamiento Semanal</h3>
+
+            <div class="week-selector">
+                <button onclick="changeWeek(-1)">Semana Anterior</button>
+                <span id="current-week">Semana 1</span>  <button onclick="changeWeek(1)">Semana Siguiente</button>
+            </div>
+
+            <div class="training-days">
+
+                <div class="training-day">
+                    <h4>Lunes</h4>
+                    <div class="exercise">
+                        <h5>Calentamiento</h5>
+                        <ul>
+                            <li>5 minutos de trote suave</li>
+                            <li>Estiramientos dinámicos (movilidad articular)</li>
+                        </ul>
+                    </div>
+                    <div class="exercise">
+                        <h5>Fuerza</h5>
+                        <ul>
+                            <li>Sentadillas: 3 series de 10 repeticiones</li>
+                            <li>Flexiones: 3 series hasta el fallo</li>
+                            <li>Dominadas (o remo con barra): 3 series de 8 repeticiones</li>
+                        </ul>
+                    </div>
+                     <div class="exercise">
+                        <h5>Cardio</h5>
+                        <ul>
+                            <li>Carrera continua: 30 minutos a ritmo moderado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="training-day">
+                    <h4>Martes</h4>
+                    <p>Descanso activo (ejercicios ligeros de recuperación)</p>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <style>
+        /* Estilos para la sección de entrenamiento */
+        .training-section {
+            background-color: #f8f8f8; /* Un gris muy claro */
+            padding: 2rem 1rem;
+            text-align: center; /* Centrar el contenido */
+        }
+        .training-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .training-section h3 {
+            font-size: 1.8rem;
+            color: var(--azul-barca); /* Usando una variable de color */
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .week-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .week-selector button {
+            padding: 0.5rem 1rem;
+            background-color: var(--grana-barca); /* Color del club */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .training-days {
+            display: flex;
+            flex-wrap: wrap; /* Para que los días se ajusten en pantallas pequeñas */
+            justify-content: space-around; /* Distribuir los días equitativamente */
+            gap: 20px; /* Espacio entre los días */
+        }
+
+        .training-day {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex: 1 1 300px; /* Para que cada día ocupe al menos 300px de ancho */
+            text-align: left; /* Texto alineado a la izquierda dentro de cada día */
+        }
+
+        .training-day h4 {
+            color: var(--azul-barca);
+            margin-bottom: 1rem;
+        }
+        .exercise {
+            margin-bottom: 1.5rem;
+        }
+        .exercise h5 {
+            margin-bottom: 0.5rem;
+            color: #555; /* Un color un poco más oscuro para los títulos de ejercicios */
+        }
+        .exercise ul {
+            list-style-type: disc; /* Estilo de lista con viñetas */
+            padding-left: 20px;
+        }
+        @media (max-width: 768px) {
+            .training-day {
+                flex: 1 1 45%; /* Dos días por fila en pantallas medianas */
+            }
+        }
+        @media (max-width: 500px) {
+            .training-day {
+                flex: 1 1 90%; /* Un día por fila en pantallas pequeñas */
+            }
+        }
+    </style>
+
+    <script>
+        let currentWeek = 1; // Variable para trackear la semana actual
+
+        function changeWeek(change) {
+            currentWeek += change;
+            document.getElementById("current-week").textContent = "Semana " + currentWeek;
+
+            // Aquí puedes agregar la lógica para cargar los datos de entrenamiento
+            // de la semana correspondiente (podría ser mediante AJAX o 
+            // modificando el contenido HTML directamente).
+
+            // Por ahora, solo muestra un mensaje de alerta:
+            alert("Cargando datos de la semana " + currentWeek + "...");
+        }
+    </script>
+      
+
       <div class="footer-col">
         <h4>Contacto</h4>
         <ul>
