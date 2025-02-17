@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>DIBA FBC </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>DIBA FBC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- Íconos de Font Awesome (opcional) -->
   <link
     rel="stylesheet"
@@ -12,122 +13,116 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+
   <style>
     /* ================================
-       VARIABLES DE COLOR (Negro/Amarillo)
-    =================================*/
-    :root {
-      --negro: #000;
-      --amarillo: #fffb00;     /* Amarillo intenso */
-      --amarillo-hover: #ffd800; /* Amarillo al pasar el ratón */
-      --blanco: #fff;
-      --gris-oscuro: #222;
-      --texto-claro: #fff;
-      --texto-oscuro: #000;
-    }
-
-    /* ================================
-       REINICIO Y BASE
+       RESET
     =================================*/
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: Arial, sans-serif;
-      background-color: var(--gris-oscuro);
-      color: var(--texto-claro);
+      background-color: #ffffff;
+      color: #333;
       line-height: 1.5;
+      overflow-x: hidden; /* Evitar scroll horizontal */
     }
+
     a {
       text-decoration: none;
       color: inherit;
     }
 
-/* ================================
-       ENCABEZADO ESTILIZADO
-================================= */
-header {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-/* Barra superior (logo + menú) */
-.top-bar {
-  background-color: black; /* Fondo negro */
-  color: yellow; /* Texto amarillo */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 3rem;
-  font-weight: bold;
-  font-size: 1.3rem; /* Aumenta el tamaño del texto */
-  border-bottom: 4px solid #ffcc00; /* Línea inferior en amarillo */
-  box-shadow: 0px 4px 10px rgba(255, 255, 0, 0.5); /* Sombra amarilla */
-}
-
-/* Contenedor del logo y menú */
-.top-bar-left {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-/* Logo más grande */
-.logo {
-  width: 80px; /* Tamaño aumentado */
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-}
-
-.logo:hover {
-  transform: scale(1.1); /* Efecto de agrandado al pasar el mouse */
-}
-
-/* Menú de navegación */
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: yellow;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.2rem; /* Letras más grandes */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.3s, transform 0.2s;
-}
-
-.nav-links a:hover {
-  color: #ffcc00; /* Amarillo más brillante */
-  transform: scale(1.1); /* Efecto de agrandado al pasar el mouse */
-}
-
-/* Sección de la derecha */
-.top-bar-right {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.top-bar-right a {
-  color: yellow;
-  text-decoration: none;
-  font-size: 1.2rem; /* Tamaño más grande */
-  transition: text-decoration 0.3s, transform 0.2s;
-}
-
-.top-bar-right a:hover {
-  text-decoration: underline;
-  transform: scale(1.1);
-}
-
+    /* ================================
+       PALETA DE COLORES
+       (inspirada en azul, grana, rojo y amarillo)
+    =================================*/
+    :root {
+      --azul-barca: #003399;        /* Azul oscuro */
+      --grana-barca: #a50044;       /* Grana */
+      --rojo-barca: #ff0000;        /* Rojo vivo */
+      --amarillo-barca: #ffd700;    /* Amarillo dorado */
+      --texto-claro: #ffffff;       /* Texto claro */
+      --texto-oscuro: #333333;      /* Texto oscuro */
+      --fondo-gris: #f4f4f4;        /* Gris claro de fondo */
+    }
 
     /* ================================
-       HERO
+       HEADER
+    =================================*/
+    header {
+      background-color: var(--grana-barca);
+      color: var(--texto-claro);
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* Logo + Menú principal */
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .logo {
+      width: 60px;
+      transition: transform 0.3s;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--texto-claro);
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--amarillo-barca);
+      transform: scale(1.05);
+    }
+
+    /* Botones derecha (Registrarse / Iniciar Sesión) */
+    .top-bar-right {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .top-bar-right a {
+      color: var(--texto-claro);
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    .top-bar-right a:hover {
+      color: var(--amarillo-barca);
+      transform: scale(1.05);
+    }
+
+    /* ================================
+       SECCIÓN HERO (portada)
     =================================*/
     .hero {
       position: relative;
@@ -135,95 +130,122 @@ header {
       height: 400px;
       background: url("fondo.jpg") center center no-repeat;
       background-size: cover;
-      overflow: hidden;
       display: flex;
       align-items: flex-end;
       justify-content: flex-start;
+      overflow: hidden;
     }
-    /* Degradado en la parte inferior */
+
+    /* Degradado sutil en la parte inferior de la imagen */
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
     }
+
     .hero-content {
       position: relative;
       z-index: 1;
       max-width: 1200px;
-      margin: 0 2rem 2rem 2rem; /* Espaciado inferior */
-      color: var(--blanco);
+      margin: 0 2rem 2rem;
+      color: var(--texto-claro);
     }
+
     .hero-content h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
       font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
+
     .hero-content p {
       font-size: 1rem;
       max-width: 600px;
       line-height: 1.4;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
     }
 
-    .news-section {
-  text-align: center;
-  padding: 20px;
-}
-
-h3 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  justify-content: center;
-}
-
-.news-card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
     /* ================================
-       PIE DE PÁGINA
+       SECCIÓN DE PUBLICACIONES
+    =================================*/
+    .news-section {
+      background-color: var(--fondo-gris);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .news-section h3 {
+      font-size: 1.8rem;
+      color: var(--grana-barca);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .news-card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ================================
+       FOOTER
     =================================*/
     footer {
-      background-color: var(--negro);
-      color: var(--blanco);
-      margin-top: 2rem;
+      background-color: var(--azul-barca);
+      color: var(--texto-claro);
       padding: 2rem 1rem;
+      margin-top: 2rem;
     }
+
     .footer-content {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
     }
+
     .footer-col {
       flex: 1 1 200px;
     }
+
     .footer-col h4 {
-      margin-bottom: 0.5rem;
-      color: var(--amarillo);
+      margin-bottom: 0.8rem;
+      color: var(--amarillo-barca);
       font-weight: bold;
+      text-transform: uppercase;
     }
+
     .footer-col ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .footer-col li {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
     }
+
     .footer-col li a {
-      color: var(--blanco);
+      color: var(--texto-claro);
       font-size: 0.9rem;
     }
+
     .footer-col li a:hover {
       text-decoration: underline;
     }
@@ -240,10 +262,10 @@ h3 {
       }
       .top-bar {
         flex-wrap: wrap;
+        gap: 1rem;
       }
       .nav-links {
         flex-wrap: wrap;
-        gap: 0.5rem;
       }
       .footer-content {
         flex-direction: column;
@@ -253,100 +275,119 @@ h3 {
 </head>
 <body>
 
-  <!-- CABECERA -->
+  <!-- HEADER -->
   <header>
     <div class="top-bar">
       <div class="top-bar-left">
-        <!-- Logo del club -->
-        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo">
-        <!-- Navegación principal -->
+        <!-- LOGO DEL CLUB -->
+        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo" />
+        <!-- NAVEGACIÓN PRINCIPAL -->
         <div class="nav-links">
-          <a href="#"><i class="fa fa-home"></i> Inicio</a>
-          <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
-          <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-          <a href="#"><i class="fa fa-users"></i> Jugadores</a>
-          <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
-          <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
-          <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
+          <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+          <a href="gestion-documental.html"><i class="fa fa-file"></i> Gestión Documental</a>
+          <a href="ficha-tecnica.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+          <a href="jugadores.html"><i class="fa fa-users"></i> Jugadores</a>
+          <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+          <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+          <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
         </div>
       </div>
       <div class="top-bar-right">
-        <a href="#">Registrarse</a>
-        <a href="#">Iniciar Sesión</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="login.html">Iniciar Sesión</a>
       </div>
     </div>
   </header>
- <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>UNA SOLA FAMILIA</h1>
-    <p>
-      Últimas noticias del club, partidos y más...  
-      Descubre todo lo que DIBA FBC tiene preparado para ti.
-    </p>
-  </div>
-<section class="news-section">
-  <h3>Publicaciones Destacadas</h3>
-  <div class="news-grid">
-    
-    <!-- Publicación de Instagram -->
-    <div class="news-card">
-      <blockquote class="instagram-media" 
-                  data-instgrm-permalink="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" 
-                  data-instgrm-version="14" 
-                  style="background:#FFF; border:0; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); margin:10px auto; max-width:540px; min-width:326px; padding:10px; width:100%;">
-        <div style="padding:16px; text-align:center;">
-          <a href="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-            📷 Ver publicación en Instagram
-          </a>
-        </div>
-      </blockquote>
-    </div>
 
-    <!-- Publicaciones de Facebook -->
-    <div class="news-card">
-      <div class="fb-post"
-           data-href="https://www.facebook.com/photo?fbid=572021456177873&set=a.445633632149990"
-           data-width="500">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>UNA SOLA FAMILIA</h1>
+      <p>
+        Últimas noticias del club, partidos y más...  
+        Descubre todo lo que DIBA FBC tiene preparado para ti.
+      </p>
+    </div>
+  </section>
+
+  <!-- PUBLICACIONES DESTACADAS -->
+  <section class="news-section">
+    <h3>Publicaciones Destacadas</h3>
+    <div class="news-grid">
+      <!-- Publicación de Instagram -->
+      <div class="news-card">
+        <blockquote class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+          data-instgrm-version="14"
+          style="
+            background: #fff;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px auto;
+            max-width: 540px;
+            min-width: 326px;
+            padding: 10px;
+            width: 100%;
+          "
+        >
+          <div style="padding: 16px; text-align: center;">
+            <a
+              href="https://www.instagram.com/p/C7ck51puuGT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+              target="_blank"
+              >📷 Ver publicación en Instagram</a
+            >
+          </div>
+        </blockquote>
+      </div>
+
+      <!-- Publicaciones de Facebook -->
+      <div class="news-card">
+        <div
+          class="fb-post"
+          data-href="https://www.facebook.com/photo?fbid=572021456177873&set=a.445633632149990"
+          data-width="500"
+        ></div>
+      </div>
+
+      <div class="news-card">
+        <div
+          class="fb-post"
+          data-href="https://www.facebook.com/photo/?fbid=616806555032696&set=a.445633632149990"
+          data-width="500"
+        ></div>
+      </div>
+
+      <div class="news-card">
+        <div
+          class="fb-post"
+          data-href="https://www.facebook.com/photo?fbid=620929524620399&set=a.445633632149990"
+          data-width="500"
+        ></div>
+      </div>
+
+      <div class="news-card">
+        <div
+          class="fb-post"
+          data-href="https://www.facebook.com/photo?fbid=548506455196040&set=a.445633632149990"
+          data-width="500"
+        ></div>
       </div>
     </div>
+  </section>
 
-    <div class="news-card">
-      <div class="fb-post"
-           data-href="https://www.facebook.com/photo/?fbid=616806555032696&set=a.445633632149990"
-           data-width="500">
-      </div>
-    </div>
+  <!-- Script de Instagram -->
+  <script async src="//www.instagram.com/embed.js"></script>
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script
+    async
+    defer
+    crossorigin="anonymous"
+    src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0"
+  ></script>
 
-    <div class="news-card">
-      <div class="fb-post"
-           data-href="https://www.facebook.com/photo?fbid=620929524620399&set=a.445633632149990"
-           data-width="500">
-      </div>
-    </div>
-
-    <div class="news-card">
-      <div class="fb-post"
-           data-href="https://www.facebook.com/photo?fbid=548506455196040&set=a.445633632149990"
-           data-width="500">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- Carga del script de inserción de Instagram -->
-<script async src="//www.instagram.com/embed.js"></script>
-
-<!-- Carga del Facebook SDK (colócalo una sola vez) -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0">
-</script>
-
-
-  <!-- PIE DE PÁGINA -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-col">
@@ -360,16 +401,20 @@ h3 {
         <h4>Enlaces Útiles</h4>
         <ul>
           <li>
-            <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
-               target="_blank"
-               aria-label="Facebook">
+            <a
+              href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
+              target="_blank"
+              aria-label="Facebook"
+            >
               <i class="fab fa-facebook"></i> Facebook
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/diba_fbc_oficial"
-               target="_blank"
-               aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/diba_fbc_oficial"
+              target="_blank"
+              aria-label="Instagram"
+            >
               <i class="fab fa-instagram"></i> Instagram
             </a>
           </li>
