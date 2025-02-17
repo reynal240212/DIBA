@@ -103,36 +103,60 @@
     .category-container.active {
       display: block;
     }
-   /* ... (Estilos CSS anteriores) ... */
+   /* ... (estilos anteriores) ... */
 
-    /* Estilos para el grid de cartas */
-    .player-grid {
+   .player-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta minmax según el tamaño de tus cartas */
-      grid-gap: 1rem; /* Espacio entre las cartas */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta minmax para mejor responsividad */
+      grid-gap: 1rem;
+      justify-content: center; /* Centrar el grid horizontalmente */
     }
 
     .player-card {
-      /* ... (Estilos anteriores de la carta) ... */
-      flex-direction: column; /* Apilar imagen y detalles */
-      align-items: center; /* Centrar horizontalmente */
-      text-align: center; /* Centrar el texto dentro de la tarjeta */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #ccc; /* Borde para las tarjetas */
+      padding: 1rem;
+      border-radius: 8px; /* Bordes redondeados */
+      background-color: #fff; /* Fondo blanco para las tarjetas */
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
     }
 
     .player-image {
-      margin: 0 0.5rem 1rem; /* Margen inferior para separar la imagen de los detalles */
-    }
-    .player-details {
-       text-align: left; /* Alinea los detalles a la izquierda */
+      width: 150px; /* Ajusta el tamaño de la imagen */
+      height: 150px;
+      border-radius: 50%; /* Imagen circular */
+      overflow: hidden; /* Recortar la imagen si es necesario */
+      margin-bottom: 1rem;
     }
 
-    @media (min-width: 768px) { /* Para pantallas medianas y grandes */
+    .player-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cubrir todo el contenedor con la imagen */
+    }
+
+    .player-name {
+      margin-bottom: 0.5rem;
+    }
+
+    .player-details {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left; /* Detalles alineados a la izquierda */
+    }
+
+    .player-details li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Media query para ajustar el número de columnas en pantallas grandes */
+    @media (min-width: 992px) {
       .player-grid {
-        grid-template-columns: repeat(5, 1fr); /* 5 columnas en pantallas medianas y grandes */
-      }
-      .player-card {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas grandes */
       }
     }
   </style>
