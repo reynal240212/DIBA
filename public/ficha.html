@@ -66,14 +66,13 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .player-image {
-      width: 170px; /* Tamaño aumentado */
-      height: 170px; /* Tamaño aumentado */
+      width: 80px;
+      height: 80px;
       margin-right: 1rem;
       background-color: #ddd;
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
-      
     }
     .player-image img {
       width: 100%;
@@ -98,17 +97,6 @@
     .player-details li {
       margin-bottom: 0.3rem;
     }
-    @media (max-width: 768px) { /* Ejemplo: Pantallas menores a 768px de ancho */
-    .player-card {
-        flex-direction: column; /* Apilar elementos verticalmente */
-        align-items: center; /* Centrar elementos horizontalmente */
-    }
-    .player-image {
-      .player-image {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-}
   </style>
 </head>
 <body>
@@ -473,8 +461,7 @@
     
     <div class="player-card">
       <div class="player-image">
-          <img src="santiagoM.png" alt="Santiago">
-        </a>        
+        <img src="placeholder.png" alt="Santiago">
       </div>
       <div class="player-info">
         <h3 class="player-name">Santiago</h3>
@@ -554,7 +541,7 @@
     <!-- Lista de jugadores para 2014/15/16 -->
     <div class="player-card">
       <div class="player-image">
-        <img src="MARIO PEREZ.png" alt="Mario">
+        <img src="placeholder.png" alt="Mario">
       </div>
       <div class="player-info">
         <h3 class="player-name">Mario</h3>
@@ -834,33 +821,6 @@
       });
     });
   </script>
-  // Ejemplo de JavaScript para abrir un modal con los detalles
-  const playerCards = document.querySelectorAll('.player-card');
-  playerCards.forEach(card => {
-      card.addEventListener('click', () => {
-          // Obtener los detalles del jugador
-          const playerName = card.querySelector('.player-name').textContent;
-          const playerDetails = card.querySelector('.player-details').innerHTML;
-  
-          // Mostrar los detalles en un modal
-          const modal = document.createElement('div');
-          modal.classList.add('modal');
-          modal.innerHTML = `
-              <div class="modal-content">
-                  <span class="close-button">&times;</span>
-                  <h2><span class="math-inline">\{playerName\}</h2\></1\>
-  <ul\></span>{playerDetails}</ul>
-              </div>
-          `;
-          document.body.appendChild(modal);
-  
-          // Cerrar el modal al hacer clic en la "x"
-          const closeButton = modal.querySelector('.close-button');
-          closeButton.addEventListener('click', () => {
-              document.body.removeChild(modal);
-          });
-      });
-  });
 
   <!-- Botones para seleccionar categoría (duplicados al final, si lo deseas eliminar, ya que los tenemos arriba) -->
   <div class="category-buttons" style="text-align: center; margin-top: 2rem;">
