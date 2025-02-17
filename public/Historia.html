@@ -2,91 +2,56 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>HISTORIA</title>
+  <title>Galería de DIBA FBC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Íconos de Font Awesome (opcional) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* ... (Estilos CSS existentes) ... */
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    :root {
-      --azul-barca: #003399;
-      --grana-barca: #a50044;
-      --rojo-barca: #ff0000;
-      --amarillo-barca: #ffd700;
-      --texto-claro: #ffffff;
-      --texto-oscuro: #333333;
-      --fondo-gris: #f4f4f4;
-    }
-
-    header {
-      background-color: var(--grana-barca);
-      color: var(--texto-claro);
-      padding: 1rem 0;
-      text-align: center;
-    }
-
-    .hero {
-      text-align: center;
+    .news-section {
       padding: 2rem 1rem;
-      background-color: var(--fondo-gris);
+      background-color: var(--fondo-gris); /* Opcional: un fondo diferente */
     }
 
-    .hero h1 {
-      color: var(--azul-barca);
-      font-size: 2rem;
-    }
-
-    .gallery {
+    .news-article {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: 1fr 2fr; /* Imagen a la izquierda, texto a la derecha */
       gap: 1rem;
-      padding: 2rem 1rem;
+      margin-bottom: 2rem; /* Espacio entre artículos */
+      border-bottom: 1px solid #ccc; /* Línea separadora */
+      padding-bottom: 1rem;
     }
 
-    .gallery-item {
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .gallery-item img {
+    .news-article img {
       width: 100%;
       height: auto;
-      display: block;
+      object-fit: cover; /* Para que la imagen cubra el espacio */
+      border-radius: 8px; /* Bordes redondeados */
     }
 
-    footer {
-      background-color: var(--azul-barca);
-      color: var(--texto-claro);
-      text-align: center;
-      padding: 1rem 0;
-      margin-top: 2rem;
+    .news-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Texto arriba y abajo */
     }
+
+    .news-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .news-date {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* Estilos para que la galería y las noticias se vean bien juntas */
+    .gallery, .news-section {
+      padding: 2rem 1rem; /* Espacio alrededor */
+    }
+
+
   </style>
 </head>
 <body>
@@ -101,18 +66,36 @@
 
   <section class="gallery">
     <div class="gallery-item">
-      <img src="https://via.placeholder.com/500x300" alt="Entrenamiento">
-    </div>
-    <div class="gallery-item">
-      <img src="https://via.placeholder.com/500x300" alt="Partido">
-    </div>
-    <div class="gallery-item">
-      <img src="https://via.placeholder.com/500x300" alt="Celebración">
-    </div>
-    <div class="gallery-item">
       <img src="https://via.placeholder.com/500x300" alt="Evento del club">
     </div>
   </section>
+
+  <section class="news-section">
+    <h2>Noticias y Eventos</h2>
+
+    <div class="news-article">
+      <img src="https://via.placeholder.com/300x200" alt="Noticia 1">
+      <div class="news-content">
+        <div>
+          <h3 class="news-title">¡Campeones en el Torneo Apertura!</h3>
+          <p>El equipo de la categoría 2005 se coronó campeón del Torneo Apertura, demostrando un gran nivel de juego y dedicación.</p>
+        </div>
+        <p class="news-date">15 de Marzo de 2024</p>
+      </div>
+    </div>
+
+    <div class="news-article">
+      <img src="https://via.placeholder.com/300x200" alt="Noticia 2">
+      <div class="news-content">
+        <div>
+          <h3 class="news-title">¡Gran Victoria en el Clásico!</h3>
+          <p>Con un golazo de último minuto, nuestro equipo Sub-18 venció al clásico rival, el Club Deportivo Los Amigos.</p>
+        </div>
+        <p class="news-date">8 de Marzo de 2024</p>
+      </div>
+    </div>
+
+    </section>
 
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
