@@ -12,155 +12,350 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-  
   <style>
-  /* =============================
-       RESET Y VARIABLES
-    ============================== */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    /* ================================
+       VARIABLES DE COLOR (Negro/Amarillo)
+    =================================*/
+    :root {
+      --negro: #000;
+      --amarillo: #fffb00;     /* Amarillo intenso */
+      --amarillo-hover: #ffd800; /* Amarillo al pasar el ratón */
+      --blanco: #fff;
+      --gris-oscuro: #222;
+      --texto-claro: #fff;
+      --texto-oscuro: #000;
+    }
 
-  :root {
-    --color-primario: #000;     /* Negro */
-    --color-secundario: #ffd700;/* Dorado */
-    --color-texto: #fff;        /* Texto blanco */
-  }
+    /* ================================
+       REINICIO Y BASE
+    =================================*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--gris-oscuro);
+      color: var(--texto-claro);
+      line-height: 1.5;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-  /* =============================
-       BODY - Fondo animado
-    ============================== */
-  body {
-    font-family: Arial, sans-serif;
-    color: var(--color-texto);
-    background: linear-gradient(-45deg, #f8aa00, #000, #ffd700, #000);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-  }
+    /* ================================
+       ENCABEZADO
+    =================================*/
+    header {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
 
-  @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* =============================
-       LAYOUT PRINCIPAL
-    ============================== */
-  .container {
-    display: grid;
-    grid-template-columns: 250px 1fr 300px; /* Barra izq - contenido - barra der */
-    gap: 20px;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-  }
-
-  /* =============================
-       BARRA LATERAL IZQUIERDA
-    ============================== */
-  .sidebar-left {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  /* Logo DIBA */
-  .logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  /* Menú principal */
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .nav-links a {
-    color: var(--color-texto);
-    text-decoration: none;
-    font-size: 1.05rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 0;
-    font-weight: bold;
-  }
-
-  .nav-links a:hover {
-    color: #bbb;
-  }
-
-  /* Botón Acceder */
-  .btn-acceder {
-    margin-top: 10px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #000;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  .btn-acceder:hover {
-    background-color: #000;
-    color: #fff;
-  }
-
-  /* =============================
-       MEDIA QUERIES
-    ============================== */
-  @media (max-width: 1024px) {
-    .container {
-      grid-template-columns: 80px 1fr 250px; /* Ajusta anchos */
+    /* Barra superior (logo + menú) */
+    .top-bar {
+      background-color: var(--negro);
+      color: var(--blanco);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 2rem;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
     .logo {
       width: 50px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      grid-template-columns: 80px 1fr; /* Ocultamos barra derecha */
-    }
-    .sidebar-right {
-      display: none;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .container {
-      grid-template-columns: 1fr; /* Una sola columna */
-    }
-    .sidebar-left {
-      flex-direction: row;
-      align-items: center;
-      overflow-x: auto;
+      height: auto;
     }
     .nav-links {
-      flex-direction: row;
-      gap: 10px;
+      display: flex;
+      gap: 1.5rem;
     }
-    .btn-acceder {
-      flex-shrink: 0;
+    .nav-links a {
+      color: var(--blanco);
+      font-weight: bold;
     }
-  }
+    .nav-links a:hover {
+      color: var(--amarillo-hover);
+    }
+    .top-bar-right {
+      display: flex;
+      gap: 1rem;
+    }
+    .top-bar-right a {
+      color: var(--blanco);
+    }
+    .top-bar-right a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================================
+       HERO
+    =================================*/
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: url("fondo.jpg") center center no-repeat;
+      background-size: cover;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+    /* Degradado en la parte inferior */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 2rem 2rem 2rem; /* Espaciado inferior */
+      color: var(--blanco);
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .hero-content p {
+      font-size: 1rem;
+      max-width: 600px;
+      line-height: 1.4;
+    }
+
+    /* ================================
+       SECCIÓN DE NOTICIAS
+    =================================*/
+    .news-section {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .news-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--amarillo);
+      font-weight: bold;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .news-card {
+      background-color: #111;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .news-card-content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--blanco);
+    }
+    .news-card-title {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .news-card-desc {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* ================================
+       PIE DE PÁGINA
+    =================================*/
+    footer {
+      background-color: var(--negro);
+      color: var(--blanco);
+      margin-top: 2rem;
+      padding: 2rem 1rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-col {
+      flex: 1 1 200px;
+    }
+    .footer-col h4 {
+      margin-bottom: 0.5rem;
+      color: var(--amarillo);
+      font-weight: bold;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col li {
+      margin-bottom: 0.3rem;
+    }
+    .footer-col li a {
+      color: var(--blanco);
+      font-size: 0.9rem;
+    }
+    .footer-col li a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================================
+       RESPONSIVE
+    =================================*/
+    @media (max-width: 768px) {
+      .hero {
+        height: 300px;
+      }
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      .top-bar {
+        flex-wrap: wrap;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .footer-content {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Aquí sigue el resto de tu código HTML sin cambios -->
+
+  <!-- CABECERA -->
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <!-- Logo del club -->
+        <img src="escudo.jpg" alt="Escudo DIBA FBC" class="logo">
+        <!-- Navegación principal -->
+        <div class="nav-links">
+          <a href="#"><i class="fa fa-home"></i> Inicio</a>
+          <a href="#"><i class="fa fa-file"></i> Gestión Documental</a>
+          <a href="#"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+          <a href="#"><i class="fa fa-users"></i> Jugadores</a>
+          <a href="#"><i class="fa fa-calendar"></i> Partidos</a>
+          <a href="#"><i class="fa fa-newspaper"></i> Noticias</a>
+          <a href="#"><i class="fa fa-envelope"></i> Contacto</a>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <a href="#">Registrarse</a>
+        <a href="#">Iniciar Sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>"DEBEMOS CENTRARNOS EN NOSOTROS"</h1>
+      <p>
+        Últimas noticias del club, partidos, fichajes y más...  
+        Descubre todo lo que DIBA FBC tiene preparado para ti.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE NOTICIAS -->
+  <div class="news-section">
+    <h2>Noticias Destacadas</h2>
+    <div class="news-grid">
+      <!-- Noticia 1 -->
+      <div class="news-card">
+        <img src="noticia1.jpg" alt="Noticia 1">
+        <div class="news-card-content">
+          <div class="news-card-title">Gran triunfo en la liga</div>
+          <div class="news-card-desc">
+            El equipo sumó una nueva victoria que lo acerca a la punta de la tabla.
+          </div>
+        </div>
+      </div>
+      <!-- Noticia 2 -->
+      <div class="news-card">
+        <img src="noticia2.jpg" alt="Noticia 2">
+        <div class="news-card-content">
+          <div class="news-card-title">Fichaje Estelar</div>
+          <div class="news-card-desc">
+            DIBA FBC confirma la llegada de un refuerzo de lujo para la próxima temporada.
+          </div>
+        </div>
+      </div>
+      <!-- Noticia 3 -->
+      <div class="news-card">
+        <img src="noticia3.jpg" alt="Noticia 3">
+        <div class="news-card-content">
+          <div class="news-card-title">Eventos Solidarios</div>
+          <div class="news-card-desc">
+            El club organiza una jornada de apoyo a la comunidad y recauda fondos.
+          </div>
+        </div>
+      </div>
+      <!-- Agrega más .news-card si lo deseas -->
+    </div>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Sobre el Club</h4>
+        <ul>
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Patrocinadores</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces Útiles</h4>
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
+               target="_blank"
+               aria-label="Facebook">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/diba_fbc_oficial"
+               target="_blank"
+               aria-label="Instagram">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#">Atención al Cliente</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Oficinas</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
