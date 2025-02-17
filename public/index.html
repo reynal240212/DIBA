@@ -49,8 +49,8 @@
       color: inherit;
     }
 
-    /* ================================
-       ENCABEZADO
+/* ================================
+       ENCABEZADO ESTILIZADO
 ================================= */
 header {
   display: flex;
@@ -65,51 +65,68 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 2rem;
+  padding: 1rem 3rem;
   font-weight: bold;
-  border-bottom: 3px solid #ffcc00; /* Línea inferior en amarillo */
+  font-size: 1.3rem; /* Aumenta el tamaño del texto */
+  border-bottom: 4px solid #ffcc00; /* Línea inferior en amarillo */
+  box-shadow: 0px 4px 10px rgba(255, 255, 0, 0.5); /* Sombra amarilla */
 }
 
+/* Contenedor del logo y menú */
 .top-bar-left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
+/* Logo más grande */
 .logo {
-  width: 50px;
+  width: 80px; /* Tamaño aumentado */
   height: auto;
+  transition: transform 0.3s ease-in-out;
 }
 
+.logo:hover {
+  transform: scale(1.1); /* Efecto de agrandado al pasar el mouse */
+}
+
+/* Menú de navegación */
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .nav-links a {
-  color: yellow; /* Amarillo para los enlaces */
+  color: yellow;
   font-weight: bold;
   text-decoration: none;
-  transition: color 0.3s;
+  font-size: 1.2rem; /* Letras más grandes */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s, transform 0.2s;
 }
 
 .nav-links a:hover {
-  color: #ffcc00; /* Amarillo más claro al pasar el cursor */
+  color: #ffcc00; /* Amarillo más brillante */
+  transform: scale(1.1); /* Efecto de agrandado al pasar el mouse */
 }
 
+/* Sección de la derecha */
 .top-bar-right {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .top-bar-right a {
   color: yellow;
   text-decoration: none;
-  transition: text-decoration 0.3s;
+  font-size: 1.2rem; /* Tamaño más grande */
+  transition: text-decoration 0.3s, transform 0.2s;
 }
 
 .top-bar-right a:hover {
   text-decoration: underline;
+  transform: scale(1.1);
 }
 
     /* ================================
