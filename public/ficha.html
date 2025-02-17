@@ -1,61 +1,259 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha Técnica - DIBA FBC</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha Técnica - DIBA FBC</title>
+  <!-- Íconos de Font Awesome (opcional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    /* ================================
+       RESET
+    =================================*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      line-height: 1.5;
+      overflow-x: hidden; /* Evitar scroll horizontal */
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================================
+       PALETA DE COLORES (misma del index)
+    =================================*/
+    :root {
+      --azul-barca: #003399;         /* Azul oscuro */
+      --grana-barca: #a50044;        /* Grana */
+      --rojo-barca: #ff0000;         /* Rojo vivo */
+      --amarillo-barca: #ffd700;     /* Amarillo dorado */
+      --texto-claro: #ffffff;        /* Texto claro */
+      --texto-oscuro: #333333;       /* Texto oscuro */
+      --fondo-gris: #f4f4f4;         /* Gris claro de fondo */
+    }
+
+    /* ================================
+       ENCABEZADO (similar al index)
+    =================================*/
+    header {
+      background-color: var(--grana-barca);
+      color: var(--texto-claro);
+      padding: 1rem 2rem;
+    }
+
+    header .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      width: 60px;
+      transition: transform 0.3s;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    nav .menu {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav .menu li a {
+      color: var(--texto-claro);
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    nav .menu li a:hover {
+      color: var(--amarillo-barca);
+      transform: scale(1.05);
+    }
+
+    /* ================================
+       SECCIÓN FICHA TÉCNICA
+    =================================*/
+    #ficha {
+      background-color: var(--fondo-gris);
+      padding: 2rem 1rem;
+    }
+
+    .ficha-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .ficha-container h2 {
+      font-size: 1.8rem;
+      color: var(--grana-barca);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .ficha-container p {
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    /* Tarjeta de jugador */
+    .player-card {
+      display: flex;
+      flex-wrap: wrap; /* Para que sea responsivo */
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .player-image img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .player-info {
+      text-align: left;
+      max-width: 400px;
+    }
+
+    .player-name {
+      font-size: 1.5rem;
+      color: var(--azul-barca);
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .player-details {
+      list-style: none;
+      line-height: 1.6;
+    }
+
+    .player-details li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ================================
+       PIE DE PÁGINA
+    =================================*/
+    footer {
+      background-color: var(--azul-barca);
+      color: var(--texto-claro);
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+    }
+
+    footer .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* ================================
+       RESPONSIVE
+    =================================*/
+    @media (max-width: 768px) {
+      .player-card {
+        flex-direction: column;
+      }
+      .player-image img {
+        width: 150px;
+      }
+      .player-info {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
-            <nav>
-                <ul class="menu">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="documentos.html">Gestión Documental</a></li>
-                    <li><a href="jugadores.html">Jugadores</a></li>
-                    <li><a href="partidos.html">Partidos</a></li>
-                    <li><a href="noticias.html">Noticias</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="container">
+      <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="documentos.html">Gestión Documental</a></li>
+          <li><a href="jugadores.html">Jugadores</a></li>
+          <li><a href="partidos.html">Partidos</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FICHA TÉCNICA -->
+  <section id="ficha">
+    <div class="container ficha-container">
+      <h2>Ficha Técnica</h2>
+      <p>Aquí puedes encontrar la ficha técnica del jugador.</p>
+      
+      <div class="player-card">
+        <!-- Imagen del jugador -->
+        <div class="player-image">
+          <img src="oliver.png" alt="Foto del Jugador">
         </div>
-    </header>
 
-    <section id="ficha">
-  <div class="container ficha-container">
-    <h2>Ficha Técnica</h2>
-    <p>Aquí puedes encontrar la ficha técnica del jugador.</p>
-    
-    <div class="player-card">
-      <!-- Imagen del jugador (puede ser recortada con fondo transparente) -->
-      <div class="player-image">
-        <img src="oliver.png" alt="Foto del Jugador">
-      </div>
-
-      <!-- Datos y detalles -->
-      <div class="player-info">
-        <h3 class="player-name">Tsubasa Ozora</h3>
-        
-        <ul class="player-details">
-          <li><strong>Categoría:</strong> </li>
-          <li><strong>Nacionalidad:</strong> </li>
-          <li><strong>Lugar de Nacimiento:</strong> </li>
-          <li><strong>Edad:</strong> </li>
-          <li><strong>Peso:</strong> </li>
-          <li><strong>Estatura:</strong></li>
-          <li><strong>Puesto:</strong></li>
-          <li><strong>Perfil:</strong> </li>
-        </ul>  
+        <!-- Datos y detalles -->
+        <div class="player-info">
+          <h3 class="player-name">SANTIAGO MENDOZA</h3>
+          <ul class="player-details">
+            <li><strong>Categoría:</strong>2012 </li>
+            <li><strong>Nacionalidad:</strong>Venezolano</li>
+            <li><strong>Lugar de Nacimiento:</strong>Venezuela </li>
+            <li><strong>Edad:</strong>12</li>
+            <li><strong>Peso:</strong> </li>
+            <li><strong>Estatura:</strong>1.54m</li>
+            <li><strong>Puesto:</strong>volante extremo</li>
+            <li><strong>Perfil:</strong>Derecho</li>
+          </ul>  
+        </div>
       </div>
     </div>
-  </div>
-</section>
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
