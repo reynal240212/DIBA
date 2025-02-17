@@ -55,10 +55,10 @@
     .category-container.active {
       display: block;
     }
-    /* Estilo de cada carta de jugador */
+    /* Estilo de cada tarjeta de jugador */
     .player-card {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       background-color: #fff;
       padding: 1rem;
       margin-bottom: 1rem;
@@ -72,6 +72,7 @@
       background-color: #ddd;
       border-radius: 50%;
       overflow: hidden;
+      flex-shrink: 0;
     }
     .player-image img {
       width: 100%;
@@ -84,7 +85,17 @@
     .player-name {
       font-size: 1.2rem;
       font-weight: bold;
+      margin: 0 0 0.5rem 0;
+    }
+    .player-details {
+      list-style: none;
+      padding: 0;
       margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .player-details li {
+      margin-bottom: 0.3rem;
     }
   </style>
 </head>
@@ -107,87 +118,207 @@
       </div>
       <div class="player-info">
         <h3 class="player-name">Luis Moreno</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Cristopher">
       </div>
       <div class="player-info">
         <h3 class="player-name">Cristopher</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Breiner">
       </div>
       <div class="player-info">
         <h3 class="player-name">Breiner</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
-    <!-- Se repite Breiner (según tu lista) -->
+    
+    <!-- Repetición de Breiner -->
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Breiner">
       </div>
       <div class="player-info">
         <h3 class="player-name">Breiner</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Leonardo">
       </div>
       <div class="player-info">
         <h3 class="player-name">Leonardo</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Juan José">
       </div>
       <div class="player-info">
         <h3 class="player-name">Juan José</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Karles">
       </div>
       <div class="player-info">
         <h3 class="player-name">Karles</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Josue">
       </div>
       <div class="player-info">
         <h3 class="player-name">Josue</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Gomez angel">
       </div>
       <div class="player-info">
         <h3 class="player-name">Gomez angel</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Jhon fray">
       </div>
       <div class="player-info">
         <h3 class="player-name">Jhon fray</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Oscar">
       </div>
       <div class="player-info">
         <h3 class="player-name">Oscar</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -201,110 +332,206 @@
       </div>
       <div class="player-info">
         <h3 class="player-name">Dilan</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Juan t">
       </div>
       <div class="player-info">
         <h3 class="player-name">Juan t</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Dinkol">
       </div>
       <div class="player-info">
         <h3 class="player-name">Dinkol</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Dany">
       </div>
       <div class="player-info">
         <h3 class="player-name">Dany</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Miguel">
       </div>
       <div class="player-info">
         <h3 class="player-name">Miguel</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Rodríguez">
       </div>
       <div class="player-info">
         <h3 class="player-name">Rodríguez</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Nelson">
       </div>
       <div class="player-info">
         <h3 class="player-name">Nelson</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Santiago">
       </div>
       <div class="player-info">
         <h3 class="player-name">Santiago</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Joseth">
       </div>
       <div class="player-info">
         <h3 class="player-name">Joseth</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Hernández angel">
       </div>
       <div class="player-info">
         <h3 class="player-name">Hernández angel</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Oscar">
       </div>
       <div class="player-info">
         <h3 class="player-name">Oscar</h3>
-      </div>
-    </div>
-    <div class="player-card">
-      <div class="player-image">
-        <img src="placeholder.png" alt="Yojainer">
-      </div>
-      <div class="player-info">
-        <h3 class="player-name">Yojainer</h3>
-      </div>
-    </div>
-    <div class="player-card">
-      <div class="player-image">
-        <img src="placeholder.png" alt="Jesus">
-      </div>
-      <div class="player-info">
-        <h3 class="player-name">Jesus</h3>
-      </div>
-    </div>
-    <div class="player-card">
-      <div class="player-image">
-        <img src="placeholder.png" alt="Mateo">
-      </div>
-      <div class="player-info">
-        <h3 class="player-name">Mateo</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -318,110 +545,263 @@
       </div>
       <div class="player-info">
         <h3 class="player-name">Mario</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Juan Andrés">
       </div>
       <div class="player-info">
         <h3 class="player-name">Juan Andrés</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Jhoyfran">
       </div>
       <div class="player-info">
         <h3 class="player-name">Jhoyfran</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Nayareth">
       </div>
       <div class="player-info">
         <h3 class="player-name">Nayareth</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Eliuth">
       </div>
       <div class="player-info">
         <h3 class="player-name">Eliuth</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Abraham">
       </div>
       <div class="player-info">
         <h3 class="player-name">Abraham</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Rey David">
       </div>
       <div class="player-info">
         <h3 class="player-name">Rey David</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Santy h">
       </div>
       <div class="player-info">
         <h3 class="player-name">Santy h</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Santy t">
       </div>
       <div class="player-info">
         <h3 class="player-name">Santy t</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Yeicol">
       </div>
       <div class="player-info">
         <h3 class="player-name">Yeicol</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="ISAAC">
       </div>
       <div class="player-info">
         <h3 class="player-name">ISAAC</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Carlos">
       </div>
       <div class="player-info">
         <h3 class="player-name">Carlos</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Zaid">
       </div>
       <div class="player-info">
         <h3 class="player-name">Zaid</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
+    
     <div class="player-card">
       <div class="player-image">
         <img src="placeholder.png" alt="Keyner">
       </div>
       <div class="player-info">
         <h3 class="player-name">Keyner</h3>
+        <ul class="player-details">
+          <li><strong>Categoría:</strong> </li>
+          <li><strong>Nacionalidad:</strong> </li>
+          <li><strong>Lugar de Nacimiento:</strong> </li>
+          <li><strong>Edad:</strong> </li>
+          <li><strong>Peso:</strong> </li>
+          <li><strong>Estatura:</strong> </li>
+          <li><strong>Puesto:</strong> </li>
+          <li><strong>Perfil:</strong> </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -433,10 +813,8 @@
 
     buttons.forEach(button => {
       button.addEventListener('click', function() {
-        // Quitar la clase 'active' de todos los botones y contenedores
         buttons.forEach(b => b.classList.remove('active'));
         containers.forEach(c => c.classList.remove('active'));
-        // Agregar la clase 'active' al botón clicado y su contenedor correspondiente
         this.classList.add('active');
         const catId = this.getAttribute('data-category');
         document.getElementById(catId).classList.add('active');
@@ -444,7 +822,7 @@
     });
   </script>
 
-  <!-- Botones para seleccionar categoría (ubicados arriba) -->
+  <!-- Botones para seleccionar categoría (duplicados al final, si lo deseas eliminar, ya que los tenemos arriba) -->
   <div class="category-buttons" style="text-align: center; margin-top: 2rem;">
     <button data-category="cat1" class="active">2010/11</button>
     <button data-category="cat2">2012/13</button>
