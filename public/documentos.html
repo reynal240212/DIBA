@@ -6,103 +6,149 @@
   <title>Gestión Documental - DIBA FBC</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+   /* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #333;
-      line-height: 1.5;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.5;
+}
 
-    :root {
-      --azul-barca: #003399;
-      --grana-barca: #a50044;
-      --rojo-barca: #ff0000;
-      --amarillo-barca: #ffd700;
-      --texto-claro: #ffffff;
-      --texto-oscuro: #333333;
-      --fondo-gris: #f4f4f4;
-    }
+:root {
+  --azul-barca: #003399;
+  --grana-barca: #a50044;
+  --rojo-barca: #ff0000;
+  --amarillo-barca: #ffd700;
+  --texto-claro: #ffffff;
+  --texto-oscuro: #333333;
+  --fondo-gris: #f4f4f4;
+}
 
-    header {
-      background-color: var(--grana-barca);
-      color: var(--texto-claro);
-      padding: 1rem 0;
-    }
+/* HEADER */
+header {
+  background-color: var(--grana-barca);
+  color: var(--texto-claro);
+  padding: 1rem 0;
+}
 
-    .top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-    .logo {
-      width: 80px;
-      transition: transform 0.3s;
-    }
+.logo {
+  width: 80px;
+  transition: transform 0.3s;
+}
 
-    .logo:hover {
-      transform: scale(1.1);
-    }
+.logo:hover {
+  transform: scale(1.1);
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
 
-    .nav-links a {
-      color: var(--texto-claro);
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
+.nav-links a {
+  color: var(--texto-claro);
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  text-decoration: none;
+}
 
-    .nav-links a:hover {
-      color: var(--amarillo-barca);
-    }
+.nav-links a:hover {
+  color: var(--amarillo-barca);
+}
 
-    .hero {
-      width: 100%;
-      height: 400px;
-      background: url("documentos-bg.jpg") center/cover no-repeat;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-    }
+/* Sección Hero - Gestión Documental */
+.hero {
+  width: 100%;
+  height: 400px;
+  background: url("documentos-bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
 
-    .hero-content {
-      max-width: 1200px;
-      margin: 0 2rem 2rem;
-      color: var(--texto-claro);
-    }
+.hero-content {
+  max-width: 1200px;
+  margin: 0 2rem 2rem;
+  color: var(--texto-claro);
+}
 
-    .hero-content h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    }
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
 
-    .news-section {
-      background-color: var(--fondo-gris);
-      padding: 2rem 1rem;
-      text-align: center;
-    }
+/* Sección de Gestión Documental */
+.document-management {
+  padding: 2rem;
+  background-color: var(--fondo-gris);
+  text-align: center;
+}
 
-    footer {
-      background-color: var(--azul-barca);
-      color: var(--texto-claro);
-      text-align: center;
-      padding: 20px 0;
-    }
+.document-management h2 {
+  color: var(--azul-barca);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.document-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.document-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  text-align: left;
+}
+
+.document-card h3 {
+  color: var(--grana-barca);
+  margin-bottom: 0.5rem;
+}
+
+.document-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--azul-barca);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.document-card a:hover {
+  color: var(--rojo-barca);
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--azul-barca);
+  color: var(--texto-claro);
+  text-align: center;
+  padding: 20px 0;
+}
+
   </style>
 </head>
 <body>
