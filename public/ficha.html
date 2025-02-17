@@ -43,6 +43,57 @@
       margin-bottom: 1rem;
       color: var(--grana);
     }
+    /* ================================
+       HEADER
+    =================================*/
+    header {
+      background-color: var(--grana-barca);
+      color: var(--texto-claro);
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* Logo + Menú principal */
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .logo {
+      width: 60px;
+      transition: transform 0.3s;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--texto-claro);
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--amarillo-barca);
+      transform: scale(1.05);
+    }
+
     /* Botones para seleccionar categoría */
     .category-buttons {
       text-align: center;
