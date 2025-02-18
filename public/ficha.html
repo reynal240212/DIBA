@@ -21,7 +21,7 @@
     referrerpolicy="no-referrer"
   />
   <style>
-   :root {
+ :root {
   --azul: #003399;
   --grana: #a50044;
   --rojo: #ff0000;
@@ -100,6 +100,7 @@ h1 {
   padding: 2rem 1rem;
   max-width: 1300px;
   margin: 0 auto;
+  position: relative;
 }
 
 .timeline-section h2 {
@@ -112,9 +113,22 @@ h1 {
 }
 
 .timeline-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 2rem;
+}
+
+/* Línea central del timeline */
+.timeline-grid::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--grana);
+  transform: translateX(-50%);
 }
 
 .timeline-item {
@@ -124,6 +138,17 @@ h1 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s;
+  position: relative;
+  width: 45%;
+}
+
+/* Alternar lados */
+.timeline-item:nth-child(odd) {
+  align-self: flex-start;
+}
+
+.timeline-item:nth-child(even) {
+  align-self: flex-end;
 }
 
 .timeline-item:hover {
@@ -176,255 +201,13 @@ h1 {
 
 /* Media query para pantallas grandes */
 @media (min-width: 992px) {
-  .timeline-grid {
-    grid-template-columns: repeat(4, 1fr);
+  .timeline-grid::before {
+    left: 50%;
+  }
+  .timeline-item {
+    width: 40%;
   }
 }
-
-/* Estilos para la galería */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center; /* Centrar las imágenes horizontalmente */
-    }
-
-    .gallery-item {
-      margin: 10px;
-      border: 1px solid #ccc; /* Borde para las imágenes */
-      overflow: hidden; /* Ocultar el contenido que se desborda */
-    }
-
-    .gallery-item img {
-      display: block; /* Evitar espacios en blanco debajo de la imagen */
-      max-width: 200px; /* Ancho máximo de las imágenes */
-      height: auto; /* Altura automática para mantener la proporción */
-    }
-
-    /* Estilos para la sección de jugadores */
-    .category-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .category-buttons button {
-      padding: 10px 20px;
-      margin: 0 10px;
-      border: none;
-      background-color: #eee;
-      cursor: pointer;
-    }
-
-    .category-buttons button.active {
-      background-color: #ddd;
-    }
-
-    .category-container {
-      display: none; /* Ocultar todos los contenedores al principio */
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diseño responsivo */
-      gap: 20px; /* Espacio entre las tarjetas */
-      padding: 20px;
-    }
-
-    .category-container.active {
-      display: grid; /* Mostrar el contenedor activo */
-    }
-
-    .player-card {
-      border: 1px solid #ccc;
-      padding: 10px;
-      display: flex;
-      flex-direction: column; /* Alinea los elementos verticalmente */
-      align-items: center; /* Centra los elementos horizontalmente */
-      text-align: center; /* Centra el texto */
-    }
-
-    .player-image {
-      margin-bottom: 10px;
-      width: 150px; /* Ajusta el tamaño de la imagen */
-      height: 150px;
-      border-radius: 50%; /* Hace la imagen circular */
-      overflow: hidden; /* Recorta la imagen si es necesario */
-    }
-
-    .player-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Cubre todo el contenedor con la imagen */
-    }
-
-    .player-info {
-      width: 100%; /* Ocupa todo el ancho de la tarjeta */
-    }
-
-    .player-details {
-      list-style: none;
-      padding: 0;
-    }
-
-    .player-details li {
-      margin-bottom: 5px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px; /* Espacio superior para la tabla */
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f0f0f0;
-    }/* Estilos para la galería */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center; /* Centrar las imágenes horizontalmente */
-    }
-
-    .gallery-item {
-      margin: 10px;
-      border: 1px solid #ccc; /* Borde para las imágenes */
-      overflow: hidden; /* Ocultar el contenido que se desborda */
-    }
-
-    .gallery-item img {
-      display: block; /* Evitar espacios en blanco debajo de la imagen */
-      max-width: 200px; /* Ancho máximo de las imágenes */
-      height: auto; /* Altura automática para mantener la proporción */
-    }
-
-    /* Estilos para la sección de jugadores */
-    .category-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .category-buttons button {
-      padding: 10px 20px;
-      margin: 0 10px;
-      border: none;
-      background-color: #eee;
-      cursor: pointer;
-    }
-
-    .category-buttons button.active {
-      background-color: #ddd;
-    }
-
-    .category-container {
-      display: none; /* Ocultar todos los contenedores al principio */
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diseño responsivo */
-      gap: 20px; /* Espacio entre las tarjetas */
-      padding: 20px;
-    }
-
-    .category-container.active {
-      display: grid; /* Mostrar el contenedor activo */
-    }
-
-/* Para pantallas medianas (tabletas y algunos móviles grandes) */
-@media (min-width: 768px) and (max-width: 991px) {
-    .nav-links a {
-      font-size: 0.95rem; /* Tamaño de fuente ligeramente más grande */
-    }
-}
-
-/* Para pantallas grandes (escritorios) - Opcional, si quieres ajustes específicos */
-@media (min-width: 992px) {
-  /* Puedes agregar estilos específicos para pantallas grandes aquí si lo necesitas. */
-}
-    /* Botones para seleccionar categoría */
-    .category-buttons {
-      text-align: center;
-      margin: 2rem 0;
-    }
-    .category-buttons button {
-      background-color: var(--grana);
-      color: var(--texto-claro);
-      border: none;
-      padding: 0.75rem 1.5rem;
-      margin: 0 0.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-    .category-buttons button:hover,
-    .category-buttons button.active {
-      background-color: var(--amarillo);
-      color: var(--texto-oscuro);
-    }
-    /* Contenedores de cada categoría */
-    .category-container {
-      display: none;
-      margin-bottom: 2rem;
-    }
-    .category-container.active {
-      display: block;
-    }
-   /* ... (estilos anteriores) ... */
-
-   .player-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta minmax para mejor responsividad */
-      grid-gap: 1rem;
-      justify-content: center; /* Centrar el grid horizontalmente */
-    }
-
-    .player-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      border: 1px solid #ccc; /* Borde para las tarjetas */
-      padding: 1rem;
-      border-radius: 8px; /* Bordes redondeados */
-      background-color: #fff; /* Fondo blanco para las tarjetas */
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    }
-
-    .player-image {
-      width: 150px; /* Ajusta el tamaño de la imagen */
-      height: 150px;
-      border-radius: 50%; /* Imagen circular */
-      overflow: hidden; /* Recortar la imagen si es necesario */
-      margin-bottom: 1rem;
-    }
-
-    .player-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Cubrir todo el contenedor con la imagen */
-    }
-
-    .player-name {
-      margin-bottom: 0.5rem;
-    }
-
-    .player-details {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left; /* Detalles alineados a la izquierda */
-    }
-
-    .player-details li {
-      margin-bottom: 0.25rem;
-    }
-
-    /* Media query para ajustar el número de columnas en pantallas grandes */
-    @media (min-width: 992px) {
-      .player-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas grandes */
-      }
-    }
   </style>
 </head>
 <body>
