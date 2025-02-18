@@ -349,6 +349,17 @@
         <a href="login.html">Iniciar Sesión</a>
       </div>
     </div>
+    
+    <!-- MENÚ DESPLEGABLE PARA MÓVILES -->
+    <div class="mobile-nav" id="mobileNav" style="display: none;">
+      <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+      <a href="Historia.html"><i class="fa fa-file"></i>Historia</a>
+      <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+      <a href="NormasyReglamentos.html"><i class="fa fa-users"></i>Normas y Reglamentos</a>
+      <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+      <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+      <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
+    </div>
   </header>
 
   <!-- HERO -->
@@ -449,5 +460,25 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function toggleMobileNav() {
+      var mobileNav = document.getElementById('mobileNav');
+      if (mobileNav.style.display === 'block') {
+        mobileNav.style.display = 'none';
+      } else {
+        mobileNav.style.display = 'block';
+      }
+    }
+
+    // Asignar el evento al botón de menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuIcon = document.querySelector('.menu-icon');
+      if(menuIcon){
+        menuIcon.addEventListener('click', toggleMobileNav);
+      }
+    });
+  </script>
+  
 </body>
 </html>
