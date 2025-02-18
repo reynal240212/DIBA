@@ -12,247 +12,205 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-  <!-- Íconos de Font Awesome (opcional) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
   <style>
- :root {
-  --azul: #003399;
-  --grana: #a50044;
-  --rojo: #ff0000;
-  --amarillo: #ffd700;
-  --texto-claro: #ffffff;
-  --texto-oscuro: #333333;
-  --fondo-gris: #f4f4f4;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: var(--fondo-gris);
-  color: var(--texto-oscuro);
-  margin: 0;
-  padding: 1rem;
-}
-
-/* Encabezado */
+    :root {
+      --azul: #003399;
+      --grana: #a50044;
+      --rojo: #ff0000;
+      --amarillo: #ffd700;
+      --texto-claro: #ffffff;
+      --texto-oscuro: #333333;
+      --fondo-gris: #f4f4f4;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--fondo-gris);
+      color: var(--texto-oscuro);
+      margin: 0;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--grana);
+    }
+    /* HEADER */
 header {
-  background-color: var(--grana);
-  color: var(--texto-claro);
-  padding: 1rem 2rem;
-  margin-bottom: 1rem;
+    background-color: var(--grana);
+    color: var(--texto-claro);
+    padding: 1rem 2rem;
 }
 
 .top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1300px;
-  margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
 .top-bar-left {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .logo {
-  width: 60px;
-  transition: transform 0.3s;
+    width: 60px;
+    transition: transform 0.3s;
 }
 
 .logo:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .nav-links {
-  display: flex;
-  gap: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
 }
 
 .nav-links a {
-  color: var(--texto-claro);
-  font-weight: bold;
-  font-size: 1rem;
-  text-transform: uppercase;
-  transition: color 0.3s, transform 0.2s;
+    color: var(--texto-claro);
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: color 0.3s, transform 0.2s;
 }
 
 .nav-links a:hover {
-  color: var(--amarillo);
-  transform: scale(1.05);
+    color: var(--amarillo);
+    transform: scale(1.05);
 }
 
-/* Título */
-h1 {
-  text-align: center;
-  margin-bottom: 1rem;
-  color: var(--grana);
+
+/* Media Queries para hacerlo responsivo */
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {  /* Ajusta el valor 767px si es necesario */
+    .top-bar {
+        flex-direction: column; /* Diseño en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+        text-align: left; /* Texto alineado a la izquierda */
+    }
+
+    .top-bar-left {
+        flex-direction: column; /* Logo y links en columna */
+        align-items: flex-start; /* Alinea a la izquierda */
+        gap: 1rem; /* Reduce el espacio entre elementos */
+        margin-bottom: 1rem; /* Espacio inferior para separar del resto del contenido */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Links en columna */
+        gap: 0.5rem; /* Reduce el espacio entre links */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Reduce tamaño de fuente */
+    }
+
+    .logo {
+        width: 50px; /* Ajusta tamaño del logo */
+    }
 }
 
-/* Timeline Section */
-.timeline-section {
-  padding: 2rem 1rem;
-  max-width: 1300px;
-  margin: 0 auto;
-  position: relative;
-}
 
-.timeline-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: var(--grana);
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.timeline-grid {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  gap: 2rem;
-}
-
-/* Línea central del timeline */
-.timeline-grid::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 5px;
-  height: 100%;
-  background: var(--grana);
-  transform: translateX(-50%);
-}
-
-.timeline-item {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s;
-  position: relative;
-  width: 45%;
-  padding: 1rem;
-}
-
-/* Alternar lados */
-.timeline-item:nth-child(odd) {
-  align-self: flex-start;
-}
-
-.timeline-item:nth-child(even) {
-  align-self: flex-end;
-}
-
-.timeline-item:hover {
-  transform: translateY(-5px);
-}
-
-.timeline-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.timeline-text {
-  padding: 1rem;
-  font-size: 0.95rem;
-  color: var(--texto-oscuro);
-  font-weight: bold;
-}
-
-/* Estilos para las tarjetas de jugadores */
-.player-card {
-  display: flex;
-  align-items: center;
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.player-card:hover {
-  transform: translateY(-5px);
-}
-
-.player-image img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 1rem;
-}
-
-.player-info {
-  text-align: left;
-}
-
-.player-name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.player-details {
-  list-style: none;
-  padding: 0;
-  font-size: 0.9rem;
-}
-
-.player-details li {
-  margin-bottom: 0.3rem;
-}
-
-/* Botones para seleccionar categoría */
-.category-buttons {
-  text-align: center;
-  margin: 2rem 0;
-}
-
-.category-buttons button {
-  background-color: var(--grana);
-  color: var(--texto-claro);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  margin: 0 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.category-buttons button:hover,
-.category-buttons button.active {
-  background-color: var(--amarillo);
-  color: var(--texto-oscuro);
-}
-
-/* Media query para pantallas medianas */
+/* Para pantallas medianas (tabletas y algunos móviles grandes) */
 @media (min-width: 768px) and (max-width: 991px) {
-  .nav-links a {
-    font-size: 0.95rem;
-  }
+    .nav-links a {
+      font-size: 0.95rem; /* Tamaño de fuente ligeramente más grande */
+    }
 }
 
-/* Media query para pantallas grandes */
+/* Para pantallas grandes (escritorios) - Opcional, si quieres ajustes específicos */
 @media (min-width: 992px) {
-  .timeline-grid::before {
-    left: 50%;
-  }
-  .timeline-item {
-    width: 40%;
-  }
+  /* Puedes agregar estilos específicos para pantallas grandes aquí si lo necesitas. */
 }
+    /* Botones para seleccionar categoría */
+    .category-buttons {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .category-buttons button {
+      background-color: var(--grana);
+      color: var(--texto-claro);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin: 0 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .category-buttons button:hover,
+    .category-buttons button.active {
+      background-color: var(--amarillo);
+      color: var(--texto-oscuro);
+    }
+    /* Contenedores de cada categoría */
+    .category-container {
+      display: none;
+      margin-bottom: 2rem;
+    }
+    .category-container.active {
+      display: block;
+    }
+   /* ... (estilos anteriores) ... */
 
+   .player-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta minmax para mejor responsividad */
+      grid-gap: 1rem;
+      justify-content: center; /* Centrar el grid horizontalmente */
+    }
+
+    .player-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #ccc; /* Borde para las tarjetas */
+      padding: 1rem;
+      border-radius: 8px; /* Bordes redondeados */
+      background-color: #fff; /* Fondo blanco para las tarjetas */
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    .player-image {
+      width: 150px; /* Ajusta el tamaño de la imagen */
+      height: 150px;
+      border-radius: 50%; /* Imagen circular */
+      overflow: hidden; /* Recortar la imagen si es necesario */
+      margin-bottom: 1rem;
+    }
+
+    .player-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cubrir todo el contenedor con la imagen */
+    }
+
+    .player-name {
+      margin-bottom: 0.5rem;
+    }
+
+    .player-details {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left; /* Detalles alineados a la izquierda */
+    }
+
+    .player-details li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Media query para ajustar el número de columnas en pantallas grandes */
+    @media (min-width: 992px) {
+      .player-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas grandes */
+      }
+    }
   </style>
 </head>
 <body>
@@ -263,13 +221,12 @@ h1 {
         <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo">
         <div class="nav-links">
           <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-          <a href="Historia.html"><i class="fa fa-file"></i>Historia</a>
+          <a href="documentos.html"><i class="fa fa-file"></i> Gestión Documental</a>
           <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-          <a href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
+          <a href="jugadores.html"><i class="fa fa-users"></i> Jugadores</a>
           <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
           <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
           <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-          
         </div>
       </div>
     </div>
