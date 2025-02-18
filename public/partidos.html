@@ -209,7 +209,30 @@
     footer p {
       font-size: 0.9rem;
     }
-    
+     /* ================================
+       GALERÍA DE IMÁGENES (5x5)
+    =================================*/
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     /* ================================
        RESPONSIVE
     =================================*/
@@ -287,6 +310,59 @@
       </div>
       <button type="submit">Notificar por WhatsApp</button>
     </form>
+  </section>
+ <section class="hero">
+    <h1>Galería y Partidos</h1>
+    <p>Descubre los mejores momentos del club y revisa los próximos partidos.</p>
+  </section>
+
+  <!-- GALERÍA DE IMÁGENES -->
+  <section class="gallery">
+    <!-- 25 imágenes de ejemplo -->
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 1"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 2"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 3"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 4"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 5"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 6"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 7"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 8"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 9"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 10"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 11"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 12"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 13"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 14"></div>
+    <div class="gallery-item"><img src="https://via.placeholder.com/200" alt="Imagen 15"></div>
+  </section>
+
+  <!-- SECCIÓN DE PARTIDOS -->
+  <section class="matches">
+    <h2>Próximos Partidos</h2>
+    
+    <div class="match">
+      <div class="team">
+        <img src="https://via.placeholder.com/50" alt="Equipo 1">
+        <span>DIBA FBC</span>
+      </div>
+      <span>VS</span>
+      <div class="team">
+        <img src="https://via.placeholder.com/50" alt="Equipo 2">
+        <span>Club Los Amigos</span>
+      </div>
+    </div>
+
+    <div class="match">
+      <div class="team">
+        <img src="https://via.placeholder.com/50" alt="Equipo 1">
+        <span>DIBA FBC</span>
+      </div>
+      <span>VS</span>
+      <div class="team">
+        <img src="https://via.placeholder.com/50" alt="Equipo 3">
+        <span>Academia Fútbol</span>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
