@@ -2,9 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noticias - DIBA FBC</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --azul: #003399;
+      --grana: #a50044;
+      --rojo: #ff0000;
+      --amarillo: #ffd700;
+      --texto-claro: #ffffff;
+      --texto-oscuro: #333333;
+      --fondo-gris: #f4f4f4;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--fondo-gris);
+      color: var(--texto-oscuro);
+      margin: 0;
+      padding: 1rem;
+    }
+    /* (Otros estilos que tengas en styles.css) */
+  </style>
 </head>
 <body>
   <header>
@@ -22,8 +40,8 @@
     </div>
   </header>
   
-  <!-- Formulario para enviar datos vía mailto -->
-<form class="partido-form" onsubmit="enviarWhatsapp(event)">
+  <!-- Formulario para enviar datos vía WhatsApp -->
+  <form class="partido-form" onsubmit="enviarWhatsapp(event)">
     <div class="form-group">
       <label for="fecha">Fecha:</label>
       <input type="date" id="fecha" name="fecha" required>
@@ -51,8 +69,8 @@
         <option value="campeonato">Campeonato</option>
       </select>
     </div>
-   <button type="submit">Notificar por WhatsApp</button>
-</form>
+    <button type="submit">Notificar por WhatsApp</button>
+  </form>
 
   <footer>
     <div class="container">
@@ -60,7 +78,7 @@
     </div>
   </footer>
   
- <script>
+  <script>
     function enviarWhatsapp(event) {
       event.preventDefault(); // Evita el envío normal del formulario
 
@@ -72,7 +90,7 @@
       const valor = document.getElementById('valor').value;
       const tipo = document.getElementById('tipo').value;
 
-      // Construye el mensaje sin codificar aún (se codificará en la función multiple)
+      // Construye el mensaje sin codificar aún
       const mensaje = "Información del partido:\n" +
                       "Fecha: " + fecha + "\n" +
                       "Hora: " + hora + "\n" +
@@ -87,16 +105,39 @@
 
     function enviarWhatsappMultiple(mensaje) {
       // Lista de números en formato internacional (sin + ni espacios)
-     const numeros = ["3042034755","3148350983", "3242222035", "3043607874", "3012901980", "3013637273", "3016341284", "3242468511","311794894","3187269344" "3242653101", "3148317030",  "3043607874",  "3105463504",  "3007472389"      "3212159255",   "3043219871",  "3215369885",   "3215369885", "3003292991", "3116280441","3023076553"
+      const numeros = [
+        "3042034755",
+        "3148350983",
+        "3242222035",
+        "3043607874",
+        "3012901980",
+        "3013637273",
+        "3016341284",
+        "3242468511",
+        "311794894",
+        "3187269344",
+        "3242653101",
+        "3148317030",
+        "3043607874",
+        "3105463504",
+        "3007472389",
+        "3212159255",
+        "3043219871",
+        "3215369885",
+        "3215369885",
+        "3003292991",
+        "3116280441",
+        "3023076553"
       ];
 
-      // Abre una nueva ventana para cada número con el mensaje codificado
-      numeros.forEach(num => {
-        const url = "https://wa.me/" + num + "?text=" + encodeURIComponent(mensaje);
-        window.open(url, '_blank');
+      // Para evitar bloqueos, podemos usar un retardo entre aperturas
+      numeros.forEach((num, index) => {
+        setTimeout(() => {
+          const url = "https://wa.me/" + num + "?text=" + encodeURIComponent(mensaje);
+          window.open(url, '_blank');
+        }, index * 500); // 500 ms entre cada apertura
       });
     }
   </script>
-</body>
 </body>
 </html>
