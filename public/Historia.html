@@ -4,7 +4,14 @@
   <meta charset="UTF-8" />
   <title>HISTORIA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Íconos de Font Awesome (opcional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     /* ================================
        RESET
@@ -14,19 +21,21 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     body {
       font-family: Arial, sans-serif;
-      background-color: #ffffff;
+      /* Fondo retro estilo pergamino */
+      background-color: #f7e9d3;
+      background-image: url('https://www.transparenttextures.com/patterns/old-mathematics.png');
       color: #333;
       line-height: 1.5;
     }
-
+    
     a {
       text-decoration: none;
       color: inherit;
     }
-
+    
     :root {
       --azul-barca: #003399;
       --grana-barca: #a50044;
@@ -36,54 +45,54 @@
       --texto-oscuro: #333333;
       --fondo-gris: #f4f4f4;
     }
-
+    
     header {
       background-color: var(--grana-barca);
       color: var(--texto-claro);
       padding: 1rem 0;
       text-align: center;
     }
-
+    
     .hero {
       text-align: center;
       padding: 2rem 1rem;
       background-color: var(--fondo-gris);
     }
-
+    
     .hero h1 {
       color: var(--azul-barca);
       font-size: 2rem;
     }
-
+    
     .gallery, .news-section {
       padding: 2rem 1rem;
     }
-
+    
     /* Galería de fotos */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1rem;
     }
-
+    
     .gallery-item {
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-
+    
     .gallery-item img {
       width: 100%;
       height: auto;
       object-fit: cover;
       border-radius: 8px;
     }
-
+    
     /* Sección de noticias */
     .news-section {
       background-color: var(--fondo-gris); /* Fondo gris para las noticias */
     }
-
+    
     .news-article {
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -92,31 +101,31 @@
       border-bottom: 1px solid #ccc;
       padding-bottom: 1rem;
     }
-
+    
     .news-article img {
       width: 100%;
       height: auto;
       object-fit: cover;
       border-radius: 8px;
     }
-
+    
     .news-content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-
+    
     .news-title {
       font-size: 1.2rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
-
+    
     .news-date {
       font-size: 0.8rem;
       color: #777;
     }
-
+    
     footer {
       background-color: var(--azul-barca);
       color: var(--texto-claro);
@@ -130,14 +139,15 @@
   <header>
     <h4>HISTORIA DIBA FBC</h4>
   </header>
-
+  
   <section class="hero">
     <h1>Explora Nuestro Mundo</h1>
     <p>Descrubre un pedacito de nuestra Historia</p>
   </section>
+  
   <section class="news-section">
     <h2>Noticias y Eventos</h2>
-
+    
     <div class="news-article">
       <img src="Noticia1.jpg" alt="Noticia 1">
       <div class="news-content">
@@ -150,7 +160,7 @@
         <p class="news-date">15 de Marzo de 2024</p>
       </div>
     </div>
-
+    
     <div class="news-article">
       <img src="https://via.placeholder.com/300x200" alt="Noticia 2">
       <div class="news-content">
@@ -161,9 +171,9 @@
         <p class="news-date">8 de Marzo de 2024</p>
       </div>
     </div>
-
+    
   </section>
-
+  
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
   </footer>
