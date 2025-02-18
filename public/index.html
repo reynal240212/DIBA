@@ -43,12 +43,12 @@
     =================================*/
     :root {
       --azul-barca: #003399;        /* Azul oscuro */
-      --grana-barca: #a50044;       /* Grana */
-      --rojo-barca: #ff0000;        /* Rojo vivo */
-      --amarillo-barca: #ffd700;    /* Amarillo dorado */
-      --texto-claro: #ffffff;       /* Texto claro */
-      --texto-oscuro: #333333;      /* Texto oscuro */
-      --fondo-gris: #f4f4f4;        /* Gris claro de fondo */
+      --grana-barca: #a50044;         /* Grana */
+      --rojo-barca: #ff0000;          /* Rojo vivo */
+      --amarillo-barca: #ffd700;      /* Amarillo dorado */
+      --texto-claro: #ffffff;         /* Texto claro */
+      --texto-oscuro: #333333;        /* Texto oscuro */
+      --fondo-gris: #f4f4f4;          /* Gris claro de fondo */
     }
 
     /* ================================
@@ -113,12 +113,21 @@
       font-size: 1rem;
       font-weight: bold;
       text-transform: uppercase;
-      transition: color 0.3s, transform 0.2s;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
-    .top-bar-right a:hover {
-      color: var(--amarillo-barca);
-      transform: scale(1.05);
+    /* Agregamos iconos en los links de top-bar-right */
+    .top-bar-right a i {
+      margin-right: 0.3rem;
+    }
+
+    /* Animación para ocultarse en móvil */
+    @media (max-width: 768px) {
+      .top-bar-right {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
     }
 
     /* ================================
@@ -328,22 +337,37 @@
 <body>
 
   <!-- HEADER -->
-     
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <!-- LOGO DEL CLUB -->
+        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo" />
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <div class="nav-links">
+          <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+          <a href="Historia.html"><i class="fa fa-file"></i> Historia</a>
+          <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+          <a href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
+          <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+          <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+          <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <a href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a>
+        <a href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
+      </div>
+    </div>
     
     <!-- MENÚ DESPLEGABLE PARA MÓVILES -->
     <div class="mobile-nav" id="mobileNav" style="display: none;">
       <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-      <a href="Historia.html"><i class="fa fa-file"></i>Historia</a>
+      <a href="Historia.html"><i class="fa fa-file"></i> Historia</a>
       <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-      <a href="NormasyReglamentos.html"><i class="fa fa-users"></i>Normas y Reglamentos</a>
+      <a href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
       <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
       <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
       <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-      <div class="top-bar-right">
-        <a href="registro.html">Registrarse</a>
-        <a href="login.html">Iniciar Sesión</a>
-      </div>
-    </div>
     </div>
   </header>
 
@@ -459,7 +483,7 @@
     // Asignar el evento al botón de menú móvil
     document.addEventListener('DOMContentLoaded', function() {
       var menuIcon = document.querySelector('.menu-icon');
-      if(menuIcon){
+      if (menuIcon){
         menuIcon.addEventListener('click', toggleMobileNav);
       }
     });
