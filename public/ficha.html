@@ -116,65 +116,403 @@
       background-color: var(--amarillo);
       color: var(--texto-oscuro);
     }
-/* Contenedor que agrupa las tarjetas de jugadores */
-.players-grid {
-  display: grid;                      /* Activamos CSS Grid */
-  grid-template-columns: repeat(5, 1fr); /* 5 columnas fijas */
-  gap: 1rem;                          /* Espacio entre columnas/filas */
-  justify-items: center;             /* Centra horizontalmente las tarjetas */
-  align-items: start;                /* Alinea las tarjetas en la parte superior */
-}
+/* Estilos para la galería */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Centrar las imágenes horizontalmente */
+    }
 
-/* Cada tarjeta de jugador */
-.player-card {
-  width: 180px;                       /* Ancho fijo para cada "cuadrito" */
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;                 /* Centra el contenido dentro de la tarjeta */
-}
+    .gallery-item {
+      margin: 10px;
+      border: 1px solid #ccc; /* Borde para las imágenes */
+      overflow: hidden; /* Ocultar el contenido que se desborda */
+    }
 
-/* Imagen del jugador */
-.player-image {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 0.5rem;             /* Centra la imagen y deja espacio debajo */
-  background-color: #ddd;
-  border-radius: 50%;
-  overflow: hidden;                  /* Para recortar la imagen si es más grande */
-}
+    .gallery-item img {
+      display: block; /* Evitar espacios en blanco debajo de la imagen */
+      max-width: 200px; /* Ancho máximo de las imágenes */
+      height: auto; /* Altura automática para mantener la proporción */
+    }
 
-/* Ajuste de la imagen dentro del contenedor */
-.player-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    /* Estilos para la sección de jugadores */
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
 
-/* Nombre del jugador */
-.player-name {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.3rem;
-  color: #a50044; /* Ejemplo de color grana */
-}
+    .category-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      background-color: #eee;
+      cursor: pointer;
+    }
 
-/* Detalles del jugador */
-.player-details {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.3;
-  color: #444;
-  text-align: left; /* Para alinear a la izquierda dentro de la tarjeta */
-  margin-top: 0.5rem;
-}
+    .category-buttons button.active {
+      background-color: #ddd;
+    }
 
-.player-details li {
-  margin-bottom: 0.2rem;
-}
+    .category-container {
+      display: none; /* Ocultar todos los contenedores al principio */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diseño responsivo */
+      gap: 20px; /* Espacio entre las tarjetas */
+      padding: 20px;
+    }
+
+    .category-container.active {
+      display: grid; /* Mostrar el contenedor activo */
+    }
+
+    .player-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: flex;
+      flex-direction: column; /* Alinea los elementos verticalmente */
+      align-items: center; /* Centra los elementos horizontalmente */
+      text-align: center; /* Centra el texto */
+    }
+
+    .player-image {
+      margin-bottom: 10px;
+      width: 150px; /* Ajusta el tamaño de la imagen */
+      height: 150px;
+      border-radius: 50%; /* Hace la imagen circular */
+      overflow: hidden; /* Recorta la imagen si es necesario */
+    }
+
+    .player-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cubre todo el contenedor con la imagen */
+    }
+
+    .player-info {
+      width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    }
+
+    .player-details {
+      list-style: none;
+      padding: 0;
+    }
+
+    .player-details li {
+      margin-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px; /* Espacio superior para la tabla */
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }/* Estilos para la galería */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Centrar las imágenes horizontalmente */
+    }
+
+    .gallery-item {
+      margin: 10px;
+      border: 1px solid #ccc; /* Borde para las imágenes */
+      overflow: hidden; /* Ocultar el contenido que se desborda */
+    }
+
+    .gallery-item img {
+      display: block; /* Evitar espacios en blanco debajo de la imagen */
+      max-width: 200px; /* Ancho máximo de las imágenes */
+      height: auto; /* Altura automática para mantener la proporción */
+    }
+
+    /* Estilos para la sección de jugadores */
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .category-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      background-color: #eee;
+      cursor: pointer;
+    }
+
+    .category-buttons button.active {
+      background-color: #ddd;
+    }
+
+    .category-container {
+      display: none; /* Ocultar todos los contenedores al principio */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diseño responsivo */
+      gap: 20px; /* Espacio entre las tarjetas */
+      padding: 20px;
+    }
+
+    .category-container.active {
+      display: grid; /* Mostrar el contenedor activo */
+    }
+
+    .player-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: flex;
+      flex-direction: column; /* Alinea los elementos verticalmente */
+      align-items: center; /* Centra los elementos horizontalmente */
+      text-align: center; /* Centra el texto */
+    }
+
+    .player-image {
+      margin-bottom: 10px;
+      width: 150px; /* Ajusta el tamaño de la imagen */
+      height: 150px;
+      border-radius: 50%; /* Hace la imagen circular */
+      overflow: hidden; /* Recorta la imagen si es necesario */
+    }
+
+    .player-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cubre todo el contenedor con la imagen */
+    }
+
+    .player-info {
+      width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    }
+
+    .player-details {
+      list-style: none;
+      padding: 0;
+    }
+
+    .player-details li {
+      margin-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px; /* Espacio superior para la tabla */
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }/* Estilos para la galería */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Centrar las imágenes horizontalmente */
+    }
+
+    .gallery-item {
+      margin: 10px;
+      border: 1px solid #ccc; /* Borde para las imágenes */
+      overflow: hidden; /* Ocultar el contenido que se desborda */
+    }
+
+    .gallery-item img {
+      display: block; /* Evitar espacios en blanco debajo de la imagen */
+      max-width: 200px; /* Ancho máximo de las imágenes */
+      height: auto; /* Altura automática para mantener la proporción */
+    }
+
+    /* Estilos para la sección de jugadores */
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .category-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      background-color: #eee;
+      cursor: pointer;
+    }
+
+    .category-buttons button.active {
+      background-color: #ddd;
+    }
+
+    .category-container {
+      display: none; /* Ocultar todos los contenedores al principio */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diseño responsivo */
+      gap: 20px; /* Espacio entre las tarjetas */
+      padding: 20px;
+    }
+
+    .category-container.active {
+      display: grid; /* Mostrar el contenedor activo */
+    }
+
+    .player-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: flex;
+      flex-direction: column; /* Alinea los elementos verticalmente */
+      align-items: center; /* Centra los elementos horizontalmente */
+      text-align: center; /* Centra el texto */
+    }
+
+    .player-image {
+      margin-bottom: 10px;
+      width: 150px; /* Ajusta el tamaño de la imagen */
+      height: 150px;
+      border-radius: 50%; /* Hace la imagen circular */
+      overflow: hidden; /* Recorta la imagen si es necesario */
+    }
+
+    .player-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cubre todo el contenedor con la imagen */
+    }
+
+    .player-info {
+      width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    }
+
+    .player-details {
+      list-style: none;
+      padding: 0;
+    }
+
+    .player-details li {
+      margin-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px; /* Espacio superior para la tabla */
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }/* Estilos para la galería */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Centrar las imágenes horizontalmente */
+    }
+
+    .gallery-item {
+      margin: 10px;
+      border: 1px solid #ccc; /* Borde para las imágenes */
+      overflow: hidden; /* Ocultar el contenido que se desborda */
+    }
+
+    .gallery-item img {
+      display: block; /* Evitar espacios en blanco debajo de la imagen */
+      max-width: 200px; /* Ancho máximo de las imágenes */
+      height: auto; /* Altura automática para mantener la proporción */
+    }
+
+    /* Estilos para la sección de jugadores */
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .category-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      background-color: #eee;
+      cursor: pointer;
+    }
+
+    .category-buttons button.active {
+      background-color: #ddd;
+    }
+
+    .category-container {
+      display: none; /* Ocultar todos los contenedores al principio */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diseño responsivo */
+      gap: 20px; /* Espacio entre las tarjetas */
+      padding: 20px;
+    }
+
+    .category-container.active {
+      display: grid; /* Mostrar el contenedor activo */
+    }
+
+    .player-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: flex;
+      flex-direction: column; /* Alinea los elementos verticalmente */
+      align-items: center; /* Centra los elementos horizontalmente */
+      text-align: center; /* Centra el texto */
+    }
+
+    .player-image {
+      margin-bottom: 10px;
+      width: 150px; /* Ajusta el tamaño de la imagen */
+      height: 150px;
+      border-radius: 50%; /* Hace la imagen circular */
+      overflow: hidden; /* Recorta la imagen si es necesario */
+    }
+
+    .player-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cubre todo el contenedor con la imagen */
+    }
+
+    .player-info {
+      width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    }
+
+    .player-details {
+      list-style: none;
+      padding: 0;
+    }
+
+    .player-details li {
+      margin-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px; /* Espacio superior para la tabla */
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
 
 /* Para pantallas medianas (tabletas y algunos móviles grandes) */
 @media (min-width: 768px) and (max-width: 991px) {
