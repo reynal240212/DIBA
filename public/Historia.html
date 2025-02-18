@@ -21,7 +21,10 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
+    /* ================================
+       ESTILOS BÁSICOS
+    =================================*/
     body {
       font-family: Arial, sans-serif;
       /* Fondo retro estilo pergamino */
@@ -30,12 +33,12 @@
       color: #333;
       line-height: 1.5;
     }
-    
+
     a {
       text-decoration: none;
       color: inherit;
     }
-    
+
     :root {
       --azul-barca: #003399;
       --grana-barca: #a50044;
@@ -45,87 +48,82 @@
       --texto-oscuro: #333333;
       --fondo-gris: #f4f4f4;
     }
-    
+
+    /* ================================
+       HEADER
+    =================================*/
     header {
       background-color: var(--grana-barca);
       color: var(--texto-claro);
       padding: 1rem 0;
       text-align: center;
     }
-    
+
+    /* ================================
+       SECCIÓN HERO
+    =================================*/
     .hero {
       text-align: center;
       padding: 2rem 1rem;
       background-color: var(--fondo-gris);
     }
-    
     .hero h1 {
       color: var(--azul-barca);
       font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
-    
-    .gallery, .news-section {
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ================================
+       SECCIÓN TIMELINE
+    =================================*/
+    .timeline-section {
       padding: 2rem 1rem;
+      max-width: 1300px;
+      margin: 0 auto;
     }
-    
-    /* Galería de fotos */
-    .gallery {
+    .timeline-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--grana-barca);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .timeline-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
     }
-    
-    .gallery-item {
+    .timeline-item {
+      background-color: #fff;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
     }
-    
-    .gallery-item img {
+    .timeline-item:hover {
+      transform: translateY(-5px);
+    }
+    .timeline-item img {
       width: 100%;
       height: auto;
-      object-fit: cover;
-      border-radius: 8px;
+      display: block;
     }
-    
-    /* Sección de noticias */
-    .news-section {
-      background-color: var(--fondo-gris); /* Fondo gris para las noticias */
-    }
-    
-    .news-article {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1rem;
-    }
-    
-    .news-article img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    
-    .news-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    
-    .news-title {
-      font-size: 1.2rem;
+    .timeline-text {
+      padding: 1rem;
+      font-size: 0.95rem;
+      color: #333;
       font-weight: bold;
-      margin-bottom: 0.5rem;
     }
-    
-    .news-date {
-      font-size: 0.8rem;
-      color: #777;
-    }
-    
+
+    /* ================================
+       FOOTER
+    =================================*/
     footer {
       background-color: var(--azul-barca);
       color: var(--texto-claro);
@@ -133,49 +131,57 @@
       padding: 1rem 0;
       margin-top: 2rem;
     }
+
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
     <h4>HISTORIA DIBA FBC</h4>
   </header>
-  
+
+  <!-- HERO -->
   <section class="hero">
     <h1>Explora Nuestro Mundo</h1>
-    <p>Descrubre un pedacito de nuestra Historia</p>
+    <p>Descubre un pedacito de nuestra Historia y los logros más destacados.</p>
   </section>
-  
-  <section class="news-section">
-    <h2>Noticias y Eventos</h2>
-    
-    <div class="news-article">
-      <img src="Noticia1.jpg" alt="Noticia 1">
-      <div class="news-content">
-        <div>
-          <h3 class="news-title">¡Sub Campeones Torneo Las Mercedes!</h3>
-          <p>El 28 de octubre de 2013, el equipo de la categoría 2003 del Club DIBA vivió un emocionante y agridulce momento en la cancha de Las Mercedes. En un partido vibrante, los jóvenes talentos demostraron su pasión y habilidad en el terreno de juego.
-            A pesar de ir ganando 2-1 a falta de un minuto para el final, el equipo rival logró empatar el partido, llevando el encuentro a la tanda de penales. Aunque los jugadores de DIBA no tuvieron suerte en los penales, el partido fue una gran experiencia para todos los niños.
-            Como dice el dicho, "perder es ganar un poco", y esta experiencia seguramente dejó valiosas lecciones a los jóvenes futbolistas. El partido fue un testimonio del espíritu deportivo y la dedicación de los niños, quienes demostraron su amor por el fútbol en cada jugada.</p>
-        </div>
-        <p class="news-date">15 de Marzo de 2024</p>
+
+  <!-- TIMELINE (Distribución como en tu captura) -->
+  <section class="timeline-section">
+    <h2>Momentos Destacados</h2>
+    <div class="timeline-grid">
+
+      <div class="timeline-item">
+        <img src="imagen1.jpg" alt="2008-2020">
+        <div class="timeline-text">2008-2020. Los mejores éxitos deportivos de la historia</div>
       </div>
-    </div>
-    
-    <div class="news-article">
-      <img src="https://via.placeholder.com/300x200" alt="Noticia 2">
-      <div class="news-content">
-        <div>
-          <h3 class="news-title">¡Gran Victoria en el Clásico!</h3>
-          <p>Con un golazo de último minuto, nuestro equipo Sub-18 venció al clásico rival, el Club Deportivo Los Amigos.</p>
-        </div>
-        <p class="news-date">8 de Marzo de 2024</p>
+
+      <div class="timeline-item">
+        <img src="imagen2.jpg" alt="1996-08">
+        <div class="timeline-text">1996-08. Un club centenario</div>
       </div>
+
+      <div class="timeline-item">
+        <img src="imagen3.jpg" alt="1988-96">
+        <div class="timeline-text">1988-96. La era del 'Dream Team'</div>
+      </div>
+
+      <!-- Agrega más elementos según necesites -->
+      <!--
+      <div class="timeline-item">
+        <img src="imagen4.jpg" alt="Otro hito">
+        <div class="timeline-text">Descripción de otro hito importante</div>
+      </div>
+      -->
+
     </div>
-    
   </section>
-  
+
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
   </footer>
+
 </body>
 </html>
