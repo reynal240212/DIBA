@@ -116,72 +116,65 @@
       background-color: var(--amarillo);
       color: var(--texto-oscuro);
     }
+/* Contenedor que agrupa las tarjetas de jugadores */
+.players-grid {
+  display: grid;                      /* Activamos CSS Grid */
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas fijas */
+  gap: 1rem;                          /* Espacio entre columnas/filas */
+  justify-items: center;             /* Centra horizontalmente las tarjetas */
+  align-items: start;                /* Alinea las tarjetas en la parte superior */
+}
 
-    /* Contenedores de cada categoría */
-    .category-container {
-      display: none;
-      margin-bottom: 2rem;
-    }
-    .category-container.active {
-      display: block;
-    }
+/* Cada tarjeta de jugador */
+.player-card {
+  width: 180px;                       /* Ancho fijo para cada "cuadrito" */
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;                 /* Centra el contenido dentro de la tarjeta */
+}
 
-    /* Grid de jugadores: 5 columnas, tantas filas como necesites */
-    .players-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr); /* 5 columnas */
-      gap: 1rem; /* Espacio entre tarjetas */
-      justify-items: center; /* Centra las tarjetas horizontalmente */
-      align-items: start;   /* Alinea las tarjetas en la parte superior */
-    }
+/* Imagen del jugador */
+.player-image {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 0.5rem;             /* Centra la imagen y deja espacio debajo */
+  background-color: #ddd;
+  border-radius: 50%;
+  overflow: hidden;                  /* Para recortar la imagen si es más grande */
+}
 
-    /* Tarjeta de jugador */
-    .player-card {
-      width: 180px;              /* Ancho fijo para que sean cuadritos */
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;        /* Centra el contenido */
-    }
+/* Ajuste de la imagen dentro del contenedor */
+.player-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .player-image {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 0.5rem;  /* Centra la imagen y deja espacio debajo */
-      background-color: #ddd;
-      border-radius: 50%;
-      overflow: hidden;
-    }
+/* Nombre del jugador */
+.player-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: #a50044; /* Ejemplo de color grana */
+}
 
-    .player-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* Detalles del jugador */
+.player-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: #444;
+  text-align: left; /* Para alinear a la izquierda dentro de la tarjeta */
+  margin-top: 0.5rem;
+}
 
-    .player-name {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-bottom: 0.3rem;
-      color: var(--grana);
-    }
-
-    .player-details {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.85rem;
-      line-height: 1.3;
-      color: #444;
-      text-align: left; /* Si prefieres texto alineado a la izquierda */
-      margin-top: 0.5rem;
-    }
-
-    .player-details li {
-      margin-bottom: 0.2rem;
-    }
-
+.player-details li {
+  margin-bottom: 0.2rem;
+}
 
 /* Para pantallas medianas (tabletas y algunos móviles grandes) */
 @media (min-width: 768px) and (max-width: 991px) {
