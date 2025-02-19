@@ -49,6 +49,9 @@
       --texto-claro: #ffffff;         /* Texto claro */
       --texto-oscuro: #333333;        /* Texto oscuro */
       --fondo-gris: #f4f4f4;          /* Gris claro de fondo */
+      --color_blanco: #ffffff;
+      --color_primario_suave: #b3004c; /* Ejemplo de color suave */
+      --altura_header: 80px;
     }
 
     /* ================================
@@ -57,9 +60,10 @@
     header {
       background-color: var(--grana-barca);
       color: var(--texto-claro);
+      position: relative;
     }
 
-    .top-bar {
+    .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -68,38 +72,62 @@
       margin: 0 auto;
     }
 
-    /* Logo + Menú principal */
-    .top-bar-left {
+    /* Menú hamburguesa */
+    .labe_hamburguesa {
+      cursor: pointer;
+    }
+    .list_icon {
+      color: var(--texto-claro);
+      cursor: pointer;
+    }
+    .ul_links {
+      width: 100%;
+      background-color: var(--color_primario_suave);
+      position: absolute;
+      top: var(--altura_header);
+      left: 0;
+      height: 0;
+      overflow: hidden;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 2rem;
+      gap: 3rem;
+      transition: all 0.3s;
     }
-
-    .logo {
-      width: 60px;
-      transition: transform 0.3s;
+    /* Mostrar el menú cuando se active el checkbox */
+    #menu_hamburguesa:checked ~ .ul_links {
+      height: calc(100vh - var(--altura_header));
     }
-
-    .logo:hover {
-      transform: scale(1.1);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
+    .link {
+      font-size: 3em;
       color: var(--texto-claro);
       font-weight: bold;
-      font-size: 1rem;
-      text-transform: uppercase;
-      transition: color 0.3s, transform 0.2s;
+    }
+    .ul_links a {
+      display: block;
+      padding: 0.5rem 1rem;
     }
 
-    .nav-links a:hover {
-      color: var(--amarillo-barca);
-      transform: scale(1.05);
+    @media (min-width: 768px) {
+      .labe_hamburguesa {
+        display: none;
+      }
+      .ul_links {
+        position: static;
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        gap: 2rem;
+      }
+      .link {
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        padding: 0.2rem 0.7rem;
+      }
+      .link:hover {
+        background-color: #5f1192;
+      }
     }
 
     /* Botones derecha (Registrarse / Iniciar Sesión) */
@@ -107,7 +135,6 @@
       display: flex;
       gap: 1rem;
     }
-
     .top-bar-right a {
       color: var(--texto-claro);
       font-size: 1rem;
@@ -115,13 +142,9 @@
       text-transform: uppercase;
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-
-    /* Agregamos iconos en los links de top-bar-right */
     .top-bar-right a i {
       margin-right: 0.3rem;
     }
-
-    /* Animación para ocultarse en móvil */
     @media (max-width: 768px) {
       .top-bar-right {
         opacity: 0;
@@ -144,8 +167,6 @@
       justify-content: flex-start;
       overflow: hidden;
     }
-
-    /* Degradado sutil en la parte inferior de la imagen */
     .hero::before {
       content: "";
       position: absolute;
@@ -156,7 +177,6 @@
         rgba(0, 0, 0, 0.6) 100%
       );
     }
-
     .hero-content {
       position: relative;
       z-index: 1;
@@ -164,14 +184,12 @@
       margin: 0 2rem 2rem;
       color: var(--texto-claro);
     }
-
     .hero-content h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
       font-weight: bold;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
-
     .hero-content p {
       font-size: 1rem;
       max-width: 600px;
@@ -181,14 +199,12 @@
 
     /* ================================
        SECCIÓN DE PUBLICACIONES
-       (No se ve el bloque HTML, pero se mantienen estilos)
     =================================*/
     .news-section {
       background-color: var(--fondo-gris);
       padding: 2rem 1rem;
       text-align: center;
     }
-
     .news-section h3 {
       font-size: 1.8rem;
       color: var(--grana-barca);
@@ -196,7 +212,6 @@
       text-transform: uppercase;
       font-weight: bold;
     }
-
     .news-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -204,7 +219,6 @@
       max-width: 1300px;
       margin: 0 auto;
     }
-
     .news-card {
       background: #fff;
       padding: 15px;
@@ -220,44 +234,37 @@
       padding: 2rem 1rem;
       text-align: center;
     }
-
     .training-content {
-      max-width: 600px; /* Ajusta el ancho máximo según tus necesidades */
+      max-width: 600px;
       margin: 0 auto;
       background-color: #fff;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
     .training-shield {
       width: 100px;
       margin-bottom: 1rem;
     }
-
     .training-section h3 {
       font-size: 1.8rem;
       color: var(--azul-barca);
       margin-bottom: 1rem;
     }
-
     .training-date,
     .training-time,
     .training-location {
       margin-bottom: 0.5rem;
     }
-
     .training-categories,
     .training-details {
       margin-top: 1.5rem;
       text-align: left;
     }
-
     .training-categories ul {
       list-style: none;
       padding-left: 20px;
     }
-
     .training-message {
       margin-top: 2rem;
       font-style: italic;
@@ -272,7 +279,6 @@
       padding: 2rem 1rem;
       margin-top: 2rem;
     }
-
     .footer-content {
       max-width: 1300px;
       margin: 0 auto;
@@ -280,33 +286,27 @@
       flex-wrap: wrap;
       gap: 2rem;
     }
-
     .footer-col {
       flex: 1 1 200px;
     }
-
     .footer-col h4 {
       margin-bottom: 0.8rem;
       color: var(--amarillo-barca);
       font-weight: bold;
       text-transform: uppercase;
     }
-
     .footer-col ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-
     .footer-col li {
       margin-bottom: 0.5rem;
     }
-
     .footer-col li a {
       color: var(--texto-claro);
       font-size: 0.9rem;
     }
-
     .footer-col li a:hover {
       text-decoration: underline;
     }
@@ -321,11 +321,11 @@
       .hero-content h1 {
         font-size: 1.8rem;
       }
-      .top-bar {
+      .navbar {
         flex-wrap: wrap;
         gap: 1rem;
       }
-      .nav-links {
+      .ul_links {
         flex-wrap: wrap;
       }
       .footer-content {
@@ -336,42 +336,36 @@
 </head>
 <body>
   <header class="header">
-      <nav class="navbar">
-        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo">
-          <label class="labe_hamburguesa" for="menu_hamburguesa">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="35"
-                  height="35"
-                  fill="currentColor"
-                  class="list_icon"
-                  viewBox="0 0 16 16"
-              >
-                  <path
-                      fill-rule="evenodd"
-                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                  />
-              </svg>
-          </label>
-
-          <input class="menu_hamburguesa" type="checkbox" name="" id="menu_hamburguesa">
-
-          <div class="top-bar">
-            <div class="top-bar-left">
-              <div class="nav-links">
-                <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-                <a href="documentos.html"><i class="fa fa-file"></i> Gestión Documental</a>
-                <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-                <a href="jugadores.html"><i class="fa fa-users"></i> Jugadores</a>
-                <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-                <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
-                <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-              </div>
-            </div>
-          </div>
+    <nav class="navbar">
+      <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo">
+      <label class="labe_hamburguesa" for="menu_hamburguesa">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          fill="currentColor"
+          class="list_icon"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+          />
+        </svg>
+      </label>
+      <input class="menu_hamburguesa" type="checkbox" id="menu_hamburguesa">
+      <div class="ul_links">
+        <a href="index.html" class="link"><i class="fa fa-home"></i> Inicio</a>
+        <a href="documentos.html" class="link"><i class="fa fa-file"></i> Gestión Documental</a>
+        <a href="ficha.html" class="link"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+        <a href="jugadores.html" class="link"><i class="fa fa-users"></i> Jugadores</a>
+        <a href="partidos.html" class="link"><i class="fa fa-calendar"></i> Partidos</a>
+        <a href="noticias.html" class="link"><i class="fa fa-newspaper"></i> Noticias</a>
+        <a href="contacto.html" class="link"><i class="fa fa-envelope"></i> Contacto</a>
+      </div>
+    </nav>
   </header>
-</body>
-<body>
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
@@ -415,7 +409,8 @@
       </div>
     </div>
   </section>
-<section class="training-section">
+
+  <section class="training-section">
     <div class="training-content">
       <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="training-shield" />
       <h3>¡Entrenamiento de Preparación para el Torneo!</h3>
@@ -432,21 +427,24 @@
         <h4>Categorías:</h4>
         <ul>
           <li>2010 / 2011 / 2012</li>
-          <li>¡Mas estos jugadores!/li>
-          <li><strong>
-DILAN
-OSCAR
-NELSON
-MIGUEL 
-RODRÍGUEZ 
-JOSEPH 
-MENDOZA
-YOJAINER
-JUAN T
-SANTY 
-JESUS
-ZAID
-LEO</strong></li>
+          <li>¡Mas estos jugadores!</li>
+          <li>
+            <strong>
+              DILAN<br>
+              OSCAR<br>
+              NELSON<br>
+              MIGUEL<br>
+              RODRÍGUEZ<br>
+              JOSEPH<br>
+              MENDOZA<br>
+              YOJAINER<br>
+              JUAN T<br>
+              SANTY<br>
+              JESUS<br>
+              ZAID<br>
+              LEO
+            </strong>
+          </li>
         </ul>
       </div>
       <div class="training-details">
@@ -458,7 +456,8 @@ LEO</strong></li>
         <p>¡Prepárate para darlo todo en el torneo! Te esperamos con la mejor energía y entusiasmo.</p>
       </div>
     </div>   
-</section>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
@@ -473,20 +472,12 @@ LEO</strong></li>
         <h4>Enlaces Útiles</h4>
         <ul>
           <li>
-            <a
-              href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
-              target="_blank"
-              aria-label="Facebook"
-            >
+            <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL" target="_blank" aria-label="Facebook">
               <i class="fab fa-facebook"></i> Facebook
             </a>
           </li>
           <li>
-            <a
-              href="https://www.instagram.com/diba_fbc_oficial"
-              target="_blank"
-              aria-label="Instagram"
-            >
+            <a href="https://www.instagram.com/diba_fbc_oficial" target="_blank" aria-label="Instagram">
               <i class="fab fa-instagram"></i> Instagram
             </a>
           </li>
@@ -502,24 +493,9 @@ LEO</strong></li>
       </div>
     </div>
   </footer>
-  <script>
-    function toggleMobileNav() {
-      var mobileNav = document.getElementById('mobileNav');
-      if (mobileNav.style.display === 'block') {
-        mobileNav.style.display = 'none';
-      } else {
-        mobileNav.style.display = 'block';
-      }
-    }
 
-    // Asignar el evento al botón de menú móvil
-    document.addEventListener('DOMContentLoaded', function() {
-      var menuIcon = document.querySelector('.menu-icon');
-      if (menuIcon){
-        menuIcon.addEventListener('click', toggleMobileNav);
-      }
-    });
+  <script>
+    // Nota: El menú móvil se controla mediante el checkbox y CSS, por lo que no es necesaria lógica JS adicional.
   </script>
-  
 </body>
 </html>
