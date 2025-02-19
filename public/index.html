@@ -2,16 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>DIBA FBC - App Móvil</title>
+  <title>DIBA FBC - Responsive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Íconos de Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* ================================
-       Mobile First & RESET
-    =================================*/
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -21,8 +19,13 @@
       font-family: Arial, sans-serif;
       background-color: #fff;
       color: #333;
-      overflow-x: hidden;
     }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Variables */
     :root {
       --azul-barca: #003399;
       --grana-barca: #a50044;
@@ -31,12 +34,10 @@
       --texto-claro: #ffffff;
       --texto-oscuro: #333333;
       --fondo-gris: #f4f4f4;
-      --altura_header: 60px;
-      --menu-bg: #b3004c;
+      --header-height: 60px;
     }
-    /* ================================
-       HEADER & MENÚ DESPLEGABLE
-    =================================*/
+
+    /* Header */
     header {
       background-color: var(--grana-barca);
       color: var(--texto-claro);
@@ -44,75 +45,88 @@
       top: 0;
       left: 0;
       right: 0;
-      height: var(--altura_header);
+      height: var(--header-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 1rem;
-      z-index: 10;
+      z-index: 100;
     }
     .logo {
       height: 40px;
     }
-    /* Botón hamburguesa */
-    .labe_hamburguesa {
-      cursor: pointer;
-      display: block;
+
+    /* Desktop Navigation */
+    .nav-desktop {
+      display: flex;
+      gap: 1.5rem;
     }
-    .list_icon {
-      font-size: 1.8rem;
-      color: var(--texto-claro);
+    .nav-desktop a {
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s;
     }
-    .menu_hamburguesa {
+    .nav-desktop a:hover {
+      color: var(--amarillo-barca);
+    }
+
+    /* Mobile Navigation: Checkbox Hack */
+    .nav-mobile-toggle {
       display: none;
     }
-    /* Menú tipo drawer (oculto por defecto) */
-    .ul_links {
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--texto-claro);
+    }
+    /* Mobile Drawer */
+    .nav-mobile {
       position: fixed;
-      top: var(--altura_header);
+      top: var(--header-height);
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: var(--menu-bg);
+      background-color: var(--grana-barca);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       transform: translateY(-100%);
-      transition: transform 0.3s ease-in-out;
-      z-index: 9;
+      transition: transform 0.3s ease;
+      z-index: 99;
     }
-    /* Mostrar el menú al activar el checkbox */
-    #menu_hamburguesa:checked ~ .ul_links {
-      transform: translateY(0);
-    }
-    .ul_links a {
-      color: var(--texto-claro);
+    .nav-mobile a {
       font-size: 1.5rem;
+      color: var(--texto-claro);
       padding: 1rem;
       width: 100%;
       text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
     }
-    .ul_links a:last-child {
+    .nav-mobile a:last-child {
       border-bottom: none;
     }
-    /* ================================
-       CONTENIDO DE LA APP
-    =================================*/
+    /* Activar el menú móvil */
+    #nav-toggle:checked ~ .nav-mobile {
+      transform: translateY(0);
+    }
+
+    /* Content */
     .content {
-      margin-top: var(--altura_header);
+      margin-top: var(--header-height);
       padding: 1rem;
     }
-    /* HERO */
+
+    /* Hero Section */
     .hero {
-      height: 200px;
+      position: relative;
+      height: 400px;
       background: url("fondo.jpg") center/cover no-repeat;
       display: flex;
       align-items: flex-end;
-      justify-content: center;
-      position: relative;
-      margin-bottom: 1rem;
+      padding: 1rem;
+      color: var(--texto-claro);
     }
     .hero::before {
       content: "";
@@ -122,101 +136,51 @@
     }
     .hero-content {
       position: relative;
-      color: var(--texto-claro);
-      text-align: center;
-      padding: 0 1rem;
+      z-index: 1;
     }
     .hero-content h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
     }
     .hero-content p {
       font-size: 1rem;
     }
-    /* SECCIÓN DE ENTRENAMIENTOS */
-    .training-section {
-      margin-bottom: 1rem;
-    }
-    .training-content {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    .training-content img {
-      width: 80px;
-      display: block;
-      margin: 0 auto 1rem;
-    }
-    .training-content h3 {
-      font-size: 1.4rem;
-      text-align: center;
-      margin-bottom: 0.5rem;
-      color: var(--grana-barca);
-    }
-    .training-content p, .training-content li {
-      font-size: 0.9rem;
-      text-align: center;
-    }
-    .training-categories ul {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0;
-    }
-    /* FOOTER */
-    footer {
-      background-color: var(--azul-barca);
-      color: var(--texto-claro);
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    footer a { 
-      color: var(--texto-claro); 
-    }
-    /* ================================
-       Responsive para pantallas grandes
-    =================================*/
-    @media (min-width: 768px) {
-      header { height: 80px; }
-      .ul_links { display: none; }
-      .content { margin-top: 80px; }
-      .hero { height: 300px; }
-      .hero-content h1 { font-size: 2.5rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <!-- LOGO DEL CLUB -->
-        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo" />
-        <!-- NAVEGACIÓN PRINCIPAL -->
-        <div class="nav-links">
-          <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-          <a href="Historia.html"><i class="fa fa-file"></i> Historia</a>
-          <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-          <a href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
-          <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-          <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
-          <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-        </div>
-      </div>
-    <label class="labe_hamburguesa" for="menu_hamburguesa">
-      <i class="fa fa-bars list_icon"></i>
-    </label>
-    <input type="checkbox" class="menu_hamburguesa" id="menu_hamburguesa">
-    <nav class="ul_links">
-      <!-- Solo se muestran las opciones de Registro e Inicio de Sesión -->
-      <a href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a>
-      <a href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
+    <img src="ESCUDO.png" alt="Logo DIBA FBC" class="logo">
+    <nav class="nav-desktop">
+      <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+      <a href="Historia.html"><i class="fa fa-file"></i> Historia</a>
+      <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+      <a href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
+      <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+      <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+      <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
     </nav>
+    <!-- Mobile Hamburger Icon -->
+    <label for="nav-toggle" class="hamburger">
+      <i class="fa fa-bars"></i>
+    </label>
+    <input type="checkbox" id="nav-toggle" class="nav-mobile-toggle">
   </header>
   
-  <!-- CONTENIDO -->
+  <!-- Mobile Navigation Drawer: Solo Registro e Iniciar Sesión -->
+  <nav class="nav-mobile">
+    <a href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a>
+    <a href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
+  </nav>
+  
   <div class="content">
     <!-- HERO -->
     <section class="hero">
@@ -225,32 +189,16 @@
         <p>Descubre todo lo que DIBA FBC tiene preparado para ti.</p>
       </div>
     </section>
-
-    <!-- Ejemplo de sección de entrenamientos -->
-    <section class="training-section">
-      <div class="training-content">
-        <img src="ESCUDO.png" alt="Escudo DIBA FBC">
-        <h3>Entrenamiento - Martes 18 de Febrero</h3>
-        <p><strong>Hora:</strong> 6:30 PM</p>
-        <p><strong>Lugar:</strong> Cancha La Bombonera</p>
-        <div class="training-categories">
-          <h4>Categorías:</h4>
-          <ul>
-            <li>2012 / 2013 / 2014</li>
-            <li>2015 / 2016</li>
-            <li><strong>¡Todos los niños son bienvenidos!</strong></li>
-          </ul>
-        </div>
-        <div class="training-details">
-          <p><strong>Uniforme:</strong> BOCA JR</p>
-          <p><strong>Valor:</strong> $1500</p>
-        </div>
-        <div class="training-message">
-          <p>¡Prepárate para darlo todo en el torneo!</p>
-        </div>
-      </div>
-    </section>
-  </div>
+  <!-- Script de Instagram -->
+  <script async src="//www.instagram.com/embed.js"></script>
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script
+    async
+    defer
+    crossorigin="anonymous"
+    src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0"
+  ></script>
 
   <!-- FOOTER -->
   <footer>
@@ -266,12 +214,20 @@
         <h4>Enlaces Útiles</h4>
         <ul>
           <li>
-            <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL" target="_blank" aria-label="Facebook">
+            <a
+              href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
+              target="_blank"
+              aria-label="Facebook"
+            >
               <i class="fab fa-facebook"></i> Facebook
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/diba_fbc_oficial" target="_blank" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/diba_fbc_oficial"
+              target="_blank"
+              aria-label="Instagram"
+            >
               <i class="fab fa-instagram"></i> Instagram
             </a>
           </li>
@@ -286,17 +242,7 @@
         </ul>
       </div>
     </div>
-    <p>&copy; 2025 DIBA FBC</p>
   </footer>
-
-  <script>
-    // Si deseas que el menú se cierre automáticamente al hacer clic en un enlace,
-    // se añade el siguiente código:
-    document.querySelectorAll('.ul_links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('menu_hamburguesa').checked = false;
-      });
-    });
-  </script>
+  </div>
 </body>
 </html>
