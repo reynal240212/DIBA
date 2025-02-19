@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400&display=swap" rel="stylesheet">
   <style>
     /* Personalizaciones adicionales */
     .hero {
@@ -28,6 +29,70 @@
       position: relative;
       z-index: 2;
     }
+    .hero {
+  background: url("fondo.jpg") center/cover no-repeat;
+  height: 400px;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Capa de superposición */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor del contenido, con animación */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Título con fuente elegante y animación de entrada */
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: fadeInDown 1s forwards;
+}
+
+/* Subtítulo con fuente moderna y animación de entrada con retraso */
+.hero-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeInUp 1s forwards 0.5s;
+}
+
+/* Animación: desvanecimiento hacia abajo para el título */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación: desvanecimiento hacia arriba para el subtítulo */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
     /* Footer personalizado */
     footer {
       background-color: #003399;
@@ -91,13 +156,13 @@
   </div>
 </nav>
   
-  <!-- Hero -->
-  <header class="hero d-flex align-items-end">
-    <div class="container hero-content">
-      <h1 class="display-4">UNA SOLA FAMILIA</h1>
-      <p class="lead">Últimas noticias del club, partidos y más... Descubre todo lo que DIBA FBC tiene preparado para ti.</p>
-    </div>
-  </header>
+ <!-- Hero -->
+<header class="hero d-flex align-items-center">
+  <div class="container hero-content text-center">
+    <h1 class="display-2 hero-title">UNA SOLA FAMILIA</h1>
+    <p class="lead hero-subtitle">Últimas noticias del club, partidos y más... Descubre todo lo que DIBA FBC tiene preparado para ti.</p>
+  </div>
+</header>
   
   <!-- Sección de Entrenamientos -->
   <section class="py-5 bg-light">
