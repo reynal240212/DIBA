@@ -172,7 +172,9 @@
       text-align: center;
       font-size: 0.9rem;
     }
-    footer a { color: var(--texto-claro); }
+    footer a { 
+      color: var(--texto-claro); 
+    }
     /* ================================
        Responsive para pantallas grandes
     =================================*/
@@ -210,7 +212,7 @@
       </div>
     </section>
 
-    <!-- Ejemplo de sección de entrenamientos (puedes mantener o eliminar según necesites) -->
+    <!-- Ejemplo de sección de entrenamientos -->
     <section class="training-section">
       <div class="training-content">
         <img src="ESCUDO.png" alt="Escudo DIBA FBC">
@@ -272,5 +274,15 @@
     </div>
     <p>&copy; 2025 DIBA FBC</p>
   </footer>
+
+  <script>
+    // Si deseas que el menú se cierre automáticamente al hacer clic en un enlace,
+    // se añade el siguiente código:
+    document.querySelectorAll('.ul_links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu_hamburguesa').checked = false;
+      });
+    });
+  </script>
 </body>
 </html>
