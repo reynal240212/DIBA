@@ -154,6 +154,52 @@
         display: block;
       }
     }
+    footer {
+  background-color: var(--azul-barca);
+  color: var(--texto-claro);
+  padding: 2rem 1rem;
+}
+
+.footer-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col h4 {
+  margin-bottom: 0.8rem;
+  color: var(--amarillo-barca);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col li a {
+  color: var(--texto-claro);
+  font-size: 0.9rem;
+}
+
+.footer-col li a:hover {
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -200,49 +246,40 @@
     src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0"
   ></script>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-col">
-        <h4>Sobre el Club</h4>
-        <ul>
-          <li><a href="#">Historia</a></li>
-          <li><a href="#">Patrocinadores</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Enlaces Útiles</h4>
-        <ul>
-          <li>
-            <a
-              href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
-              target="_blank"
-              aria-label="Facebook"
-            >
-              <i class="fab fa-facebook"></i> Facebook
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/diba_fbc_oficial"
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <i class="fab fa-instagram"></i> Instagram
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="#">Atención al Cliente</a></li>
-          <li><a href="#">Prensa</a></li>
-          <li><a href="#">Oficinas</a></li>
-        </ul>
-      </div>
+ <!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4>Sobre el Club</h4>
+      <ul>
+        <li><a href="#">Historia</a></li>
+        <li><a href="#">Patrocinadores</a></li>
+      </ul>
     </div>
-  </footer>
+    <div class="footer-col">
+      <h4>Enlaces Útiles</h4>
+      <ul>
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook"></i> Facebook
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/diba_fbc_oficial" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="#">Atención al Cliente</a></li>
+        <li><a href="#">Prensa</a></li>
+        <li><a href="#">Oficinas</a></li>
+      </ul>
+    </div>
   </div>
+</footer>
 </body>
 </html>
