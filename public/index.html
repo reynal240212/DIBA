@@ -42,48 +42,54 @@
       text-decoration: underline;
     }
   </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Navegación completa para escritorio -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="Historia.html"><i class="fa fa-file"></i> Historia</a></li>
-          <li class="nav-item"><a class="nav-link" href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a></li>
-          <li class="nav-item"><a class="nav-link" href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a></li>
-          <li class="nav-item"><a class="nav-link" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a></li>
-          <li class="nav-item"><a class="nav-link" href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a></li>
-        </ul>
-        <!-- Opciones de usuario -->
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a></li>
-          <li class="nav-item"><a class="nav-link" href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a></li>
-        </ul>
-      </div>
+<!-- Navbar Unificada -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Menú colapsable: se muestra como hamburguesa en móvil y expandido en escritorio -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Historia.html"><i class="fa fa-file"></i> Historia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
+        </li>
+      </ul>
+      <!-- Opciones de usuario -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  
-  <!-- Menú móvil: se muestra solo en pantallas pequeñas -->
-  <nav class="d-lg-none bg-danger fixed-top" style="top: 60px;">
-    <div class="container">
-      <div class="d-flex flex-column text-center">
-        <!-- Solo opciones de Registro e Iniciar Sesión -->
-        <a href="registro.html" class="text-white py-2 border-bottom"><i class="fa fa-user-plus"></i> Registrarse</a>
-        <a href="login.html" class="text-white py-2"> <i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
-      </div>
-    </div>
-  </nav>
+  </div>
+</nav>
   
   <!-- Hero -->
   <header class="hero d-flex align-items-end">
