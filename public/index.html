@@ -1,462 +1,284 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>DIBA FBC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Íconos de Font Awesome (opcional) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  <meta charset="UTF-8">
+  <title>DIBA FBC - App Móvil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Íconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     /* ================================
-       RESET
+       Mobile First & RESET
     =================================*/
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: Arial, sans-serif;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #333;
-      line-height: 1.5;
-      overflow-x: hidden; /* Evitar scroll horizontal */
+      overflow-x: hidden;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ================================
-       PALETA DE COLORES
-       (inspirada en azul, grana, rojo y amarillo)
-    =================================*/
     :root {
-      --azul-barca: #003399;        /* Azul oscuro */
-      --grana-barca: #a50044;         /* Grana */
-      --rojo-barca: #ff0000;          /* Rojo vivo */
-      --amarillo-barca: #ffd700;      /* Amarillo dorado */
-      --texto-claro: #ffffff;         /* Texto claro */
-      --texto-oscuro: #333333;        /* Texto oscuro */
-      --fondo-gris: #f4f4f4;          /* Gris claro de fondo */
-      --color_blanco: #ffffff;
-      --color_primario_suave: #b3004c; /* Ejemplo de color suave */
-      --altura_header: 80px;
+      --azul-barca: #003399;
+      --grana-barca: #a50044;
+      --rojo-barca: #ff0000;
+      --amarillo-barca: #ffd700;
+      --texto-claro: #ffffff;
+      --texto-oscuro: #333333;
+      --fondo-gris: #f4f4f4;
+      --altura_header: 60px;
+      --menu-bg: #b3004c;
     }
-
     /* ================================
-       HEADER
+       HEADER & MENÚ DESPLEGABLE
     =================================*/
     header {
       background-color: var(--grana-barca);
       color: var(--texto-claro);
-      position: relative;
-    }
-
-    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--altura_header);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
-      max-width: 1300px;
-      margin: 0 auto;
+      padding: 0 1rem;
+      z-index: 10;
     }
-
-    /* Menú hamburguesa */
+    .logo {
+      height: 40px;
+    }
+    /* Botón hamburguesa */
     .labe_hamburguesa {
       cursor: pointer;
+      display: block;
     }
     .list_icon {
+      font-size: 1.8rem;
       color: var(--texto-claro);
-      cursor: pointer;
     }
+    .menu_hamburguesa {
+      display: none;
+    }
+    /* Menú tipo drawer (oculto por defecto) */
     .ul_links {
-      width: 100%;
-      background-color: var(--color_primario_suave);
-      position: absolute;
+      position: fixed;
       top: var(--altura_header);
       left: 0;
-      height: 0;
-      overflow: hidden;
+      right: 0;
+      bottom: 0;
+      background-color: var(--menu-bg);
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      gap: 3rem;
-      transition: all 0.3s;
+      justify-content: center;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 9;
     }
-    /* Mostrar el menú cuando se active el checkbox */
+    /* Mostrar el menú al activar el checkbox */
     #menu_hamburguesa:checked ~ .ul_links {
-      height: calc(100vh - var(--altura_header));
-    }
-    .link {
-      font-size: 3em;
-      color: var(--texto-claro);
-      font-weight: bold;
+      transform: translateY(0);
     }
     .ul_links a {
-      display: block;
-      padding: 0.5rem 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .labe_hamburguesa {
-        display: none;
-      }
-      .ul_links {
-        position: static;
-        width: auto;
-        height: auto;
-        flex-direction: row;
-        gap: 2rem;
-      }
-      .link {
-        font-size: 1.2rem;
-        transition: all 0.3s;
-        padding: 0.2rem 0.7rem;
-      }
-      .link:hover {
-        background-color: #5f1192;
-      }
-    }
-
-    /* Botones derecha (Registrarse / Iniciar Sesión) */
-    .top-bar-right {
-      display: flex;
-      gap: 1rem;
-    }
-    .top-bar-right a {
       color: var(--texto-claro);
-      font-size: 1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .top-bar-right a i {
-      margin-right: 0.3rem;
-    }
-    @media (max-width: 768px) {
-      .top-bar-right {
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-      }
-    }
-
-    /* ================================
-       SECCIÓN HERO (portada)
-    =================================*/
-    .hero {
-      position: relative;
+      font-size: 1.5rem;
+      padding: 1rem;
       width: 100%;
-      height: 400px;
-      background: url("fondo.jpg") center center no-repeat;
-      background-size: cover;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .ul_links a:last-child {
+      border-bottom: none;
+    }
+    /* ================================
+       CONTENIDO DE LA APP
+    =================================*/
+    .content {
+      margin-top: var(--altura_header);
+      padding: 1rem;
+    }
+    /* HERO */
+    .hero {
+      height: 200px;
+      background: url("fondo.jpg") center/cover no-repeat;
       display: flex;
       align-items: flex-end;
-      justify-content: flex-start;
-      overflow: hidden;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 1rem;
     }
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 50%,
-        rgba(0, 0, 0, 0.6) 100%
-      );
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%);
     }
     .hero-content {
       position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 2rem 2rem;
       color: var(--texto-claro);
+      text-align: center;
+      padding: 0 1rem;
     }
     .hero-content h1 {
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       margin-bottom: 0.5rem;
-      font-weight: bold;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
     .hero-content p {
       font-size: 1rem;
-      max-width: 600px;
-      line-height: 1.4;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
     }
-
-    /* ================================
-       SECCIÓN DE PUBLICACIONES
-    =================================*/
-    .news-section {
-      background-color: var(--fondo-gris);
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .news-section h3 {
-      font-size: 1.8rem;
-      color: var(--grana-barca);
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-    .news-card {
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* ================================
-       SECCIÓN DE ENTRENAMIENTOS
-    =================================*/
+    /* SECCIÓN DE ENTRENAMIENTOS */
     .training-section {
-      background-color: #f8f8f8;
-      padding: 2rem 1rem;
-      text-align: center;
+      margin-bottom: 1rem;
     }
     .training-content {
-      max-width: 600px;
-      margin: 0 auto;
       background-color: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .training-shield {
-      width: 100px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1rem;
       margin-bottom: 1rem;
     }
-    .training-section h3 {
-      font-size: 1.8rem;
-      color: var(--azul-barca);
-      margin-bottom: 1rem;
+    .training-content img {
+      width: 80px;
+      display: block;
+      margin: 0 auto 1rem;
     }
-    .training-date,
-    .training-time,
-    .training-location {
+    .training-content h3 {
+      font-size: 1.4rem;
+      text-align: center;
       margin-bottom: 0.5rem;
+      color: var(--grana-barca);
     }
-    .training-categories,
-    .training-details {
-      margin-top: 1.5rem;
-      text-align: left;
+    .training-content p, .training-content li {
+      font-size: 0.9rem;
+      text-align: center;
     }
     .training-categories ul {
       list-style: none;
-      padding-left: 20px;
+      padding: 0;
+      margin: 0.5rem 0;
     }
-    .training-message {
-      margin-top: 2rem;
-      font-style: italic;
-    }
-
-    /* ================================
-       FOOTER
-    =================================*/
+    /* FOOTER */
     footer {
       background-color: var(--azul-barca);
       color: var(--texto-claro);
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-    }
-    .footer-content {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .footer-col {
-      flex: 1 1 200px;
-    }
-    .footer-col h4 {
-      margin-bottom: 0.8rem;
-      color: var(--amarillo-barca);
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .footer-col li {
-      margin-bottom: 0.5rem;
-    }
-    .footer-col li a {
-      color: var(--texto-claro);
+      padding: 1rem;
+      text-align: center;
       font-size: 0.9rem;
     }
-    .footer-col li a:hover {
-      text-decoration: underline;
-    }
-
+    footer a { color: var(--texto-claro); }
     /* ================================
-       RESPONSIVE
+       Responsive para pantallas grandes
     =================================*/
-    @media (max-width: 768px) {
-      .hero {
-        height: 300px;
-      }
-      .hero-content h1 {
-        font-size: 1.8rem;
-      }
-      .navbar {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-      .ul_links {
-        flex-wrap: wrap;
-      }
-      .footer-content {
-        flex-direction: column;
-      }
+    @media (min-width: 768px) {
+      header { height: 80px; }
+      .ul_links { display: none; }
+      .content { margin-top: 80px; }
+      .hero { height: 300px; }
+      .hero-content h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo">
-      <label class="labe_hamburguesa" for="menu_hamburguesa">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="35"
-          height="35"
-          fill="currentColor"
-          class="list_icon"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-          />
-        </svg>
-      </label>
-      <input class="menu_hamburguesa" type="checkbox" id="menu_hamburguesa">
-      <div class="ul_links">
-        <a href="index.html" class="link"><i class="fa fa-home"></i> Inicio</a>
-        <a href="documentos.html" class="link"><i class="fa fa-file"></i> Gestión Documental</a>
-        <a href="ficha.html" class="link"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-        <a href="jugadores.html" class="link"><i class="fa fa-users"></i> Jugadores</a>
-        <a href="partidos.html" class="link"><i class="fa fa-calendar"></i> Partidos</a>
-        <a href="noticias.html" class="link"><i class="fa fa-newspaper"></i> Noticias</a>
-        <a href="contacto.html" class="link"><i class="fa fa-envelope"></i> Contacto</a>
-      </div>
+  <!-- HEADER -->
+  <header>
+    <img src="ESCUDO.png" alt="Logo DIBA FBC" class="logo">
+    <label class="labe_hamburguesa" for="menu_hamburguesa">
+      <i class="fa fa-bars list_icon"></i>
+    </label>
+    <input type="checkbox" class="menu_hamburguesa" id="menu_hamburguesa">
+    <nav class="ul_links">
+      <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+      <a href="documentos.html"><i class="fa fa-file"></i> Gestión Documental</a>
+      <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+      <a href="jugadores.html"><i class="fa fa-users"></i> Jugadores</a>
+      <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+      <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+      <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
     </nav>
   </header>
+  
+  <!-- CONTENIDO -->
+  <div class="content">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>UNA SOLA FAMILIA</h1>
+        <p>Descubre todo lo que DIBA FBC tiene preparado para ti.</p>
+      </div>
+    </section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>UNA SOLA FAMILIA</h1>
-      <p>
-        Últimas noticias del club, partidos y más...  
-        Descubre todo lo que DIBA FBC tiene preparado para ti.
-      </p>
-    </div>
-  </section>
+    <!-- SECCIÓN DE ENTRENAMIENTOS -->
+    <section class="training-section">
+      <div class="training-content">
+        <img src="ESCUDO.png" alt="Escudo DIBA FBC">
+        <h3>Entrenamiento - Martes 18 de Febrero</h3>
+        <p><strong>Hora:</strong> 6:30 PM</p>
+        <p><strong>Lugar:</strong> Cancha La Bombonera</p>
+        <div class="training-categories">
+          <h4>Categorías:</h4>
+          <ul>
+            <li>2012 / 2013 / 2014</li>
+            <li>2015 / 2016</li>
+            <li><strong>¡Todos los niños son bienvenidos!</strong></li>
+          </ul>
+        </div>
+        <div class="training-details">
+          <p><strong>Uniforme:</strong> BOCA JR</p>
+          <p><strong>Valor:</strong> $1500</p>
+        </div>
+        <div class="training-message">
+          <p>¡Prepárate para darlo todo en el torneo!</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- SECCIÓN DE ENTRENAMIENTO -->
-  <section class="training-section">
-    <div class="training-content">
-      <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="training-shield" />
-      <h3>¡Entrenamiento de Preparación para el Torneo!</h3>
-      <p class="training-date">
-        <strong>Día:</strong> MARTES 18 DE FEBRERO
-      </p>
-      <p class="training-time">
-        <strong>Hora:</strong> 6:30 PM
-      </p>
-      <p class="training-location">
-        <strong>Lugar:</strong> Cancha La Bombonera
-      </p>
-      <div class="training-categories">
-        <h4>Categorías:</h4>
-        <ul>
-          <li>2012 / 2013 / 2014</li>
-          <li>2015 / 2016</li>
-          <li><strong>¡Todos los niños son bienvenidos!</strong></li>
-        </ul>
+    <section class="training-section">
+      <div class="training-content">
+        <img src="ESCUDO.png" alt="Escudo DIBA FBC">
+        <h3>Entrenamiento - Miércoles 19 de Febrero</h3>
+        <p><strong>Hora:</strong> 2:50 PM</p>
+        <p><strong>Lugar:</strong> Cancha La Bombonera</p>
+        <div class="training-categories">
+          <h4>Categorías:</h4>
+          <ul>
+            <li>2010 / 2011 / 2012</li>
+            <li>¡Más estos jugadores!</li>
+            <li>
+              <strong>
+                DILAN<br>
+                OSCAR<br>
+                NELSON<br>
+                MIGUEL<br>
+                RODRÍGUEZ<br>
+                JOSEPH<br>
+                MENDOZA<br>
+                YOJAINER<br>
+                JUAN T<br>
+                SANTY<br>
+                JESUS<br>
+                ZAID<br>
+                LEO
+              </strong>
+            </li>
+          </ul>
+        </div>
+        <div class="training-details">
+          <p><strong>Uniforme:</strong> BOCA JR</p>
+          <p><strong>Valor:</strong> $1500</p>
+        </div>
+        <div class="training-message">
+          <p>¡Prepárate para darlo todo en el torneo!</p>
+        </div>
       </div>
-      <div class="training-details">
-        <h4>Detalles:</h4>
-        <p><strong>Uniforme:</strong> BOCA JR</p>
-        <p><strong>Valor:</strong> $1500</p>
-      </div>
-      <div class="training-message">
-        <p>¡Prepárate para darlo todo en el torneo! Te esperamos con la mejor energía y entusiasmo.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="training-section">
-    <div class="training-content">
-      <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="training-shield" />
-      <h3>¡Entrenamiento de Preparación para el Torneo!</h3>
-      <p class="training-date">
-        <strong>Día:</strong> MIÉRCOLES 19 DE FEBRERO
-      </p>
-      <p class="training-time">
-        <strong>Hora:</strong> 2:50 PM
-      </p>
-      <p class="training-location">
-        <strong>Lugar:</strong> Cancha La Bombonera
-      </p>
-      <div class="training-categories">
-        <h4>Categorías:</h4>
-        <ul>
-          <li>2010 / 2011 / 2012</li>
-          <li>¡Mas estos jugadores!</li>
-          <li>
-            <strong>
-              DILAN<br>
-              OSCAR<br>
-              NELSON<br>
-              MIGUEL<br>
-              RODRÍGUEZ<br>
-              JOSEPH<br>
-              MENDOZA<br>
-              YOJAINER<br>
-              JUAN T<br>
-              SANTY<br>
-              JESUS<br>
-              ZAID<br>
-              LEO
-            </strong>
-          </li>
-        </ul>
-      </div>
-      <div class="training-details">
-        <h4>Detalles:</h4>
-        <p><strong>Uniforme:</strong> BOCA JR</p>
-        <p><strong>Valor:</strong> $1500</p>
-      </div>
-      <div class="training-message">
-        <p>¡Prepárate para darlo todo en el torneo! Te esperamos con la mejor energía y entusiasmo.</p>
-      </div>
-    </div>   
-  </section>
+    </section>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -492,10 +314,4 @@
         </ul>
       </div>
     </div>
-  </footer>
-
-  <script>
-    // Nota: El menú móvil se controla mediante el checkbox y CSS, por lo que no es necesaria lógica JS adicional.
-  </script>
-</body>
-</html>
+    <p>&copy; 2025 DIBA FBC</p>
