@@ -335,42 +335,45 @@
   </style>
 </head>
 <body>
+  <header class="header">
+      <nav class="navbar">
+          <h1 class="logo">Logo</h1>
 
-  <!-- HEADER -->
-  <header>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <!-- LOGO DEL CLUB -->
-        <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo" />
-        <!-- NAVEGACIÓN PRINCIPAL -->
-        <div class="nav-links">
-          <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-          <a href="Historia.html"><i class="fa fa-file"></i> Historia</a>
-          <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-          <a href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
-          <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-          <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
-          <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-        </div>
-      </div>
-      <div class="top-bar-right">
-        <a href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a>
-        <a href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
-      </div>
-    </div>
-    
-    <!-- MENÚ DESPLEGABLE PARA MÓVILES -->
-    <div class="mobile-nav" id="mobileNav" style="display: none;">
-      <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-      <a href="Historia.html"><i class="fa fa-file"></i> Historia</a>
-      <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-      <a href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
-      <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-      <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
-      <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-    </div>
+          <label class="labe_hamburguesa" for="menu_hamburguesa">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="35"
+                  height="35"
+                  fill="currentColor"
+                  class="list_icon"
+                  viewBox="0 0 16 16"
+              >
+                  <path
+                      fill-rule="evenodd"
+                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                  />
+              </svg>
+          </label>
+
+          <input class="menu_hamburguesa" type="checkbox" name="" id="menu_hamburguesa">
+
+          <div class="top-bar">
+            <div class="top-bar-left">
+              <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="logo">
+              <div class="nav-links">
+                <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+                <a href="documentos.html"><i class="fa fa-file"></i> Gestión Documental</a>
+                <a href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+                <a href="jugadores.html"><i class="fa fa-users"></i> Jugadores</a>
+                <a href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+                <a href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+                <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
+              </div>
+            </div>
+          </div>
   </header>
-
+</body>
+<body>
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
@@ -406,7 +409,7 @@
       </div>
       <div class="training-details">
         <h4>Detalles:</h4>
-        <p><strong>Uniforme:</strong> Costa Azul</p>
+        <p><strong>Uniforme:</strong> BOCA JR</p>
         <p><strong>Valor:</strong> $1500</p>
       </div>
       <div class="training-message">
@@ -450,47 +453,57 @@ LEO</strong></li>
       </div>
       <div class="training-details">
         <h4>Detalles:</h4>
-        <p><strong>Uniforme:</strong> Costa Azul</p>
+        <p><strong>Uniforme:</strong> BOCA JR</p>
         <p><strong>Valor:</strong> $1500</p>
       </div>
       <div class="training-message">
         <p>¡Prepárate para darlo todo en el torneo! Te esperamos con la mejor energía y entusiasmo.</p>
       </div>
-    </div>
-    
-<section class="training-section">
-    <div class="training-content">
-      <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="training-shield" />
-      <h3>¡Entrenamiento de Preparación para el Torneo!</h3>
-      <p class="training-date">
-        <strong>Día:</strong> MARTES 18 DE FEBRERO
-      </p>
-      <p class="training-time">
-        <strong>Hora:</strong> 6:30 PM
-      </p>
-      <p class="training-location">
-        <strong>Lugar:</strong> Cancha La Bombonera
-      </p>
-      <div class="training-categories">
-        <h4>Categorías:</h4>
+    </div>   
+</section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Sobre el Club</h4>
         <ul>
-          <li>2012 / 2013 / 2014</li>
-          <li>2015 / 2016</li>
-          <li><strong>¡Todos los niños son bienvenidos!</strong></li>
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Patrocinadores</a></li>
         </ul>
       </div>
-      <div class="training-details">
-        <h4>Detalles:</h4>
-        <p><strong>Uniforme:</strong> Costa Azul</p>
-        <p><strong>Valor:</strong> $1500</p>
+      <div class="footer-col">
+        <h4>Enlaces Útiles</h4>
+        <ul>
+          <li>
+            <a
+              href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/diba_fbc_oficial"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="training-message">
-        <p>¡Prepárate para darlo todo en el torneo! Te esperamos con la mejor energía y entusiasmo.</p>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#">Atención al Cliente</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Oficinas</a></li>
+        </ul>
       </div>
     </div>
-    
-</section>
-
+  </footer>
   <script>
     function toggleMobileNav() {
       var mobileNav = document.getElementById('mobileNav');
