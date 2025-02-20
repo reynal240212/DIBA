@@ -111,35 +111,29 @@
        SECCIÓN PARTIDO (DEGRADADO)
     =================================*/
     .match-section {
-      /* Eliminamos background-color: #fff */
       background: linear-gradient(180deg, #0b0b0d, var(--grana));
-      /*  #0b0b0d es un tono oscuro; ajusta a tu gusto */
-      color: #fff; /* Texto en blanco para buen contraste */
+      color: #fff; 
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       padding: 1.5rem;
     }
-    /* Liga en color amarillo o el que prefieras */
     .match-section .league-title {
       color: var(--amarillo);
       font-weight: bold;
       text-transform: uppercase;
     }
-    /* Hora en blanco */
     .match-section .time {
       font-size: 3rem;
       font-weight: bold;
       color: #fff;
       margin: 0;
     }
-    /* Equipos */
     .match-section .teams {
       font-size: 1.25rem;
       font-weight: 600;
     }
-    /* Estadio */
     .match-section .stadium {
-      color: #ddd; /* gris claro para resaltar */
+      color: #ddd;
     }
 
     /* ================================
@@ -159,9 +153,12 @@
   <!-- HEADER / NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <!-- LOGO -->
+      <a class="navbar-brand" href="index.html">
         <img src="ESCUDO.png" alt="DIBA FBC Logo" />
       </a>
+
+      <!-- BOTÓN HAMBURGUESA (solo se ve en pantallas pequeñas) -->
       <button
         class="navbar-toggler"
         type="button"
@@ -172,8 +169,11 @@
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- ENLACES DEL MENÚ -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <!-- Cada enlace apunta a una página distinta -->
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
