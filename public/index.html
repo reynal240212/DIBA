@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>DIBA FBC - Bootstrap</title>
+  <title>DIBA FBC - Entrenamientos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -10,15 +10,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-<style>
-    /* Personalizaciones adicionales */
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* ===============================
+       HERO SECTION
+    =============================== */
     .hero {
       background: url("fondo.jpg") center/cover no-repeat;
       height: 400px;
       position: relative;
       color: #fff;
+      overflow: hidden;
     }
     .hero::before {
       content: "";
@@ -30,71 +35,76 @@
       position: relative;
       z-index: 2;
     }
-    .hero {
-  background: url("fondo.jpg") center/cover no-repeat;
-  height: 400px;
-  position: relative;
-  color: #fff;
-  overflow: hidden;
-}
-
-/* Capa de superposición */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-/* Contenedor del contenido, con animación */
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Título con fuente elegante y animación de entrada */
-.hero-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: fadeInDown 1s forwards;
-}
-
-/* Subtítulo con fuente moderna y animación de entrada con retraso */
-.hero-subtitle {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.25rem;
-  margin-top: 1rem;
-  opacity: 0;
-  animation: fadeInUp 1s forwards 0.5s;
-}
-
-/* Animación: desvanecimiento hacia abajo para el título */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animación: desvanecimiento hacia arriba para el subtítulo */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-    /* Footer personalizado */
+    .hero-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      opacity: 0;
+      animation: fadeInDown 1s forwards;
+    }
+    .hero-subtitle {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1s forwards 0.5s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* ===============================
+       SECCIÓN DE ENTRENAMIENTOS
+    =============================== */
+    .entrenamiento {
+      background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+      padding: 50px 0;
+    }
+    .entrenamiento .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .entrenamiento .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .entrenamiento .card-body img {
+      width: 100px;
+      border-radius: 50%;
+      border: 3px solid #003399;
+      padding: 5px;
+      background: #fff;
+      margin-bottom: 15px;
+    }
+    .entrenamiento .card-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #003399;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeInDown 0.8s forwards;
+    }
+    .entrenamiento .card-text,
+    .entrenamiento .list-unstyled li {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .entrenamiento strong {
+      color: #003399;
+    }
+    
+    /* ===============================
+       FOOTER
+    =============================== */
     footer {
       background-color: #003399;
       color: #fff;
@@ -107,72 +117,80 @@
     footer a:hover {
       text-decoration: underline;
     }
+    
+    /* Espaciado para contenido fijo (navbar) */
+    body {
+      padding-top: 70px;
+    }
   </style>
-<!-- Navbar Unificada -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Menú colapsable: se muestra como hamburguesa en móvil y expandido en escritorio -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Historia.html"><i class="fa fa-file"></i> Historia</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-        </li>
-      </ul>
-      <!-- Opciones de usuario -->
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
-        </li>
-      </ul>
+</head>
+<body>
+  <!-- Navbar Unificada -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Menú colapsable -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Historia.html"><i class="fa fa-file"></i> Historia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticias.html"><i class="fa fa-newspaper"></i> Noticias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
+          </li>
+        </ul>
+        <!-- Opciones de usuario -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
   
- <!-- Hero -->
-<header class="hero d-flex align-items-center">
-  <div class="container hero-content text-center">
-    <h1 class="display-2 hero-title">UNA SOLA FAMILIA</h1>
-    <p class="lead hero-subtitle">FUERZA Y LEALTAD</p>
-  </div>
-</header>
+  <!-- Hero -->
+  <header class="hero d-flex align-items-center">
+    <div class="container hero-content text-center">
+      <h1 class="display-2 hero-title">UNA SOLA FAMILIA</h1>
+      <p class="lead hero-subtitle">FUERZA Y LEALTAD</p>
+    </div>
+  </header>
   
   <!-- Sección de Entrenamientos -->
-  <section class="py-5 bg-light">
+  <section class="py-5 bg-light entrenamiento">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="card mb-4">
+      <div class="row">
+        <!-- Primer entrenamiento -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
             <div class="card-body text-center">
-              <img src="ESCUDO.png" alt="Escudo DIBA FBC" class="mb-3" style="width:100px;">
+              <img src="ESCUDO.png" alt="Escudo DIBA FBC">
               <h3 class="card-title">¡Entrenamiento de Preparación para el Torneo!</h3>
               <p class="card-text"><strong>Día:</strong> MARTES 18 DE FEBRERO</p>
               <p class="card-text"><strong>Hora:</strong> 6:30 PM</p>
@@ -180,6 +198,49 @@
               <ul class="list-unstyled">
                 <li>2012 / 2013 / 2014</li>
                 <li>2015 / 2016</li>
+                <li><strong>¡Todos los niños son bienvenidos!</strong></li>
+              </ul>
+              <p class="card-text"><strong>Uniforme:</strong> Costa Azul</p>
+              <p class="card-text"><strong>Valor:</strong> $1500</p>
+              <p class="card-text"><em>¡Prepárate para darlo todo en el torneo! Te esperamos con la mejor energía y entusiasmo.</em></p>
+            </div>
+          </div>
+        </div>
+        <!-- Segundo entrenamiento -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body text-center">
+              <img src="ESCUDO.png" alt="Escudo DIBA FBC">
+              <h3 class="card-title">¡Entrenamiento de Preparación para el Torneo!</h3>
+              <p class="card-text"><strong>Día:</strong> Miércoles 19 DE FEBRERO</p>
+              <p class="card-text"><strong>Hora:</strong> 2:50 PM</p>
+              <p class="card-text"><strong>Lugar:</strong> Cancha La Bombonera</p>
+              <p class="card-text"><strong>Categorías:</strong> 2010/2011</p>
+              <p class="card-text"><strong>Jugadores 2012 convocados:</strong></p>
+              <ul class="list-unstyled">
+                <li>DILAN, OSCAR, NELSON, MIGUEL, RODRÍGUEZ, JOSEPH, MENDOZA, YOJAINER, JUAN T, SANTY, JESUS, ZAID, LEO</li>
+              </ul>
+              <p class="card-text"><strong>Uniforme:</strong> BOCA JR</p>
+              <p class="card-text"><strong>Valor:</strong> $1500</p>
+              <p class="card-text"><em>¡Prepárate para darlo todo en el torneo! Te esperamos con la mejor energía y entusiasmo.</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tercer entrenamiento -->
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body text-center">
+              <img src="ESCUDO.png" alt="Escudo DIBA FBC">
+              <h3 class="card-title">¡Entrenamiento de Preparación para el Torneo!</h3>
+              <p class="card-text"><strong>Día:</strong> JUEVES 20 DE FEBRERO</p>
+              <p class="card-text"><strong>Hora:</strong> 2:50 PM</p>
+              <p class="card-text"><strong>Lugar:</strong> Cancha La Bombonera</p>
+              <ul class="list-unstyled">
+                <li>2012 / 2013 / 2014</li>
+                <li>2015 / 2016</li>
+                <p class="card-text"><strong>JUGADOR EXTRA CONVOCADO:</strong> Juan Jose Vergara</p>
                 <li><strong>¡Todos los niños son bienvenidos!</strong></li>
               </ul>
               <p class="card-text"><strong>Uniforme:</strong> Costa Azul</p>
@@ -196,15 +257,15 @@
   <footer>
     <div class="container">
       <div class="row text-center">
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3 mb-md-0">
           <h4>Sobre el Club</h4>
           <ul class="list-unstyled">
             <li><a href="#">Historia</a></li>
             <li><a href="#">Patrocinadores</a></li>
           </ul>
         </div>
-        <div class="col-md-4">
-          <h4>reservados</h4>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h4>Redes</h4>
           <ul class="list-unstyled">
             <li>
               <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL" target="_blank">
@@ -233,7 +294,7 @@
     </div>
   </footer>
   
-  <!-- Bootstrap JS (Bundle incluye Popper) -->
+  <!-- Bootstrap JS Bundle (incluye Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
