@@ -10,29 +10,65 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
         integrity="sha512-yH0ua7VUg98eN6+x1O5B0ydwGP8x1e7Nn/1qzzK6T9V8B39tP2eT4HmxOzTjTq1rjWUXWb2vFq3XjYc5GdyZJw==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Animate.css para animaciones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
-    /* Estilos básicos y fondo */
+    /* Fondo deportivo de fútbol con imagen de estadio */
     body {
-      background: #f4f4f4;
+      background: url('https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg') no-repeat center center fixed;
+      background-size: cover;
       font-family: Arial, sans-serif;
-    }
-    /* Centrar la tarjeta de login */
-    .login-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       padding: 1rem;
+      position: relative;
+    }
+    /* Overlay oscuro para mejorar la legibilidad */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+    /* Aseguramos que el contenido se coloque sobre el overlay */
+    .login-container {
+      position: relative;
+      z-index: 1;
+    }
+    /* Tarjeta de login centrada y con efectos deportivos */
+    .login-card {
+      max-width: 400px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .login-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .login-logo {
+      max-width: 100px;
+    }
+    .tagline {
+      font-style: italic;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    /* Duración de la animación */
+    .animate__animated {
+      animation-duration: 1s;
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
+  <div class="container login-container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card login-card shadow-sm p-4 animate__animated animate__fadeInUp">
       <!-- Logo y tagline -->
       <div class="text-center mb-3">
-        <img src="ESCUDO.png" alt="Logo DIBA FBC" class="img-fluid" style="max-width: 100px;">
-        <p class="text-muted fst-italic">Fuerza y Lealtad</p>
+        <img src="ESCUDO.png" alt="Logo DIBA FBC" class="login-logo img-fluid">
+        <p class="tagline">Fuerza y Lealtad</p>
       </div>
       <h2 class="h4 text-center mb-4">Inicia Sesión</h2>
       <!-- Formulario de inicio de sesión -->
