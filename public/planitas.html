@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Planilla de Jugadores - DIBA FBC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
+
+  <!-- Íconos de Font Awesome -->
+  <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+
+  <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <style>
+    /* VARIABLES DE COLOR */
+    :root {
+      --azul: #003399;
+      --grana: #a50044;
+      --rojo: #ff0000;
+      --amarillo: #ffd700;
+      --texto-claro: #ffffff;
+      --texto-oscuro: #333333;
+      --fondo-gris: #f4f4f4;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--fondo-gris);
+      color: var(--texto-oscuro);
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER / NAVBAR */
+    .navbar {
+      background-color: var(--grana) !important;
+    }
+    .navbar-brand img {
+      width: 50px;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--amarillo) !important;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      background: url('fondo.jpg') center/cover no-repeat;
+      min-height: 60vh;
+      color: var(--texto-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    /* PLANILLA - TABLA */
+    h1, h2 {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .table th, .table td {
+      text-align: center;
+      vertical-align: middle;
+    }
+    /* Celdas editables resaltadas al pasar el mouse */
+    td[contenteditable="true"]:hover {
+      outline: 1px dashed var(--grana);
+    }
+    
+    /* FOOTER */
+    footer {
+      background-color: var(--azul);
+      color: var(--texto-claro);
+      padding: 2rem 0;
+    }
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <!-- LOGO -->
+      <a class="navbar-brand" href="index.html">
+        <img src="ESCUDO.png" alt="DIBA FBC Logo">
+      </a>
+      <!-- BOTÓN HAMBURGUESA -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- MENÚ -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="documentos.html">Gestión Documental</a></li>
+          <li class="nav-item"><a class="nav-link" href="ficha.html">Ficha Técnica</a></li>
+          <li class="nav-item"><a class="nav-link" href="jugadores.html">Jugadores</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero d-flex align-items-center justify-content-center">
+    <div class="hero-content text-center animate__animated animate__fadeInDown">
+      <h1>Planilla de Jugadores</h1>
+      <p class="lead">Edita directamente los campos y presiona "Guardar Planilla" para registrar los cambios con la fecha actual.</p>
+    </div>
+  </section>
+
+  <!-- CONTENIDO DE LA PLANILLA -->
+  <div class="container my-4">
+    <!-- CATEGORÍA 2010/11 -->
+    <h2>Categoría 2010/11</h2>
+    <div class="table-responsive mb-5">
+      <table class="table table-bordered table-striped" id="table2010">
+        <thead class="table-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Asistencia</th>
+            <th>Pago</th>
+            <th>Fecha</th>
+            <th>Disciplina</th>
+            <th>Promedio de juego</th>
+            <th>Calificación</th>
+            <th>Goles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Luis Moreno</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Cristopher</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Segundo</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Breiner Vargas</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Breiner V</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Leonardo</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Juan José</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Karles</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Josue</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Gomez Angel</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Jhon Fray</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Oscar</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Jarveis</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CATEGORÍA 2012/13 -->
+    <h2>Categoría 2012/13</h2>
+    <div class="table-responsive mb-5">
+      <table class="table table-bordered table-striped" id="table2012">
+        <thead class="table-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Asistencia</th>
+            <th>Pago</th>
+            <th>Fecha</th>
+            <th>Disciplina</th>
+            <th>Promedio de juego</th>
+            <th>Calificación</th>
+            <th>Goles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dilan</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Juan T</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Dinkol</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Miguel</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Rodríguez</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Nelson</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Santiago</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Joseth</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Hernández Angel</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Oscar</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Yojainer</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Jesus</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Mateo</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CATEGORÍA 2014/15/16 -->
+    <h2>Categoría 2014/15/16</h2>
+    <div class="table-responsive mb-5">
+      <table class="table table-bordered table-striped" id="table2014">
+        <thead class="table-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Asistencia</th>
+            <th>Pago</th>
+            <th>Fecha</th>
+            <th>Disciplina</th>
+            <th>Promedio de juego</th>
+            <th>Calificación</th>
+            <th>Goles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mario</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Juan Andrés</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Jhoyfran</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Nayareth</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Eliuth</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Abraham</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Rey David</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Santy H</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Santy T</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Yeicol</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>ISAAC</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Carlos</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Zaid</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td>Keyner</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BOTÓN GUARDAR -->
+    <div class="text-center mb-5">
+      <button id="saveButton" class="btn btn-primary">Guardar Planilla</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <!-- Script para guardar datos -->
+  <script>
+    document.getElementById('saveButton').addEventListener('click', function() {
+      // Obtener la fecha actual
+      const currentDate = new Date();
+      const isoDate = currentDate.toISOString();
+
+      const data = {
+        savedAt: isoDate,
+        categorias: {}
+      };
+
+      // Función para obtener datos de una tabla
+      function getTableData(tableId) {
+        const table = document.getElementById(tableId);
+        const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.innerText.trim());
+        const rows = Array.from(table.querySelectorAll('tbody tr'));
+        return rows.map(row => {
+          const cells = Array.from(row.querySelectorAll('td'));
+          const rowData = {};
+          cells.forEach((cell, index) => {
+            rowData[headers[index]] = cell.innerText.trim();
+          });
+          return rowData;
+        });
+      }
+
+      // Recopilar datos de cada tabla
+      data.categorias["2010/11"] = getTableData('table2010');
+      data.categorias["2012/13"] = getTableData('table2012');
+      data.categorias["2014/15/16"] = getTableData('table2014');
+
+      // Guardar en localStorage (simulando una BD)
+      localStorage.setItem('planillaData', JSON.stringify(data));
+
+      // También generar un archivo JSON descargable
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'planilla_' + isoDate.slice(0,10) + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+
+      alert("Planilla guardada con fecha: " + isoDate);
+    });
+  </script>
+</body>
+</html>
