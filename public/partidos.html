@@ -42,6 +42,8 @@
       font-family: 'Roboto', sans-serif;
       background-color: var(--fondo-gris);
       color: var(--texto-oscuro);
+      margin: 0;
+      padding: 0;
     }
 
     a {
@@ -95,38 +97,6 @@
     }
 
     /* ================================
-       FORMULARIO (PARTIDOS)
-    =================================*/
-    .partido-form {
-      background-color: var(--texto-claro);
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-top: -4rem; /* Para superponer ligeramente sobre el hero */
-      position: relative;
-      z-index: 5;
-      padding: 1.5rem;
-    }
-    .partido-form label {
-      font-weight: 500;
-      color: var(--grana);
-    }
-    .partido-form input:focus,
-    .partido-form select:focus {
-      border-color: var(--amarillo);
-      box-shadow: 0 0 5px rgba(255,215,0,0.5);
-    }
-    .partido-form button {
-      background-color: var(--grana);
-      color: var(--texto-claro);
-      border: none;
-      transition: background-color 0.3s;
-    }
-    .partido-form button:hover {
-      background-color: var(--amarillo);
-      color: var(--texto-oscuro);
-    }
-
-    /* ================================
        GALERÍA DE IMÁGENES
     =================================*/
     .gallery-item img {
@@ -138,21 +108,31 @@
     }
 
     /* ================================
-       PRÓXIMOS PARTIDOS
+       SECCIÓN PARTIDO AL ESTILO DE TU EJEMPLO
     =================================*/
-    .matches .card {
-      border: none;
+    .match-section {
+      background-color: #fff;
+      border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
     }
-    .matches .card:hover {
-      transform: scale(1.01);
-      transition: 0.3s;
+    .match-section .league-title {
+      color: var(--rojo);
+      font-weight: bold;
+      text-transform: uppercase;
     }
-    /* Ajuste de tamaño para imágenes en las cartas de partidos */
-    .match-img {
-      width: 50px;
-      height: 50px;
-      object-fit: cover;
+    .match-section .time {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #000;
+      margin: 0;
+    }
+    .match-section .teams {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .match-section .stadium {
+      color: #666;
     }
 
     /* ================================
@@ -215,7 +195,7 @@
     </div>
   </section>
 
-  <!-- SECCIÓN INTERMEDIA (GALERÍA + TÍTULO) -->
+  <!-- GALERÍA DE IMÁGENES -->
   <section class="container my-5">
     <div class="text-center mb-4 animate__animated animate__fadeInUp">
       <h2 class="fw-bold">Galería de Imágenes</h2>
@@ -244,45 +224,26 @@
     </div>
   </section>
 
-  <!-- PRÓXIMOS PARTIDOS -->
-  <section class="container mb-5 matches">
-    <div class="text-center mb-4 animate__animated animate__fadeInUp">
-      <h2 class="fw-bold">Próximos Partidos</h2>
-      <p>Revisa los encuentros más recientes</p>
-    </div>
-    <div class="row g-4">
-      <!-- Partido 1 -->
-      <div class="col-md-6 animate__animated animate__fadeInLeft">
-        <div class="card p-3">
-          <div class="d-flex align-items-center gap-2">
-            <img src="ESCUDO.png" alt="DIBA FBC" class="rounded-circle match-img">
-            <strong>DIBA FBC</strong>
-          </div>
-          <hr>
-          <p class="mb-0"><i class="fas fa-calendar-alt"></i> Sábado 22 de Febrero - 3:00 PM</p>
-          <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Parque de los Sueños</p>
-          <p class="mb-0"><strong>Categorías:</strong> 2010/2011</p>
-          <p class="mb-0"><strong>Jugadores extra:</strong> Dilan, Miguel, Joseph, Rodríguez</p>
-          <p class="mb-0"><strong>Uniforme:</strong> DIBA 2024 AZUL</p>
-          <p class="mb-0"><strong>Punto de reunión:</strong> Cancha Parque de los Sueños - 3:00 PM</p>
-          <p class="mb-0"><strong>Arbitraje:</strong> $4000</p>
+  <!-- PARTIDO AL ESTILO DE TU EJEMPLO (imagen adjunta) -->
+  <section class="container my-5 animate__animated animate__fadeInUp">
+    <div class="match-section text-center p-4">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3">
+        <!-- Bloque de fecha / patrocinio -->
+        <div>
+          <h5 class="text-secondary fw-bold mb-0">22 SÁBADO FEBRERO</h5>
+          <small class="text-muted">Próximo Partido</small> | 
+          <small class="text-muted">Patrocinado por 1XBET</small>
         </div>
+        <!-- Espacio si quieres colocar algo a la derecha, o logos, etc. -->
       </div>
-      <!-- Partido 2 -->
-      <div class="col-md-6 animate__animated animate__fadeInRight">
-        <div class="card p-3">
-          <div class="d-flex align-items-center gap-2">
-            <img src="ESCUDO.png" alt="DIBA FBC" class="rounded-circle match-img">
-            <strong>DIBA FBC</strong>
-          </div>
-          <hr>
-          <p class="mb-0"><i class="fas fa-calendar-alt"></i> Domingo 23 de Febrero - 8:00 AM</p>
-          <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Parque de los Sueños</p>
-          <p class="mb-0"><strong>Categorías:</strong> 2014/2015/16</p>
-          <p class="mb-0"><strong>Uniforme:</strong> DIBA 2024 AZUL</p>
-          <p class="mb-0"><strong>Punto de encuentro:</strong> Casa del profe - 8:00 AM</p>
-          <p class="mb-0"><strong>Arbitraje:</strong> $4000</p>
-        </div>
+
+      <!-- Bloque central (Liga, hora, equipos, estadio) -->
+      <div>
+        <h4 class="league-title">LaLiga</h4>
+        <p class="mb-1">Inicio del partido CET</p>
+        <p class="time">21:00</p>
+        <p class="teams">UD Las Palmas - FC Barcelona</p>
+        <p class="stadium">Estadio Gran Canaria</p>
       </div>
     </div>
   </section>
