@@ -108,31 +108,38 @@
     }
 
     /* ================================
-       SECCIÓN PARTIDO AL ESTILO DE TU EJEMPLO
+       SECCIÓN PARTIDO (DEGRADADO)
     =================================*/
     .match-section {
-      background-color: #fff;
+      /* Eliminamos background-color: #fff */
+      background: linear-gradient(180deg, #0b0b0d, var(--grana));
+      /*  #0b0b0d es un tono oscuro; ajusta a tu gusto */
+      color: #fff; /* Texto en blanco para buen contraste */
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       padding: 1.5rem;
     }
+    /* Liga en color amarillo o el que prefieras */
     .match-section .league-title {
-      color: var(--rojo);
+      color: var(--amarillo);
       font-weight: bold;
       text-transform: uppercase;
     }
+    /* Hora en blanco */
     .match-section .time {
       font-size: 3rem;
       font-weight: bold;
-      color: #000;
+      color: #fff;
       margin: 0;
     }
+    /* Equipos */
     .match-section .teams {
       font-size: 1.25rem;
       font-weight: 600;
     }
+    /* Estadio */
     .match-section .stadium {
-      color: #666;
+      color: #ddd; /* gris claro para resaltar */
     }
 
     /* ================================
@@ -215,57 +222,57 @@
       <div class="col-6 col-sm-4 col-md-3 col-lg-2 gallery-item animate__animated animate__fadeIn">
         <img src="2015.jpeg" alt="Imagen 4">
       </div>
+    </div>
   </section>
 
   <!-- PARTIDO 1 (Sábado 22 de Febrero) -->
-<section class="container my-5 animate__animated animate__fadeInUp">
-  <div class="match-section text-center p-4">
-    <!-- Fecha y subtítulo -->
-    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3">
+  <section class="container my-5 animate__animated animate__fadeInUp">
+    <div class="match-section text-center p-4">
+      <!-- Fecha y subtítulo -->
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3">
+        <div>
+          <h5 class="text-secondary fw-bold mb-0">22 SÁBADO FEBRERO</h5>
+          <small class="text-muted">Partido de preparación</small>
+        </div>
+      </div>
+      <!-- Datos del partido -->
       <div>
-        <h5 class="text-secondary fw-bold mb-0">22 SÁBADO FEBRERO</h5>
-        <small class="text-muted">Partido de preparación</small>
+        <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
+        <h4 class="league-title">Categorías 2010/2011</h4>
+        <p class="mb-1">Jugadores extra: Dilan, Miguel, Joseph, Rodríguez</p>
+        <p class="time">3:00 PM</p>
+        <p class="teams">DIBA FBC</p>
+        <p class="stadium">Parque de los Sueños</p>
+        <p class="mb-0">Uniforme: DIBA 2024 AZUL</p>
+        <p class="mb-0">Punto de reunión: Cancha parque de los sueños - 3:00 PM</p>
+        <p>Arbitraje: $4000</p>
       </div>
     </div>
-    <!-- Datos del partido -->
-    <div>
-      <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
-      <h4 class="league-title">Categorías 2010/2011</h4>
-      <p class="mb-1">Jugadores extra: Dilan, Miguel, Joseph, Rodríguez</p>
-      <p class="time">3:00 PM</p>
-      <p class="teams">DIBA FBC</p>
-      <p class="stadium">Parque de los Sueños</p>
-      <p class="text-muted mb-0">Uniforme: DIBA 2024 AZUL</p>
-      <p class="text-muted mb-0">Punto de reunión: Cancha parque de los sueños - 3:00 PM</p>
-      <p class="text-muted">Arbitraje: $4000</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PARTIDO 2 (Domingo 23 de Febrero) -->
-<section class="container my-5 animate__animated animate__fadeInUp">
-  <div class="match-section text-center p-4">
-    <!-- Fecha y subtítulo -->
-    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3">
+  <!-- PARTIDO 2 (Domingo 23 de Febrero) -->
+  <section class="container my-5 animate__animated animate__fadeInUp">
+    <div class="match-section text-center p-4">
+      <!-- Fecha y subtítulo -->
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3">
+        <div>
+          <h5 class="text-secondary fw-bold mb-0">23 DOMINGO FEBRERO</h5>
+          <small class="text-muted">Partido de preparación</small>
+        </div>
+      </div>
+      <!-- Datos del partido -->
       <div>
-        <h5 class="text-secondary fw-bold mb-0">23 DOMINGO FEBRERO</h5>
-        <small class="text-muted">Partido de preparación</small>
+        <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
+        <h4 class="league-title">Categorías 2014/2015/16</h4>
+        <p class="mb-1">Uniforme: DIBA 2024 AZUL</p>
+        <p class="time">8:00 AM</p>
+        <p class="teams">DIBA FBC</p>
+        <p class="stadium">Parque de los Sueños</p>
+        <p class="mb-0">Punto de encuentro: Casa del profe - 8:00 PM</p>
+        <p>Arbitraje: $4000</p>
       </div>
     </div>
-    <!-- Datos del partido -->
-    <div>
-      <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
-      <h4 class="league-title">Categorías 2014/2015/16</h4>
-      <p class="mb-1">Uniforme: DIBA 2024 AZUL</p>
-      <p class="time">8:00 AM</p>
-      <p class="teams">DIBA FBC</p>
-      <p class="stadium">Parque de los Sueños</p>
-      <p class="text-muted mb-0">Punto de encuentro: Casa del profe - 8:00 PM</p>
-      <p class="text-muted">Arbitraje: $4000</p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- FOOTER -->
   <footer class="text-center">
