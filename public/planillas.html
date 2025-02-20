@@ -107,7 +107,7 @@
       text-align: center;
       vertical-align: middle;
     }
-    /* Resalta celdas editables al pasar el mouse */
+    /* Resalta las celdas editables al pasar el mouse */
     td[contenteditable="true"]:hover {
       outline: 1px dashed var(--grana);
     }
@@ -155,7 +155,7 @@
   <section class="hero d-flex align-items-center justify-content-center">
     <div class="hero-content text-center animate__animated animate__fadeInDown">
       <h1>Planilla de Jugadores</h1>
-      <p class="lead">Edita directamente los campos y presiona "Guardar Planilla" para generar un archivo Excel con la fecha actual.</p>
+      <p class="lead">Edita los campos y presiona "Guardar Planilla" para generar un archivo Excel con la fecha actual.</p>
     </div>
   </section>
 
@@ -287,34 +287,45 @@
   <!-- Script para guardar datos en Excel -->
   <script>
     document.getElementById('saveButton').addEventListener('click', function() {
-      // Crear un nuevo libro de trabajo
-      var wb = XLSX.utils.book_new();
-      
-      // Función para convertir una tabla HTML a hoja de Excel
-      function tableToSheet(tableId) {
-        var table = document.getElementById(tableId);
-        return XLSX.utils.table_to_sheet(table);
+      try {
+        // Crear un nuevo libro de trabajo
+        var wb = XLSX.utils.book_new();
+        
+        // Función para convertir una tabla HTML a hoja de Excel
+        function tableToSheet(tableId) {
+          var table = document.getElementById(tableId);
+          if (!table) {
+            console.error("No se encontró la tabla con id: " + tableId);
+            return null;
+          }
+          return XLSX.utils.table_to_sheet(table);
+        }
+        
+        // Convertir cada tabla a una hoja y añadirla al libro
+        var ws2010 = tableToSheet('table2010');
+        if (ws2010) XLSX.utils.book_append_sheet(wb, ws2010, "2010/11");
+        
+        var ws2012 = tableToSheet('table2012');
+        if (ws2012) XLSX.utils.book_append_sheet(wb, ws2012, "2012/13");
+        
+        var ws2014 = tableToSheet('table2014');
+        if (ws2014) XLSX.utils.book_append_sheet(wb, ws2014, "2014/15/16");
+        
+        // Obtener la fecha actual para nombrar el archivo
+        var now = new Date();
+        var yyyy = now.getFullYear();
+        var mm = String(now.getMonth()+1).padStart(2, '0');
+        var dd = String(now.getDate()).padStart(2, '0');
+        var fileName = "Planilla_" + yyyy + "-" + mm + "-" + dd + ".xlsx";
+        
+        // Generar y descargar el archivo Excel
+        XLSX.writeFile(wb, fileName);
+        
+        alert("Planilla guardada exitosamente: " + fileName);
+      } catch(e) {
+        console.error("Error al guardar la planilla:", e);
+        alert("Error al guardar la planilla. Verifica la consola para más detalles.");
       }
-      
-      // Convertir cada tabla a una hoja y añadirla al libro
-      var ws2010 = tableToSheet('table2010');
-      XLSX.utils.book_append_sheet(wb, ws2010, "2010/11");
-      
-      var ws2012 = tableToSheet('table2012');
-      XLSX.utils.book_append_sheet(wb, ws2012, "2012/13");
-      
-      var ws2014 = tableToSheet('table2014');
-      XLSX.utils.book_append_sheet(wb, ws2014, "2014/15/16");
-      
-      // Obtener fecha actual para nombrar el archivo
-      var now = new Date();
-      var yyyy = now.getFullYear();
-      var mm = String(now.getMonth()+1).padStart(2, '0');
-      var dd = String(now.getDate()).padStart(2, '0');
-      var fileName = "Planilla_" + yyyy + "-" + mm + "-" + dd + ".xlsx";
-      
-      // Generar y descargar el archivo Excel
-      XLSX.writeFile(wb, fileName);
     });
   </script>
 </body>
