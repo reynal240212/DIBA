@@ -303,18 +303,18 @@
         
         // Convertir cada tabla a una hoja y añadirla al libro
         var ws2010 = tableToSheet('table2010');
-        if (ws2010) XLSX.utils.book_append_sheet(wb, ws2010, "2010/11");
+        if (ws2010) XLSX.utils.book_append_sheet(wb, ws2010, "2010-11");
         
         var ws2012 = tableToSheet('table2012');
-        if (ws2012) XLSX.utils.book_append_sheet(wb, ws2012, "2012/13");
+        if (ws2012) XLSX.utils.book_append_sheet(wb, ws2012, "2012-13");
         
         var ws2014 = tableToSheet('table2014');
-        if (ws2014) XLSX.utils.book_append_sheet(wb, ws2014, "2014/15/16");
+        if (ws2014) XLSX.utils.book_append_sheet(wb, ws2014, "2014-15-16");
         
         // Obtener la fecha actual para nombrar el archivo
         var now = new Date();
         var yyyy = now.getFullYear();
-        var mm = String(now.getMonth()+1).padStart(2, '0');
+        var mm = String(now.getMonth() + 1).padStart(2, '0');
         var dd = String(now.getDate()).padStart(2, '0');
         var fileName = "Planilla_" + yyyy + "-" + mm + "-" + dd + ".xlsx";
         
