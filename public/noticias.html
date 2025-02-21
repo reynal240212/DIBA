@@ -1,43 +1,191 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noticias - DIBA FBC</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Jugadores - DIBA FBC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap 5 CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+
+  <!-- Animate.css -->
+  <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <style>
+    :root {
+      --azul: #003399;
+      --grana: #a50044;
+      --rojo: #ff0000;
+      --amarillo: #ffd700;
+      --texto-claro: #ffffff;
+      --texto-oscuro: #333333;
+      --fondo-gris: #f4f4f4;
+    }
+
+    body {
+      background-color: var(--fondo-gris);
+      margin: 0;
+      padding-top: 70px; /* Espacio para navbar fija */
+    }
+
+    /* NAVBAR en color grana */
+    .navbar {
+      background-color: var(--grana) !important;
+    }
+    .navbar-brand {
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--amarillo) !important;
+    }
+
+    /* Sección Jugadores */
+    #jugadores {
+      padding: 2rem 0;
+    }
+    #jugadores h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--grana);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    /* Tarjeta de Jugador con degradado azul-grana */
+    .jugador-card {
+      background: linear-gradient(45deg, var(--azul), var(--grana));
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .jugador-card .card-body {
+      padding-top: 4rem; /* espacio para la foto superpuesta */
+      text-align: center;
+      position: relative;
+    }
+
+    /* Imagen del jugador superpuesta */
+    .jugador-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      position: absolute;
+      top: -50px;    /* Ajusta según tu preferencia */
+      left: 50%;
+      transform: translateX(-50%);
+      object-fit: cover;
+      background-color: #fff;
+    }
+
+    .card-title {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .card-text {
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="ESCUDO.png" alt="DIBA FBC Logo" class="logo">
-            <nav>
-                <ul class="menu">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="documentos.html">Gestión Documental</a></li>
-                    <li><a href="ficha.html">Ficha Técnica</a></li>
-                    <li><a href="jugadores.html">Jugadores</a></li>
-                    <li><a href="partidos.html">Partidos</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">DIBA FBC</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <!-- Ajusta enlaces según tu sitio -->
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentos.html">Gestión Documental</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ficha.html">Ficha Técnica</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="jugadores.html">Jugadores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="partidos.html">Partidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <section id="noticias">
-        <div class="container">
-            <h2>Últimas Noticias</h2>
-            <div class="noticia">
-                <h3>Gran victoria del equipo Sub-15</h3>
-                <p>El equipo Sub-15 logró una victoria impresionante en el torneo regional...</p>
+  <!-- SECCIÓN JUGADORES -->
+  <section id="jugadores">
+    <div class="container">
+      <h2>Nuestros Jugadores</h2>
+      <div class="row">
+        <!-- Jugador 1 -->
+        <div class="col-md-4 mb-4">
+          <div class="card jugador-card animate__animated animate__fadeInUp">
+            <div class="card-body">
+              <img src="foto-jugador1.jpg" alt="Jugador 1" class="jugador-img">
+              <h5 class="card-title">Jugador 1</h5>
+              <p class="card-text">Posición: Portero</p>
+              <p class="card-text">Descripción breve del jugador...</p>
             </div>
-            <!-- Más noticias pueden ser añadidas aquí -->
+          </div>
         </div>
-    </section>
+        <!-- Jugador 2 -->
+        <div class="col-md-4 mb-4">
+          <div class="card jugador-card animate__animated animate__fadeInUp">
+            <div class="card-body">
+              <img src="foto-jugador2.jpg" alt="Jugador 2" class="jugador-img">
+              <h5 class="card-title">Jugador 2</h5>
+              <p class="card-text">Posición: Defensa</p>
+              <p class="card-text">Descripción breve del jugador...</p>
+            </div>
+          </div>
+        </div>
+        <!-- Jugador 3 -->
+        <div class="col-md-4 mb-4">
+          <div class="card jugador-card animate__animated animate__fadeInUp">
+            <div class="card-body">
+              <img src="foto-jugador3.jpg" alt="Jugador 3" class="jugador-img">
+              <h5 class="card-title">Jugador 3</h5>
+              <p class="card-text">Posición: Delantero</p>
+              <p class="card-text">Descripción breve del jugador...</p>
+            </div>
+          </div>
+        </div>
+        <!-- Agrega más tarjetas según necesites -->
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
 </body>
 </html>
