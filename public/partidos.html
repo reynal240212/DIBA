@@ -63,6 +63,16 @@
     .navbar-nav .nav-link:hover {
       color: var(--amarillo) !important;
     }
+    /* Forzar el modo hamburguesa siempre */
+    .navbar .collapse {
+      display: none;
+    }
+    .navbar .navbar-toggler {
+      display: block;
+    }
+    .navbar.show .collapse {
+      display: block;
+    }
 
     /* ================================
        HERO
@@ -108,14 +118,18 @@
     }
 
     /* ================================
-       SECCIÓN PARTIDO (DEGRADADO)
+       SECCIÓN PARTIDO (CARDS)
     =================================*/
-    .match-section {
+    .card.match-section {
       background: linear-gradient(180deg, #0b0b0d, var(--grana));
-      color: #fff; 
+      border: none;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .card.match-section .card-body {
+      padding: 2rem;
+      color: #fff;
     }
     .match-section .league-title {
       color: var(--amarillo);
@@ -123,9 +137,8 @@
       text-transform: uppercase;
     }
     .match-section .time {
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: bold;
-      color: #fff;
       margin: 0;
     }
     .match-section .teams {
@@ -151,35 +164,26 @@
 </head>
 <body>
   <!-- HEADER / NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-dark">
     <div class="container">
       <!-- LOGO -->
       <a class="navbar-brand" href="index.html">
         <img src="ESCUDO.png" alt="DIBA FBC Logo" />
       </a>
 
-      <!-- BOTÓN HAMBURGUESA (solo se ve en pantallas pequeñas) -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
+      <!-- BOTÓN HAMBURGUESA -->
+      <button class="navbar-toggler" type="button" aria-label="Toggle navigation" onclick="document.querySelector('.navbar').classList.toggle('show')">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- ENLACES DEL MENÚ -->
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <!-- Cada enlace apunta a una página distinta -->
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="documentos.html">Gestión Documental</a>
-          </li>
+          <!-- Se eliminó Gestión Documental -->
           <li class="nav-item">
             <a class="nav-link" href="ficha.html">Ficha Técnica</a>
           </li>
@@ -209,7 +213,6 @@
       <p>Descubre los mejores momentos del club</p>
     </div>
     <div class="row g-3">
-      <!-- Ajusta la cantidad de imágenes según necesites -->
       <div class="col-6 col-sm-4 col-md-3 col-lg-2 gallery-item animate__animated animate__fadeIn">
         <img src="2014.png" alt="Imagen 1">
       </div>
@@ -225,19 +228,13 @@
     </div>
   </section>
 
-
   <!-- PARTIDO 1 (Sábado 22 de Febrero) -->
   <section class="container my-5 animate__animated animate__fadeInUp">
-    <div class="match-section text-center p-4">
-      <!-- Fecha y subtítulo -->
-      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3">
-        <div>
-          <h5 class="text-secondary fw-bold mb-0">22 SÁBADO FEBRERO</h5>
-          <small class="text-muted">Partido de preparación</small>
-        </div>
-      </div>
-      <!-- Datos del partido -->
-      <div>
+    <div class="card match-section">
+      <div class="card-body text-center">
+        <h5 class="text-secondary fw-bold mb-0">22 SÁBADO FEBRERO</h5>
+        <small class="text-muted">Partido de preparación</small>
+        <hr class="my-2">
         <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
         <h4 class="league-title">Categorías 2012/2013</h4>
         <p class="time">2:00 PM</p>
@@ -249,18 +246,14 @@
       </div>
     </div>
   </section>
+
   <!-- PARTIDO 2 (Sábado 22 de Febrero) -->
   <section class="container my-5 animate__animated animate__fadeInUp">
-    <div class="match-section text-center p-4">
-      <!-- Fecha y subtítulo -->
-      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3">
-        <div>
-          <h5 class="text-secondary fw-bold mb-0">22 SÁBADO FEBRERO</h5>
-          <small class="text-muted">Partido de preparación</small>
-        </div>
-      </div>
-      <!-- Datos del partido -->
-      <div>
+    <div class="card match-section">
+      <div class="card-body text-center">
+        <h5 class="text-secondary fw-bold mb-0">22 SÁBADO FEBRERO</h5>
+        <small class="text-muted">Partido de preparación</small>
+        <hr class="my-2">
         <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
         <h4 class="league-title">Categorías 2010/2011</h4>
         <p class="mb-1">Jugadores extra: Dilan, Miguel, Joseph, Rodríguez</p>
@@ -273,18 +266,14 @@
       </div>
     </div>
   </section>
+
   <!-- PARTIDO 3 (Domingo 23 de Febrero) -->
   <section class="container my-5 animate__animated animate__fadeInUp">
-    <div class="match-section text-center p-4">
-      <!-- Fecha y subtítulo -->
-      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3">
-        <div>
-          <h5 class="text-secondary fw-bold mb-0">23 DOMINGO FEBRERO</h5>
-          <small class="text-muted">Partido de preparación</small>
-        </div>
-      </div>
-      <!-- Datos del partido -->
-      <div>
+    <div class="card match-section">
+      <div class="card-body text-center">
+        <h5 class="text-secondary fw-bold mb-0">23 DOMINGO FEBRERO</h5>
+        <small class="text-muted">Partido de preparación</small>
+        <hr class="my-2">
         <img src="ESCUDO.png" alt="Logo DIBA FBC" width="50">
         <h4 class="league-title">Categorías 2014/2015/16</h4>
         <p class="time">8:00 AM</p>
