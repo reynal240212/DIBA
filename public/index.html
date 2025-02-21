@@ -28,214 +28,185 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+<style>
+/* ===============================
+   RESETEO Y VARIABLES
+=============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <style>
-    /* ===============================
-       RESETEO Y VARIABLES
-    =============================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* Paleta de colores */
+:root {
+  --azul-turquesa: #004D73;  /* Azul turquesa oscuro */
+  --grana: #800020;          /* Grana */
+  --dorado: #FFD700;         /* Dorado amarillo */
+  --texto-claro: #ffffff;
+  --texto-oscuro: #333333;
+  --fondo-gris: #f4f4f4;
+  --bg-patron: #2C2C2C;
+}
 
-    /* Ajusta los colores a tu gusto */
-    :root {
-      --azul: #1F3C88;       /* Tono principal azul */
-      --grana: #1F3C88;      /* Lo igualamos al azul para unificar */
-      --rojo: #ff0000;
-      --amarillo: #ffd700;   /* Mismo tono de amarillo */
-      --texto-claro: #ffffff;
-      --texto-oscuro: #333333;
-      --fondo-gris: #f4f4f4;
-      --bg-patron: #2C2C2C;  /* Patrón gris de fondo */
-    }
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--bg-patron) url('pattern.png') repeat;
+  color: var(--texto-oscuro);
+  padding-top: 70px;
+}
 
-    body {
-      font-family: 'Lato', sans-serif;
-      background: var(--bg-patron) url('pattern.png') repeat; /* Patrón de fondo gris */
-      color: var(--texto-oscuro);
-      padding-top: 70px; /* Espacio para navbar fija */
-    }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+/* ===============================
+   NAVBAR
+=============================== */
+.navbar {
+  background-color: var(--azul-turquesa) !important;
+}
+.navbar-brand img {
+  width: 50px;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--dorado) !important;
+}
 
-    /* ===============================
-       NAVBAR
-    =============================== */
-    .navbar {
-      background-color: var(--azul) !important; /* color azul */
-    }
-    .navbar-brand img {
-      width: 50px;
-    }
-    .navbar-nav .nav-link:hover {
-      color: var(--amarillo) !important;
-    }
+/* ===============================
+   HERO
+=============================== */
+.hero {
+  position: relative;
+  background: url("fondo.jpg") center/cover no-repeat;
+  height: 400px;
+  color: var(--texto-claro);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hero-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  color: var(--dorado);
+}
+.hero-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.25rem;
+  color: var(--texto-claro);
+}
 
-    /* ===============================
-       HERO
-    =============================== */
-    .hero {
-      position: relative;
-      background: url("fondo.jpg") center/cover no-repeat;
-      height: 400px;
-      color: #fff;
-      overflow: hidden;
-      margin-bottom: 2rem;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .hero-title {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-      animation: fadeInDown 1s forwards;
-      opacity: 0;
-    }
-    .hero-subtitle {
-      font-family: 'Lato', sans-serif;
-      font-size: 1.25rem;
-      animation: fadeInUp 1s forwards 0.5s;
-      opacity: 0;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* ===============================
+   SECCIÓN ENTRENAMIENTOS (CARDS)
+=============================== */
+.entrenamiento {
+  background: linear-gradient(to bottom, var(--fondo-gris), #e9ecef);
+  padding: 50px 0;
+}
+.entrenamiento .card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.entrenamiento .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.entrenamiento .card-body img {
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--azul-turquesa);
+  padding: 5px;
+  background: #fff;
+  margin-bottom: 15px;
+}
+.entrenamiento .card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--grana);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.entrenamiento .card-text strong {
+  color: var(--azul-turquesa);
+}
 
-    /* ===============================
-       SECCIÓN ENTRENAMIENTOS (CARDS)
-    =============================== */
-    .entrenamiento {
-      background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-      padding: 50px 0;
-    }
-    .entrenamiento .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .entrenamiento .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-    .entrenamiento .card-body img {
-      width: 100px;
-      border-radius: 50%;
-      border: 3px solid var(--azul);
-      padding: 5px;
-      background: #fff;
-      margin-bottom: 15px;
-    }
-    .entrenamiento .card-title {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: var(--azul);
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      animation: fadeInDown 0.8s forwards;
-      opacity: 0;
-    }
-    .entrenamiento .card-text,
-    .entrenamiento .list-unstyled li {
-      font-size: 1.1rem;
-      color: #333;
-      margin-bottom: 10px;
-    }
-    .entrenamiento strong {
-      color: var(--azul);
-    }
+/* ===============================
+   SECCIÓN DE VIDEOS (Historias)
+=============================== */
+.videos-section {
+  background: #fff;
+  padding: 50px 0;
+}
+.videos-section h2 {
+  color: var(--azul-turquesa);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.videos-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+}
+.video-card {
+  flex: 0 0 auto;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  min-width: 200px;
+  max-width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.video-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.video-card .video-info {
+  padding: 0.75rem;
+}
+.video-card .video-info h5 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--azul-turquesa);
+}
+.video-card .btn {
+  background-color: var(--azul-turquesa);
+  color: var(--texto-claro);
+  border: none;
+}
+.video-card .btn:hover {
+  background-color: var(--dorado);
+  color: var(--texto-oscuro);
+}
 
-    /* ===============================
-       SECCIÓN DE VIDEOS (Estilo “Historias”)
-    =============================== */
-    .videos-section {
-      background: #fff;
-      padding: 50px 0;
-    }
-    .videos-section h2 {
-      color: var(--azul);
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    .videos-container {
-      display: flex;
-      overflow-x: auto; /* Scroll horizontal */
-      gap: 1rem;
-    }
-    .video-card {
-      flex: 0 0 auto; /* Para que no se colapsen en el scroll */
-      background-color: #f4f4f4;
-      border-radius: 8px;
-      min-width: 200px;
-      max-width: 250px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .video-card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      display: block;
-    }
-    .video-card .video-info {
-      padding: 0.75rem;
-    }
-    .video-card .video-info h5 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      color: var(--azul);
-    }
-    .video-card .video-info p {
-      font-size: 0.9rem;
-      color: #555;
-      margin-bottom: 0.5rem;
-    }
-    .video-card .btn {
-      background-color: var(--azul);
-      color: #fff;
-      font-size: 0.85rem;
-      border: none;
-    }
-    .video-card .btn:hover {
-      background-color: var(--amarillo);
-      color: var(--texto-oscuro);
-    }
-
-     /* ===============================
-       SECCIÓN PATROCINADORES
-    =============================== */
+/* ===============================
+   SECCIÓN PATROCINADORES
+=============================== */
 .okeysport-logo {
   filter: brightness(0) invert(1);
   transition: filter 0.3s;
 }
 .okeysport-logo:hover {
-  filter: brightness(0.3) invert(1.2); /* O el efecto que desees */
+  filter: brightness(0.3) invert(1.2);
 }
 .sponsor-logo {
   max-height: 80px;
@@ -244,39 +215,52 @@
   display: block;
   margin: 0 auto;
 }
+.sponsors h3 {
+  color: var(--dorado);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-align: center;
+}
 
-    .sponsors h3 {
-      color: var(--amarillo);
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
+/* ===============================
+   BOTONES
+=============================== */
+.btn {
+  background-color: var(--azul-turquesa);
+  color: var(--texto-claro);
+  border: none;
+  transition: background 0.3s, color 0.3s;
+}
+.btn:hover {
+  background-color: var(--dorado);
+  color: var(--texto-oscuro);
+}
 
-    /* ===============================
-       FOOTER
-    =============================== */
-    footer {
-      background-color: var(--azul);
-      color: var(--texto-claro);
-      padding: 2rem 0;
-    }
-    footer a {
-      color: #fff;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .footer-brand img {
-      width: 60px;
-      margin-bottom: 1rem;
-    }
-  </style>
+/* ===============================
+   FOOTER
+=============================== */
+footer {
+  background-color: var(--azul-turquesa);
+  color: var(--texto-claro);
+  padding: 2rem 0;
+}
+footer a {
+  color: var(--texto-claro);
+}
+footer a:hover {
+  text-decoration: underline;
+  color: var(--dorado);
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-brand img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+<style/>
 </head>
 <body>
   <!-- NAVBAR -->
