@@ -227,6 +227,13 @@
      /* ===============================
        SECCIÓN PATROCINADORES
     =============================== */
+.okeysport-logo {
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s;
+}
+.okeysport-logo:hover {
+  filter: brightness(0.3) invert(1.2); /* O el efecto que desees */
+}
 .sponsor-logo {
   max-height: 80px;
   width: 100%;
@@ -447,8 +454,10 @@
       <div class="row justify-content-center align-items-center">
         <!-- Okeysport -->
         <div class="col-6 col-md-3 text-center mb-4">
-          <img src="https://okeysport.com/cdn/shop/files/Logo_OKEY.svg?v=1721155737&width=100" alt="Okeysport" class="sponsor-logo">
-        </div>
+  <img src="https://okeysport.com/cdn/shop/files/Logo_OKEY.svg?v=1721155737&width=100"
+       alt="Okeysport"
+       class="sponsor-logo okeysport-logo">
+</div>
         <!-- Calzado Orpis -->
         <div class="col-6 col-md-3 text-center mb-4">
          <img src="orpis.jpg" alt="Calzado Orpis" class="sponsor-logo">
