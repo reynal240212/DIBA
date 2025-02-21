@@ -240,15 +240,18 @@
       margin-bottom: 2rem;
       text-align: center;
     }
-    .sponsor-logo {
-      max-height: 80px;
-      filter: brightness(0) invert(1); /* Efecto para que sean blancas si lo deseas */
-      transition: filter 0.3s;
-    }
-  .sponsor-logo:hover {
-  filter: none;
+   .sponsor-logo {
+  max-height: 80px;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  /* transition: filter 0.3s;  // Si no deseas ninguna transición */
 }
 
+/* .sponsor-logo:hover {
+  filter: none;
+} */
 
     /* ===============================
        FOOTER
