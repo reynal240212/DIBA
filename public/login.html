@@ -7,14 +7,18 @@
 
   <!-- Bootstrap CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
+  <!-- Font Awesome (sin integridad para evitar errores) -->
+  <link 
+    rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-yH0ua7VUg98eN6+x1O5B0ydwGP8x1e7Nn/1qzzK6T9V8B39tP2eT4HmxOzTjTq1rjWUXWb2vFq3XjYc5GdyZJw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <!-- Animate.css para animaciones -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
   <style>
     /* Fondo deportivo de fútbol con imagen de estadio */
@@ -112,11 +116,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script>
     // 1. Configura tu proyecto de Supabase:
-    const SUPABASE_URL = 'https://TUPROYECTO.supabase.co';
-    const SUPABASE_ANON_KEY = 'TU-ANON-KEY';
+    const SUPABASE_URL = 'https://nwxdshisfyenkylgqxgz.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eGRzaGlzZnllbmt5bGdxeGd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkwNTQzMDgsImV4cCI6MjA1NDYzMDMwOH0.QoIiNo5pFA1_MVfE2ugLgyz4HeET-WhA0C_sNOkWv9g';
 
     // 2. Crea el cliente
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("Supabase Client creado:", supabaseClient);
 
     // 3. Escucha el submit del formulario
     const loginForm = document.getElementById('login-form');
@@ -126,9 +131,11 @@
       // Obtén valores de email y password
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      console.log("Intentando login con:", email, password);
 
       // 4. Intenta iniciar sesión con Supabase
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      console.log("Respuesta de signInWithPassword:", data, error);
 
       if (error) {
         // Muestra error si las credenciales no son válidas
@@ -137,8 +144,8 @@
       } else {
         // Sesión iniciada correctamente
         alert('Inicio de sesión exitoso. Bienvenido/a ' + data.user.email);
-        // Redirige a tu página principal o dashboard
-        window.location.href = 'dashboard.html';
+        // Redirige a tu página principal (index.html)
+        window.location.href = 'index.html';
       }
     });
   </script>
