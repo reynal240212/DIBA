@@ -21,57 +21,56 @@
 
   <style>
     /* ================================
-       Paleta de Colores y Variables
+       Paleta de Colores
     =================================*/
     :root {
-      --azul-turquesa: #004D73;  /* Azul turquesa oscuro */
-      --grana: #800020;          /* Granate */
-      --dorado: #FFD700;         /* Dorado amarillo */
-      --texto-claro: #ffffff;
-      --texto-oscuro: #333333;
-      --fondo-gris: #f4f4f4;
-      --bg-patron: #2C2C2C;
+      --azul: #004D73;      /* Azul oscuro */
+      --amarillo: #FFD700;   /* Amarillo brillante */
     }
 
     /* ================================
        Estilo General
     =================================*/
     body {
-      background-color: #f7e9d3;
-      background-image: url('https://www.transparenttextures.com/patterns/old-mathematics.png');
-      color: var(--texto-oscuro);
+      background-color: #ffffff;
+      color: var(--azul);
       font-family: Arial, sans-serif;
-      padding-top: 70px;
+      padding-top: 70px; /* espacio para navbar fixed-top */
     }
-
     a {
       text-decoration: none;
-      color: inherit;
+      color: var(--azul);
+    }
+    a:hover {
+      color: var(--amarillo);
     }
 
     /* ================================
-       HEADER & Navbar
+       HEADER
     =================================*/
     header.page-header {
-      background-color: var(--grana);
-      color: var(--texto-claro);
+      background-color: var(--azul);
+      color: var(--amarillo);
       padding: 1rem 0;
       text-align: center;
     }
     header.page-header h4 {
       margin: 0;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       letter-spacing: 1px;
     }
 
+    /* ================================
+       Navbar
+    =================================*/
     .navbar {
-      background-color: var(--grana) !important;
+      background-color: var(--azul) !important;
     }
     .navbar-brand img {
       width: 50px;
     }
     .navbar-nav .nav-link:hover {
-      color: var(--dorado) !important;
+      color: var(--amarillo) !important;
       transition: color 0.3s;
     }
 
@@ -79,15 +78,14 @@
        HERO
     =================================*/
     .hero {
-      background: linear-gradient(135deg, var(--azul-turquesa), var(--dorado));
+      background: linear-gradient(135deg, var(--azul), var(--amarillo));
       text-align: center;
       padding: 4rem 1rem;
-      color: var(--texto-claro);
+      color: var(--amarillo);
       position: relative;
       overflow: hidden;
     }
     .hero h1 {
-      font-family: 'Dancing Script', cursive;
       font-size: 3rem;
       margin-bottom: 1rem;
     }
@@ -100,7 +98,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      opacity: 0.2;
+      opacity: 0.1;
       background: url('https://www.transparenttextures.com/patterns/cubes.png') repeat;
     }
     .hero .hero-content {
@@ -113,12 +111,12 @@
     =================================*/
     .timeline-section {
       padding: 3rem 1rem;
-      background-color: var(--fondo-gris);
+      background-color: #f9f9f9;
     }
     .timeline-section h2 {
       text-align: center;
       margin-bottom: 2rem;
-      color: var(--grana);
+      color: var(--azul);
       font-size: 2rem;
       text-transform: uppercase;
       font-weight: bold;
@@ -128,12 +126,12 @@
       border-radius: 10px;
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
       background-color: #fff;
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
     .card-img-top {
       object-fit: cover;
@@ -144,7 +142,7 @@
     }
     .card-title {
       font-size: 1.2rem;
-      color: var(--grana);
+      color: var(--azul);
       margin-bottom: 0.5rem;
       text-transform: uppercase;
       font-weight: bold;
@@ -152,14 +150,66 @@
     .card-text {
       font-size: 0.95rem;
       line-height: 1.5;
+      color: var(--azul);
     }
 
     /* ================================
-       FOOTER
+       Videos
+    =================================*/
+    .videos-section {
+      background-color: #fff;
+      padding: 3rem 1rem;
+    }
+    .videos-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--azul);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .videos-container {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+    }
+    .video-card {
+      flex: 0 0 auto;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      min-width: 200px;
+      max-width: 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .video-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+    .video-card .video-info {
+      padding: 0.75rem;
+    }
+    .video-card .video-info h5 {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--azul);
+    }
+    .video-card .btn {
+      background-color: var(--azul);
+      color: var(--amarillo);
+      border: none;
+    }
+    .video-card .btn:hover {
+      background-color: var(--amarillo);
+      color: var(--azul);
+    }
+
+    /* ================================
+       Footer
     =================================*/
     footer {
-      background-color: var(--azul-turquesa);
-      color: var(--texto-claro);
+      background-color: var(--azul);
+      color: var(--amarillo);
       padding: 2rem 1rem;
       text-align: center;
     }
@@ -167,12 +217,12 @@
       margin-bottom: 1rem;
     }
     footer a {
-      color: var(--texto-claro);
+      color: var(--amarillo);
       text-decoration: none;
       transition: color 0.3s;
     }
     footer a:hover {
-      color: var(--dorado);
+      color: var(--azul);
       text-decoration: underline;
     }
     .footer-brand {
@@ -195,7 +245,7 @@
   </header>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <img src="ESCUDO.png" alt="Logo DIBA FBC" />
@@ -229,15 +279,7 @@
             <a class="nav-link" href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
           </li>
         </ul>
-        <!-- Opciones de usuario (se pueden omitir o dejar para futuras mejoras) -->
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="registro.html"><i class="fa fa-user-plus"></i> Registrarse</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html"><i class="fa fa-sign-in-alt"></i> Iniciar Sesión</a>
-          </li>
-        </ul>
+        <!-- Opciones de usuario se pueden dejar para futuras mejoras -->
       </div>
     </div>
   </nav>
@@ -247,7 +289,7 @@
     <div class="container hero-content">
       <h1 class="hero-title">Explora Nuestro Mundo</h1>
       <p class="hero-subtitle lead">
-        Descubre los momentos históricos y logros que han definido a DIBA FBC. Un recorrido lleno de pasión, sacrificio y victorias.
+        Descubre los momentos históricos y logros que han definido a DIBA FBC. Un recorrido lleno de pasión y victorias.
       </p>
     </div>
   </section>
@@ -264,7 +306,7 @@
             <div class="card-body">
               <h5 class="card-title">Subcampeonato 2013</h5>
               <p class="card-text">
-                Un partido vibrante en Las Mercedes que dejó huella en la historia del club. Aunque se nos escapó el título en penales, ganamos una experiencia invaluable.
+                Un partido vibrante que dejó huella en la historia del club. A pesar de perder en penales, ganamos una experiencia invaluable.
               </p>
             </div>
           </div>
@@ -342,7 +384,6 @@
           <h4>Sobre el Club</h4>
           <ul class="list-unstyled">
             <li><a href="#">Historia</a></li>
-            <li><a href="#">Patrocinadores</a></li>
           </ul>
         </div>
         <div class="col-md-4 mb-3 mb-md-0">
