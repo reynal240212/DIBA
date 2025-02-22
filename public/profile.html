@@ -82,42 +82,40 @@
   <!-- Supabase JS (versión 2.x) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script>
-    // 1. Configura tu proyecto de Supabase
-    const SUPABASE_URL = 'https://TU-PROYECTO.supabase.co';
-    const SUPABASE_ANON_KEY = 'TU-ANON-KEY';
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Configura tu Supabase
+    const SUPABASE_URL = 'https://nwxdshisfyenkylgqxgz.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eGRzaGlzZnllbmt5bGdxeGd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkwNTQzMDgsImV4cCI6MjA1NDYzMDMwOH0.QoIiNo5pFA1_MVfE2ugLgyz4HeET-WhA0C_sNOkWv9g';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // 2. Al cargar la página, verifica si el usuario está autenticado
+    // Verifica si el usuario está autenticado al cargar la página
     document.addEventListener('DOMContentLoaded', async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await supabaseClient.auth.getSession();
       if (!session) {
         // Si no hay sesión, redirige al login
         window.location.href = 'login.html';
       } else {
-        // Si el usuario está logueado, puedes cargar datos previos del perfil (opcional)
+        // Si el usuario está logueado, intenta cargar su perfil (opcional)
         await loadProfile(session.user.id);
       }
     });
 
-    // 3. Cargar perfil existente (opcional)
+    // Función para cargar el perfil existente (si lo hay)
     async function loadProfile(userId) {
-      const { data: profileData, error } = await supabase
+      const { data: profileData, error } = await supabaseClient
         .from('profiles')
         .select('*')
         .eq('id', userId)
         .single();
-
       if (error) {
         console.log('No se encontró perfil. El usuario puede crear uno nuevo.');
         return;
       }
-      // Si existe, rellena el formulario
       document.getElementById('full_name').value = profileData.full_name || '';
       document.getElementById('username').value = profileData.username || '';
       document.getElementById('bio').value = profileData.bio || '';
     }
 
-    // 4. Manejar el submit del formulario para insertar/actualizar
+    // Maneja el submit del formulario para insertar o actualizar el perfil
     const profileForm = document.getElementById('profile-form');
     profileForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -127,31 +125,30 @@
       const username = document.getElementById('username').value;
       const bio = document.getElementById('bio').value;
 
-      // Verifica la sesión
-      const { data: { session } } = await supabase.auth.getSession();
+      // Verifica la sesión actual
+      const { data: { session } } = await supabaseClient.auth.getSession();
       if (!session) {
         alert('No hay usuario autenticado. Por favor, inicia sesión.');
         return;
       }
       const userId = session.user.id;
 
-      // Realiza un upsert en la tabla "profiles"
-      const { error } = await supabase
+      // Inserta o actualiza el perfil en la tabla "profiles"
+      const { error } = await supabaseClient
         .from('profiles')
         .upsert({
-          id: userId,        // el id coincide con el user.id de supabase
+          id: userId,
           full_name,
           username,
           bio
         });
-
       if (error) {
         alert('Error al guardar el perfil: ' + error.message);
         console.error(error);
       } else {
         alert('Perfil guardado exitosamente.');
-        // Opcional: Redirigir a otra página (ej: dashboard.html)
-        // window.location.href = 'dashboard.html';
+        // Redirige a index.html
+        window.location.href = 'index.html';
       }
     });
   </script>
