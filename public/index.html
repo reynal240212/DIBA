@@ -88,7 +88,114 @@
       color: var(--texto-claro);
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
-   
+   /* ===============================
+   SECCIÓN ENTRENAMIENTOS (POSTER)
+=============================== */
+
+/* Fondo gradiente + relleno general */
+.entrenamiento {
+  background: linear-gradient(to bottom, var(--fondo-gris), #e9ecef);
+  padding: 50px 0;
+}
+
+/* Tarjeta tipo póster, con imagen de fondo (trofeo) */
+.entrenamiento-poster {
+  position: relative;
+  background: url('trophy-bg.jpg') center/cover no-repeat; /* Ajusta la ruta a tu imagen de trofeo */
+  min-height: 600px;        /* Ajusta la altura según prefieras */
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;      /* Espacio inferior */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Capa semitransparente para realzar el texto */
+.entrenamiento-poster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Ajusta la opacidad y color si deseas */
+}
+
+/* Contenedor interno que alinea el texto y la imagen */
+.entrenamiento-poster .poster-content {
+  position: relative;
+  z-index: 2;              /* Para que quede por encima de la capa oscura */
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;            /* Para ocupar toda la altura */
+}
+
+/* Sección de texto a la izquierda */
+.entrenamiento-poster .poster-text {
+  max-width: 50%;          /* Ocupa la mitad del ancho en pantallas grandes */
+}
+
+/* Estilo para el subtítulo (ej: “Práctica de Preparación”) */
+.entrenamiento-poster .poster-text small {
+  font-size: 1.2rem;
+  color: #fff;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Gran título (ej: “TORNEO”) */
+.entrenamiento-poster .poster-text h1 {
+  font-size: 4rem;         /* Ajusta el tamaño del texto */
+  text-transform: uppercase;
+  color: var(--grana);     /* Usa tu variable de color “--grana” */
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+/* Datos del evento (categoría, valor, etc.) */
+.entrenamiento-poster .poster-text p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Resalta partes del texto con variables de color, si gustas */
+.entrenamiento-poster .poster-text strong {
+  color: var(--azul-turquesa);
+}
+
+/* Imagen a la derecha (ej: camiseta, escudo, etc.) */
+.entrenamiento-poster .poster-image {
+  max-width: 40%;         /* Ocupa ~40% en pantallas grandes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ajusta tamaño máximo de la imagen */
+.entrenamiento-poster .poster-image img {
+  max-height: 400px;       /* Altura máxima de la camiseta */
+  width: auto;
+  object-fit: contain;
+  /* Si tu imagen es transparente y quieres un borde:
+  border: 3px solid var(--azul-turquesa);
+  border-radius: 8px;
+  */
+}
+
+/* Tarjeta base para hover y sombra (si la usas en .row .col) */
+.entrenamiento .card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.entrenamiento .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
 /* etc... */
     /* ===============================
        SECCIÓN DE VIDEOS (Historias)
