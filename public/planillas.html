@@ -2,30 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>DIBA FBC - CRUD Supabase</title>
+  <title>DIBA FBC - Administración</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
   <!-- Animate.css -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- SheetJS para Excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <style>
     :root {
       --azul-turquesa: #004D73;
@@ -36,14 +24,13 @@
       --fondo-gris: #f4f4f4;
       --bg-patron: #2C2C2C;
     }
-
     body {
       font-family: "Lato", sans-serif;
       background: var(--bg-patron) url("pattern.png") repeat;
       color: var(--texto-oscuro);
-      padding-top: 70px; /* Para compensar el navbar fixed-top */
+      padding-top: 70px; /* Compensa el navbar fixed-top */
+      transition: background 0.3s, color 0.3s;
     }
-
     /* NAVBAR */
     .navbar {
       background-color: var(--azul-turquesa) !important;
@@ -54,7 +41,6 @@
     .navbar-nav .nav-link:hover {
       color: var(--dorado) !important;
     }
-
     /* HERO */
     .hero {
       position: relative;
@@ -82,15 +68,15 @@
       letter-spacing: 2px;
       margin-bottom: 1rem;
       color: var(--dorado);
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .hero-subtitle {
       font-size: 1.5rem;
       color: var(--texto-claro);
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
-
     /* TABLA */
+    .table-responsive { margin-top: 1rem; }
     .table-striped > tbody > tr:nth-of-type(odd) {
       background-color: var(--fondo-gris);
     }
@@ -103,7 +89,6 @@
     thead.table-dark th {
       color: var(--texto-claro);
     }
-
     /* BOTONES */
     .btn-primary {
       background-color: var(--azul-turquesa);
@@ -119,7 +104,6 @@
     .btn-warning:hover {
       background-color: #cc8c00;
     }
-
     /* FOOTER */
     .footer {
       background-color: var(--azul-turquesa);
@@ -144,12 +128,7 @@
       <a class="navbar-brand" href="#">
         <img src="ESCUDO.png" alt="Logo DIBA FBC" />
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -169,6 +148,10 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fa fa-users"></i> Normas</a>
           </li>
+          <!-- Botón de Configuración para administrar la colorimetría -->
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#configModal"><i class="fa fa-cog"></i> Configuración</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -176,23 +159,30 @@
 
   <!-- HERO -->
   <section class="hero animate__animated animate__fadeInDown">
-    <div class="hero-content">
+    <div class="hero-content container">
       <h1 class="hero-title">UNA SOLA FAMILIA</h1>
       <p class="hero-subtitle">FUERZA Y LEALTAD</p>
     </div>
   </section>
 
-  <!-- CONTENEDOR CRUD -->
+  <!-- SECCIÓN CRUD -->
   <div class="container mb-5">
     <h2 class="text-center mb-4">CRUD - Jugadores Sin Sensibles</h2>
     <!-- Botón para agregar nuevo jugador -->
     <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalForm">
       <i class="fa fa-plus"></i> Agregar Nuevo
     </button>
-
-    <!-- Tabla para mostrar los registros -->
+    <!-- Sección para actualizar desde Excel -->
+    <div class="mb-3">
+      <label class="form-label fw-bold">Actualizar desde Excel:</label>
+      <input type="file" id="excelFileInput" accept=".xlsx, .xls" class="form-control" />
+      <button class="btn btn-success mt-2" onclick="actualizarDesdeExcel()">
+        <i class="fa fa-upload"></i> Subir Excel
+      </button>
+    </div>
+    <!-- Tabla para mostrar registros con animación de entrada -->
     <div class="table-responsive">
-      <table class="table table-striped table-hover align-middle">
+      <table class="table table-striped table-hover align-middle animate__animated animate__fadeInUp">
         <thead class="table-dark">
           <tr>
             <th>Email</th>
@@ -214,23 +204,17 @@
     </div>
   </div>
 
-  <!-- MODAL FORMULARIO -->
+  <!-- MODAL FORMULARIO (CRUD) -->
   <div class="modal fade" id="modalForm" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Datos del Jugador</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- Campo oculto para almacenar el email original (por si se edita) -->
+          <!-- Campo oculto para almacenar el email original (para identificar el registro en edición) -->
           <input type="hidden" id="originalEmail" />
-
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label fw-bold">Email</label>
@@ -279,20 +263,42 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cerrar
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            id="btnGuardar"
-          >
-            Guardar
-          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE CONFIGURACIÓN (para actualizar colorimetría sin editar el código) -->
+  <div class="modal fade" id="configModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Configuración de Colorimetría</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Color Fondo</label>
+            <input type="color" id="colorFondo" class="form-control form-control-color" value="#2C2C2C">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Color Navbar</label>
+            <input type="color" id="colorNavbar" class="form-control form-control-color" value="#004D73">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Color Texto Claro</label>
+            <input type="color" id="colorTextoClaro" class="form-control form-control-color" value="#ffffff">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Color Dorado</label>
+            <input type="color" id="colorDorado" class="form-control form-control-color" value="#FFD700">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="aplicarConfiguracion()">Aplicar</button>
         </div>
       </div>
     </div>
@@ -303,7 +309,7 @@
     <div class="container">
       <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
       <p>
-        <a href="#">Políticas de Privacidad</a> | 
+        <a href="#">Políticas de Privacidad</a> |
         <a href="#">Términos de Uso</a>
       </p>
     </div>
@@ -313,64 +319,59 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Reemplaza con tu información real de Supabase
-    const SUPABASE_URL = \"TU_SUPABASE_URL\";
-    const SUPABASE_KEY = \"TU_SUPABASE_KEY\";
-    const TABLE_NAME = \"jugadores_sin_sensibles\";
+    // Configuración de Supabase: Reemplaza con tus datos reales
+    const SUPABASE_URL = "TU_SUPABASE_URL";
+    const SUPABASE_KEY = "TU_SUPABASE_KEY";
+    const TABLE_NAME = "jugadores_sin_sensibles";
 
     const headers = {
       apikey: SUPABASE_KEY,
       Authorization: `Bearer ${SUPABASE_KEY}`,
-      \"Content-Type\": \"application/json\"
+      "Content-Type": "application/json"
     };
 
     // Al cargar la página
-    document.addEventListener(\"DOMContentLoaded\", cargarDatos);
-    document.getElementById(\"btnGuardar\").addEventListener(\"click\", guardar);
+    document.addEventListener("DOMContentLoaded", cargarDatos);
+    document.getElementById("btnGuardar").addEventListener("click", guardar);
 
-    // Carga los registros desde Supabase
+    // Función para cargar registros desde Supabase
     async function cargarDatos() {
       try {
-        const res = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?select=*`, {
-          headers
-        });
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?select=*`, { headers });
         const datos = await res.json();
         mostrarEnTabla(datos);
       } catch (error) {
-        console.error(\"Error al cargar datos:\", error);
+        console.error("Error al cargar datos:", error);
       }
     }
 
-    // Muestra los datos en la tabla
+    // Muestra los registros en la tabla HTML (añadiendo animación en cada fila)
     function mostrarEnTabla(datos) {
-      const tbody = document.getElementById(\"tabla-datos\");
-      tbody.innerHTML = \"\";
-      datos.forEach((d) => {
-        const tr = document.createElement(\"tr\");
+      const tbody = document.getElementById("tabla-datos");
+      tbody.innerHTML = "";
+      datos.forEach((d, i) => {
+        const tr = document.createElement("tr");
+        // Agregamos clase de animación delay usando animate__delay-{n}s (hasta 5s disponible)
+        tr.classList.add("animate__animated", "animate__fadeInUp");
+        tr.style.animationDelay = `${Math.min(i * 0.1, 1)}s`;
         tr.innerHTML = `
-          <td>${d.email ?? \"\"}</td>
-          <td>${d.nombres ?? \"\"}</td>
-          <td>${d.apellidos ?? \"\"}</td>
-          <td>${d.edad ?? \"\"}</td>
-          <td>${d.tipo_documento ?? \"\"}</td>
-          <td>${d.fecha_nacimiento ?? \"\"}</td>
-          <td>${d.barrio ?? \"\"}</td>
-          <td>${d.nombre_acudiente ?? \"\"}</td>
-          <td>${d.apellido_acudiente ?? \"\"}</td>
-          <td>${d.parentesco ?? \"\"}</td>
-          <td>${d.correo_acudiente ?? \"\"}</td>
+          <td>${d.email ?? ""}</td>
+          <td>${d.nombres ?? ""}</td>
+          <td>${d.apellidos ?? ""}</td>
+          <td>${d.edad ?? ""}</td>
+          <td>${d.tipo_documento ?? ""}</td>
+          <td>${d.fecha_nacimiento ?? ""}</td>
+          <td>${d.barrio ?? ""}</td>
+          <td>${d.nombre_acudiente ?? ""}</td>
+          <td>${d.apellido_acudiente ?? ""}</td>
+          <td>${d.parentesco ?? ""}</td>
+          <td>${d.correo_acudiente ?? ""}</td>
           <td>
-            <button
-              class=\"btn btn-warning btn-sm\"
-              onclick='editar(${JSON.stringify(d)})'
-            >
-              <i class=\"fa fa-edit\"></i>
+            <button class="btn btn-warning btn-sm" onclick='editar(${JSON.stringify(d)})'>
+              <i class="fa fa-edit"></i>
             </button>
-            <button
-              class=\"btn btn-danger btn-sm\"
-              onclick='eliminar(\"${d.email}\")'
-            >
-              <i class=\"fa fa-trash\"></i>
+            <button class="btn btn-danger btn-sm" onclick='eliminar("${d.email}")'>
+              <i class="fa fa-trash"></i>
             </button>
           </td>
         `;
@@ -378,41 +379,37 @@
       });
     }
 
-    // Abre el modal con datos para editar
+    // Abre el modal para editar un registro
     function editar(d) {
-      document.getElementById(\"originalEmail\").value = d.email || \"\";
-
-      document.getElementById(\"email\").value = d.email || \"\";
-      document.getElementById(\"nombres\").value = d.nombres || \"\";
-      document.getElementById(\"apellidos\").value = d.apellidos || \"\";
-      document.getElementById(\"edad\").value = d.edad || \"\";
-      document.getElementById(\"tipo_documento\").value = d.tipo_documento || \"\";
-      document.getElementById(\"fecha_nacimiento\").value = d.fecha_nacimiento || \"\";
-      document.getElementById(\"barrio\").value = d.barrio || \"\";
-      document.getElementById(\"nombre_acudiente\").value = d.nombre_acudiente || \"\";
-      document.getElementById(\"apellido_acudiente\").value = d.apellido_acudiente || \"\";
-      document.getElementById(\"parentesco\").value = d.parentesco || \"\";
-      document.getElementById(\"correo_acudiente\").value = d.correo_acudiente || \"\";
-
-      new bootstrap.Modal(document.getElementById(\"modalForm\")).show();
+      document.getElementById("originalEmail").value = d.email || "";
+      document.getElementById("email").value = d.email || "";
+      document.getElementById("nombres").value = d.nombres || "";
+      document.getElementById("apellidos").value = d.apellidos || "";
+      document.getElementById("edad").value = d.edad || "";
+      document.getElementById("tipo_documento").value = d.tipo_documento || "";
+      document.getElementById("fecha_nacimiento").value = d.fecha_nacimiento || "";
+      document.getElementById("barrio").value = d.barrio || "";
+      document.getElementById("nombre_acudiente").value = d.nombre_acudiente || "";
+      document.getElementById("apellido_acudiente").value = d.apellido_acudiente || "";
+      document.getElementById("parentesco").value = d.parentesco || "";
+      document.getElementById("correo_acudiente").value = d.correo_acudiente || "";
+      new bootstrap.Modal(document.getElementById("modalForm")).show();
     }
 
     // Guarda (crea o edita) un registro
     async function guardar() {
-      const originalEmail = document.getElementById(\"originalEmail\").value;
-
-      // Capturamos datos del formulario
-      const email = document.getElementById(\"email\").value.trim();
-      const nombres = document.getElementById(\"nombres\").value.trim();
-      const apellidos = document.getElementById(\"apellidos\").value.trim();
-      const edad = parseInt(document.getElementById(\"edad\").value || 0);
-      const tipo_documento = document.getElementById(\"tipo_documento\").value.trim();
-      const fecha_nacimiento = document.getElementById(\"fecha_nacimiento\").value;
-      const barrio = document.getElementById(\"barrio\").value.trim();
-      const nombre_acudiente = document.getElementById(\"nombre_acudiente\").value.trim();
-      const apellido_acudiente = document.getElementById(\"apellido_acudiente\").value.trim();
-      const parentesco = document.getElementById(\"parentesco\").value.trim();
-      const correo_acudiente = document.getElementById(\"correo_acudiente\").value.trim();
+      const originalEmail = document.getElementById("originalEmail").value;
+      const email = document.getElementById("email").value.trim();
+      const nombres = document.getElementById("nombres").value.trim();
+      const apellidos = document.getElementById("apellidos").value.trim();
+      const edad = parseInt(document.getElementById("edad").value || 0);
+      const tipo_documento = document.getElementById("tipo_documento").value.trim();
+      const fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+      const barrio = document.getElementById("barrio").value.trim();
+      const nombre_acudiente = document.getElementById("nombre_acudiente").value.trim();
+      const apellido_acudiente = document.getElementById("apellido_acudiente").value.trim();
+      const parentesco = document.getElementById("parentesco").value.trim();
+      const correo_acudiente = document.getElementById("correo_acudiente").value.trim();
 
       const body = {
         email,
@@ -432,58 +429,141 @@
         if (!originalEmail) {
           // Crear nuevo registro
           await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}`, {
-            method: \"POST\",
+            method: "POST",
             headers,
             body: JSON.stringify(body)
           });
         } else {
-          // Editar registro existente (identificado por originalEmail)
-          await fetch(
-            `${SUPABASE_URL}/rest/v1/${TABLE_NAME}?email=eq.${encodeURIComponent(originalEmail)}`,
-            {
-              method: \"PATCH\",
-              headers,
-              body: JSON.stringify(body)
-            }
-          );
+          // Actualizar registro existente (identificado por originalEmail)
+          await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?email=eq.${encodeURIComponent(originalEmail)}`, {
+            method: "PATCH",
+            headers,
+            body: JSON.stringify(body)
+          });
         }
-        // Cerrar modal y recargar
-        document.querySelector(\"#modalForm .btn-close\").click();
+        document.querySelector("#modalForm .btn-close").click();
         limpiarFormulario();
         cargarDatos();
       } catch (error) {
-        console.error(\"Error al guardar:\", error);
+        console.error("Error al guardar:", error);
       }
     }
 
     // Elimina un registro
     async function eliminar(email) {
-      if (!confirm(\"¿Seguro que deseas eliminar este registro?\")) return;
+      if (!confirm("¿Seguro que deseas eliminar este registro?")) return;
       try {
-        await fetch(
-          `${SUPABASE_URL}/rest/v1/${TABLE_NAME}?email=eq.${encodeURIComponent(email)}`,
-          { method: \"DELETE\", headers }
-        );
+        await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?email=eq.${encodeURIComponent(email)}`, {
+          method: "DELETE",
+          headers
+        });
         cargarDatos();
       } catch (error) {
-        console.error(\"Error al eliminar:\", error);
+        console.error("Error al eliminar:", error);
       }
     }
 
     // Limpia el formulario
     function limpiarFormulario() {
-      document.getElementById(\"originalEmail\").value = \"\";
-      document.getElementById(\"email\").value = \"\";
-      document.getElementById(\"nombres\").value = \"\";
-      document.getElementById(\"apellidos\").value = \"\";
-      document.getElementById(\"edad\").value = \"\";
-      document.getElementById(\"tipo_documento\").value = \"\";
-      document.getElementById(\"fecha_nacimiento\").value = \"\";
-      document.getElementById(\"barrio\").value = \"\";
-      document.getElementById(\"nombre_acudiente\").value = \"\";
-      document.getElementById(\"apellido_acudiente\").value = \"\";
-      document.getElementById(\"parentesco\").value = \"\";
-      document.getElementById(\"correo_acudiente\").value = \"\";
+      document.getElementById("originalEmail").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("nombres").value = "";
+      document.getElementById("apellidos").value = "";
+      document.getElementById("edad").value = "";
+      document.getElementById("tipo_documento").value = "";
+      document.getElementById("fecha_nacimiento").value = "";
+      document.getElementById("barrio").value = "";
+      document.getElementById("nombre_acudiente").value = "";
+      document.getElementById("apellido_acudiente").value = "";
+      document.getElementById("parentesco").value = "";
+      document.getElementById("correo_acudiente").value = "";
+    }
+
+    // Función para actualizar registros desde un archivo Excel
+    async function actualizarDesdeExcel() {
+      const fileInput = document.getElementById("excelFileInput");
+      const file = fileInput.files[0];
+      if (!file) {
+        alert("Por favor, selecciona un archivo Excel.");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const firstSheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[firstSheetName];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+        const headersExcel = jsonData[0];
+        const records = [];
+        for (let i = 1; i < jsonData.length; i++) {
+          const row = jsonData[i];
+          let record = {};
+          headersExcel.forEach((header, index) => {
+            record[header] = row[index];
+          });
+          records.push(record);
+        }
+        // Procesar cada registro (usando 'Dirección de correo electrónico' como identificador)
+        for (let rec of records) {
+          let body = {
+            email: rec['Dirección de correo electrónico'] || "",
+            nombres: rec['Nombres'] || "",
+            apellidos: rec['Apellidos'] || "",
+            edad: parseInt(rec['Edad'] || "0"),
+            tipo_documento: rec['Tipo De Documento'] || "",
+            fecha_nacimiento: formatExcelDate(rec['Fecha de nacimiento']),
+            barrio: rec['Barrio'] || "",
+            nombre_acudiente: rec['Nombre del padre, madre o acudiente'] || "",
+            apellido_acudiente: rec['Apellido del padre, madre o acudiente'] || "",
+            parentesco: rec['Parentesco con el niño'] || "",
+            correo_acudiente: rec['Correo electrónico'] || ""
+          };
+          await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?email=eq.${encodeURIComponent(body.email)}`, {
+            method: "PATCH",
+            headers,
+            body: JSON.stringify(body)
+          });
+        }
+        alert("Actualización desde Excel completada.");
+        cargarDatos();
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    // Helper: Convierte fecha de Excel a formato ISO (YYYY-MM-DD)
+    function formatExcelDate(excelDate) {
+      if (typeof excelDate === 'number') {
+        let utc_days = Math.floor(excelDate - 25569);
+        let utc_value = utc_days * 86400;
+        let date = new Date(utc_value * 1000);
+        return date.toISOString().split('T')[0];
+      }
+      if (typeof excelDate === 'string') {
+        const parts = excelDate.split(/[\\/\\-]/);
+        if (parts.length === 3) {
+          return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+        }
+      }
+      return excelDate;
+    }
+
+    // PANEL DE CONFIGURACIÓN: Aplica la nueva colorimetría a través de variables CSS
+    function aplicarConfiguracion() {
+      const colorFondo = document.getElementById("colorFondo").value;
+      const colorNavbar = document.getElementById("colorNavbar").value;
+      const colorTextoClaro = document.getElementById("colorTextoClaro").value;
+      const colorDorado = document.getElementById("colorDorado").value;
+
+      // Actualizamos las variables CSS en :root
+      document.documentElement.style.setProperty("--bg-patron", colorFondo);
+      document.documentElement.style.setProperty("--azul-turquesa", colorNavbar);
+      document.documentElement.style.setProperty("--texto-claro", colorTextoClaro);
+      document.documentElement.style.setProperty("--dorado", colorDorado);
+
+      // Actualizar elementos relevantes (opcional, ya que CSS se actualiza automáticamente)
+      alert("Configuración aplicada.");
+      new bootstrap.Modal(document.getElementById("configModal")).hide();
     }
   </script>
 </body>
