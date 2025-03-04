@@ -27,238 +27,279 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+<style>/* ===============================
+  RESETEO Y VARIABLES
+=============================== */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ scroll-behavior: smooth;
+}
 
-  <style>
-    /* ===============================
-       RESETEO Y VARIABLES
-    =============================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    :root {
-      --azul-turquesa: #004D73;
-      --grana: #800020;
-      --dorado: #FFD700;
-      --texto-claro: #ffffff;
-      --texto-oscuro: #333333;
-      --fondo-gris: #f4f4f4;
-      --bg-patron: #2C2C2C;
-    }
+:root {
+ --azul-turquesa: #004D73;
+ --grana: #800020;
+ --dorado: #FFD700;
+ --texto-claro: #ffffff;
+ --texto-oscuro: #333333;
+ --fondo-gris: #f4f4f4;
+ --bg-patron: #2C2C2C;
+ --sombra: rgba(0, 0, 0, 0.3);
+}
 
-    body {
-      font-family: 'Lato', sans-serif;
-      background: var(--bg-patron) url('pattern.png') repeat;
-      color: var(--texto-oscuro);
-      padding-top: 70px;
-    }
+/* ===============================
+  GENERAL
+=============================== */
+body {
+ font-family: 'Lato', sans-serif;
+ background: var(--bg-patron) url('pattern.png') repeat;
+ color: var(--texto-oscuro);
+ padding-top: 70px;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+/* Estilos de enlaces */
+a {
+ text-decoration: none;
+ color: inherit;
+ transition: color 0.3s ease;
+}
+a:hover {
+ color: var(--dorado);
+}
 
-    /* ===============================
-       NAVBAR
-    =============================== */
-    .navbar {
-      background-color: var(--azul-turquesa) !important;
-    }
-    .navbar-brand img {
-      width: 50px;
-    }
-    .navbar-nav .nav-link:hover {
-      color: var(--dorado) !important;
-    }
+/* ===============================
+  NAVBAR
+=============================== */
+.navbar {
+ background: linear-gradient(135deg, var(--azul-turquesa) 30%, #002b48 100%);
+ box-shadow: 0 4px 10px var(--sombra);
+ transition: all 0.3s ease-in-out;
+}
 
-    /* ===============================
-       HERO
-    =============================== */
-    .hero {
-      position: relative;
-      background: url("fondo.jpg") center/cover no-repeat;
-      height: 400px;
-      color: var(--texto-claro);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    .hero-content {
-      position: relative;
-      text-align: center;
-    }
-    .hero-title {
-      font-family: cursive;
-      font-size: 3.5rem;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-      color: var(--dorado);
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    .hero-subtitle {
-      font-size: 1.5rem;
-      color: var(--texto-claro);
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
+.navbar-brand img {
+ width: 50px;
+ transition: transform 0.3s ease-in-out;
+}
+.navbar-brand img:hover {
+ transform: scale(1.1);
+}
 
-    /* ===============================
-       SECCIÓN ENTRENAMIENTOS (POSTER)
-    =============================== */
-    .entrenamiento {
-      background: linear-gradient(to bottom, var(--fondo-gris), #e9ecef);
-      padding: 50px 0;
-    }
-    .entrenamiento-poster {
-      position: relative;
-      background: url('trophy-bg.jpg') center/cover no-repeat; /* Ajusta la ruta de la imagen del trofeo */
-      min-height: 600px;
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    /* Capa gradiente overlay para un efecto más elegante */
-    .entrenamiento-poster::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.1) 100%
-      );
-    }
+.navbar-nav .nav-link {
+ transition: color 0.3s ease-in-out;
+}
+.navbar-nav .nav-link:hover {
+ color: var(--dorado) !important;
+}
 
-    .poster-content {
-      position: relative;
-      z-index: 2;
-      padding: 2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-    }
-    .poster-text {
-      max-width: 50%;
-    }
-    .poster-text small {
-      font-size: 1.2rem;
-      color: #fff;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .poster-text h1 {
-      font-size: 4rem;
-      text-transform: uppercase;
-      color: var(--grana);
-      margin-bottom: 1rem;
-      line-height: 1.1;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    .poster-text p {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .poster-text strong {
-      color: var(--azul-turquesa);
-    }
-    .poster-image {
-      max-width: 40%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .poster-image img {
-      max-height: 400px;
-      width: auto;
-      object-fit: contain;
-    }
+/* ===============================
+  HERO
+=============================== */
+.hero {
+ position: relative;
+ background: url("fondo.jpg") center/cover no-repeat;
+ height: 400px;
+ color: var(--texto-claro);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ margin-bottom: 2rem;
+ animation: fadeIn 1.5s ease-in-out;
+}
 
-    /* Responsive para pantallas pequeñas */
-    @media (max-width: 768px) {
-      .poster-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .poster-text {
-        max-width: 100%;
-        margin-bottom: 1.5rem;
-      }
-      .poster-image {
-        max-width: 100%;
-      }
-      .poster-image img {
-        max-height: 250px; /* reduce el tamaño en pantallas pequeñas */
-      }
-    }
+.hero::before {
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: rgba(0, 0, 0, 0.5);
+}
 
-    /* Tarjeta base para hover y sombra (si la usas en .row .col) */
-    .entrenamiento .card {
-      border: none;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .entrenamiento .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
+.hero-content {
+ position: relative;
+}
 
-    /* ===============================
-       SECCIÓN PATROCINADORES, FOOTER, etc.
-    =============================== */
-    .okeysport-logo {
-      filter: brightness(0) invert(1);
-      transition: filter 0.3s;
-    }
-    .okeysport-logo:hover {
-      filter: brightness(0.3) invert(1.2);
-    }
-    .sponsor-logo {
-      max-height: 80px;
-      width: 100%;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-    }
-    .sponsors h3 {
-      color: var(--dorado);
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    footer {
-      background-color: var(--azul-turquesa);
-      color: var(--texto-claro);
-      padding: 2rem 0;
-    }
-    .footer-brand {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .footer-brand img {
-      width: 60px;
-    }
-    footer a {
-      color: var(--texto-claro);
-    }
-    footer a:hover {
-      text-decoration: underline;
-      color: var(--dorado);
-    }
-  </style>
+.hero-title {
+ font-family: 'Pacifico', cursive;
+ font-size: 3.5rem;
+ letter-spacing: 2px;
+ margin-bottom: 1rem;
+ color: var(--dorado);
+ text-shadow: 2px 2px 5px var(--sombra);
+ animation: slideInDown 1.2s ease-out;
+}
+
+.hero-subtitle {
+ font-size: 1.5rem;
+ color: var(--texto-claro);
+ text-shadow: 1px 1px 3px var(--sombra);
+ animation: fadeIn 2s ease-in-out;
+}
+
+/* ===============================
+  SECCIÓN ENTRENAMIENTOS (POSTER)
+=============================== */
+.entrenamiento {
+ background: linear-gradient(to bottom, var(--fondo-gris), #e9ecef);
+ padding: 50px 0;
+}
+
+.entrenamiento-poster {
+ position: relative;
+ background: url('trophy-bg.jpg') center/cover no-repeat;
+ min-height: 600px;
+ color: #fff;
+ border-radius: 12px;
+ overflow: hidden;
+ margin-bottom: 2rem;
+ box-shadow: 0 4px 12px var(--sombra);
+ animation: fadeInUp 1.5s ease-in-out;
+}
+
+.entrenamiento-poster::before {
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.poster-content {
+ position: relative;
+ z-index: 2;
+ padding: 2rem;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-between;
+ height: 100%;
+}
+
+.poster-text {
+ max-width: 50%;
+}
+
+.poster-text small {
+ font-size: 1.2rem;
+ color: #fff;
+ display: block;
+ margin-bottom: 0.5rem;
+}
+
+.poster-text h1 {
+ font-size: 4rem;
+ text-transform: uppercase;
+ color: var(--grana);
+ margin-bottom: 1rem;
+ text-shadow: 2px 2px 5px var(--sombra);
+}
+
+.poster-text p {
+ font-size: 1.2rem;
+ margin-bottom: 0.5rem;
+}
+
+.poster-text strong {
+ color: var(--azul-turquesa);
+}
+
+.poster-image {
+ max-width: 40%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.poster-image img {
+ max-height: 400px;
+ width: auto;
+ object-fit: contain;
+ transition: transform 0.3s ease-in-out;
+}
+.poster-image img:hover {
+ transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+ .poster-content {
+   flex-direction: column;
+   text-align: center;
+ }
+ .poster-text {
+   max-width: 100%;
+   margin-bottom: 1.5rem;
+ }
+ .poster-image {
+   max-width: 100%;
+ }
+ .poster-image img {
+   max-height: 250px;
+ }
+}
+
+/* ===============================
+  FOOTER
+=============================== */
+footer {
+ background: linear-gradient(135deg, var(--azul-turquesa), #002b48);
+ color: var(--texto-claro);
+ padding: 2rem 0;
+ text-align: center;
+}
+
+.footer-brand img {
+ width: 60px;
+ transition: transform 0.3s ease-in-out;
+}
+
+.footer-brand img:hover {
+ transform: scale(1.1);
+}
+
+footer a {
+ color: var(--texto-claro);
+ transition: color 0.3s ease-in-out;
+}
+footer a:hover {
+ text-decoration: underline;
+ color: var(--dorado);
+}
+
+/* ===============================
+  ANIMACIONES
+=============================== */
+@keyframes fadeIn {
+ from {
+   opacity: 0;
+ }
+ to {
+   opacity: 1;
+ }
+}
+
+@keyframes slideInDown {
+ from {
+   transform: translateY(-50px);
+   opacity: 0;
+ }
+ to {
+   transform: translateY(0);
+   opacity: 1;
+ }
+}
+
+@keyframes fadeInUp {
+ from {
+   transform: translateY(30px);
+   opacity: 0;
+ }
+ to {
+   transform: translateY(0);
+   opacity: 1;
+ }
+}</style>
+  
+
 </head>
 <body>
   <!-- NAVBAR -->
