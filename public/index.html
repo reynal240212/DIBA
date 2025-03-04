@@ -27,283 +27,289 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
-<style>/* ===============================
-  RESETEO Y VARIABLES
-=============================== */
-* {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- scroll-behavior: smooth;
-}
 
-:root {
- --azul-turquesa: #004D73;
- --grana: #800020;
- --dorado: #FFD700;
- --texto-claro: #ffffff;
- --texto-oscuro: #333333;
- --fondo-gris: #f4f4f4;
- --bg-patron: #2C2C2C;
- --sombra: rgba(0, 0, 0, 0.3);
-}
+  <style>
+    /* ===============================
+       RESETEO Y VARIABLES
+    =============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-/* ===============================
-  GENERAL
-=============================== */
-body {
- font-family: 'Lato', sans-serif;
- background: var(--bg-patron) url('pattern.png') repeat;
- color: var(--texto-oscuro);
- padding-top: 70px;
-}
+    :root {
+      --azul-turquesa: #004D73;
+      --grana: #800020;
+      --dorado: #FFD700;
+      --texto-claro: #ffffff;
+      --texto-oscuro: #333333;
+      --fondo-gris: #f4f4f4;
+      --bg-patron: #2C2C2C;
+      --sombra: rgba(0, 0, 0, 0.3);
+    }
 
-/* Estilos de enlaces */
-a {
- text-decoration: none;
- color: inherit;
- transition: color 0.3s ease;
-}
-a:hover {
- color: var(--dorado);
-}
+    /* ===============================
+       GENERAL
+    =============================== */
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg-patron) url('pattern.png') repeat;
+      color: var(--texto-oscuro);
+      /* padding-top: 70px;  <-- Eliminado para superponer el navbar */
+    }
 
-/* ===============================
-  NAVBAR
-=============================== */
-.navbar {
- background: linear-gradient(135deg, var(--azul-turquesa) 30%, #002b48 100%);
- box-shadow: 0 4px 10px var(--sombra);
- transition: all 0.3s ease-in-out;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--dorado);
+    }
 
-.navbar-brand img {
- width: 50px;
- transition: transform 0.3s ease-in-out;
-}
-.navbar-brand img:hover {
- transform: scale(1.1);
-}
+    /* ===============================
+       NAVBAR
+    =============================== */
+    .navbar {
+      /* Ajustes para superponerla al hero */
+      position: absolute;        /* O 'fixed' si quieres que siga al hacer scroll */
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: transparent !important; /* Transparente para ver la imagen detrás */
+      box-shadow: none;          /* Quita la sombra si no la necesitas */
+      z-index: 999;             /* Asegura que quede sobre el hero */
+      transition: all 0.3s ease-in-out;
+    }
 
-.navbar-nav .nav-link {
- transition: color 0.3s ease-in-out;
-}
-.navbar-nav .nav-link:hover {
- color: var(--dorado) !important;
-}
+    .navbar-brand img {
+      width: 50px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .navbar-brand img:hover {
+      transform: scale(1.1);
+    }
 
-/* ===============================
-  HERO
-=============================== */
-.hero {
- position: relative;
- background: url("fondo.jpg") center/cover no-repeat;
- height: 400px;
- color: var(--texto-claro);
- display: flex;
- align-items: center;
- justify-content: center;
- text-align: center;
- margin-bottom: 2rem;
- animation: fadeIn 1.5s ease-in-out;
-}
+    .navbar-nav .nav-link {
+      transition: color 0.3s ease-in-out;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--dorado) !important;
+    }
 
-.hero::before {
- content: "";
- position: absolute;
- inset: 0;
- background: rgba(0, 0, 0, 0.5);
-}
+    /* ===============================
+       HERO
+    =============================== */
+    .hero {
+      position: relative;
+      background: url("fondo.jpg") center/cover no-repeat;
+      height: 400px;
+      color: var(--texto-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      /* margin-bottom: 2rem;  <-- Eliminado para evitar espacio extra */
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
-.hero-content {
- position: relative;
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
 
-.hero-title {
- font-family: 'Pacifico', cursive;
- font-size: 3.5rem;
- letter-spacing: 2px;
- margin-bottom: 1rem;
- color: var(--dorado);
- text-shadow: 2px 2px 5px var(--sombra);
- animation: slideInDown 1.2s ease-out;
-}
+    .hero-content {
+      position: relative;
+    }
 
-.hero-subtitle {
- font-size: 1.5rem;
- color: var(--texto-claro);
- text-shadow: 1px 1px 3px var(--sombra);
- animation: fadeIn 2s ease-in-out;
-}
+    .hero-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      color: var(--dorado);
+      text-shadow: 2px 2px 5px var(--sombra);
+      animation: slideInDown 1.2s ease-out;
+    }
 
-/* ===============================
-  SECCIÓN ENTRENAMIENTOS (POSTER)
-=============================== */
-.entrenamiento {
- background: linear-gradient(to bottom, var(--fondo-gris), #e9ecef);
- padding: 50px 0;
-}
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--texto-claro);
+      text-shadow: 1px 1px 3px var(--sombra);
+      animation: fadeIn 2s ease-in-out;
+    }
 
-.entrenamiento-poster {
- position: relative;
- background: url('trophy-bg.jpg') center/cover no-repeat;
- min-height: 600px;
- color: #fff;
- border-radius: 12px;
- overflow: hidden;
- margin-bottom: 2rem;
- box-shadow: 0 4px 12px var(--sombra);
- animation: fadeInUp 1.5s ease-in-out;
-}
+    /* ===============================
+       SECCIÓN ENTRENAMIENTOS (POSTER)
+    =============================== */
+    .entrenamiento {
+      background: linear-gradient(to bottom, var(--fondo-gris), #e9ecef);
+      padding: 50px 0;
+    }
 
-.entrenamiento-poster::before {
- content: "";
- position: absolute;
- inset: 0;
- background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
-}
+    .entrenamiento-poster {
+      position: relative;
+      background: url('trophy-bg.jpg') center/cover no-repeat;
+      min-height: 600px;
+      color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px var(--sombra);
+      animation: fadeInUp 1.5s ease-in-out;
+    }
 
-.poster-content {
- position: relative;
- z-index: 2;
- padding: 2rem;
- display: flex;
- flex-direction: row;
- align-items: center;
- justify-content: space-between;
- height: 100%;
-}
+    .entrenamiento-poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
 
-.poster-text {
- max-width: 50%;
-}
+    .poster-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
 
-.poster-text small {
- font-size: 1.2rem;
- color: #fff;
- display: block;
- margin-bottom: 0.5rem;
-}
+    .poster-text {
+      max-width: 50%;
+    }
 
-.poster-text h1 {
- font-size: 4rem;
- text-transform: uppercase;
- color: var(--grana);
- margin-bottom: 1rem;
- text-shadow: 2px 2px 5px var(--sombra);
-}
+    .poster-text small {
+      font-size: 1.2rem;
+      color: #fff;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
 
-.poster-text p {
- font-size: 1.2rem;
- margin-bottom: 0.5rem;
-}
+    .poster-text h1 {
+      font-size: 4rem;
+      text-transform: uppercase;
+      color: var(--grana);
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px var(--sombra);
+    }
 
-.poster-text strong {
- color: var(--azul-turquesa);
-}
+    .poster-text p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
 
-.poster-image {
- max-width: 40%;
- display: flex;
- justify-content: center;
- align-items: center;
-}
+    .poster-text strong {
+      color: var(--azul-turquesa);
+    }
 
-.poster-image img {
- max-height: 400px;
- width: auto;
- object-fit: contain;
- transition: transform 0.3s ease-in-out;
-}
-.poster-image img:hover {
- transform: scale(1.05);
-}
+    .poster-image {
+      max-width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-/* Responsive */
-@media (max-width: 768px) {
- .poster-content {
-   flex-direction: column;
-   text-align: center;
- }
- .poster-text {
-   max-width: 100%;
-   margin-bottom: 1.5rem;
- }
- .poster-image {
-   max-width: 100%;
- }
- .poster-image img {
-   max-height: 250px;
- }
-}
+    .poster-image img {
+      max-height: 400px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease-in-out;
+    }
+    .poster-image img:hover {
+      transform: scale(1.05);
+    }
 
-/* ===============================
-  FOOTER
-=============================== */
-footer {
- background: linear-gradient(135deg, var(--azul-turquesa), #002b48);
- color: var(--texto-claro);
- padding: 2rem 0;
- text-align: center;
-}
+    @media (max-width: 768px) {
+      .poster-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .poster-text {
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+      }
+      .poster-image {
+        max-width: 100%;
+      }
+      .poster-image img {
+        max-height: 250px;
+      }
+    }
 
-.footer-brand img {
- width: 60px;
- transition: transform 0.3s ease-in-out;
-}
+    /* ===============================
+       FOOTER
+    =============================== */
+    footer {
+      background: linear-gradient(135deg, var(--azul-turquesa), #002b48);
+      color: var(--texto-claro);
+      padding: 2rem 0;
+      text-align: center;
+    }
 
-.footer-brand img:hover {
- transform: scale(1.1);
-}
+    .footer-brand img {
+      width: 60px;
+      transition: transform 0.3s ease-in-out;
+    }
 
-footer a {
- color: var(--texto-claro);
- transition: color 0.3s ease-in-out;
-}
-footer a:hover {
- text-decoration: underline;
- color: var(--dorado);
-}
+    .footer-brand img:hover {
+      transform: scale(1.1);
+    }
 
-/* ===============================
-  ANIMACIONES
-=============================== */
-@keyframes fadeIn {
- from {
-   opacity: 0;
- }
- to {
-   opacity: 1;
- }
-}
+    footer a {
+      color: var(--texto-claro);
+      transition: color 0.3s ease-in-out;
+    }
+    footer a:hover {
+      text-decoration: underline;
+      color: var(--dorado);
+    }
 
-@keyframes slideInDown {
- from {
-   transform: translateY(-50px);
-   opacity: 0;
- }
- to {
-   transform: translateY(0);
-   opacity: 1;
- }
-}
+    /* ===============================
+       ANIMACIONES
+    =============================== */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
-@keyframes fadeInUp {
- from {
-   transform: translateY(30px);
-   opacity: 0;
- }
- to {
-   transform: translateY(0);
-   opacity: 1;
- }
-}</style>
-  
+    @keyframes slideInDown {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <img src="ESCUDO.png" alt="Logo DIBA FBC">
@@ -321,7 +327,7 @@ footer a:hover {
       </button>
       <!-- Menú colapsable -->
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Inicio</a>
           </li>
@@ -401,7 +407,7 @@ footer a:hover {
             </li>
             <li>
               <a href="https://www.instagram.com/diba_fbc_oficial" target="_blank">
-                <i class="fab fa-instagram"></i> Instagram
+                <i class="fab fa-instagram\"></i> Instagram
               </a>
             </li>
           </ul>
