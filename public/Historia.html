@@ -1,135 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Historia - DIBA FBC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Descubre la historia de DIBA FBC, sus logros y momentos más destacados en el fútbol amateur." />
-  
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  
-  <!-- Íconos de FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <!-- Animate.css para animaciones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <meta charset="UTF-8">
+  <title>HISTORIA - DIBA FBC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Librería AOS para efectos de scroll -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Íconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
   <style>
+    /* ================================
+       Paleta de Colores
+    =================================*/
     :root {
       --azul: #004D73;
       --amarillo: #FFD700;
-      --fondo-claro: #f9f9f9;
     }
 
+    /* ================================
+       Estilo General
+    =================================*/
     body {
       background-color: #ffffff;
       color: var(--azul);
-      font-family: 'Poppins', sans-serif;
-      padding-top: 70px;
+      font-family: 'Arial', sans-serif;
+      padding-top: 80px; /* Ajuste para navbar fijo */
+    }
+    a {
+      text-decoration: none;
+      color: var(--azul);
+    }
+    a:hover {
+      color: var(--amarillo);
     }
 
-    /* Navbar */
+    /* ================================
+       Navbar Fijo con Fondo Opaco al Hacer Scroll
+    =================================*/
     .navbar {
-      transition: all 0.3s ease-in-out;
-    }
-
-    .navbar.scrolled {
       background-color: var(--azul) !important;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
-
     .navbar-brand img {
       width: 50px;
     }
-
-    .nav-link {
-      font-weight: 600;
+    .navbar-nav .nav-link {
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--amarillo) !important;
     }
 
-    /* Hero Section con efecto Glassmorphism */
+    /* ================================
+       HERO (Sin Degradado)
+    =================================*/
     .hero {
-      background: linear-gradient(135deg, rgba(0, 77, 115, 0.8), rgba(255, 215, 0, 0.7)), url('fondo.jpg') center/cover no-repeat;
-      height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background-color: var(--azul);
       text-align: center;
-      color: #fff;
-      position: relative;
+      padding: 4rem 1rem;
+      color: var(--amarillo);
     }
-
-    .hero .content {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      padding: 20px;
-      border-radius: 10px;
-    }
-
     .hero h1 {
       font-size: 3rem;
-      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    /* Sección de Tarjetas */
+    /* ================================
+       TIMELINE / TARJETAS
+    =================================*/
     .timeline-section {
-      background: var(--fondo-claro);
-      padding: 4rem 0;
+      padding: 3rem 1rem;
+      background-color: #f9f9f9;
     }
-
     .timeline-section h2 {
       text-align: center;
-      font-size: 2.5rem;
-      font-weight: bold;
+      margin-bottom: 2rem;
       color: var(--azul);
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
     }
-
     .card {
       border: none;
       border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     }
-
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
-
-    .card img {
-      height: 200px;
+    .card-img-top {
       object-fit: cover;
+      height: 200px;
     }
 
-    /* Footer */
+    /* ================================
+       Footer
+    =================================*/
     footer {
-      background: var(--azul);
+      background-color: var(--azul);
       color: var(--amarillo);
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 2rem;
     }
-
     footer a {
       color: var(--amarillo);
       text-decoration: none;
-      font-weight: bold;
+      transition: color 0.3s;
     }
-
     footer a:hover {
+      color: var(--azul);
       text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
+  <!-- Encabezado de Página -->
+  <header class="page-header">
+    <h4 class="text-center py-3">HISTORIA DIBA FBC</h4>
+  </header>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="index.html">
         <img src="ESCUDO.png" alt="Logo DIBA FBC">
       </a>
@@ -137,34 +147,37 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="Historia.html">Historia</a></li>
           <li class="nav-item"><a class="nav-link" href="ficha.html">Ficha Técnica</a></li>
+          <li class="nav-item"><a class="nav-link" href="planillas.html">Planillas</a></li>
+          <li class="nav-item"><a class="nav-link" href="NormasyReglamentos.html">Normas y Reglamentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="partidos.html">Partidos</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="content animate__animated animate__fadeIn">
-      <h1>Historia de DIBA FBC</h1>
-      <p>Recorre los momentos más memorables de nuestro club.</p>
+  <!-- Hero Section -->
+  <section class="hero animate__animated animate__fadeInDown">
+    <div class="container">
+      <h1>Explora Nuestro Mundo</h1>
+      <p>Descubre los momentos históricos y logros que han definido a DIBA FBC. Un recorrido lleno de pasión y victorias.</p>
     </div>
   </section>
 
   <!-- Timeline -->
-  <section class="timeline-section" data-aos="fade-up">
+  <section class="timeline-section animate__animated animate__fadeInUp">
     <div class="container">
       <h2>Momentos Destacados</h2>
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card">
-            <img src="Noticia1.jpg" alt="Subcampeonato" loading="lazy">
+            <img src="Noticia1.jpg" class="card-img-top" alt="Subcampeonato 2013">
             <div class="card-body">
               <h5 class="card-title">Subcampeonato 2013</h5>
-              <p>Un partido vibrante que dejó huella en la historia del club.</p>
+              <p class="card-text">Un partido vibrante que dejó huella en la historia del club.</p>
             </div>
           </div>
         </div>
@@ -174,18 +187,10 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 DIBA FBC | <a href="#">Política de Privacidad</a></p>
+    <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init();
-    window.addEventListener("scroll", function() {
-      document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
-    });
-  </script>
-
 </body>
 </html>
