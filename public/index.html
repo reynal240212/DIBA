@@ -1,432 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>DIBA FBC - Entrenamientos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Bootstrap CSS -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet"
-  >
-  <!-- Font Awesome -->
-  <link 
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <!-- Google Fonts -->
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" 
-    rel="stylesheet"
-  >
-  <!-- Animate.css -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-
-  <style>
-    /* ===============================
-       RESETEO Y VARIABLES
-    =============================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    :root {
-      --azul-turquesa: #004D73;
-      --grana: #800020;
-      --dorado: #FFD700;
-      --texto-claro: #ffffff;
-      --texto-oscuro: #333333;
-      --fondo-gris: #f4f4f4;
-      --bg-patron: #2C2C2C;
-      --sombra: rgba(0, 0, 0, 0.3);
-    }
-
-    /* ===============================
-       GENERAL
-    =============================== */
-    body {
-      font-family: 'Lato', sans-serif;
-      background: var(--bg-patron) url('pattern.png') repeat;
-      color: var(--texto-oscuro);
-      /* padding-top: 70px;  <-- Eliminado para superponer el navbar */
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: var(--dorado);
-    }
-
-    /* ===============================
-       NAVBAR
-    =============================== */
-    .navbar {
-      /* Ajustes para superponerla al hero */
-      position: absolute;        /* O 'fixed' si quieres que siga al hacer scroll */
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: transparent !important; /* Transparente para ver la imagen detrás */
-      box-shadow: none;          /* Quita la sombra si no la necesitas */
-      z-index: 999;             /* Asegura que quede sobre el hero */
-      transition: all 0.3s ease-in-out;
-    }
-
-    .navbar-brand img {
-      width: 50px;
-      transition: transform 0.3s ease-in-out;
-    }
-    .navbar-brand img:hover {
-      transform: scale(1.1);
-    }
-
-    .navbar-nav .nav-link {
-      transition: color 0.3s ease-in-out;
-    }
-    .navbar-nav .nav-link:hover {
-      color: var(--dorado) !important;
-    }
-
-    /* ===============================
-       HERO
-    =============================== */
-    .hero {
-      position: relative;
-      background: url("fondo.jpg") center/cover no-repeat;
-      height: 400px;
-      color: var(--texto-claro);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      /* margin-bottom: 2rem;  <-- Eliminado para evitar espacio extra */
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-content {
-      position: relative;
-    }
-
-    .hero-title {
-      font-family: 'Pacifico', cursive;
-      font-size: 3.5rem;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-      color: var(--dorado);
-      text-shadow: 2px 2px 5px var(--sombra);
-      animation: slideInDown 1.2s ease-out;
-    }
-
-    .hero-subtitle {
-      font-size: 1.5rem;
-      color: var(--texto-claro);
-      text-shadow: 1px 1px 3px var(--sombra);
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    /* ===============================
-       SECCIÓN ENTRENAMIENTOS (POSTER)
-    =============================== */
-    .entrenamiento {
-      background: linear-gradient(to bottom, var(--fondo-gris), #e9ecef);
-      padding: 50px 0;
-    }
-
-    .entrenamiento-poster {
-      position: relative;
-      background: url('trophy-bg.jpg') center/cover no-repeat;
-      min-height: 600px;
-      color: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px var(--sombra);
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-
-    .entrenamiento-poster::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
-    }
-
-    .poster-content {
-      position: relative;
-      z-index: 2;
-      padding: 2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-    }
-
-    .poster-text {
-      max-width: 50%;
-    }
-
-    .poster-text small {
-      font-size: 1.2rem;
-      color: #fff;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .poster-text h1 {
-      font-size: 4rem;
-      text-transform: uppercase;
-      color: var(--grana);
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 5px var(--sombra);
-    }
-
-    .poster-text p {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .poster-text strong {
-      color: var(--azul-turquesa);
-    }
-
-    .poster-image {
-      max-width: 40%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .poster-image img {
-      max-height: 400px;
-      width: auto;
-      object-fit: contain;
-      transition: transform 0.3s ease-in-out;
-    }
-    .poster-image img:hover {
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      .poster-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .poster-text {
-        max-width: 100%;
-        margin-bottom: 1.5rem;
-      }
-      .poster-image {
-        max-width: 100%;
-      }
-      .poster-image img {
-        max-height: 250px;
-      }
-    }
-
-    /* ===============================
-       FOOTER
-    =============================== */
-    footer {
-      background: linear-gradient(135deg, var(--azul-turquesa), #002b48);
-      color: var(--texto-claro);
-      padding: 2rem 0;
-      text-align: center;
-    }
-
-    .footer-brand img {
-      width: 60px;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .footer-brand img:hover {
-      transform: scale(1.1);
-    }
-
-    footer a {
-      color: var(--texto-claro);
-      transition: color 0.3s ease-in-out;
-    }
-    footer a:hover {
-      text-decoration: underline;
-      color: var(--dorado);
-    }
-
-    /* ===============================
-       ANIMACIONES
-    =============================== */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideInDown {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIBA FBC</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="ESCUDO.png" alt="Logo DIBA FBC">
-      </a>
-      <button 
-        class="navbar-toggler" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav" 
-        aria-controls="navbarNav" 
-        aria-expanded="false" 
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Menú colapsable -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Historia.html"><i class="fa fa-file"></i> Historia</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="ficha.html"><i class="fa fa-clipboard"></i> Ficha Técnica</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="planillas.html"><i class="fa fa-clipboard"></i> Planillas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="NormasyReglamentos.html"><i class="fa fa-users"></i> Normas y Reglamentos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">DIBA FBC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <!-- HERO -->
-  <header class="hero animate__animated animate__fadeInDown">
-    <div class="hero-content container">
-      <h1 class="hero-title">UNA SOLA FAMILIA</h1>
-      <p class="hero-subtitle">FUERZA Y LEALTAD</p>
-    </div>
-  </header>
-  
-  <!-- SECCIÓN ENTRENAMIENTO - POSTER -->
-  <section class="entrenamiento animate__animated animate__fadeInUp">
-    <div class="container">
-      <div class="entrenamiento-poster">
-        <div class="poster-content">
-          <!-- Texto a la Izquierda -->
-          <div class="poster-text">
-            <small>Práctica De Preparación</small>
-            <h1>TORNEO</h1>
-            <p><strong>Categoría:</strong> 2012/2013/14/15 y 2010/2011</p>
-            <p><strong>Valor:</strong> $1,500</p>
-            <p><strong>Cancha:</strong> Bombonera</p>
-            <p>Viernes <strong>28 de Febrero</strong> - <strong>2:50 PM</strong></p>
-          </div>
-          <!-- Imagen a la Derecha -->
-          <div class="poster-image">
-            <img src="camiseta.png" alt="Uniforme DIBA">
-          </div>
+    <!-- Hero Section -->
+    <header class="hero text-center text-white d-flex align-items-center">
+        <div class="container">
+            <h1>Bienvenido a DIBA FBC</h1>
+            <p>Un club comprometido con la formación de jóvenes talentos.</p>
+            <a href="#contacto" class="btn btn-light btn-lg">Contáctanos</a>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- FOOTER -->
-  <footer class="animate__animated animate__fadeInUp">
-    <div class="container">
-      <div class="footer-brand">
-        <img src="ESCUDO.png" alt="Escudo DIBA FBC">
-        <p class="mt-2">&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-      </div>
-      <div class="row text-center mt-4">
-        <div class="col-md-4 mb-3">
-          <h5>Sobre el Club</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Historia</a></li>
-            <li><a href="#">Patrocinadores</a></li>
-          </ul>
+    <!-- Sección Servicios -->
+    <section id="servicios" class="container my-5">
+        <h2 class="text-center">Nuestros Servicios</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Entrenamiento Profesional</h5>
+                        <p class="card-text">Programas diseñados para potenciar el talento de cada jugador.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Competiciones</h5>
+                        <p class="card-text">Participamos en torneos locales y nacionales.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Desarrollo Personal</h5>
+                        <p class="card-text">Fomentamos la disciplina, el respeto y el trabajo en equipo.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 mb-3">
-          <h5>Redes</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="https://www.facebook.com/profile.php?id=100071991100146" target="_blank">
-                <i class="fab fa-facebook"></i> Facebook
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/diba_fbc_oficial" target="_blank">
-                <i class="fab fa-instagram\"></i> Instagram
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h5>Contacto</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Atención al Cliente</a></li>
-            <li><a href="#">Prensa</a></li>
-            <li><a href="#">Oficinas</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Bootstrap JS Bundle -->
-  <script 
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-  </script>
+    <!-- Sección Equipo -->
+    <section id="equipo" class="container my-5">
+        <h2 class="text-center">Nuestro Equipo</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <img src="coach.jpg" class="img-fluid rounded-circle mb-3" alt="Entrenador">
+                <h5>Juan Pérez</h5>
+                <p>Director Técnico</p>
+            </div>
+            <div class="col-md-4">
+                <img src="asistente.jpg" class="img-fluid rounded-circle mb-3" alt="Asistente">
+                <h5>María Gómez</h5>
+                <p>Asistente Técnica</p>
+            </div>
+            <div class="col-md-4">
+                <img src="fisioterapeuta.jpg" class="img-fluid rounded-circle mb-3" alt="Fisioterapeuta">
+                <h5>Carlos López</h5>
+                <p>Fisioterapeuta</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="container my-5">
+        <h2 class="text-center">Contáctanos</h2>
+        <form>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Tu correo">
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center bg-primary text-white p-3">
+        <p>&copy; 2025 DIBA FBC | Síguenos en nuestras redes</p>
+        <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
