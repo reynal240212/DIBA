@@ -2,34 +2,34 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DIBA FBC - Club de Fútbol</title>
-   <!-- Bootstrap CSS -->
-   <link 
-   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-   rel="stylesheet"
- >
- <!-- Font Awesome -->
- <link 
-   rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-   crossorigin="anonymous"
-   referrerpolicy="no-referrer"
- />
- <!-- Google Fonts -->
- <link 
-   href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" 
-   rel="stylesheet"
- >
- <!-- Animate.css -->
- <link
-   rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
- />
-</head>
-<style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  >
+  <!-- Font Awesome -->
+  <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Google Fonts -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" 
+    rel="stylesheet"
+  >
+  <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <style>
     /* ===============================
-       RESETEO Y VARIABLES
+       RESET Y VARIABLES
     =============================== */
     * {
       margin: 0;
@@ -37,319 +37,279 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-
     :root {
-      --azul-turquesa: #004D73;
-      --grana: #800020;
-      --dorado: #FFD700;
-      --texto-claro: #000000;
-      --texto-oscuro: hsl(0, 0%, 0%);
-      --fondo-gris: #f4f4f4;
-      --bg-patron: #fffdfd;
+      --color-primario: #004d98; /* Azul principal */
+      --color-secundario: #fffb00; /* Amarillo intenso */
+      --color-texto: #000;
+      --color-blanco: #fff;
+      --color-gris: #f4f4f4;
       --sombra: rgba(0, 0, 0, 0.3);
     }
 
-    /* ===============================
-       GENERAL
-    =============================== */
     body {
       font-family: 'Lato', sans-serif;
-      background: var(--bg-patron) url('pattern.png') repeat;
-      color: var(--texto-oscuro);
-      /* padding-top: 70px;  <-- Eliminado para superponer el navbar */
+      background: var(--color-gris);
+      color: var(--color-texto);
     }
 
     a {
       text-decoration: none;
       color: inherit;
-      transition: color 0.3s ease;
     }
     a:hover {
-      color: var(--dorado);
+      color: var(--color-secundario);
     }
 
     /* ===============================
-       NAVBAR
+       BOTÓN "VOLVER ARRIBA"
+    =============================== */
+    #btnBackToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      display: none;
+      background: var(--color-primario);
+      color: var(--color-blanco);
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px var(--sombra);
+      transition: opacity 0.3s ease;
+    }
+    #btnBackToTop:hover {
+      opacity: 0.8;
+    }
+
+    /* ===============================
+       NAVBAR (STICKY + TRANSICIÓN)
     =============================== */
     .navbar {
-      /* Ajustes para superponerla al hero */
-      position: absolute;        /* O 'fixed' si quieres que siga al hacer scroll */
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: transparent !important; /* Transparente para ver la imagen detrás */
-      box-shadow: none;          /* Quita la sombra si no la necesitas */
-      z-index: 999;             /* Asegura que quede sobre el hero */
-      transition: all 0.3s ease-in-out;
+      z-index: 999;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .navbar-brand img {
-      width: 50px;
-      transition: transform 0.3s ease-in-out;
+    .navbar.transparent {
+      background-color: transparent !important;
+      box-shadow: none !important;
     }
-    .navbar-brand img:hover {
-      transform: scale(1.1);
-    }
-
-    .navbar-nav .nav-link {
-      transition: color 0.3s ease-in-out;
-    }
-    .navbar-nav .nav-link:hover {
-      color: var(--dorado) !important;
+    .navbar.solid {
+      background-color: var(--color-primario) !important;
+      box-shadow: 0 2px 6px var(--sombra) !important;
     }
 
     /* ===============================
-       HERO
+       HERO (Parallax Style)
     =============================== */
     .hero {
-      position: relative;
-      background: url("fondo.jpg") center/cover no-repeat;
-      height: 400px;
-      color: var(--texto-claro);
+      min-height: 100vh; /* Ocupar toda la pantalla */
+      background: url("fondo.jpg") center/cover no-repeat fixed; /* Parallax con background-attachment: fixed */
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      /* margin-bottom: 2rem;  <-- Eliminado para evitar espacio extra */
-      animation: fadeIn 1.5s ease-in-out;
+      position: relative;
+      color: var(--color-blanco);
     }
-
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.4);
     }
-
-    .hero-content {
+    .hero .container {
       position: relative;
+      z-index: 1;
     }
-
-    .hero-title {
-      font-family: 'Pacifico', cursive;
-      font-size: 3.5rem;
-      letter-spacing: 2px;
+    .hero h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4rem;
       margin-bottom: 1rem;
-      color: var(--dorado);
       text-shadow: 2px 2px 5px var(--sombra);
-      animation: slideInDown 1.2s ease-out;
     }
-
-    .hero-subtitle {
+    .hero p {
       font-size: 1.5rem;
-      color: var(--texto-claro);
       text-shadow: 1px 1px 3px var(--sombra);
-      animation: fadeIn 2s ease-in-out;
+    }
+    .hero .btn {
+      margin-top: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 2px 6px var(--sombra);
     }
 
     /* ===============================
-       SECCIÓN ENTRENAMIENTOS (POSTER)
+       SECCIÓN HISTORIA
     =============================== */
-    .entrenamiento {
-      background: linear-gradient(to bottom, var(--fondo-gris), #e9ecef);
-      padding: 50px 0;
+    #historia {
+      background: #e9ecef;
+      padding: 60px 20px;
+    }
+    #historia h2 {
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+    }
+    #historia p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
-    .entrenamiento-poster {
-      position: relative;
-      background: url('trophy-bg.jpg') center/cover no-repeat;
-      min-height: 600px;
-      color: #fff;
-      border-radius: 12px;
-      overflow: hidden;
+    /* ===============================
+       SECCIÓN SERVICIOS
+    =============================== */
+    #servicios {
+      padding: 60px 20px;
+    }
+    #servicios h2 {
       margin-bottom: 2rem;
-      box-shadow: 0 4px 12px var(--sombra);
-      animation: fadeInUp 1.5s ease-in-out;
+      font-weight: bold;
+    }
+    .card {
+      border: none;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px var(--sombra);
+    }
+    .card-title {
+      color: var(--color-primario);
+      font-weight: bold;
     }
 
-    .entrenamiento-poster::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
+    /* ===============================
+       SECCIÓN EQUIPO
+    =============================== */
+    #equipo {
+      padding: 60px 20px;
+      background: #f8f9fa;
     }
-
-    .poster-content {
-      position: relative;
-      z-index: 2;
-      padding: 2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
+    #equipo h2 {
+      margin-bottom: 2rem;
+      font-weight: bold;
     }
-
-    .poster-text {
-      max-width: 50%;
+    #equipo img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px var(--sombra);
+      transition: transform 0.3s ease;
     }
-
-    .poster-text small {
-      font-size: 1.2rem;
-      color: #fff;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .poster-text h1 {
-      font-size: 4rem;
-      text-transform: uppercase;
-      color: var(--grana);
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 5px var(--sombra);
-    }
-
-    .poster-text p {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .poster-text strong {
-      color: var(--azul-turquesa);
-    }
-
-    .poster-image {
-      max-width: 40%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .poster-image img {
-      max-height: 400px;
-      width: auto;
-      object-fit: contain;
-      transition: transform 0.3s ease-in-out;
-    }
-    .poster-image img:hover {
+    #equipo img:hover {
       transform: scale(1.05);
     }
-
-    @media (max-width: 768px) {
-      .poster-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .poster-text {
-        max-width: 100%;
-        margin-bottom: 1.5rem;
-      }
-      .poster-image {
-        max-width: 100%;
-      }
-      .poster-image img {
-        max-height: 250px;
-      }
+    #equipo h5 {
+      margin-top: 1rem;
+      font-weight: bold;
     }
 
-    /* Ejemplo de estilo para el footer */
-footer {
-  background: #004d98; /* Ajusta el color de fondo */
-  color: #fff;         /* Texto blanco */
-  padding: 2rem 1rem;
-  margin-top: 2rem;    /* Espacio superior */
-}
+    /* ===============================
+       SECCIÓN CONTACTO
+    =============================== */
+    #contacto {
+      padding: 60px 20px;
+    }
+    #contacto h2 {
+      margin-bottom: 2rem;
+      font-weight: bold;
+    }
+    #contacto .form-control:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0,77,152,0.25);
+      border-color: var(--color-primario);
+    }
+    #contacto button {
+      background: var(--color-primario);
+      border: none;
+      transition: background 0.3s ease;
+    }
+    #contacto button:hover {
+      background: var(--color-secundario);
+      color: var(--color-texto);
+    }
 
-/* Contenedor principal del footer */
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;      /* Permite que las columnas se ajusten en pantallas pequeñas */
-  gap: 2rem;
-  justify-content: center; /* Centra las columnas */
-}
-
-/* Cada columna */
-.footer-col {
-  flex: 1 1 200px;      /* Crece y se reduce a partir de 200px */
-}
-
-/* Título de cada columna */
-.footer-col h4 {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-/* Listas */
-.footer-col ul {
-  list-style: none;     /* Quita los puntos de la lista */
-  padding: 0;
-  margin: 0;
-}
-
-/* Espacio entre elementos de la lista */
-.footer-col li {
-  margin-bottom: 0.5rem;
-}
-
-/* Enlaces */
-.footer-col a {
-  color: #fff;          /* Enlaces en blanco */
-  text-decoration: none;
-}
-
-/* Efecto hover */
-.footer-col a:hover {
-  text-decoration: underline;
-}
-
-/* Ajustes responsivos */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column; /* Apilar columnas en pantallas pequeñas */
-    align-items: center;
-  }
-  .footer-col {
-    margin-bottom: 1rem;
-    text-align: center; /* Centra el texto */
-  }
-}
+    /* ===============================
+       FOOTER
+    =============================== */
+    footer {
+      background: var(--color-primario);
+      color: var(--color-blanco);
+      padding: 2rem 1rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .footer-col {
+      flex: 1 1 200px;
+    }
+    .footer-col h4 {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-col a {
+      color: var(--color-blanco);
+      text-decoration: none;
+    }
+    .footer-col a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-col {
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+    }
 
     /* ===============================
        ANIMACIONES
     =============================== */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideInDown {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
   </style>
+</head>
 <body>
+  <!-- Botón Volver Arriba -->
+  <button id="btnBackToTop" title="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark transparent">
     <div class="container">
-      <a class="navbar-brand" href="#">DIBA FBC</a>
+      <a class="navbar-brand" href="#">
+        <img src="escudo.jpg" alt="DIBA FBC" />
+        DIBA FBC
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
           <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
@@ -360,41 +320,41 @@ footer {
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header id="inicio" class="hero text-center text-white d-flex align-items-center" style="background: url('fondo.jpg') center/cover no-repeat;">
-    <div class="container">
-      <h1>Bienvenido a DIBA FBC</h1>
-      <p>Pasión, tradición y compromiso en cada partido</p>
+  <!-- Hero Section (Parallax) -->
+  <header id="inicio" class="hero d-flex align-items-center justify-content-center">
+    <div class="container animate__animated animate__fadeIn">
+      <h1 class="display-3 fw-bold">Bienvenido a DIBA FBC</h1>
+      <p class="lead">Pasión, tradición y compromiso en cada partido</p>
       <a href="#contacto" class="btn btn-light btn-lg mt-3">Contáctanos</a>
     </div>
   </header>
 
   <!-- Historia del Club -->
-  <section id="historia" class="container my-5">
+  <section id="historia" class="container my-5 animate__animated animate__fadeInUp">
     <h2 class="text-center">Nuestra Historia</h2>
     <p class="text-center">
-      Fundado en 2012, DIBA FBC se ha consolidado. Con una trayectoria llena de éxitos y superación,
-      nuestro club se caracteriza por formar talentos y promover valores como la disciplina, el respeto y el trabajo en equipo. 
+      Fundado en 2012, DIBA FBC se ha consolidado con una trayectoria llena de éxitos y superación.
+      Nuestro club se caracteriza por formar talentos y promover valores como la disciplina, el respeto y el trabajo en equipo. 
       A lo largo de los años, hemos competido en torneos locales, dejando huella en cada temporada.
     </p>
   </section>
 
   <!-- Sección Servicios -->
-  <section id="servicios" class="container my-5">
+  <section id="servicios" class="container my-5 animate__animated animate__fadeInUp">
     <h2 class="text-center">Nuestros Servicios</h2>
-    <div class="row">
+    <div class="row g-4 mt-4">
       <div class="col-md-4">
-        <div class="card shadow">
+        <div class="card shadow h-100">
           <div class="card-body">
             <h5 class="card-title">Entrenamiento</h5>
             <p class="card-text">
-              Trabajamos día a día para potenciar la técnica y táctica de cada jugador, preparándolos para competir al más alto nivel.
+              Potenciamos la técnica y táctica de cada jugador, preparándolos para competir al más alto nivel.
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card shadow">
+        <div class="card shadow h-100">
           <div class="card-body">
             <h5 class="card-title">Participación en Torneos</h5>
             <p class="card-text">
@@ -404,11 +364,11 @@ footer {
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card shadow">
+        <div class="card shadow h-100">
           <div class="card-body">
             <h5 class="card-title">Desarrollo Integral</h5>
             <p class="card-text">
-              Más allá del fútbol, promovemos el desarrollo personal de nuestros jugadores, inculcando valores y fortaleciendo su capacidad para liderar dentro y fuera del campo.
+              Fomentamos el desarrollo personal de nuestros jugadores, inculcando valores y liderazgo dentro y fuera del campo.
             </p>
           </div>
         </div>
@@ -417,31 +377,31 @@ footer {
   </section>
 
   <!-- Sección Equipo -->
-  <section id="equipo" class="container my-5">
+  <section id="equipo" class="container my-5 animate__animated animate__fadeInUp">
     <h2 class="text-center">Nuestro Equipo</h2>
-    <div class="row text-center">
-      <div class="col-md-4">
-        <img src="profesor.jpg" class="img-fluid rounded-circle mb-3" alt="Entrenador DIBA FBC">
+    <div class="row text-center mt-4">
+      <div class="col-md-4 mb-4">
+        <img src="profesor.jpg" class="rounded-circle mb-3" alt="Entrenador DIBA FBC">
         <h5>Reinaldo Perez</h5>
         <p>Director Técnico</p>
       </div>
-      <div class="col-md-4">
-        <img src="asistente.jpg" class="img-fluid rounded-circle mb-3" alt="Asistente Técnico">
+      <div class="col-md-4 mb-4">
+        <img src="asistente.jpg" class="rounded-circle mb-3" alt="Asistente Técnico">
         <h5>Reinaldo Perez Navas</h5>
-        <p>Tecnico</p>
+        <p>Técnico</p>
       </div>
-      <div class="col-md-4">
-        <img src="fisioterapeuta.jpg" class="img-fluid rounded-circle mb-3" alt="Fisioterapeuta DIBA FBC">
+      <div class="col-md-4 mb-4">
+        <img src="fisioterapeuta.jpg" class="rounded-circle mb-3" alt="Fisioterapeuta DIBA FBC">
         <h5>Aldo Espinoza</h5>
-        <p>Tecnico</p>
+        <p>Técnico</p>
       </div>
     </div>
   </section>
 
   <!-- Sección Contacto -->
-  <section id="contacto" class="container my-5">
+  <section id="contacto" class="container my-5 animate__animated animate__fadeInUp">
     <h2 class="text-center">Contáctanos</h2>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-4">
       <div class="col-md-8">
         <form>
           <div class="mb-3">
@@ -456,53 +416,82 @@ footer {
             <label for="mensaje" class="form-label">Mensaje</label>
             <textarea class="form-control" id="mensaje" rows="4" placeholder="Tu mensaje"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+          <button type="submit" class="btn btn-primary w-100">
+            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+          </button>
         </form>
       </div>
     </div>
   </section>
 
- <!-- PIE DE PÁGINA -->
- <footer>
-  <div class="footer-content">
-    <div class="footer-col">
-      <h4>Sobre el Club</h4>
-      <ul>
-        <li><a href="#">Historia</a></li>
-        <li><a href="#">Patrocinadores</a></li>
-      </ul>
+  <!-- Footer -->
+  <footer class="mt-5">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Sobre el Club</h4>
+        <ul>
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Patrocinadores</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Redes sociales</h4>
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
+               target="_blank"
+               aria-label="Facebook">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/diba_fbc_oficial"
+               target="_blank"
+               aria-label="Instagram">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#">Atención al Cliente</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Oficinas</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Redes sociales</h4>
-      <ul>
-        <li>
-          <a href="https://www.facebook.com/profile.php?id=100071991100146&mibextid=ZbWKwL"
-             target="_blank"
-             aria-label="Facebook">
-            <i class="fab fa-facebook"></i> Facebook
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/diba_fbc_oficial"
-             target="_blank"
-             aria-label="Instagram">
-            <i class="fab fa-instagram"></i> Instagram
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contacto</h4>
-      <ul>
-        <li><a href="#">Atención al Cliente</a></li>
-        <li><a href="#">Prensa</a></li>
-        <li><a href="#">Oficinas</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Navbar: cambia color al hacer scroll
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.remove('transparent');
+        navbar.classList.add('solid', 'navbar-dark', 'bg-primary');
+      } else {
+        navbar.classList.add('transparent');
+        navbar.classList.remove('solid', 'navbar-dark', 'bg-primary');
+      }
+    });
+
+    // Botón "Volver arriba"
+    const btnBackToTop = document.getElementById('btnBackToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnBackToTop.style.display = 'block';
+      } else {
+        btnBackToTop.style.display = 'none';
+      }
+    });
+    btnBackToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
