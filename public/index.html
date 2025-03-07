@@ -398,31 +398,62 @@
     </div>
   </section>
 
-  <!-- Sección Contacto -->
-  <section id="contacto" class="container my-5 animate__animated animate__fadeInUp">
-    <h2 class="text-center">Contáctanos</h2>
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-8">
-        <form>
-          <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" placeholder="Tu correo">
-          </div>
-          <div class="mb-3">
-            <label for="mensaje" class="form-label">Mensaje</label>
-            <textarea class="form-control" id="mensaje" rows="4" placeholder="Tu mensaje"></textarea>
-          </div>
-          <a href="mailto:fbcdiba@gmail.com?subject=Mensaje%20desde%20el%20sitio" class="btn btn-primary w-100">
-            <i class="fas fa-paper-plane"></i> Enviar Mensaje
-          </a>
-        </form>
-      </div>
+ <!-- Sección Contacto -->
+<section id="contacto" class="container my-5 animate__animated animate__fadeInUp">
+  <h2 class="text-center">Contáctanos</h2>
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+      <form id="contactForm">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" placeholder="Tu correo" required>
+        </div>
+        <div class="mb-3">
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+          <i class="fas fa-paper-plane"></i> Enviar Mensaje
+        </button>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Script para manejar el envío del formulario -->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevenir el comportamiento por defecto
+
+    // Obtener valores del formulario
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    // Validar campos (puedes ampliar esta validación según tus necesidades)
+    if (!nombre || !email || !mensaje) {
+      alert('Por favor, completa todos los campos.');
+      return;
+    }
+
+    // Construir el cuerpo del mensaje (codificado en URL)
+    const subject = encodeURIComponent('Mensaje desde el sitio DIBA FBC');
+    const body = encodeURIComponent(
+      `Nombre: ${nombre}\nCorreo: ${email}\n\nMensaje:\n${mensaje}`
+    );
+    
+    // Construir el enlace mailto
+    const mailtoLink = `mailto:fbcdiba@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Abrir el cliente de correo
+    window.location.href = mailtoLink;
+  });
+</script>
+
 
   <!-- Footer -->
   <footer class="mt-5">
