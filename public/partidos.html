@@ -17,6 +17,11 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <!-- Animate.css (opcional para animaciones) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
   <style>
     :root {
@@ -26,6 +31,7 @@
       --texto-claro: #ffffff;
       --texto-oscuro: #333333;
       --fondo-gris: #f4f4f4;
+      --sombra: rgba(0, 0, 0, 0.2);
     }
 
     body {
@@ -33,20 +39,96 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
+      /* Si deseas que el navbar no cubra el contenido, ajusta padding-top. 
+         Si no, quita o modifica. */
+      padding-top: 70px; 
     }
 
-    /* Encabezado opcional */
-    .header {
-      background: var(--azul);
-      color: var(--amarillo);
-      padding: 1rem;
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1050;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    /* Clase "transparent" opcional, si quieres que el navbar sea transparente al inicio */
+    .navbar.transparent {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .navbar-brand img {
+      width: 50px;
+      transition: transform 0.3s;
+    }
+    .navbar-brand img:hover {
+      transform: scale(1.1);
+    }
+    .nav-link {
+      font-weight: 600;
+    }
+    .nav-link:hover {
+      color: var(--amarillo) !important;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      background: url("fondo.jpg") center/cover no-repeat;
+      min-height: 50vh;
+      color: var(--texto-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      overflow: hidden;
     }
-    .header h1 {
-      margin: 0;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
     }
 
-    /* Tarjetas de partidos */
+    /* BOTÓN VOLVER ARRIBA */
+    #btnBackToTop {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      background: var(--azul);
+      color: var(--texto-claro);
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px var(--sombra);
+      transition: opacity 0.3s;
+    }
+    #btnBackToTop:hover {
+      opacity: 0.8;
+    }
+
+    /* TARJETAS DE PARTIDOS */
     .match-card {
       border: none;
       border-radius: 12px;
@@ -74,12 +156,13 @@
   </style>
 </head>
 <body>
-  <!-- Botón Volver Arriba -->
+
+  <!-- BOTÓN VOLVER ARRIBA -->
   <button id="btnBackToTop" title="Volver arriba">
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <!-- Navbar -->
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top transparent">
     <div class="container">
       <a class="navbar-brand" href="index.html">
@@ -96,15 +179,15 @@
           <li class="nav-item"><a class="nav-link" href="ficha.html">Ficha Técnica</a></li>
           <li class="nav-item"><a class="nav-link" href="planillas.html">Planillas</a></li>
           <li class="nav-item"><a class="nav-link" href="NormasyReglamentos.html">Normas y Reglamentos</a></li>
-          <li class="nav-item"><a class="nav-link" href="partidos.html">partidos</a></li>
+          <li class="nav-item"><a class="nav-link" href="partidos.html">Partidos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero animate__animated animate__fadeInDown">
+  <!-- HERO SECTION -->
+  <section class="hero animate__animated animate__fadeInDown" style="margin-top: 70px;">
     <div class="container hero-content">
       <h1 class="hero-title">Explora Nuestro Mundo</h1>
       <p class="hero-subtitle lead">
@@ -113,53 +196,60 @@
     </div>
   </section>
 
-<!-- Contenedor principal -->
-<div class="container my-5">
+  <!-- CONTENEDOR PRINCIPAL DE PARTIDOS -->
+  <div class="container my-5">
 
-  <!-- Tarjeta 1: DIBA FBC vs Caribe Soccer -->
-  <div class="match-card mb-4">
-    <!-- Sección superior con color de fondo y logos -->
-    <div class="match-card-top">
-      <!-- Logos -->
-      <img src="ESCUDO.png" alt="DIBA FBC">
-      <!-- Cambia esta URL por el logo del rival -->
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="Caribe Soccer">
-      <!-- Competición (opcional) -->
-      <div class="mt-2">
-        <strong>Amistoso 2014-2015-2016</strong>
+    <!-- Tarjeta 1: DIBA FBC vs Caribe Soccer -->
+    <div class="match-card mb-4">
+      <div class="match-card-top">
+        <img src="ESCUDO.png" alt="DIBA FBC">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="Caribe Soccer">
+        <div class="mt-2">
+          <strong>Amistoso 2014-2015-2016</strong>
+        </div>
+      </div>
+      <div class="match-card-body">
+        <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
+        <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
+        <p class="text-muted mb-1">Valor: $ 4000</p>
+        <a href="#" class="btn btn-warning">Entradas</a>
+        <a href="#" class="btn btn-outline-dark">Match Day Tour</a>
       </div>
     </div>
-    <!-- Cuerpo de la tarjeta con fecha, hora, estadio, etc. -->
-    <div class="match-card-body">
-      <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
-      <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
-      <p class="text-muted mb-1">Valor: $ 4000</p>
-      <!-- Enlaces / Botones -->
-      <a href="#" class="btn btn-warning">Entradas</a>
-      <a href="#" class="btn btn-outline-dark">Match Day Tour</a>
-    </div>
-  </div>
 
-  <!-- Tarjeta 2: DIBA FBC vs Quiroz FC -->
-  <div class="match-card mb-4">
-    <div class="match-card-top">
-      <img src="ESCUDO.png" alt="DIBA FBC">
-      <img src="https://scontent-bog2-1.xx.fbcdn.net/v/t39.30808-1/294902630_526417012584396_3725388142398526323_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=102&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeFiuNO6Yp0FJkZ6ncGulQ3bCArH-HlaXCcICsf4eVpcJ9JoGJdfpBEpDokVQyyhUKjHBGeYYby8Ecre5XhfREtD&_nc_ohc=GsYocxBYQ6YQ7kNvgG65YQC&_nc_oc=Adhxym8eUhiJeA_8d_GxF6z1n9dfNhj76oUV8kIS5DQozrzWsy_9Jj9YKwRdUl89n1o&_nc_zt=24&_nc_ht=scontent-bog2-1.xx&_nc_gid=ALMB2OZcmJcEZjIH9YbB4p2&oh=00_AYEdQNMVp7K79_IDCaIINZkc6LQsoUuSPdrbjBOcqIHEXg&oe=67D2A67A" alt="Quiroz FC">
-      <div class="mt-2">
-        <strong>Amistoso 2012-2013</strong>
+    <!-- Tarjeta 2: DIBA FBC vs Quiroz FC -->
+    <div class="match-card mb-4">
+      <div class="match-card-top">
+        <img src="ESCUDO.png" alt="DIBA FBC">
+        <img src="https://scontent-bog2-1.xx.fbcdn.net/v/t39.30808-1/294902630_526417012584396_3725388142398526323_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=102&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeFiuNO6Yp0FJkZ6ncGulQ3bCArH-HlaXCcICsf4eVpcJ9JoGJdfpBEpDokVQyyhUKjHBGeYYby8Ecre5XhfREtD&_nc_ohc=GsYocxBYQ6YQ7kNvgG65YQC&_nc_oc=Adhxym8eUhiJeA_8d_GxF6z1n9dfNhj76oUV8kIS5DQozrzWsy_9Jj9YKwRdUl89n1o&_nc_zt=24&_nc_ht=scontent-bog2-1.xx&_nc_gid=ALMB2OZcmJcEZjIH9YbB4p2&oh=00_AYEdQNMVp7K79_IDCaIINZkc6LQsoUuSPdrbjBOcqIHEXg&oe=67D2A67A" alt="Quiroz FC">
+        <div class="mt-2">
+          <strong>Amistoso 2012-2013</strong>
+        </div>
+      </div>
+      <div class="match-card-body">
+        <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
+        <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
+        <p class="text-muted mb-1">Valor: $ 4000</p>
+        <a href="#" class="btn btn-warning">Resultado</a>
       </div>
     </div>
-    <div class="match-card-body">
-      <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
-      <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
-      <p class="text-muted mb-1">Valor: $ 4000</p>
-      <a href="#" class="btn btn-warning">Resultado</a>
-    </div>
+
   </div>
 
-</div>
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script para el botón "Volver arriba" (opcional) -->
+  <script>
+    const btnBackToTop = document.getElementById("btnBackToTop");
+    window.addEventListener("scroll", () => {
+      btnBackToTop.style.display = (window.scrollY > 300) ? "block" : "none";
+    });
+    btnBackToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
