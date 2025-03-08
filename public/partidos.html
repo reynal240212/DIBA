@@ -136,23 +136,30 @@
       font-size: 1.8rem;
       text-transform: uppercase;
     }
-    #calendario table {
+    /* Table container for horizontal scroll in mobile */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto; /* Permite scroll horizontal en móvil */
+    }
+    table {
       width: 100%;
       border-collapse: collapse;
+      min-width: 600px; /* Asegura un ancho mínimo para forzar scroll en pantallas muy pequeñas */
     }
-    #calendario th, #calendario td {
+    th, td {
       padding: 1rem;
       text-align: center;
       border-bottom: 1px solid var(--fondo-gris);
       vertical-align: middle;
+      white-space: nowrap; /* Evita salto de línea forzado en celdas */
     }
-    #calendario th {
+    th {
       background-color: var(--grana);
       color: var(--texto-claro);
       text-transform: uppercase;
       font-size: 0.9rem;
     }
-    #calendario tbody tr:hover {
+    tbody tr:hover {
       background-color: var(--fondo-gris);
       transition: background-color 0.3s;
     }
@@ -188,8 +195,6 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <!-- Ajusta los enlaces según tu sitio -->
           <li class="nav-item">
-          </li>
-          <li class="nav-item">
             <a class="nav-link active" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
           </li>
           <!-- Añade más enlaces si lo requieres -->
@@ -209,62 +214,65 @@
   <!-- SECCIÓN DE CALENDARIO -->
   <div id="calendario" class="container animate__animated animate__fadeInUp my-5">
     <h2>Próximos Encuentros</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Hora</th>
-          <th>Partido</th>
-          <th>Competición</th>
-          <th>Lugar</th>
-          <th>Valor</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>DOMINGO 09.03.2025</td>
-          <td>09:00 AM</td>
-          <td>
-            DIBA FBC 
-            <img src="ESCUDO.png" alt="DIBA FBC" width="30">
-            VS
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="" width="30">
-            CARIBE SOCCER
-          </td>
-          <td>Amistoso Categoría 2014-2015-2016</td>
-          <td>Cancha: Parque de los Sueños</td>
-          <td>$ 4000 </td>
-        </tr>
-        <tr>
-          <td>DOMINGO 09.03.2025</td>
-          <td>9:00 AM</td>
-          <td>
-            DIBA FBC 
-            <img src="ESCUDO.png" alt="DIBA FBC" width="30">
-            VS
-            <img src="logo-rival3.png" alt="" width="30">
-            QUIROZ FC
-          </td>
-          <td>Amistoso Catergoria 2012-2013</td>
-          <td>Cancha: Parque de los Sueños</td>
-          <td>$ 4000 </td>
-        </tr>
-        <tr>
-          <td>DOM 9.03.2025</td>
-          <td>-</td>
-          <td>
-            DIBA FBC 
-            <img src="ESCUDO.png" alt="DIBA FBC" width="30">
-            VS
-            <img src="logo-rival4.png" alt="" width="30">
-            -
-          </td>
-          <td>partido aplazado</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Contenedor responsivo para la tabla -->
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Partido</th>
+            <th>Competición</th>
+            <th>Lugar</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DOMINGO 09.03.2025</td>
+            <td>09:00 AM</td>
+            <td>
+              DIBA FBC 
+              <img src="ESCUDO.png" alt="DIBA FBC" width="30">
+              VS
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="" width="30">
+              CARIBE SOCCER
+            </td>
+            <td>Amistoso Categoría 2014-2015-2016</td>
+            <td>Parque de los Sueños</td>
+            <td>$ 4000 </td>
+          </tr>
+          <tr>
+            <td>DOMINGO 09.03.2025</td>
+            <td>09:00 AM</td>
+            <td>
+              DIBA FBC 
+              <img src="ESCUDO.png" alt="DIBA FBC" width="30">
+              VS
+              <img src="logo-rival3.png" alt="" width="30">
+              QUIROZ FC
+            </td>
+            <td>Amistoso Catergoria 2012-2013</td>
+            <td>Parque de los Sueños</td>
+            <td>$ 4000 </td>
+          </tr>
+          <tr>
+            <td>DOM 9.03.2025</td>
+            <td>--</td>
+            <td>
+              DIBA FBC 
+              <img src="ESCUDO.png" alt="DIBA FBC" width="30">
+              VS
+              <img src="logo-rival4.png" alt="" width="30">
+              --
+            </td>
+            <td>partido aplazado</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- FOOTER -->
