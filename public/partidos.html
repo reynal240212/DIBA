@@ -237,6 +237,13 @@
     </div>
   </section>
 
+  <!-- SECCIÓN PARTIDOS EN VIVO -->
+  <section id="partidosEnVivo" class="container my-5">
+    <h2 class="text-center mb-4">⚽ Partidos en Vivo</h2>
+    <div id="resultados" class="row justify-content-center">
+      <p class="text-muted">Cargando partidos en vivo...</p>
+    </div>
+  </section>
 
   <!-- SECCIÓN CALENDARIO -->
   <div id="calendario" class="container my-5 animate__animated animate__fadeInUp">
@@ -300,62 +307,7 @@
       </table>
     </div>
   </div>
- <!-- SECCIÓN PARTIDOS EN VIVO -->
- <section id="partidosEnVivo" class="container my-5">
-  <h2 class="text-center mb-4">⚽ Partidos en Vivo</h2>
-  <div id="resultados" class="row justify-content-center">
-    <p class="text-muted">Cargando partidos en vivo...</p>
-  </div>
-</section>
-<script>
-  async function cargarPartidosEnVivo() {
-    const apiKey = "TU_API_KEY_REAL";
-    const url = "https://api.football-data.org/v4/matches";
 
-    try {
-      const response = await fetch(url, {
-        headers: { "X-Auth-Token": apiKey }
-      });
-      if (!response.ok) throw new Error("Error al obtener los partidos");
-
-      const data = await response.json();
-      mostrarPartidos(data.matches);
-    } catch (error) {
-      console.error("Error:", error);
-      document.getElementById("resultados").innerHTML = "<p class='text-danger'>❌ No se pudieron cargar los partidos.</p>";
-    }
-  }
-
-  function mostrarPartidos(partidos) {
-    const contenedor = document.getElementById("resultados");
-    contenedor.innerHTML = "";
-    
-    if (!partidos || partidos.length === 0) {
-      contenedor.innerHTML = "<p class='text-muted'>📭 No hay partidos en vivo en este momento.</p>";
-      return;
-    }
-
-    partidos.forEach(partido => {
-      const div = document.createElement("div");
-      div.classList.add("col-md-6", "mb-4");
-      div.innerHTML = `
-        <div class="card shadow-sm p-3">
-          <h4 class="text-primary">${partido.competition.name}</h4>
-          <p class="fw-bold">${partido.homeTeam.name} 🆚 ${partido.awayTeam.name}</p>
-          <p><strong>Estado:</strong> ${partido.status}</p>
-          <h4 class="fw-bold text-danger">${partido.score.fullTime.home ?? "-"} - ${partido.score.fullTime.away ?? "-"}</h4>
-        </div>
-      `;
-      contenedor.appendChild(div);
-    });
-  }
-
-  // Cargar partidos y actualizar cada 30 segundos
-  document.addEventListener("DOMContentLoaded", () => {
-    cargarPartidosEnVivo();
-    setInterval(cargarPartidosEnVivo, 30000);
-  });
-</script>
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
@@ -363,5 +315,62 @@
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- SCRIPT PARA PARTIDOS EN VIVO (Simulación con API de Football-Data.org) -->
+  <script>
+    async function cargarPartidosEnVivo() {
+      const apiKey = "TU_API_KEY_AQUI"; // Reemplaza con tu API Key
+      const url = "https://api.football-data.org/v4/matches";
+      try {
+        const response = await fetch(url, {
+          headers: { "X-Auth-Token": apiKey }
+        });
+        if (!response.ok) {
+          throw new Error("Error al obtener los partidos");
+        }
+        const data = await response.json();
+        mostrarPartidos(data.matches);
+      } catch (error) {
+        console.error("Error:", error);
+        document.getElementById("resultados").innerHTML = "<p class='text-danger'>❌ No se pudieron cargar los partidos.</p>";
+      }
+    }
+
+    function mostrarPartidos(partidos) {
+      const contenedor = document.getElementById("resultados");
+      contenedor.innerHTML = "";
+      if (partidos.length === 0) {
+        contenedor.innerHTML = "<p class='text-muted'>📭 No hay partidos en vivo en este momento.</p>";
+        return;
+      }
+      partidos.forEach(partido => {
+        const div = document.createElement("div");
+        div.classList.add("col-md-6", "mb-4");
+        div.innerHTML = `
+          <div class="card shadow-sm p-3">
+            <h4 class="text-primary">${partido.competition.name}</h4>
+            <p class="fw-bold">${partido.homeTeam.name} 🆚 ${partido.awayTeam.name}</p>
+            <p><strong>Estado:</strong> ${partido.status}</p>
+            <h4 class="fw-bold text-danger">${partido.score.fullTime.home ?? "-"} - ${partido.score.fullTime.away ?? "-"}</h4>
+          </div>
+        `;
+        contenedor.appendChild(div);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      cargarPartidosEnVivo();
+      setInterval(cargarPartidosEnVivo, 30000); // Actualizar cada 30 segundos
+    });
+
+    // Botón "Volver arriba"
+    const btnBackToTop = document.getElementById("btnBackToTop");
+    window.addEventListener("scroll", () => {
+      btnBackToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    btnBackToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
