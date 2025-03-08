@@ -2,16 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Calendario y Próximos Partidos - DIBA FBC</title>
+  <title>Próximos Partidos - DIBA FBC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consulta el calendario, próximos partidos y resultados del club DIBA FBC.">
 
   <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  >
+  <!-- Font Awesome (opcional) -->
+  <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
   <style>
     :root {
@@ -21,235 +26,126 @@
       --texto-claro: #ffffff;
       --texto-oscuro: #333333;
       --fondo-gris: #f4f4f4;
-      --sombra: rgba(0, 0, 0, 0.2);
     }
+
     body {
+      background: var(--fondo-gris);
       font-family: 'Roboto', sans-serif;
-      background-color: var(--fondo-gris);
-      color: var(--texto-oscuro);
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
-      padding-top: 70px; /* espacio para navbar fija */
     }
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-    a:hover {
+
+    /* Encabezado opcional */
+    .header {
+      background: var(--azul);
       color: var(--amarillo);
-    }
-    /* NAVBAR */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1050;
-      background-color: var(--grana) !important;
-      transition: background-color 0.3s, box-shadow 0.3s;
-    }
-    .navbar-brand img {
-      width: 50px;
-      transition: transform 0.3s;
-    }
-    .navbar-brand img:hover {
-      transform: scale(1.1);
-    }
-    .nav-link {
-      font-weight: 600;
-    }
-    .nav-link:hover {
-      color: var(--amarillo) !important;
-    }
-    /* HERO */
-    .hero {
-      position: relative;
-      background: url("fondo.jpg") center/cover no-repeat;
-      min-height: 50vh;
-      color: var(--texto-claro);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 1rem;
       text-align: center;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
-      z-index: 1;
+    .header h1 {
+      margin: 0;
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 2rem;
-    }
-    .hero-content h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-    }
-    /* SECCIÓN CALENDARIO */
-    #calendario {
-      background-color: #fff;
-      margin: 2rem 0;
-      box-shadow: 0 4px 8px var(--sombra);
-      border-radius: 8px;
+
+    /* Tarjetas de partidos */
+    .match-card {
+      border: none;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    #calendario h2 {
-      background-color: var(--azul);
-      color: var(--amarillo);
-      padding: 1rem;
-      margin: 0;
-      text-align: center;
-      font-size: 1.8rem;
-      text-transform: uppercase;
-    }
-    .table-responsive {
-      width: 100%;
-      overflow-x: auto;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 600px;
-    }
-    th, td {
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 1px solid var(--fondo-gris);
-      vertical-align: middle;
-      white-space: nowrap;
-    }
-    th {
-      background-color: var(--grana);
+    .match-card-top {
+      background: var(--grana);
       color: var(--texto-claro);
-      text-transform: uppercase;
-      font-size: 0.9rem;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
     }
-    tbody tr:hover {
-      background-color: var(--fondo-gris);
-      transition: background-color 0.3s;
+    .match-card-top img {
+      width: 50px;
+      margin: 0 0.5rem;
     }
-    /* FOOTER */
-    footer {
-      background-color: var(--azul);
-      color: var(--amarillo);
-      padding: 2rem 0;
+    .match-card-body {
+      padding: 1rem;
       text-align: center;
     }
-    footer p {
-      margin: 0;
+    .match-card-body .btn {
+      margin: 0.25rem;
     }
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="ESCUDO.png" alt="Logo DIBA FBC">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
-          </li>
-          <!-- Otros enlaces -->
-        </ul>
+
+<!-- Encabezado (opcional) -->
+<div class="header">
+  <h1>CALENDARIO Y PRÓXIMOS PARTIDOS</h1>
+  <p>Horarios y encuentros de DIBA FBC</p>
+</div>
+
+<!-- Contenedor principal -->
+<div class="container my-5">
+
+  <!-- Tarjeta 1: DIBA FBC vs Caribe Soccer -->
+  <div class="match-card mb-4">
+    <!-- Sección superior con color de fondo y logos -->
+    <div class="match-card-top">
+      <!-- Logos -->
+      <img src="ESCUDO.png" alt="DIBA FBC">
+      <!-- Cambia esta URL por el logo del rival -->
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="Caribe Soccer">
+      <!-- Competición (opcional) -->
+      <div class="mt-2">
+        <strong>Amistoso 2014-2015-2016</strong>
       </div>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero d-flex align-items-center justify-content-center" style="margin-top: 70px;">
-    <div class="hero-content text-center animate__animated animate__fadeInDown">
-      <h1 class="mb-3">CALENDARIO Y PRÓXIMOS PARTIDOS</h1>
-      <p class="lead">Horarios y encuentros de DIBA FBC</p>
-    </div>
-  </section>
-
-  <!-- SECCIÓN DE CALENDARIO -->
-  <div id="calendario" class="container animate__animated animate__fadeInUp my-5">
-    <h2>Próximos Encuentros</h2>
-    <div class="table-responsive">
-      <table>
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Partido</th>
-            <th>Competición</th>
-            <th>Lugar</th>
-            <th>Valor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>DOMINGO 09.03.2025</td>
-            <td>09:00 AM</td>
-            <td>
-              DIBA FBC 
-              <img src="ESCUDO.png" alt="DIBA FBC" width="30">
-              VS
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="Caribe Soccer" width="30">
-              CARIBE SOCCER
-            </td>
-            <td>Amistoso 2014-2015-2016</td>
-            <td>Parque de los Sueños</td>
-            <td>$ 4000</td>
-          </tr>
-          <tr>
-            <td>DOMINGO 09.03.2025</td>
-            <td>09:00 AM</td>
-            <td>
-              DIBA FBC 
-              <img src="ESCUDO.png" alt="DIBA FBC" width="30">
-              VS
-              <img src="logo-rival3.png" alt="Quiroz FC" width="30">
-              QUIROZ FC
-            </td>
-            <td>Amistoso 2012-2013</td>
-            <td>Parque de los Sueños</td>
-            <td>$ 4000</td>
-          </tr>
-          <tr>
-            <td>DOM 09.03.2025</td>
-            <td>--</td>
-            <td>
-              DIBA FBC 
-              <img src="ESCUDO.png" alt="DIBA FBC" width="30">
-              VS
-              <img src="logo-rival4.png" alt="Sin Rival" width="30">
-              --
-            </td>
-            <td>Partido aplazado</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Cuerpo de la tarjeta con fecha, hora, estadio, etc. -->
+    <div class="match-card-body">
+      <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
+      <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
+      <p class="text-muted mb-1">Valor: $ 4000</p>
+      <!-- Enlaces / Botones -->
+      <a href="#" class="btn btn-warning">Entradas</a>
+      <a href="#" class="btn btn-outline-dark">Match Day Tour</a>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
-  </footer>
+  <!-- Tarjeta 2: DIBA FBC vs Quiroz FC -->
+  <div class="match-card mb-4">
+    <div class="match-card-top">
+      <img src="ESCUDO.png" alt="DIBA FBC">
+      <img src="logo-rival3.png" alt="Quiroz FC">
+      <div class="mt-2">
+        <strong>Amistoso 2012-2013</strong>
+      </div>
+    </div>
+    <div class="match-card-body">
+      <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
+      <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
+      <p class="text-muted mb-1">Valor: $ 4000</p>
+      <a href="#" class="btn btn-warning">Entradas</a>
+      <a href="#" class="btn btn-outline-dark">Match Day Tour</a>
+    </div>
+  </div>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tarjeta 3: Partido aplazado (opcional) -->
+  <div class="match-card mb-4">
+    <div class="match-card-top">
+      <img src="ESCUDO.png" alt="DIBA FBC">
+      <img src="logo-rival4.png" alt="Sin Rival">
+      <div class="mt-2">
+        <strong>Partido Aplazado</strong>
+      </div>
+    </div>
+    <div class="match-card-body">
+      <h4 class="mb-2">Domingo, 09 de Marzo 2025 - --:--</h4>
+      <p class="text-muted mb-1">Estadio: -</p>
+      <p class="text-muted mb-1">Valor: -</p>
+      <p class="text-danger fw-bold">Aplazado</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
