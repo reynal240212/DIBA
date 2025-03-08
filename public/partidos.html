@@ -4,16 +4,7 @@
   <meta charset="UTF-8">
   <title>Calendario y Próximos Partidos - DIBA FBC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consulta el calendario, próximos partidos y resultados en vivo de DIBA FBC.">
-
-  <!-- Open Graph (para vistas previas en redes) -->
-  <meta property="og:title" content="DIBA FBC - Calendario y Partidos">
-  <meta property="og:description" content="Consulta el calendario, próximos partidos y resultados en vivo de DIBA FBC.">
-  <meta property="og:image" content="https://tu-sitio.com/imagen-previa.png">
-  <meta property="og:url" content="https://diba-pi.vercel.app">
-  <meta property="og:type" content="website">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta name="description" content="Consulta el calendario, próximos partidos y resultados del club DIBA FBC.">
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,46 +14,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <style>
-    /* =====================================
-       VARIABLES DE COLOR
-    ===================================== */
     :root {
       --azul: #003399;       /* Azul oscuro */
-      --grana: #010a88;      /* Grana */
+      --grana: #a50044;      /* Grana */
       --amarillo: #ffd700;   /* Dorado/Amarillo */
       --texto-claro: #ffffff;
       --texto-oscuro: #333333;
       --fondo-gris: #f4f4f4;
       --sombra: rgba(0, 0, 0, 0.2);
     }
-
-    /* =====================================
-       ESTILOS GENERALES
-    ===================================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
     body {
       font-family: 'Roboto', sans-serif;
       background-color: var(--fondo-gris);
       color: var(--texto-oscuro);
-      padding-top: 70px;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      padding-top: 70px; /* espacio para navbar fija */
     }
     a {
       text-decoration: none;
-      color: var(--azul);
-      transition: color 0.3s;
+      color: inherit;
+      transition: color 0.3s ease;
     }
     a:hover {
       color: var(--amarillo);
     }
-
-    /* =====================================
-       NAVBAR
-    ===================================== */
+    /* NAVBAR */
     .navbar {
       position: fixed;
       top: 0;
@@ -85,10 +63,7 @@
     .nav-link:hover {
       color: var(--amarillo) !important;
     }
-
-    /* =====================================
-       HERO SECTION
-    ===================================== */
+    /* HERO */
     .hero {
       position: relative;
       background: url("fondo.jpg") center/cover no-repeat;
@@ -103,7 +78,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
       z-index: 1;
     }
     .hero-content {
@@ -120,33 +95,10 @@
     .hero-content p {
       font-size: 1.2rem;
     }
-
-    /* =====================================
-       SECCIÓN PARTIDOS EN VIVO
-    ===================================== */
-    #partidosEnVivo {
-      padding: 2rem 0;
-      background-color: var(--fondo-gris);
-    }
-    #partidosEnVivo h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--azul);
-    }
-    /* Cada partido se mostrará en una tarjeta con Bootstrap */
-    #resultados .partido {
-      margin-bottom: 1rem;
-    }
-
-    /* =====================================
-       SECCIÓN CALENDARIO (Próximos Encuentros)
-    ===================================== */
+    /* SECCIÓN CALENDARIO */
     #calendario {
       background-color: #fff;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
       box-shadow: 0 4px 8px var(--sombra);
       border-radius: 8px;
       overflow: hidden;
@@ -186,10 +138,7 @@
       background-color: var(--fondo-gris);
       transition: background-color 0.3s;
     }
-
-    /* =====================================
-       FOOTER
-    ===================================== */
+    /* FOOTER */
     footer {
       background-color: var(--azul);
       color: var(--amarillo);
@@ -202,11 +151,6 @@
   </style>
 </head>
 <body>
-  <!-- Botón Volver Arriba -->
-  <button id="btnBackToTop" title="Volver arriba" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 9999; background: var(--azul); color: var(--texto-claro); border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 8px var(--sombra); transition: opacity 0.3s;">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
@@ -223,7 +167,7 @@
           <li class="nav-item">
             <a class="nav-link active" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
           </li>
-          <!-- Otros enlaces se pueden agregar aquí -->
+          <!-- Otros enlaces -->
         </ul>
       </div>
     </div>
@@ -237,16 +181,8 @@
     </div>
   </section>
 
-  <!-- SECCIÓN PARTIDOS EN VIVO -->
-  <section id="partidosEnVivo" class="container my-5">
-    <h2 class="text-center mb-4">⚽ Partidos en Vivo</h2>
-    <div id="resultados" class="row justify-content-center">
-      <p class="text-muted">Cargando partidos en vivo...</p>
-    </div>
-  </section>
-
-  <!-- SECCIÓN CALENDARIO -->
-  <div id="calendario" class="container my-5 animate__animated animate__fadeInUp">
+  <!-- SECCIÓN DE CALENDARIO -->
+  <div id="calendario" class="container animate__animated animate__fadeInUp my-5">
     <h2>Próximos Encuentros</h2>
     <div class="table-responsive">
       <table>
@@ -315,62 +251,5 @@
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- SCRIPT PARA PARTIDOS EN VIVO (Simulación con API de Football-Data.org) -->
-  <script>
-    async function cargarPartidosEnVivo() {
-      const apiKey = "TU_API_KEY_AQUI"; // Reemplaza con tu API Key
-      const url = "https://api.football-data.org/v4/matches";
-      try {
-        const response = await fetch(url, {
-          headers: { "X-Auth-Token": apiKey }
-        });
-        if (!response.ok) {
-          throw new Error("Error al obtener los partidos");
-        }
-        const data = await response.json();
-        mostrarPartidos(data.matches);
-      } catch (error) {
-        console.error("Error:", error);
-        document.getElementById("resultados").innerHTML = "<p class='text-danger'>❌ No se pudieron cargar los partidos.</p>";
-      }
-    }
-
-    function mostrarPartidos(partidos) {
-      const contenedor = document.getElementById("resultados");
-      contenedor.innerHTML = "";
-      if (partidos.length === 0) {
-        contenedor.innerHTML = "<p class='text-muted'>📭 No hay partidos en vivo en este momento.</p>";
-        return;
-      }
-      partidos.forEach(partido => {
-        const div = document.createElement("div");
-        div.classList.add("col-md-6", "mb-4");
-        div.innerHTML = `
-          <div class="card shadow-sm p-3">
-            <h4 class="text-primary">${partido.competition.name}</h4>
-            <p class="fw-bold">${partido.homeTeam.name} 🆚 ${partido.awayTeam.name}</p>
-            <p><strong>Estado:</strong> ${partido.status}</p>
-            <h4 class="fw-bold text-danger">${partido.score.fullTime.home ?? "-"} - ${partido.score.fullTime.away ?? "-"}</h4>
-          </div>
-        `;
-        contenedor.appendChild(div);
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      cargarPartidosEnVivo();
-      setInterval(cargarPartidosEnVivo, 30000); // Actualizar cada 30 segundos
-    });
-
-    // Botón "Volver arriba"
-    const btnBackToTop = document.getElementById("btnBackToTop");
-    window.addEventListener("scroll", () => {
-      btnBackToTop.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-    btnBackToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
 </body>
 </html>
