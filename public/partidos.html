@@ -1,42 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Metaetiquetas Open Graph para WhatsApp -->
-<meta property="og:title" content="DIBA FBC - Calendario y Partidos">
-<meta property="og:description" content="Consulta el calendario y próximos partidos del club DIBA FBC.">
-<meta property="og:image" content="https://diba-pi.vercel.app/partidos.html">
-<meta property="og:url" content="https://diba-pi.vercel.app">
-<meta property="og:type" content="website">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
- 
+  <meta charset="UTF-8">
+  <title>Calendario y Próximos Partidos - DIBA FBC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulta el calendario, próximos partidos y resultados en vivo de DIBA FBC.">
 
-  
+  <!-- Open Graph (para vistas previas en redes) -->
+  <meta property="og:title" content="DIBA FBC - Calendario y Partidos">
+  <meta property="og:description" content="Consulta el calendario, próximos partidos y resultados en vivo de DIBA FBC.">
+  <meta property="og:image" content="https://tu-sitio.com/imagen-previa.png">
+  <meta property="og:url" content="https://diba-pi.vercel.app">
+  <meta property="og:type" content="website">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <!-- Bootstrap 5 CSS -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet"
-  >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link 
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Animate.css -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <style>
-    /* ================================
+    /* =====================================
        VARIABLES DE COLOR
-    =================================*/
+    ===================================== */
     :root {
       --azul: #003399;       /* Azul oscuro */
-      --grana: #02005c;      /* Grana */
+      --grana: #a50044;      /* Grana */
       --amarillo: #ffd700;   /* Dorado/Amarillo */
       --texto-claro: #ffffff;
       --texto-oscuro: #333333;
@@ -44,27 +36,33 @@
       --sombra: rgba(0, 0, 0, 0.2);
     }
 
+    /* =====================================
+       ESTILOS GENERALES
+    ===================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Roboto', sans-serif;
       background-color: var(--fondo-gris);
       color: var(--texto-oscuro);
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      padding-top: 70px; /* espacio para navbar fija */
+      padding-top: 70px;
     }
     a {
       text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
+      color: var(--azul);
+      transition: color 0.3s;
     }
     a:hover {
       color: var(--amarillo);
     }
 
-    /* ================================
+    /* =====================================
        NAVBAR
-    =================================*/
+    ===================================== */
     .navbar {
       position: fixed;
       top: 0;
@@ -88,9 +86,9 @@
       color: var(--amarillo) !important;
     }
 
-    /* ================================
-       HERO
-    =================================*/
+    /* =====================================
+       HERO SECTION
+    ===================================== */
     .hero {
       position: relative;
       background: url("fondo.jpg") center/cover no-repeat;
@@ -105,7 +103,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
       z-index: 1;
     }
     .hero-content {
@@ -123,9 +121,28 @@
       font-size: 1.2rem;
     }
 
-    /* ================================
-       SECCIÓN CALENDARIO
-    =================================*/
+    /* =====================================
+       SECCIÓN PARTIDOS EN VIVO
+    ===================================== */
+    #partidosEnVivo {
+      padding: 2rem 0;
+      background-color: var(--fondo-gris);
+    }
+    #partidosEnVivo h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--azul);
+    }
+    /* Cada partido se mostrará en una tarjeta con Bootstrap */
+    #resultados .partido {
+      margin-bottom: 1rem;
+    }
+
+    /* =====================================
+       SECCIÓN CALENDARIO (Próximos Encuentros)
+    ===================================== */
     #calendario {
       background-color: #fff;
       margin-top: 2rem;
@@ -143,22 +160,21 @@
       font-size: 1.8rem;
       text-transform: uppercase;
     }
-    /* Table container for horizontal scroll in mobile */
     .table-responsive {
       width: 100%;
-      overflow-x: auto; /* Permite scroll horizontal en móvil */
+      overflow-x: auto;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 600px; /* Asegura un ancho mínimo para forzar scroll en pantallas muy pequeñas */
+      min-width: 600px;
     }
     th, td {
       padding: 1rem;
       text-align: center;
       border-bottom: 1px solid var(--fondo-gris);
       vertical-align: middle;
-      white-space: nowrap; /* Evita salto de línea forzado en celdas */
+      white-space: nowrap;
     }
     th {
       background-color: var(--grana);
@@ -171,9 +187,9 @@
       transition: background-color 0.3s;
     }
 
-    /* ================================
+    /* =====================================
        FOOTER
-    =================================*/
+    ===================================== */
     footer {
       background-color: var(--azul);
       color: var(--amarillo);
@@ -186,6 +202,11 @@
   </style>
 </head>
 <body>
+  <!-- Botón Volver Arriba -->
+  <button id="btnBackToTop" title="Volver arriba" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 9999; background: var(--azul); color: var(--texto-claro); border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 8px var(--sombra); transition: opacity 0.3s;">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
@@ -197,14 +218,12 @@
               aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- Menú colapsable -->
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <!-- Ajusta los enlaces según tu sitio -->
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link active" href="partidos.html"><i class="fa fa-calendar"></i> Partidos</a>
           </li>
-          <!-- Añade más enlaces si lo requieres -->
+          <!-- Otros enlaces se pueden agregar aquí -->
         </ul>
       </div>
     </div>
@@ -217,17 +236,18 @@
       <p class="lead">Horarios y encuentros de DIBA FBC</p>
     </div>
   </section>
+
+  <!-- SECCIÓN PARTIDOS EN VIVO -->
   <section id="partidosEnVivo" class="container my-5">
     <h2 class="text-center mb-4">⚽ Partidos en Vivo</h2>
-    <div id="resultados" class="row justify-content-center text-center">
-        <p class="text-muted">Cargando partidos en vivo...</p>
+    <div id="resultados" class="row justify-content-center">
+      <p class="text-muted">Cargando partidos en vivo...</p>
     </div>
-</section>
+  </section>
 
-  <!-- SECCIÓN DE CALENDARIO -->
-  <div id="calendario" class="container animate__animated animate__fadeInUp my-5">
+  <!-- SECCIÓN CALENDARIO -->
+  <div id="calendario" class="container my-5 animate__animated animate__fadeInUp">
     <h2>Próximos Encuentros</h2>
-    <!-- Contenedor responsivo para la tabla -->
     <div class="table-responsive">
       <table>
         <thead>
@@ -248,12 +268,12 @@
               DIBA FBC 
               <img src="ESCUDO.png" alt="DIBA FBC" width="30">
               VS
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="" width="30">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="Caribe Soccer" width="30">
               CARIBE SOCCER
             </td>
-            <td>Amistoso Categoría 2014-2015-2016</td>
+            <td>Amistoso 2014-2015-2016</td>
             <td>Parque de los Sueños</td>
-            <td>$ 4000 </td>
+            <td>$ 4000</td>
           </tr>
           <tr>
             <td>DOMINGO 09.03.2025</td>
@@ -262,85 +282,95 @@
               DIBA FBC 
               <img src="ESCUDO.png" alt="DIBA FBC" width="30">
               VS
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdngrQ8BTZnN_fIUFg_umWkxjQZbmdIC6GJg&s" alt="" width="30">
+              <img src="logo-rival3.png" alt="Quiroz FC" width="30">
               QUIROZ FC
             </td>
-            <td>Amistoso Categoria 2012-2013</td>
+            <td>Amistoso 2012-2013</td>
             <td>Parque de los Sueños</td>
-            <td>$ 4000 </td>
+            <td>$ 4000</td>
+          </tr>
+          <tr>
+            <td>DOM 09.03.2025</td>
+            <td>--</td>
+            <td>
+              DIBA FBC 
+              <img src="ESCUDO.png" alt="DIBA FBC" width="30">
+              VS
+              <img src="logo-rival4.png" alt="Sin Rival" width="30">
+              --
+            </td>
+            <td>Partido aplazado</td>
+            <td>-</td>
+            <td>-</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-<<<<<<< HEAD
-=======
-  
->>>>>>> cf8892c8df75ad729f2c84bb2f035c28de2a1346
+
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- SCRIPT PARA PARTIDOS EN VIVO (Simulación con API de Football-Data.org) -->
   <script>
     async function cargarPartidosEnVivo() {
-        const apiKey = "TU_API_KEY_AQUI"; // 🔹 Reemplaza con tu API Key de Football-Data.org
-        const url = "https://api.football-data.org/v4/matches";
-
-        try {
-            const response = await fetch(url, {
-                headers: {
-                    "X-Auth-Token": apiKey
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error("Error al obtener los partidos");
-            }
-
-            const data = await response.json();
-            mostrarPartidos(data.matches);
-        } catch (error) {
-            console.error("Error:", error);
-            document.getElementById("resultados").innerHTML = "<p>❌ No se pudieron cargar los partidos.</p>";
+      const apiKey = "TU_API_KEY_AQUI"; // Reemplaza con tu API Key
+      const url = "https://api.football-data.org/v4/matches";
+      try {
+        const response = await fetch(url, {
+          headers: { "X-Auth-Token": apiKey }
+        });
+        if (!response.ok) {
+          throw new Error("Error al obtener los partidos");
         }
+        const data = await response.json();
+        mostrarPartidos(data.matches);
+      } catch (error) {
+        console.error("Error:", error);
+        document.getElementById("resultados").innerHTML = "<p class='text-danger'>❌ No se pudieron cargar los partidos.</p>";
+      }
     }
 
     function mostrarPartidos(partidos) {
-        const contenedor = document.getElementById("resultados");
-        contenedor.innerHTML = ""; // Limpiar antes de actualizar
-
-        if (partidos.length === 0) {
-            contenedor.innerHTML = "<p>📭 No hay partidos en vivo en este momento.</p>";
-            return;
-        }
-
-        partidos.forEach(partido => {
-            const div = document.createElement("div");
-            div.classList.add("partido");
-
-            div.innerHTML = `
-                <div class="card my-2 p-3 shadow-sm">
-                    <h4>${partido.competition.name}</h4>
-                    <p><strong>${partido.homeTeam.name} 🆚 ${partido.awayTeam.name}</strong></p>
-                    <p><strong>Estado:</strong> ${partido.status}</p>
-                    <p><strong>Marcador:</strong> ${partido.score.fullTime.home ?? "-"} - ${partido.score.fullTime.away ?? "-"}</p>
-                </div>
-            `;
-
-            contenedor.appendChild(div);
-        });
+      const contenedor = document.getElementById("resultados");
+      contenedor.innerHTML = "";
+      if (partidos.length === 0) {
+        contenedor.innerHTML = "<p class='text-muted'>📭 No hay partidos en vivo en este momento.</p>";
+        return;
+      }
+      partidos.forEach(partido => {
+        const div = document.createElement("div");
+        div.classList.add("col-md-6", "mb-4");
+        div.innerHTML = `
+          <div class="card shadow-sm p-3">
+            <h4 class="text-primary">${partido.competition.name}</h4>
+            <p class="fw-bold">${partido.homeTeam.name} 🆚 ${partido.awayTeam.name}</p>
+            <p><strong>Estado:</strong> ${partido.status}</p>
+            <h4 class="fw-bold text-danger">${partido.score.fullTime.home ?? "-"} - ${partido.score.fullTime.away ?? "-"}</h4>
+          </div>
+        `;
+        contenedor.appendChild(div);
+      });
     }
 
-    // Cargar los partidos al iniciar y actualizar cada 30 segundos
     document.addEventListener("DOMContentLoaded", () => {
-        cargarPartidosEnVivo();
-        setInterval(cargarPartidosEnVivo, 30000); // 🔄 Se actualiza cada 30 segundos
+      cargarPartidosEnVivo();
+      setInterval(cargarPartidosEnVivo, 30000); // Actualizar cada 30 segundos
     });
-</script>
 
-  <!-- Bootstrap JS -->
-  <script 
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    // Botón "Volver arriba"
+    const btnBackToTop = document.getElementById("btnBackToTop");
+    window.addEventListener("scroll", () => {
+      btnBackToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    btnBackToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   </script>
 </body>
 </html>
