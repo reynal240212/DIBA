@@ -217,10 +217,16 @@
       <p class="lead">Horarios y encuentros de DIBA FBC</p>
     </div>
   </section>
-  <section id="partidosEnVivo">
-    <h2>⚽ Partidos en Vivo</h2>
-    <div id="resultados">Cargando partidos en vivo...</div>
+<<<<<<< HEAD
+  <section id="partidosEnVivo" class="container my-5">
+    <h2 class="text-center mb-4">⚽ Partidos en Vivo</h2>
+    <div id="resultados" class="row justify-content-center text-center">
+        <p class="text-muted">Cargando partidos en vivo...</p>
+    </div>
 </section>
+
+=======
+>>>>>>> cf8892c8df75ad729f2c84bb2f035c28de2a1346
   <!-- SECCIÓN DE CALENDARIO -->
   <div id="calendario" class="container animate__animated animate__fadeInUp my-5">
     <h2>Próximos Encuentros</h2>
@@ -270,11 +276,70 @@
       </table>
     </div>
   </div>
+<<<<<<< HEAD
+=======
   
+>>>>>>> cf8892c8df75ad729f2c84bb2f035c28de2a1346
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
   </footer>
+  <script>
+    async function cargarPartidosEnVivo() {
+        const apiKey = "TU_API_KEY_AQUI"; // 🔹 Reemplaza con tu API Key de Football-Data.org
+        const url = "https://api.football-data.org/v4/matches";
+
+        try {
+            const response = await fetch(url, {
+                headers: {
+                    "X-Auth-Token": apiKey
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error("Error al obtener los partidos");
+            }
+
+            const data = await response.json();
+            mostrarPartidos(data.matches);
+        } catch (error) {
+            console.error("Error:", error);
+            document.getElementById("resultados").innerHTML = "<p>❌ No se pudieron cargar los partidos.</p>";
+        }
+    }
+
+    function mostrarPartidos(partidos) {
+        const contenedor = document.getElementById("resultados");
+        contenedor.innerHTML = ""; // Limpiar antes de actualizar
+
+        if (partidos.length === 0) {
+            contenedor.innerHTML = "<p>📭 No hay partidos en vivo en este momento.</p>";
+            return;
+        }
+
+        partidos.forEach(partido => {
+            const div = document.createElement("div");
+            div.classList.add("partido");
+
+            div.innerHTML = `
+                <div class="card my-2 p-3 shadow-sm">
+                    <h4>${partido.competition.name}</h4>
+                    <p><strong>${partido.homeTeam.name} 🆚 ${partido.awayTeam.name}</strong></p>
+                    <p><strong>Estado:</strong> ${partido.status}</p>
+                    <p><strong>Marcador:</strong> ${partido.score.fullTime.home ?? "-"} - ${partido.score.fullTime.away ?? "-"}</p>
+                </div>
+            `;
+
+            contenedor.appendChild(div);
+        });
+    }
+
+    // Cargar los partidos al iniciar y actualizar cada 30 segundos
+    document.addEventListener("DOMContentLoaded", () => {
+        cargarPartidosEnVivo();
+        setInterval(cargarPartidosEnVivo, 30000); // 🔄 Se actualiza cada 30 segundos
+    });
+</script>
 
   <!-- Bootstrap JS -->
   <script 
