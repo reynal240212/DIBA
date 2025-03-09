@@ -45,6 +45,7 @@ p {
 /* =======================================
    HERO SECTION
 ======================================= */
+
 .hero {
   /* Ajusta la ruta para llegar a images/fondo.jpg */
   background: url("../images/fondo.jpg") no-repeat center center;
@@ -65,15 +66,19 @@ p {
   max-width: 700px;
   padding: 20px;
 }
-
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: #ffcc00; /* Cambia a tu color preferido */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra para resaltar */
+  font-family: "Arial Black", sans-serif;      /* Fuente en negrita */
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
+  color: #ffffff;  /* Blanco, ajusta si quieres otro color */
+  font-weight: 300; /* Un peso de fuente más ligero */
 }
 
 /* =======================================
