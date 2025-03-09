@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Inicio - DIBA FBC</title>
   <link rel="icon" href="ESCUDO.ico" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Conoce la historia y los momentos más destacados de DIBA FBC, un recorrido lleno de pasión y logros deportivos." />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conoce la historia y los momentos más destacados de DIBA FBC, un recorrido lleno de pasión y logros deportivos.">
+  
   <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-  <!-- AOS para efectos de scroll (opcional) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
   <style>
-    /* ================================
-       Variables de Colores
-    =================================*/
     :root {
-      --azul:   #003399; /* Azul oscuro */
-      --grana:  #0b0281; /* Grana intenso */
-      --amarillo: #ffd700; /* Amarillo dorado */
+      --azul: #003399;
+      --grana: #0b0281;
+      --amarillo: #ffd700;
       --fondo: #f4f4f4;
       --blanco: #ffffff;
       --sombra: rgba(0, 0, 0, 0.2);
     }
-
-    /* ================================
-       Reset y Estilos Generales
-    =================================*/
+    
+    /* Global resets */
     * {
       margin: 0;
       padding: 0;
@@ -45,7 +37,7 @@
       font-family: 'Lato', sans-serif;
       background-color: var(--fondo);
       color: var(--azul);
-      padding-top: 70px; /* espacio para el navbar fijo */
+      padding-top: 70px;
     }
     a {
       text-decoration: none;
@@ -55,10 +47,8 @@
     a:hover {
       color: var(--amarillo);
     }
-
-    /* ================================
-       Navbar Fija
-    =================================*/
+    
+    /* Navbar */
     .navbar {
       position: fixed;
       top: 0;
@@ -81,10 +71,8 @@
     .nav-link {
       font-weight: 600;
     }
-
-    /* ================================
-       Hero Section (Parallax)
-    =================================*/
+    
+    /* Hero Section */
     .hero {
       position: relative;
       background: url('fondo.jpg') center/cover no-repeat fixed;
@@ -123,8 +111,8 @@
       font-weight: bold;
       box-shadow: 0 2px 6px var(--sombra);
     }
-
-    /* CSS personalizado para la sección */
+    
+    /* Resumen Historia Section */
     #resumen-historia {
       padding: 2rem 0;
       background-color: #f9f9f9;
@@ -133,16 +121,15 @@
       color: #004D73;
       font-weight: bold;
       text-transform: uppercase;
+      margin-bottom: 1.5rem;
     }
     #resumen-historia p {
       font-size: 1rem;
       color: #333;
       line-height: 1.6;
     }
-
-    /* ================================
-       Sección Servicios
-    =================================*/
+    
+    /* Servicios Section */
     #servicios {
       padding: 60px 20px;
     }
@@ -164,24 +151,24 @@
       color: var(--azul);
       font-weight: bold;
     }
- /* Tarjetas de partidos */
+    
+    /* Match Cards */
     .match-card {
-      background: white;
+      background: var(--blanco);
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      max-width: 320px; /* Limita el ancho máximo de la tarjeta */
-      margin: 0 auto;   /* Centra la tarjeta en su columna */
+      max-width: 320px;
+      margin: 0 auto;
     }
     .match-card-top {
       background: var(--grana);
-      color: var(--texto-claro);
       padding: 1rem;
       text-align: center;
       position: relative;
     }
     .match-card-top img {
-      width: 70px; /* Escudos más grandes */
+      width: 70px;
       margin: 0 0.5rem;
     }
     .match-card-body {
@@ -191,21 +178,8 @@
     .match-card-body .btn {
       margin: 0.25rem;
     }
-
-    /* Encabezado opcional */
-    .header {
-      background: var(--amarillo);
-      color: var(--amarillo);
-      padding: 1rem;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .header h1 {
-      margin: 0;
-    }
-    /* ================================
-       Sección Equipo
-    =================================*/
+    
+    /* Equipo Section */
     #equipo {
       padding: 60px 20px;
       background: #f8f9fa;
@@ -229,10 +203,8 @@
       margin-top: 1rem;
       font-weight: bold;
     }
-
-    /* ================================
-       Sección Contacto
-    =================================*/
+    
+    /* Contacto Section */
     #contacto {
       padding: 60px 20px;
     }
@@ -252,42 +224,13 @@
     }
     #contacto button:hover {
       background: var(--amarillo);
-      color: var(--texto-blanco);
+      color: var(--blanco);
     }
-
-    /* ================================
-       Sección Patrocinadores
-    =================================*/
-    #patrocinadores {
-      text-align: center;
-      padding: 50px 0;
-      background-color: var(--fondo);
-    }
-    #patrocinadores h2 {
-      margin-bottom: 2rem;
-      font-weight: bold;
-      color: var(--azul);
-    }
-    #patrocinadores .patrocinador {
-      margin: 1rem;
-    }
-    #patrocinadores .patrocinador img {
-      width: 150px;
-      height: auto;
-      transition: transform 0.3s;
-    }
-    #patrocinadores .patrocinador img:hover {
-      transform: scale(1.05);
-    }
-    #patrocinadores .patrocinador p {
-      margin-top: 0.5rem;
-      font-weight: bold;
-      color: var(--azul);
-    }
-/* Estilos para la sección Fundación */
-#fundacion {
+    
+    /* Fundación Section */
+    #fundacion {
       padding: 60px 20px;
-      background-color: #fff;
+      background-color: var(--blanco);
     }
     #fundacion h2 {
       color: var(--azul);
@@ -309,12 +252,37 @@
     }
     #fundacion img {
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
-    /* ================================
-       Footer
-    =================================*/
+    /* Patrocinadores Section */
+    #patrocinadores {
+      text-align: center;
+      padding: 50px 0;
+      background-color: var(--fondo);
+    }
+    #patrocinadores h2 {
+      margin-bottom: 2rem;
+      font-weight: bold;
+      color: var(--azul);
+    }
+    #patrocinadores .patrocinador {
+      margin: 1rem;
+    }
+    #patrocinadores .patrocinador img {
+      width: 150px;
+      transition: transform 0.3s;
+    }
+    #patrocinadores .patrocinador img:hover {
+      transform: scale(1.05);
+    }
+    #patrocinadores .patrocinador p {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: var(--azul);
+    }
+    
+    /* Footer */
     footer {
       background: var(--azul);
       color: var(--amarillo);
@@ -326,7 +294,6 @@
     }
     footer a {
       color: var(--amarillo);
-      text-decoration: none;
       transition: color 0.3s;
     }
     footer a:hover {
@@ -343,10 +310,8 @@
       width: 60px;
       margin-bottom: 0.5rem;
     }
-
-    /* ================================
-       Responsivo
-    =================================*/
+    
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .hero .hero-title {
         font-size: 2.5rem;
@@ -366,233 +331,224 @@
   <button id="btnBackToTop" title="Volver arriba">
     <i class="fas fa-arrow-up"></i>
   </button>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top transparent">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="ESCUDO.png" alt="Logo DIBA FBC" />
-        DIBA FBC
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link active" href="Historia.html">Historia</a></li>
-          <li class="nav-item"><a class="nav-link" href="ficha.html">Ficha Técnica</a></li>
-          <li class="nav-item"><a class="nav-link" href="planillas.html">Planillas</a></li>
-          <li class="nav-item"><a class="nav-link" href="NormasyReglamentos.html">Normas y Reglamentos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero animate__animated animate__fadeInDown">
-    <div class="container hero-content">
-      <h1 class="hero-title">Explora Nuestro Mundo</h1>
-      <p class="hero-subtitle lead">
-        Descubre los momentos históricos y logros que han definido a DIBA FBC. Un recorrido lleno de pasión y victorias.
-      </p>
-    </div>
-  </section>
-
-  <!-- Sección Resumen de Historia en Index -->
-<section id="resumen-historia" class="container my-5">
-  <div class="row align-items-center">
-    <!-- Imagen (puedes reemplazarla por una tuya) -->
-    <div class="col-md-6 mb-4 mb-md-0">
-      <img src="imagenHistoria.jpg" alt="DIBA FBC - Historia" class="img-fluid rounded shadow">
-    </div>
-    <!-- Texto Resumen -->
-    <div class="col-md-6">
-      <h2 class="mb-3">Nuestra Historia</h2>
-      <p>
-        Fundado en <strong>2012</strong>, <strong>DIBA FBC</strong> ha forjado una trayectoria llena de éxitos y superación. 
-        El club se caracteriza por formar talentos y promover valores como la disciplina, el respeto y el trabajo en equipo.
-      </p>
-      <p>
-        A lo largo de los años, hemos competido en torneos locales, dejando huella en cada temporada 
-        y construyendo un legado que trasciende más allá de las canchas.
-      </p>
-      <!-- Botón que dirige a la página completa de Historia -->
-      <a href="Historia.html" class="btn btn-primary mt-3">
-        Conoce más
-      </a>
-    </div>
-  </div>
-</section>
-
-  <!-- Sección Servicios -->
-  <section id="servicios" class="container my-5 animate__animated animate__fadeInUp">
-    <h2 class="text-center">Nuestros Servicios</h2>
-    <div class="row g-4 mt-4">
-      <div class="col-md-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Entrenamiento</h5>
-            <p class="card-text">
-              Potenciamos la técnica y táctica de cada jugador, preparándolos para competir al más alto nivel.
-            </p>
-          </div>
+  
+  <!-- Header -->
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top transparent">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="ESCUDO.png" alt="Logo DIBA FBC">
+          DIBA FBC
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="Historia.html">Historia</a></li>
+            <li class="nav-item"><a class="nav-link" href="ficha.html">Ficha Técnica</a></li>
+            <li class="nav-item"><a class="nav-link" href="planillas.html">Planillas</a></li>
+            <li class="nav-item"><a class="nav-link" href="NormasyReglamentos.html">Normas y Reglamentos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Participación en Torneos</h5>
-            <p class="card-text">
-              Representamos a nuestra comunidad en torneos locales, demostrando competitividad y espíritu deportivo en cada desafío.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Desarrollo Integral</h5>
-            <p class="card-text">
-              Fomentamos el desarrollo personal de nuestros jugadores, inculcando valores y liderazgo dentro y fuera del campo.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
- <!-- Contenedor principal -->
- <div class="container my-5">
-  <!-- Fila responsive: 3 col en grande, 2 en mediano, 1 en móvil -->
-  <div class="row g-4">
+    </nav>
     
-    <!-- Tarjeta 1: DIBA FBC vs Caribe Soccer -->
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="match-card">
-        <div class="match-card-top">
-          <img src="ESCUDO.png" alt="DIBA FBC">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="Caribe Soccer">
-          <div class="mt-2">
-            <strong>Amistoso 2014-2015-2016</strong>
+    <!-- Hero Section -->
+    <section class="hero animate__animated animate__fadeInDown">
+      <div class="container hero-content">
+        <h1 class="hero-title">Explora Nuestro Mundo</h1>
+        <p class="hero-subtitle lead">
+          Descubre los momentos históricos y logros que han definido a DIBA FBC. Un recorrido lleno de pasión y victorias.
+        </p>
+      </div>
+    </section>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Resumen Historia Section -->
+    <section id="resumen-historia" class="container my-5">
+      <div class="row align-items-center">
+        <!-- Imagen -->
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="imagenHistoria.jpg" alt="DIBA FBC - Historia" class="img-fluid rounded shadow">
+        </div>
+        <!-- Texto -->
+        <div class="col-md-6">
+          <h2 class="mb-3">Nuestra Historia</h2>
+          <p>
+            Fundado en <strong>2012</strong>, <strong>DIBA FBC</strong> ha forjado una trayectoria llena de éxitos y superación. 
+            El club se caracteriza por formar talentos y promover valores como la disciplina, el respeto y el trabajo en equipo.
+          </p>
+          <p>
+            A lo largo de los años, hemos competido en torneos locales, dejando huella en cada temporada y construyendo un legado que trasciende más allá de las canchas.
+          </p>
+          <a href="Historia.html" class="btn btn-primary mt-3">Conoce más</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Servicios Section -->
+    <section id="servicios" class="container my-5 animate__animated animate__fadeInUp">
+      <h2 class="text-center">Nuestros Servicios</h2>
+      <div class="row g-4 mt-4">
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <div class="card-body">
+              <h5 class="card-title">Entrenamiento</h5>
+              <p class="card-text">
+                Potenciamos la técnica y táctica de cada jugador, preparándolos para competir al más alto nivel.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="match-card-body">
-          <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
-          <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
-          <p class="text-muted mb-1">Valor: $ 4000</p>
-          <a href="#" class="btn btn-warning">Resultado</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tarjeta 2: DIBA FBC vs Quiroz FC -->
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="match-card">
-        <div class="match-card-top">
-          <img src="ESCUDO.png" alt="DIBA FBC">
-          <img src="logo-rival3.png" alt="Quiroz FC">
-          <div class="mt-2">
-            <strong>Amistoso 2012-2013</strong>
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <div class="card-body">
+              <h5 class="card-title">Participación en Torneos</h5>
+              <p class="card-text">
+                Representamos a nuestra comunidad en torneos locales, demostrando competitividad y espíritu deportivo en cada desafío.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="match-card-body">
-          <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
-          <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
-          <p class="text-muted mb-1">Valor: $ 4000</p>
-          <a href="#" class="btn btn-warning">Resultado</a>
+        <div class="col-md-4">
+          <div class="card shadow h-100">
+            <div class="card-body">
+              <h5 class="card-title">Desarrollo Integral</h5>
+              <p class="card-text">
+                Fomentamos el desarrollo personal de nuestros jugadores, inculcando valores y liderazgo dentro y fuera del campo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contenedor de Partidos -->
+    <div class="container my-5">
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="match-card">
+            <div class="match-card-top">
+              <img src="ESCUDO.png" alt="DIBA FBC">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="Caribe Soccer">
+              <div class="mt-2">
+                <strong>Amistoso 2014-2015-2016</strong>
+              </div>
+            </div>
+            <div class="match-card-body">
+              <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
+              <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
+              <p class="text-muted mb-1">Valor: $ 4000</p>
+              <a href="#" class="btn btn-warning">Resultado</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="match-card">
+            <div class="match-card-top">
+              <img src="ESCUDO.png" alt="DIBA FBC">
+              <img src="logo-rival3.png" alt="Quiroz FC">
+              <div class="mt-2">
+                <strong>Amistoso 2012-2013</strong>
+              </div>
+            </div>
+            <div class="match-card-body">
+              <h4 class="mb-2">Domingo, 09 de Marzo 2025 - 09:00 AM</h4>
+              <p class="text-muted mb-1">Estadio: Parque de los Sueños</p>
+              <p class="text-muted mb-1">Valor: $ 4000</p>
+              <a href="#" class="btn btn-warning">Resultado</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-  </div> <!-- fin row -->
-</div> <!-- fin container -->
-  <!-- Sección Equipo -->
-  <section id="equipo" class="container my-5 animate__animated animate__fadeInUp">
-    <h2 class="text-center">CUERPO TECNICO</h2>
-    <div class="row text-center mt-4">
-      <div class="col-md-4 mb-4">
-        <img src="profesor.jpg" class="rounded-circle mb-3" alt="Entrenador DIBA FBC" loading="lazy">
-        <h5>Reinaldo Perez</h5>
-        <p>Director Técnico</p>
+    
+    <!-- Equipo Section -->
+    <section id="equipo" class="container my-5 animate__animated animate__fadeInUp">
+      <h2 class="text-center">CUERPO TECNICO</h2>
+      <div class="row text-center mt-4">
+        <div class="col-md-4 mb-4">
+          <img src="profesor.jpg" class="rounded-circle mb-3" alt="Entrenador DIBA FBC" loading="lazy">
+          <h5>Reinaldo Perez</h5>
+          <p>Director Técnico</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="asistente.jpg" class="rounded-circle mb-3" alt="Asistente Técnico" loading="lazy">
+          <h5>Reinaldo Perez Navas</h5>
+          <p>Técnico</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="fisioterapeuta.jpg" class="rounded-circle mb-3" alt="Fisioterapeuta DIBA FBC" loading="lazy">
+          <h5>Aldo Espinoza</h5>
+          <p>Técnico</p>
+        </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <img src="asistente.jpg" class="rounded-circle mb-3" alt="Asistente Técnico" loading="lazy">
-        <h5>Reinaldo Perez Navas</h5>
-        <p>Técnico</p>
-      </div>
-      <div class="col-md-4 mb-4">
-        <img src="fisioterapeuta.jpg" class="rounded-circle mb-3" alt="Fisioterapeuta DIBA FBC" loading="lazy">
-        <h5>Aldo Espinoza</h5>
-        <p>Técnico</p>
-      </div>
-    </div>
-  </section>
-<!-- Sección Fundación -->
-<section id="fundacion" class="container my-5">
-  <div class="row align-items-center">
-    <!-- Imagen representativa de la fundación -->
-    <div class="col-md-6 mb-4 mb-md-0">
-      <!-- Si deseas que la imagen se abra en una pestaña nueva al hacer clic -->
-      <a href="unnamed.jpg" target="_blank">
-        <img 
-          src="unnamed.jpg" 
-          alt="Fundación Tierra que Emana Leche y Miel" 
-          class="img-fluid w-100 rounded shadow"
-        >
-      </a>
-    </div>
-      <!-- Información de la fundación -->
-      <div class="col-md-6">
-        <h2 class="mb-4">
-          <i class="fas fa-hand-holding-heart me-2"></i>
-          Fundación Tierra que Emana Leche y Miel
-        </h2>
-        <p>
-          La <strong>Fundación Tierra que Emana Leche y Miel</strong> (FUNTILEMI) es una entidad sin ánimo de lucro registrada en la Cámara de Comercio de Barranquilla. Su actividad se enmarca en “actividades de otras asociaciones n.c.p.”
-        </p>
-        <p>
-          Fundada el <strong>28 de marzo de 2016</strong>, tiene su sede en <strong>Carrera 30A, Carrera 1B #245, Apartamento 701, Urbanización Villa Campestre, Barranquilla, Atlántico</strong>. Su representante legal es <strong>Alba Marina Orozco</strong>.
-        </p>
-        <p>
-          El nombre evoca una expresión bíblica que describe una tierra de abundancia, simbolizando el compromiso con el bienestar y desarrollo de la comunidad.
-        </p>
-        <div class="mt-4">
-          <a href="https://colombiapymes.com/empresas/fundacion-tierra-que-emana-leche-y-miel-sigla-funtilemi_id_EF8E1398F2821C3F" target="_blank" class="btn btn-warning">
-            <i class="fas fa-external-link-alt me-1"></i> Más Información
+    </section>
+    
+    <!-- Fundación Section -->
+    <section id="fundacion" class="container my-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <a href="unnamed.jpg" target="_blank">
+            <img src="unnamed.jpg" alt="Fundación Tierra que Emana Leche y Miel" class="img-fluid w-100 rounded shadow">
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- Sección Patrocinadores -->
-  <section id="patrocinadores" class="animate__animated animate__fadeInUp" style="text-align: center; padding: 50px 0; background-color: var(--fondo);">
-    <div class="container">
-      <h2>Nuestros Patrocinadores</h2>
-      <div style="display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; padding: 20px;">
-        <!-- Okey Sport -->
-        <div class="patrocinador">
-          <a href="https://okeysport.com/" target="_blank">
-            <img src="https://okeysport.com/cdn/shop/files/Logo_OKEY.svg?v=1721155737&width=100" alt="Logo de Okey Sport" style="width: 150px; height: auto;">
-          </a>
-          <p>Okey Sport</p>
-        </div>
-        <!-- Chiro Deportes Funtilemi -->
-        <div class="patrocinador">
-          <a href="https://www.facebook.com/chirodeportes/" target="_blank">
-            <img src="https://tse3.mm.bing.net/th?id=OIP.2pbPD48ADuuuNSlSKtgEpwHaHa&pid=Api" alt="Logo de Chiro Deportes" style="width: 150px; height: auto;">
-          </a>
-          <p>Chiro Deportes</p>
-        </div>
-        <!-- Calzado Orpis -->
-        <div class="patrocinador">
-          <a href="https://www.instagram.com/calzadoorpis/" target="_blank">
-            <img src="https://i.pinimg.com/originals/2d/36/e1/2d36e15e7ad8ab91b41f3db0eff0f7ac.png" alt="Logo de Calzado Orpis" style="width: 150px; height: auto;">
-          </a>
-          <p>Calzado Orpis</p>
+        <div class="col-md-6">
+          <h2 class="mb-4">
+            <i class="fas fa-hand-holding-heart me-2"></i>
+            Fundación Tierra que Emana Leche y Miel
+          </h2>
+          <p>
+            La <strong>Fundación Tierra que Emana Leche y Miel</strong> (FUNTILEMI) es una entidad sin ánimo de lucro registrada en la Cámara de Comercio de Barranquilla. Su actividad se enmarca en “actividades de otras asociaciones n.c.p.”
+          </p>
+          <p>
+            Fundada el <strong>28 de marzo de 2016</strong>, tiene su sede en <strong>Carrera 30A, Carrera 1B #245, Apartamento 701, Urbanización Villa Campestre, Barranquilla, Atlántico</strong>. Su representante legal es <strong>Alba Marina Orozco</strong>.
+          </p>
+          <p>
+            El nombre evoca una expresión bíblica que describe una tierra de abundancia, simbolizando el compromiso con el bienestar y desarrollo de la comunidad.
+          </p>
+          <div class="mt-4">
+            <a href="https://colombiapymes.com/empresas/fundacion-tierra-que-emana-leche-y-miel-sigla-funtilemi_id_EF8E1398F2821C3F" target="_blank" class="btn btn-warning">
+              <i class="fas fa-external-link-alt me-1"></i> Más Información
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+    
+    <!-- Patrocinadores Section -->
+    <section id="patrocinadores" class="animate__animated animate__fadeInUp" style="text-align: center; padding: 50px 0;">
+      <div class="container">
+        <h2>Nuestros Patrocinadores</h2>
+        <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap" style="padding: 20px;">
+          <div class="patrocinador">
+            <a href="https://okeysport.com/" target="_blank">
+              <img src="https://okeysport.com/cdn/shop/files/Logo_OKEY.svg?v=1721155737&width=100" alt="Logo de Okey Sport" style="width: 150px;">
+            </a>
+            <p>Okey Sport</p>
+          </div>
+          <div class="patrocinador">
+            <a href="https://www.facebook.com/chirodeportes/" target="_blank">
+              <img src="https://tse3.mm.bing.net/th?id=OIP.2pbPD48ADuuuNSlSKtgEpwHaHa&pid=Api" alt="Logo de Chiro Deportes" style="width: 150px;">
+            </a>
+            <p>Chiro Deportes</p>
+          </div>
+          <div class="patrocinador">
+            <a href="https://www.instagram.com/calzadoorpis/" target="_blank">
+              <img src="https://i.pinimg.com/originals/2d/36/e1/2d36e15e7ad8ab91b41f3db0eff0f7ac.png" alt="Logo de Calzado Orpis" style="width: 150px;">
+            </a>
+            <p>Calzado Orpis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
   
   <!-- Footer -->
   <footer class="animate__animated animate__fadeInUp">
@@ -605,7 +561,7 @@
         <div class="col-md-4 mb-3 mb-md-0">
           <h4>Sobre el Club</h4>
           <ul class="list-unstyled">
-            <li><a href="#">Historia</a></li>
+            <li><a href="Historia.html">Historia</a></li>
           </ul>
         </div>
         <div class="col-md-4 mb-3 mb-md-0">
@@ -634,26 +590,16 @@
       </div>
     </div>
   </footer>
-
+  
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Script para alternar categorías -->
+  <!-- AOS JS for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    // Alternar categorías (si se requiere funcionalidad dinámica)
-    const btns = document.querySelectorAll('.category-buttons .btn');
-    const containers = document.querySelectorAll('.category-container');
-    btns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btns.forEach(b => b.classList.remove('active'));
-        containers.forEach(cont => cont.classList.remove('active'));
-        btn.classList.add('active');
-        const id = btn.getAttribute('data-category');
-        document.getElementById(id).classList.add('active', 'animate__animated', 'animate__fadeIn');
-      });
-    });
-
-    // Navbar: cambia de fondo al hacer scroll
+    // Inicializar AOS
+    AOS.init();
+    
+    // Efecto de scroll en el navbar
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -662,7 +608,7 @@
         navbar.classList.remove('scrolled');
       }
     });
-
+    
     // Botón "Volver arriba"
     const btnBackToTop = document.getElementById('btnBackToTop');
     window.addEventListener('scroll', () => {
