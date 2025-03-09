@@ -124,21 +124,19 @@
       box-shadow: 0 2px 6px var(--sombra);
     }
 
-    /* ================================
-       Sección Historia
-    =================================*/
-    #historia {
-      background: #e9ecef;
-      padding: 60px 20px;
+    /* CSS personalizado para la sección */
+    #resumen-historia {
+      padding: 2rem 0;
+      background-color: #f9f9f9;
     }
-    #historia h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
+    #resumen-historia h2 {
+      color: #004D73;
       font-weight: bold;
+      text-transform: uppercase;
     }
-    #historia p {
-      max-width: 800px;
-      margin: auto;
+    #resumen-historia p {
+      font-size: 1rem;
+      color: #333;
       line-height: 1.6;
     }
 
@@ -313,6 +311,7 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    
     /* ================================
        Footer
     =================================*/
@@ -401,15 +400,31 @@
     </div>
   </section>
 
-  <!-- Sección Historia -->
-  <section id="historia" class="container my-5 animate__animated animate__fadeInUp">
-    <h2 class="text-center">Nuestra Historia</h2>
-    <p class="text-center">
-      Fundado en 2012, DIBA FBC se ha consolidado con una trayectoria llena de éxitos y superación.
-      Nuestro club se caracteriza por formar talentos y promover valores como la disciplina, el respeto y el trabajo en equipo.
-      A lo largo de los años, hemos competido en torneos locales, dejando huella en cada temporada.
-    </p>
-  </section>
+  <!-- Sección Resumen de Historia en Index -->
+<section id="resumen-historia" class="container my-5">
+  <div class="row align-items-center">
+    <!-- Imagen (puedes reemplazarla por una tuya) -->
+    <div class="col-md-6 mb-4 mb-md-0">
+      <img src="imagenHistoria.jpg" alt="DIBA FBC - Historia" class="img-fluid rounded shadow">
+    </div>
+    <!-- Texto Resumen -->
+    <div class="col-md-6">
+      <h2 class="mb-3">Nuestra Historia</h2>
+      <p>
+        Fundado en <strong>2012</strong>, <strong>DIBA FBC</strong> ha forjado una trayectoria llena de éxitos y superación. 
+        El club se caracteriza por formar talentos y promover valores como la disciplina, el respeto y el trabajo en equipo.
+      </p>
+      <p>
+        A lo largo de los años, hemos competido en torneos locales, dejando huella en cada temporada 
+        y construyendo un legado que trasciende más allá de las canchas.
+      </p>
+      <!-- Botón que dirige a la página completa de Historia -->
+      <a href="Historia.html" class="btn btn-primary mt-3">
+        Conoce más
+      </a>
+    </div>
+  </div>
+</section>
 
   <!-- Sección Servicios -->
   <section id="servicios" class="container my-5 animate__animated animate__fadeInUp">
@@ -647,7 +662,7 @@
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Script para alternar categorías -->
   <script>
     // Alternar categorías (si se requiere funcionalidad dinámica)
