@@ -1,21 +1,20 @@
 /* ================================
-   Variables de Colores
+   VARIABLES DE COLORES
 =================================*/
 :root {
-    /* Unificando variables de ambos bloques */
     --azul: #004D73;         /* Azul oscuro */
     --grana: #800020;        /* Grana intenso */
     --rojo: #FF0000;         /* Rojo */
-    --amarillo: #FFD700;     /* Dorado / Amarillo brillante */
-    --fondo: #f4f4f4;        /* Fondo de la primera hoja */
-    --fondo-claro: #f9f9f9;  /* Fondo claro de la segunda */
-    --blanco: #ffffff;       /* Blanco */
-    --texto-blanco: #ffffff; /* Texto blanco */
+    --amarillo: #FFD700;      /* Dorado / Amarillo brillante */
+    --fondo: #f4f4f4;         /* Fondo base */
+    --fondo-claro: #f9f9f9;   /* Fondo claro */
+    --blanco: #ffffff;        /* Blanco */
+    --texto-blanco: #ffffff;  /* Texto blanco */
     --sombra: rgba(0, 0, 0, 0.2);
   }
   
   /* ================================
-     Reset y Estilos Generales
+     RESET Y ESTILOS GENERALES
   =================================*/
   * {
     margin: 0;
@@ -24,9 +23,7 @@
     scroll-behavior: smooth;
   }
   body {
-    /* Puedes cambiar la tipografía a 'Lato' o 'Roboto' según prefieras */
-    font-family: 'Roboto', sans-serif;
-    /* Si prefieres el fondo de la primera hoja, usa var(--fondo) */
+    font-family: 'Roboto', sans-serif; /* O 'Lato' según prefieras */
     background-color: var(--fondo-claro);
     color: var(--azul);
     padding-top: 70px; /* espacio para navbar fija */
@@ -41,7 +38,7 @@
   }
   
   /* ================================
-     Navbar
+     NAVBAR
   =================================*/
   .navbar {
     position: fixed;
@@ -67,11 +64,10 @@
   }
   
   /* ================================
-     Hero Section
+     HERO SECTION
   =================================*/
   .hero {
     position: relative;
-    /* Si tu imagen está en /images/fondo.jpg (carpeta public/images en un proyecto web) */
     background: url("/images/fondo.jpg") center/cover no-repeat fixed;
     min-height: 60vh;
     display: flex;
@@ -92,8 +88,7 @@
     padding: 2rem;
   }
   .hero .hero-title {
-    /* Mezcla de estilos (segunda hoja + primera) */
-    font-family: 'Dancing Script', cursive; /* si prefieres Roboto, cámbialo */
+    font-family: 'Dancing Script', cursive;
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -112,14 +107,14 @@
   }
   
   /* ================================
-     Resumen Historia Section
+     RESUMEN HISTORIA SECTION
   =================================*/
   #resumen-historia {
     padding: 2rem 0;
     background-color: #f9f9f9;
   }
   #resumen-historia h2 {
-    color: #004D73; /* o var(--azul) */
+    color: var(--azul);
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
@@ -131,7 +126,7 @@
   }
   
   /* ================================
-     Servicios Section
+     SERVICIOS SECTION
   =================================*/
   #servicios {
     padding: 60px 20px;
@@ -156,7 +151,7 @@
   }
   
   /* ================================
-     Match Cards
+     MATCH CARDS
   =================================*/
   .match-card {
     background: var(--blanco);
@@ -185,7 +180,7 @@
   }
   
   /* ================================
-     Equipo Section
+     EQUIPO SECTION
   =================================*/
   #equipo {
     padding: 60px 20px;
@@ -212,7 +207,7 @@
   }
   
   /* ================================
-     Contacto Section
+     CONTACTO SECTION
   =================================*/
   #contacto {
     padding: 60px 20px;
@@ -237,7 +232,7 @@
   }
   
   /* ================================
-     Fundación Section
+     FUNDACIÓN SECTION
   =================================*/
   #fundacion {
     padding: 60px 20px;
@@ -267,7 +262,7 @@
   }
   
   /* ================================
-     Patrocinadores Section
+     PATROCINADORES SECTION
   =================================*/
   #patrocinadores {
     text-align: center;
@@ -296,7 +291,7 @@
   }
   
   /* ================================
-     Timeline / Tarjetas (2ª hoja)
+     TIMELINE / TARJETAS (2ª HOJA)
   =================================*/
   .timeline-section {
     padding: 3rem 1rem;
@@ -317,7 +312,7 @@
   }
   
   /* ================================
-     Videos Section (2ª hoja)
+     VIDEOS SECTION (2ª HOJA)
   =================================*/
   .videos-section {
     background-color: var(--texto-blanco);
@@ -371,11 +366,59 @@
   }
   
   /* ================================
-     Footer
+     FOOTER
   =================================*/
   footer {
     background-color: var(--azul);
     color: var(--amarillo);
     padding: 2rem 1rem;
-    tex
+    text-align: center;
   }
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+  }
+  .footer-col {
+    flex: 1 1 200px;
+  }
+  .footer-col h4 {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--amarillo);
+  }
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-col li {
+    margin-bottom: 0.5rem;
+  }
+  .footer-col a {
+    color: var(--amarillo);
+    transition: color 0.3s;
+  }
+  .footer-col a:hover {
+    color: var(--blanco);
+  }
+  
+  /* ================================
+     RESPONSIVO
+  =================================*/
+  @media (max-width: 768px) {
+    .hero .hero-title {
+      font-size: 2.5rem;
+    }
+    .hero .hero-subtitle {
+      font-size: 1rem;
+    }
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
