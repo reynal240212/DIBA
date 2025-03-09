@@ -64,15 +64,18 @@
        Hero Section (Parallax)
     =================================*/
     .hero {
-      position: relative;
-      background-image: url("images/fondo.jpg")center/cover no-repeat fixed; 
-      min-height: 60vh;
+      background: url("../images/fondo.jpg") no-repeat center center;
+      background-size: cover;
+      /* Ajusta la altura si lo deseas */
+      min-height: 100vh;
+      /* Centrar contenido vertical y horizontalmente */
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      color: var(--blanco);
+      /* Si quieres texto en color blanco sobre la imagen */
+      color: #fff;
     }
+    
     .hero::before {
       content: "";
       position: absolute;
