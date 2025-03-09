@@ -1,0 +1,381 @@
+/* ================================
+   Variables de Colores
+=================================*/
+:root {
+    /* Unificando variables de ambos bloques */
+    --azul: #004D73;         /* Azul oscuro */
+    --grana: #800020;        /* Grana intenso */
+    --rojo: #FF0000;         /* Rojo */
+    --amarillo: #FFD700;     /* Dorado / Amarillo brillante */
+    --fondo: #f4f4f4;        /* Fondo de la primera hoja */
+    --fondo-claro: #f9f9f9;  /* Fondo claro de la segunda */
+    --blanco: #ffffff;       /* Blanco */
+    --texto-blanco: #ffffff; /* Texto blanco */
+    --sombra: rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ================================
+     Reset y Estilos Generales
+  =================================*/
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  body {
+    /* Puedes cambiar la tipografía a 'Lato' o 'Roboto' según prefieras */
+    font-family: 'Roboto', sans-serif;
+    /* Si prefieres el fondo de la primera hoja, usa var(--fondo) */
+    background-color: var(--fondo-claro);
+    color: var(--azul);
+    padding-top: 70px; /* espacio para navbar fija */
+  }
+  a {
+    text-decoration: none;
+    color: var(--azul);
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: var(--amarillo);
+  }
+  
+  /* ================================
+     Navbar
+  =================================*/
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  .navbar.scrolled {
+    background-color: var(--azul) !important;
+    box-shadow: 0 4px 8px var(--sombra);
+  }
+  .navbar-brand img {
+    width: 50px;
+    transition: transform 0.3s;
+  }
+  .navbar-brand img:hover {
+    transform: scale(1.1);
+  }
+  .nav-link {
+    font-weight: 600;
+  }
+  
+  /* ================================
+     Hero Section
+  =================================*/
+  .hero {
+    position: relative;
+    /* Si tu imagen está en /images/fondo.jpg (carpeta public/images en un proyecto web) */
+    background: url("/images/fondo.jpg") center/cover no-repeat fixed;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--texto-blanco);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .hero .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+  }
+  .hero .hero-title {
+    /* Mezcla de estilos (segunda hoja + primera) */
+    font-family: 'Dancing Script', cursive; /* si prefieres Roboto, cámbialo */
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--amarillo);
+    text-shadow: 2px 2px 5px var(--sombra);
+  }
+  .hero .hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: auto;
+  }
+  .hero .btn {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 6px var(--sombra);
+  }
+  
+  /* ================================
+     Resumen Historia Section
+  =================================*/
+  #resumen-historia {
+    padding: 2rem 0;
+    background-color: #f9f9f9;
+  }
+  #resumen-historia h2 {
+    color: #004D73; /* o var(--azul) */
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  #resumen-historia p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* ================================
+     Servicios Section
+  =================================*/
+  #servicios {
+    padding: 60px 20px;
+  }
+  #servicios h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+  .card {
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px var(--sombra);
+  }
+  .card-title {
+    color: var(--azul);
+    font-weight: bold;
+  }
+  
+  /* ================================
+     Match Cards
+  =================================*/
+  .match-card {
+    background: var(--blanco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .match-card-top {
+    background: var(--grana);
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+  }
+  .match-card-top img {
+    width: 70px;
+    margin: 0 0.5rem;
+  }
+  .match-card-body {
+    padding: 1rem;
+    text-align: center;
+  }
+  .match-card-body .btn {
+    margin: 0.25rem;
+  }
+  
+  /* ================================
+     Equipo Section
+  =================================*/
+  #equipo {
+    padding: 60px 20px;
+    background: #f8f9fa;
+  }
+  #equipo h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+  #equipo img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px var(--sombra);
+    transition: transform 0.3s;
+  }
+  #equipo img:hover {
+    transform: scale(1.05);
+  }
+  #equipo h5 {
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  /* ================================
+     Contacto Section
+  =================================*/
+  #contacto {
+    padding: 60px 20px;
+  }
+  #contacto h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+  #contacto .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,77,152,0.25);
+    border-color: var(--azul);
+  }
+  #contacto button {
+    background: var(--azul);
+    border: none;
+    transition: background 0.3s;
+  }
+  #contacto button:hover {
+    background: var(--amarillo);
+    color: var(--blanco);
+  }
+  
+  /* ================================
+     Fundación Section
+  =================================*/
+  #fundacion {
+    padding: 60px 20px;
+    background-color: var(--blanco);
+  }
+  #fundacion h2 {
+    color: var(--azul);
+    margin-bottom: 20px;
+  }
+  #fundacion p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  #fundacion .btn {
+    background-color: var(--amarillo);
+    border: none;
+    color: var(--azul);
+    transition: background-color 0.3s ease;
+  }
+  #fundacion .btn:hover {
+    background-color: #e6b800;
+  }
+  #fundacion img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* ================================
+     Patrocinadores Section
+  =================================*/
+  #patrocinadores {
+    text-align: center;
+    padding: 50px 0;
+    background-color: var(--fondo);
+  }
+  #patrocinadores h2 {
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: var(--azul);
+  }
+  #patrocinadores .patrocinador {
+    margin: 1rem;
+  }
+  #patrocinadores .patrocinador img {
+    width: 150px;
+    transition: transform 0.3s;
+  }
+  #patrocinadores .patrocinador img:hover {
+    transform: scale(1.05);
+  }
+  #patrocinadores .patrocinador p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: var(--azul);
+  }
+  
+  /* ================================
+     Timeline / Tarjetas (2ª hoja)
+  =================================*/
+  .timeline-section {
+    padding: 3rem 1rem;
+    background-color: var(--fondo-claro);
+  }
+  .timeline-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--azul);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .card-img-top {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+  }
+  
+  /* ================================
+     Videos Section (2ª hoja)
+  =================================*/
+  .videos-section {
+    background-color: var(--texto-blanco);
+    padding: 3rem 1rem;
+  }
+  .videos-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--azul);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .videos-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  .video-card {
+    flex: 0 0 auto;
+    background-color: var(--fondo-claro);
+    border-radius: 8px;
+    min-width: 250px;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .video-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  .video-info {
+    padding: 0.75rem;
+  }
+  .video-info h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--azul);
+    margin-bottom: 0.5rem;
+  }
+  .video-card .btn {
+    background-color: var(--azul);
+    color: var(--amarillo);
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .video-card .btn:hover {
+    background-color: var(--amarillo);
+    color: var(--azul);
+  }
+  
+  /* ================================
+     Footer
+  =================================*/
+  footer {
+    background-color: var(--azul);
+    color: var(--amarillo);
+    padding: 2rem 1rem;
+    tex
+  
