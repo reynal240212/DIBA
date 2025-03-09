@@ -21,6 +21,10 @@ body {
 .navbar {
   transition: background-color 0.3s ease;
 }
+.navbar-brand img {
+  max-height: 50px; /* Ajusta el valor a tu preferencia */
+  width: auto;      /* Mantiene la proporción de la imagen */
+}
 
 /* Clase que se activa cuando se hace scroll */
 .navbar.scrolled {
