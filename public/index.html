@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Inicio - DIBA FBC</title>
+  <!-- Favicon -->
+  <!-- Si tu ESCUDO.ico está en public/images/ESCUDO.ico, usa: -->
   <link rel="icon" href="/images/ESCUDO.ico" type="image/x-icon">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Conoce la historia y los momentos más destacados de DIBA FBC, un recorrido lleno de pasión y logros deportivos.">
   
@@ -75,7 +78,8 @@
     /* Hero Section */
     .hero {
       position: relative;
-      background: url('fondo.jpg') center/cover no-repeat fixed;
+      /* Ajusta la ruta del fondo */
+      background: url("/images/fondo.jpg") center/cover no-repeat fixed;
       min-height: 60vh;
       display: flex;
       align-items: center;
@@ -337,8 +341,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top transparent">
       <div class="container">
+        <!-- Ajusta la ruta del logo -->
         <a class="navbar-brand" href="index.html">
-          <img src="/public/images/ESCUDO.png" alt="Logo DIBA FBC">
+          <img src="/images/ESCUDO.png" alt="Logo DIBA FBC">
           DIBA FBC
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -374,8 +379,9 @@
     <section id="resumen-historia" class="container my-5">
       <div class="row align-items-center">
         <!-- Imagen -->
+        <!-- Asegúrate de tener "imagenHistoria.jpg" en /images/ -->
         <div class="col-md-6 mb-4 mb-md-0">
-          <img src="imagenHistoria.jpg" alt="DIBA FBC - Historia" class="img-fluid rounded shadow">
+          <img src="/images/imagenHistoria.jpg" alt="DIBA FBC - Historia" class="img-fluid rounded shadow">
         </div>
         <!-- Texto -->
         <div class="col-md-6">
@@ -435,7 +441,9 @@
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="match-card">
             <div class="match-card-top">
-              <img src="/public/images/ESCUDO.png" alt="DIBA FBC">
+              <!-- Logo del equipo -->
+              <img src="/images/ESCUDO.png" alt="DIBA FBC">
+              <!-- Logo rival (usa URL externa o súbelo a /images/) -->
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU5Lvu0ZFPO4NQaCyYMe-xHLatfG5oNHQtVNei0VRONoRlUPaTMI4mQxNDroztucFPKYo&usqp=CAU" alt="Caribe Soccer">
               <div class="mt-2">
                 <strong>Amistoso 2014-2015-2016</strong>
@@ -452,8 +460,9 @@
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="match-card">
             <div class="match-card-top">
-              <img src="/public/images/ESCUDO.png" alt="DIBA FBC">
-              <img src="logo-rival3.png" alt="Quiroz FC">
+              <img src="/images/ESCUDO.png" alt="DIBA FBC">
+              <!-- Asegúrate de tener "logo-rival3.png" en /images/ si no es externo -->
+              <img src="/images/logo-rival3.png" alt="Quiroz FC">
               <div class="mt-2">
                 <strong>Amistoso 2012-2013</strong>
               </div>
@@ -474,17 +483,20 @@
       <h2 class="text-center">CUERPO TECNICO</h2>
       <div class="row text-center mt-4">
         <div class="col-md-4 mb-4">
-          <img src="/public/images/profesor.jpg" class="rounded-circle mb-3" alt="Entrenador DIBA FBC" loading="lazy">
+          <!-- Asegúrate de tener "profesor.jpg" en /images/ -->
+          <img src="/images/profesor.jpg" class="rounded-circle mb-3" alt="Entrenador DIBA FBC" loading="lazy">
           <h5>Reinaldo Perez</h5>
           <p>Director Técnico</p>
         </div>
         <div class="col-md-4 mb-4">
-          <img src="asistente.jpg" class="rounded-circle mb-3" alt="Asistente Técnico" loading="lazy">
+          <!-- Asegúrate de tener "asistente.jpg" en /images/ -->
+          <img src="/images/asistente.jpg" class="rounded-circle mb-3" alt="Asistente Técnico" loading="lazy">
           <h5>Reinaldo Perez Navas</h5>
           <p>Técnico</p>
         </div>
         <div class="col-md-4 mb-4">
-          <img src="fisioterapeuta.jpg" class="rounded-circle mb-3" alt="Fisioterapeuta DIBA FBC" loading="lazy">
+          <!-- Asegúrate de tener "fisioterapeuta.jpg" en /images/ -->
+          <img src="/images/fisioterapeuta.jpg" class="rounded-circle mb-3" alt="Fisioterapeuta DIBA FBC" loading="lazy">
           <h5>Aldo Espinoza</h5>
           <p>Técnico</p>
         </div>
@@ -495,8 +507,9 @@
     <section id="fundacion" class="container my-5">
       <div class="row align-items-center">
         <div class="col-md-6 mb-4 mb-md-0">
-          <a href="/public/images/unnamed.jpg" target="_blank">
-            <img src="/public/images/unnamed.jpg" alt="Fundación Tierra que Emana Leche y Miel" class="img-fluid w-100 rounded shadow">
+          <!-- Asegúrate de tener "unnamed.jpg" en /images/ -->
+          <a href="/images/unnamed.jpg" target="_blank">
+            <img src="/images/unnamed.jpg" alt="Fundación Tierra que Emana Leche y Miel" class="img-fluid w-100 rounded shadow">
           </a>
         </div>
         <div class="col-md-6">
@@ -554,7 +567,8 @@
   <footer class="animate__animated animate__fadeInUp">
     <div class="container">
       <div class="footer-brand">
-        <img src="/public/images/ESCUDO.png" alt="Escudo DIBA FBC" loading="lazy">
+        <!-- Ajusta la ruta del escudo en el footer -->
+        <img src="/images/ESCUDO.png" alt="Escudo DIBA FBC" loading="lazy">
         <p class="mt-2">&copy; 2025 DIBA FBC. Todos los derechos reservados.</p>
       </div>
       <div class="row text-center mt-4">
