@@ -16,7 +16,16 @@ body {
   color: #00338D;      /* Azul oscuro para el texto */
 
 }
+/* Títulos en azul y negrita */
+h1, h2, h3, h4, h5, h6 {
+  color: #00338D;  /* Ajusta este tono de azul según prefieras */
+  font-weight: bold;
+}
 
+/* Párrafos en negro */
+p {
+  color: #000;
+}
 /* =======================================
    NAVBAR
 ======================================= */
