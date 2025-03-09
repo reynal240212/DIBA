@@ -80,11 +80,12 @@ p {
    MATCH CARDS
 ======================================= */
 .match-card {
-  background-color: #fff;
+  background-color: #fff;           /* Fondo blanco de la tarjeta */
   border-radius: 5px;
   overflow: hidden;
-  border: 1px solid #cfc100;
+  border: 2px solid #00338D;       /* Borde más grueso y oscuro para contraste */
   transition: box-shadow 0.3s ease;
+  margin-bottom: 1rem;             /* Espacio entre tarjetas */
 }
 
 .match-card:hover {
@@ -96,7 +97,8 @@ p {
   justify-content: space-around;
   align-items: center;
   padding: 15px;
-  background-color: #f7f7f7;
+  background-color: #00338D; /* Fondo oscuro */
+  color: #fff;              /* Texto en blanco */
 }
 
 .match-card-top img {
@@ -107,6 +109,7 @@ p {
 .match-card-body {
   padding: 20px;
   text-align: center;
+  color: #000;  /* Texto en negro */
 }
 
 /* =======================================
