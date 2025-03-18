@@ -1,0 +1,119 @@
+/* Estilos Base */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+  background-color: #002f5f;
+  color: #fff;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Main */
+main {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background-color: #002f5f;
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Por defecto para móviles */
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-info,
+.footer-social {
+  text-align: center;
+}
+
+/* Íconos de redes sociales */
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  margin: 0 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.footer-social a img:hover {
+  transform: scale(1.1);
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Media Query para pantallas mayores a 768px */
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+/* ==============================
+   Media Query para Tablets (min-width: 768px)
+   ============================== */
+   @media (min-width: 768px) {
+    .footer-content {
+      flex-direction: row; /* Pone los elementos en línea */
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+  
+  /* ==============================
+     Media Query para Escritorio (min-width: 1024px)
+     ============================== */
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  /* ==============================
+     Media Query para Pantallas Grandes (min-width: 1200px)
+     ============================== */
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
